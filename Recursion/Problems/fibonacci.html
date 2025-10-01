@@ -79,8 +79,13 @@ for i from 2 to n:
 return b if n>0 else 0
       </pre>
     </section>
-  </main>
-
+  </main>  <section class="approach-section" style="margin-top: 24px;">
+    <button id="flowchartToggle" class="snake-btn">View Flowchart</button>
+    <div id="flowchartContainer" style="display:none; margin-top:16px;">
+      <img id="flowchartImage" alt="Fibonacci Flowchart" style="max-width:100%; height:auto; border:1px solid #e5e5e5; border-radius:8px;" />
+      <p id="flowchartFallbackMsg" style="display:none; margin-top:8px; color:#b00020;">Flowchart image not found.</p>
+    </div>
+  </section>
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
@@ -88,5 +93,35 @@ return b if n>0 else 0
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+    (function(){
+      var toggleBtn = document.getElementById('flowchartToggle');
+      var container = document.getElementById('flowchartContainer');
+      var img = document.getElementById('flowchartImage');
+      var fallbackMsg = document.getElementById('flowchartFallbackMsg');
+      var shown = false;
+
+      function tryLoadImage() {
+        var pngSrc = '../../Recursion/Flowcharts/fibonacci.png';
+        var jpgSrc = '../../Recursion/Flowcharts/fibonacci.jpg';
+        var testImg = new Image();
+        testImg.onload = function(){ img.src = pngSrc; };
+        testImg.onerror = function(){
+          var testJpg = new Image();
+          testJpg.onload = function(){ img.src = jpgSrc; };
+          testJpg.onerror = function(){ fallbackMsg.style.display = 'block'; };
+          testJpg.src = jpgSrc;
+        };
+        testImg.src = pngSrc;
+      }
+
+      toggleBtn.addEventListener('click', function(){
+        shown = !shown;
+        container.style.display = shown ? 'block' : 'none';
+        toggleBtn.textContent = shown ? 'Hide Flowchart' : 'View Flowchart';
+        if (shown && !img.src) { tryLoadImage(); }
+      });
+    })();
+    </script>
 </body>
 </html>
