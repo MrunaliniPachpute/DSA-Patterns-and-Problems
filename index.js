@@ -41,3 +41,17 @@ function clearTrail() {
   trail.forEach(seg => seg.remove());
   trail = [];
 }
+
+// Flowchart toggle functionality
+function toggleFlowchart() {
+  const flowchartSection = document.getElementById('flowchart-section');
+  const button = document.querySelector('.flowchart-button');
+  
+  if (flowchartSection.classList.contains('active')) {
+    flowchartSection.classList.remove('active');
+    button.textContent = 'View Flowchart';
+  } else {
+    flowchartSection.classList.add('active');
+    button.textContent = 'Hide Flowchart';
+  }
+}

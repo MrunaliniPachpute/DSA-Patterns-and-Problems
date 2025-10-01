@@ -147,3 +147,101 @@ h2 {
   align-items: center;
   gap: 1.5rem; /* space between links and button */
 }
+
+/* Flowchart styles */
+.flowchart-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.flowchart-button {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.flowchart-button:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.flowchart-section {
+  display: none;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #007BFF;
+  margin-top: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.flowchart-section.active {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flowchart-svg {
+  max-width: 100%;
+  height: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Flowchart element styles */
+.flowchart-start, .flowchart-end {
+  fill: #28a745;
+  stroke: #1e7e34;
+  stroke-width: 2;
+}
+
+.flowchart-process {
+  fill: #007BFF;
+  stroke: #0056b3;
+  stroke-width: 2;
+}
+
+.flowchart-decision {
+  fill: #ffc107;
+  stroke: #e0a800;
+  stroke-width: 2;
+}
+
+.flowchart-io {
+  fill: #6f42c1;
+  stroke: #5a32a3;
+  stroke-width: 2;
+}
+
+.flowchart-text {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: #333;
+}
+
+.flowchart-arrow {
+  stroke: #333;
+  stroke-width: 2;
+  fill: none;
+  marker-end: url(#arrowhead);
+}

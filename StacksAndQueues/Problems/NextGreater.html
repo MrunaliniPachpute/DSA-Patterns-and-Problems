@@ -87,6 +87,117 @@ for i in 2*n-1..0:
 return result
       </pre>
     </section>
+
+    <!-- Flowchart Section -->
+    <div class="flowchart-container">
+      <button class="flowchart-button" onclick="toggleFlowchart()">View Flowchart</button>
+      <div id="flowchart-section" class="flowchart-section">
+        <h3>Algorithm Flowchart - Stack Approach</h3>
+        <svg class="flowchart-svg" width="700" height="800" viewBox="0 0 700 800">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+            </marker>
+          </defs>
+          
+          <!-- Start -->
+          <ellipse cx="350" cy="40" rx="60" ry="25" class="flowchart-start"/>
+          <text x="350" y="40" class="flowchart-text">START</text>
+          
+          <!-- Initialize -->
+          <rect x="260" y="80" width="180" height="40" rx="5" class="flowchart-process"/>
+          <text x="350" y="100" class="flowchart-text">Initialize stack, result array</text>
+          
+          <!-- Loop from end -->
+          <rect x="270" y="150" width="160" height="40" rx="5" class="flowchart-process"/>
+          <text x="350" y="170" class="flowchart-text">i = n-1 to 0</text>
+          
+          <!-- While stack not empty and top <= current -->
+          <polygon points="350,220 420,250 350,280 280,250" class="flowchart-decision"/>
+          <text x="350" y="250" class="flowchart-text">stack not empty &<tspan x="350" dy="12">top ≤ nums[i]?</tspan></text>
+          
+          <!-- Pop from stack -->
+          <rect x="500" y="230" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="560" y="250" class="flowchart-text">Pop from stack</text>
+          
+          <!-- Check if stack empty -->
+          <polygon points="350,330 420,360 350,390 280,360" class="flowchart-decision"/>
+          <text x="350" y="360" class="flowchart-text">Stack<tspan x="350" dy="12">empty?</tspan></text>
+          
+          <!-- Set result to -1 -->
+          <rect x="90" y="340" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="150" y="360" class="flowchart-text">result[i] = -1</text>
+          
+          <!-- Set result to stack top -->
+          <rect x="500" y="340" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="560" y="360" class="flowchart-text">result[i] = stack.top()</text>
+          
+          <!-- Push current element -->
+          <rect x="270" y="450" width="160" height="40" rx="5" class="flowchart-process"/>
+          <text x="350" y="470" class="flowchart-text">Push nums[i] to stack</text>
+          
+          <!-- Decrement i -->
+          <rect x="290" y="520" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="350" y="540" class="flowchart-text">i = i - 1</text>
+          
+          <!-- Check if i >= 0 -->
+          <polygon points="350,590 420,620 350,650 280,620" class="flowchart-decision"/>
+          <text x="350" y="620" class="flowchart-text">i ≥ 0?</text>
+          
+          <!-- Return result -->
+          <rect x="290" y="700" width="120" height="40" rx="5" class="flowchart-io"/>
+          <text x="350" y="720" class="flowchart-text">Return result</text>
+          
+          <!-- End -->
+          <ellipse cx="350" cy="770" rx="40" ry="20" class="flowchart-end"/>
+          <text x="350" y="770" class="flowchart-text">END</text>
+          
+          <!-- Arrows -->
+          <line x1="350" y1="65" x2="350" y2="80" class="flowchart-arrow"/>
+          <line x1="350" y1="120" x2="350" y2="150" class="flowchart-arrow"/>
+          <line x1="350" y1="190" x2="350" y2="220" class="flowchart-arrow"/>
+          
+          <!-- Pop loop -->
+          <line x1="420" y1="250" x2="500" y2="250" class="flowchart-arrow"/>
+          <text x="440" y="245" class="flowchart-text">Yes</text>
+          <line x1="560" y1="270" x2="560" y2="300" class="flowchart-arrow"/>
+          <line x1="560" y1="300" x2="350" y2="300" class="flowchart-arrow"/>
+          <line x1="350" y1="300" x2="350" y2="220" class="flowchart-arrow"/>
+          
+          <!-- Continue to next check -->
+          <line x1="350" y1="280" x2="350" y2="330" class="flowchart-arrow"/>
+          <text x="365" y="305" class="flowchart-text">No</text>
+          
+          <!-- Empty stack case -->
+          <line x1="280" y1="360" x2="210" y2="360" class="flowchart-arrow"/>
+          <text x="230" y="355" class="flowchart-text">Yes</text>
+          <line x1="150" y1="380" x2="150" y2="430" class="flowchart-arrow"/>
+          <line x1="150" y1="430" x2="350" y2="430" class="flowchart-arrow"/>
+          <line x1="350" y1="430" x2="350" y2="450" class="flowchart-arrow"/>
+          
+          <!-- Non-empty stack case -->
+          <line x1="420" y1="360" x2="500" y2="360" class="flowchart-arrow"/>
+          <text x="440" y="355" class="flowchart-text">No</text>
+          <line x1="560" y1="380" x2="560" y2="430" class="flowchart-arrow"/>
+          <line x1="560" y1="430" x2="350" y2="430" class="flowchart-arrow"/>
+          
+          <!-- Continue loop -->
+          <line x1="350" y1="490" x2="350" y2="520" class="flowchart-arrow"/>
+          <line x1="350" y1="560" x2="350" y2="590" class="flowchart-arrow"/>
+          
+          <!-- Loop back -->
+          <line x1="420" y1="620" x2="650" y2="620" class="flowchart-arrow"/>
+          <line x1="650" y1="620" x2="650" y2="170" class="flowchart-arrow"/>
+          <line x1="650" y1="170" x2="430" y2="170" class="flowchart-arrow"/>
+          <text x="435" y="615" class="flowchart-text">Yes</text>
+          
+          <!-- End sequence -->
+          <line x1="350" y1="650" x2="350" y2="700" class="flowchart-arrow"/>
+          <text x="365" y="675" class="flowchart-text">No</text>
+          <line x1="350" y1="740" x2="350" y2="750" class="flowchart-arrow"/>
+        </svg>
+      </div>
+    </div>
   </main>
 
   <footer>

@@ -90,6 +90,171 @@ peek(): similar, but return last element instead of popping
 empty(): stack1 empty
       </pre>
     </section>
+
+    <!-- Flowchart Section -->
+    <div class="flowchart-container">
+      <button class="flowchart-button" onclick="toggleFlowchart()">View Flowchart</button>
+      <div id="flowchart-section" class="flowchart-section">
+        <h3>Algorithm Flowchart - Lazy Transfer Approach</h3>
+        <svg class="flowchart-svg" width="800" height="900" viewBox="0 0 800 900">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+            </marker>
+          </defs>
+          
+          <!-- Start -->
+          <ellipse cx="400" cy="40" rx="60" ry="25" class="flowchart-start"/>
+          <text x="400" y="40" class="flowchart-text">START</text>
+          
+          <!-- Initialize stacks -->
+          <rect x="310" y="80" width="180" height="40" rx="5" class="flowchart-process"/>
+          <text x="400" y="100" class="flowchart-text">Initialize stack1 & stack2</text>
+          
+          <!-- Operation decision -->
+          <polygon points="400,150 480,180 400,210 320,180" class="flowchart-decision"/>
+          <text x="400" y="180" class="flowchart-text">Operation?</text>
+          
+          <!-- PUSH Operation -->
+          <rect x="550" y="160" width="100" height="40" rx="5" class="flowchart-process"/>
+          <text x="600" y="180" class="flowchart-text">PUSH(x)</text>
+          
+          <!-- Push to stack1 -->
+          <rect x="540" y="230" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="600" y="250" class="flowchart-text">Push x to stack1</text>
+          
+          <!-- POP Operation -->
+          <rect x="50" y="160" width="100" height="40" rx="5" class="flowchart-process"/>
+          <text x="100" y="180" class="flowchart-text">POP()</text>
+          
+          <!-- Decision: stack2 empty? -->
+          <polygon points="100,230 170,260 100,290 30,260" class="flowchart-decision"/>
+          <text x="100" y="260" class="flowchart-text">stack2<tspan x="100" dy="12">empty?</tspan></text>
+          
+          <!-- Transfer elements -->
+          <rect x="40" y="340" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="100" y="360" class="flowchart-text">Transfer all from<tspan x="100" dy="12">stack1 to stack2</tspan></text>
+          
+          <!-- Pop from stack2 -->
+          <rect x="240" y="340" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="300" y="360" class="flowchart-text">Pop from stack2</text>
+          
+          <!-- Return result -->
+          <rect x="130" y="420" width="120" height="40" rx="5" class="flowchart-io"/>
+          <text x="190" y="440" class="flowchart-text">Return result</text>
+          
+          <!-- PEEK Operation -->
+          <rect x="200" y="230" width="100" height="40" rx="5" class="flowchart-process"/>
+          <text x="250" y="250" class="flowchart-text">PEEK()</text>
+          
+          <!-- Decision: stack2 empty for peek? -->
+          <polygon points="250,300 320,330 250,360 180,330" class="flowchart-decision"/>
+          <text x="250" y="330" class="flowchart-text">stack2<tspan x="250" dy="12">empty?</tspan></text>
+          
+          <!-- Transfer for peek -->
+          <rect x="190" y="400" width="120" height="40" rx="5" class="flowchart-process"/>
+          <text x="250" y="420" class="flowchart-text">Transfer all from<tspan x="250" dy="12">stack1 to stack2</tspan></text>
+          
+          <!-- Return top of stack2 -->
+          <rect x="340" y="400" width="120" height="40" rx="5" class="flowchart-io"/>
+          <text x="400" y="420" class="flowchart-text">Return stack2.top()</text>
+          
+          <!-- EMPTY Operation -->
+          <rect x="500" y="300" width="100" height="40" rx="5" class="flowchart-process"/>
+          <text x="550" y="320" class="flowchart-text">EMPTY()</text>
+          
+          <!-- Check both stacks empty -->
+          <polygon points="550,380 620,410 550,440 480,410" class="flowchart-decision"/>
+          <text x="550" y="410" class="flowchart-text">Both stacks<tspan x="550" dy="12">empty?</tspan></text>
+          
+          <!-- Return true -->
+          <rect x="640" y="390" width="100" height="40" rx="5" class="flowchart-io"/>
+          <text x="690" y="410" class="flowchart-text">Return true</text>
+          
+          <!-- Return false -->
+          <rect x="480" y="490" width="100" height="40" rx="5" class="flowchart-io"/>
+          <text x="530" y="510" class="flowchart-text">Return false</text>
+          
+          <!-- Continue operations? -->
+          <polygon points="400,650 470,680 400,710 330,680" class="flowchart-decision"/>
+          <text x="400" y="680" class="flowchart-text">More<tspan x="400" dy="12">operations?</tspan></text>
+          
+          <!-- End -->
+          <ellipse cx="400" cy="780" rx="40" ry="20" class="flowchart-end"/>
+          <text x="400" y="780" class="flowchart-text">END</text>
+          
+          <!-- Arrows -->
+          <line x1="400" y1="65" x2="400" y2="80" class="flowchart-arrow"/>
+          <line x1="400" y1="120" x2="400" y2="150" class="flowchart-arrow"/>
+          
+          <!-- PUSH path -->
+          <line x1="480" y1="180" x2="550" y2="180" class="flowchart-arrow"/>
+          <text x="500" y="175" class="flowchart-text">PUSH</text>
+          <line x1="600" y1="200" x2="600" y2="230" class="flowchart-arrow"/>
+          <line x1="600" y1="270" x2="600" y2="620" class="flowchart-arrow"/>
+          <line x1="600" y1="620" x2="400" y2="620" class="flowchart-arrow"/>
+          <line x1="400" y1="620" x2="400" y2="650" class="flowchart-arrow"/>
+          
+          <!-- POP path -->
+          <line x1="320" y1="180" x2="150" y2="180" class="flowchart-arrow"/>
+          <text x="220" y="175" class="flowchart-text">POP</text>
+          <line x1="100" y1="200" x2="100" y2="230" class="flowchart-arrow"/>
+          <line x1="100" y1="290" x2="100" y2="340" class="flowchart-arrow"/>
+          <text x="115" y="315" class="flowchart-text">Yes</text>
+          <line x1="100" y1="380" x2="100" y2="400" class="flowchart-arrow"/>
+          <line x1="100" y1="400" x2="240" y2="400" class="flowchart-arrow"/>
+          <line x1="240" y1="400" x2="240" y2="340" class="flowchart-arrow"/>
+          <line x1="170" y1="260" x2="240" y2="260" class="flowchart-arrow"/>
+          <line x1="240" y1="260" x2="240" y2="340" class="flowchart-arrow"/>
+          <text x="190" y="255" class="flowchart-text">No</text>
+          <line x1="300" y1="380" x2="300" y2="400" class="flowchart-arrow"/>
+          <line x1="300" y1="400" x2="190" y2="400" class="flowchart-arrow"/>
+          <line x1="190" y1="400" x2="190" y2="420" class="flowchart-arrow"/>
+          <line x1="190" y1="460" x2="190" y2="620" class="flowchart-arrow"/>
+          <line x1="190" y1="620" x2="400" y2="620" class="flowchart-arrow"/>
+          
+          <!-- PEEK path -->
+          <line x1="380" y1="200" x2="250" y2="200" class="flowchart-arrow"/>
+          <line x1="250" y1="200" x2="250" y2="230" class="flowchart-arrow"/>
+          <text x="300" y="195" class="flowchart-text">PEEK</text>
+          <line x1="250" y1="270" x2="250" y2="300" class="flowchart-arrow"/>
+          <line x1="250" y1="360" x2="250" y2="400" class="flowchart-arrow"/>
+          <text x="265" y="380" class="flowchart-text">Yes</text>
+          <line x1="250" y1="440" x2="250" y2="460" class="flowchart-arrow"/>
+          <line x1="250" y1="460" x2="400" y2="460" class="flowchart-arrow"/>
+          <line x1="400" y1="460" x2="400" y2="400" class="flowchart-arrow"/>
+          <line x1="320" y1="330" x2="340" y2="330" class="flowchart-arrow"/>
+          <line x1="340" y1="330" x2="340" y2="400" class="flowchart-arrow"/>
+          <text x="325" y="325" class="flowchart-text">No</text>
+          <line x1="400" y1="440" x2="400" y2="620" class="flowchart-arrow"/>
+          
+          <!-- EMPTY path -->
+          <line x1="430" y1="200" x2="550" y2="200" class="flowchart-arrow"/>
+          <line x1="550" y1="200" x2="550" y2="300" class="flowchart-arrow"/>
+          <text x="475" y="195" class="flowchart-text">EMPTY</text>
+          <line x1="550" y1="340" x2="550" y2="380" class="flowchart-arrow"/>
+          <line x1="620" y1="410" x2="640" y2="410" class="flowchart-arrow"/>
+          <text x="625" y="405" class="flowchart-text">Yes</text>
+          <line x1="690" y1="430" x2="690" y2="620" class="flowchart-arrow"/>
+          <line x1="690" y1="620" x2="400" y2="620" class="flowchart-arrow"/>
+          <line x1="550" y1="440" x2="550" y2="490" class="flowchart-arrow"/>
+          <line x1="480" y1="410" x2="480" y2="490" class="flowchart-arrow"/>
+          <text x="465" y="405" class="flowchart-text">No</text>
+          <line x1="530" y1="530" x2="530" y2="620" class="flowchart-arrow"/>
+          <line x1="530" y1="620" x2="400" y2="620" class="flowchart-arrow"/>
+          
+          <!-- Loop back -->
+          <line x1="470" y1="680" x2="750" y2="680" class="flowchart-arrow"/>
+          <line x1="750" y1="680" x2="750" y2="120" class="flowchart-arrow"/>
+          <line x1="750" y1="120" x2="400" y2="120" class="flowchart-arrow"/>
+          <text x="485" y="675" class="flowchart-text">Yes</text>
+          
+          <!-- End -->
+          <line x1="400" y1="710" x2="400" y2="760" class="flowchart-arrow"/>
+          <text x="415" y="735" class="flowchart-text">No</text>
+        </svg>
+      </div>
+    </div>
   </main>
 
   <footer>
