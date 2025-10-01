@@ -27,29 +27,187 @@ body.snake-cursor {
 
 /* Snake Toggle Button in Navbar */
 .snake-btn {
+  position: relative;
   margin-left: 1.2rem;
-  padding: 8px 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px; /* Pill-shaped design */
   cursor: pointer;
-  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6); /* match navbar link gradient */
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  overflow: hidden;
+  
+  /* Snake-themed gradient background */
+  background: linear-gradient(135deg, #2d5016, #4a7c59, #6bb77b, #87ceeb);
+  background-size: 300% 300%;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  
+  /* Enhanced shadow and transitions */
+  box-shadow: 
+    0 4px 15px rgba(45, 80, 22, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Add snake scale pattern overlay */
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    linear-gradient(135deg, #2d5016, #4a7c59, #6bb77b, #87ceeb);
+  background-size: 
+    20px 10px,
+    20px 10px,
+    300% 300%;
 }
 
-/* Hover state */
+/* Add subtle snake icon using pseudo-element */
+.snake-btn::before {
+  content: "🐍";
+  margin-right: 8px;
+  font-size: 1em;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Slither/wiggle animation on hover */
+@keyframes slither {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-2px) rotate(-1deg); }
+  50% { transform: translateX(2px) rotate(1deg); }
+  75% { transform: translateX(-1px) rotate(-0.5deg); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced hover state with animations */
 .snake-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(45, 80, 22, 0.4),
+    0 0 20px rgba(107, 183, 123, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  
+  background: linear-gradient(135deg, #4a7c59, #6bb77b, #87ceeb, #98fb98);
+  background-size: 400% 400%;
+  animation: 
+    gradientShift 2s ease-in-out infinite,
+    slither 0.6s ease-in-out infinite;
 }
 
-/* Active (when enabled) */
+.snake-btn:hover::before {
+  animation: slither 0.6s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+/* Active state (when snake cursor is enabled) */
 .snake-btn.active {
-  background: linear-gradient(90deg, #f16363, #f68c6e, #ffb347);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #8b0000, #dc143c, #ff4500, #ffa500);
+  background-size: 300% 300%;
+  animation: gradientShift 1.5s ease-in-out infinite;
+  
+  box-shadow: 
+    0 6px 20px rgba(139, 0, 0, 0.4),
+    0 0 15px rgba(255, 69, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  transform: scale(1.02);
+}
+
+.snake-btn.active::before {
+  content: "🔥";
+  animation: slither 0.8s ease-in-out infinite;
+}
+
+/* Focus state for accessibility */
+.snake-btn:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 15px rgba(45, 80, 22, 0.3),
+    0 0 0 3px rgba(107, 183, 123, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Pressed/active state */
+.snake-btn:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .snake-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    margin-left: 0.8rem;
+  }
+  
+  .snake-btn::before {
+    margin-right: 6px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .snake-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+  
+  /* Hide text on very small screens, show only icon */
+  .snake-btn {
+    font-size: 0;
+  }
+  
+  .snake-btn::before {
+    margin-right: 0;
+    font-size: 1.2em;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .snake-btn {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  
+  .snake-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+  }
+  
+  .snake-btn.active {
+    background: #ff0000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .snake-btn {
+    transition: none;
+  }
+  
+  .snake-btn:hover {
+    animation: none;
+  }
+  
+  .snake-btn::before {
+    animation: none;
+  }
+  
+  .snake-btn.active {
+    animation: none;
+  }
 }
 

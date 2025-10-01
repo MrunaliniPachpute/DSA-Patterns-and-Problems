@@ -14,12 +14,16 @@ toggleBtn.addEventListener("click", () => {
     document.addEventListener("mousemove", drawSnake);
     toggleBtn.textContent = "Disable Snake";
     toggleBtn.classList.add("active");
+    toggleBtn.setAttribute("aria-pressed", "true");
+    toggleBtn.setAttribute("title", "Disable animated snake cursor");
   } else {
     document.body.classList.remove("snake-cursor");
     document.removeEventListener("mousemove", drawSnake);
     clearTrail();
     toggleBtn.textContent = "Snake Cursor";
     toggleBtn.classList.remove("active");
+    toggleBtn.setAttribute("aria-pressed", "false");
+    toggleBtn.setAttribute("title", "Enable animated snake cursor");
   }
 });
 
