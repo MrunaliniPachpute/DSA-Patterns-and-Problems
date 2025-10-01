@@ -220,7 +220,7 @@ main h1::after {
 
 
 .recently-viewed-sidebar h2 {
-    margin-top: 0;
+    margin-top: -5px;
     font-size: 1.2rem;
     color: #343a40;
     margin-bottom: 0;
