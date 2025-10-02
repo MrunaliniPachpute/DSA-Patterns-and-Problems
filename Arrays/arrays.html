@@ -1,95 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeDSA Arrays</title>
+    <link rel="stylesheet" href="../CSS/AllTopics.css" />
+    <link rel="stylesheet" href="../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeDSA Arrays</title>
-  <link rel="stylesheet" href="../CSS/AllTopics.css" />
-  <link rel="stylesheet" href="../CSS/snake.css">
-</head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
+    <main>
+      <h1>Array Topics</h1>
+      <p class="intro-text">
+        Explore popular array problems and patterns to master your DSA skills.
+      </p>
 
-  <main>
-    <h1>Array Topics</h1>
-    <p class="intro-text">Explore popular array problems and patterns to master your DSA skills.</p>
+      <ul class="topic-list">
+        <a href="./Problems/twoSum.html">
+          <span class="topic-number">01</span>
+          <span class="topic-name">Two Sum</span>
+          <span class="topic-desc"
+            >Classic problem: find two numbers that sum to target
+          </span>
+        </a>
 
-    <ul class="topic-list">
-      <li onclick="navigateToTopic('./Problems/twoSum.html')">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Two Sum</span>
-        <span class="topic-desc">Classic problem: find two numbers that sum to target</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/subarray.html')">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Maximum Subarray</span>
-        <span class="topic-desc">Sliding window/Kadane's algorithm to find max contiguous sum</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/prodOfArray.html')">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Product of Array Except Self</span>
-        <span class="topic-desc">Prefix/suffix product array without using division</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/ContainerWater.html')">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Container With Most Water</span>
-        <span class="topic-desc">Two-pointer technique to maximize area between lines</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/trappingRainwater.html')">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Trapping Rain Water</span>
-        <span class="topic-desc">Compute trapped water using stack/two-pointer techniques</span>
-      </li>
-    </ul>
+        <a href="./Problems/subarray.html">
+          <span class="topic-number">02</span>
+          <span class="topic-name">Maximum Subarray</span>
+          <span class="topic-desc"
+            >Sliding window/Kadane's algorithm to find max contiguous sum
+          </span>
+        </a>
 
-    <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br>
-      This set of problems covers most <em>array-related patterns</em> asked in FAANG interviews: <br><br>
+        <a href="./Problems/prodOfArray.html">
+          <span class="topic-number">03</span>
+          <span class="topic-name">Product of Array Except Self</span>
+          <span class="topic-desc"
+            >Prefix/suffix product array without using division
+          </span>
+        </a>
 
-      <span class="pattern-name">Two Sum</span> → <span class="pattern-desc">Hashing, complement, pair sum
-        problem.</span><br>
-      <span class="pattern-name">Maximum Subarray</span> → <span class="pattern-desc">Sliding window / Kadane’s
-        algorithm, contiguous subarray sum.</span><br>
-      <span class="pattern-name">Product of Array Except Self</span> → <span class="pattern-desc">Prefix/suffix product,
-        space optimization.</span><br>
-      <span class="pattern-name">Container With Most Water</span> → <span class="pattern-desc">Two-pointer approach for
-        optimization.</span><br>
-      <span class="pattern-name">Trapping Rain Water</span> → <span class="pattern-desc">Stack, two-pointer technique,
-        and elevation map problem.</span><br><br>
+        <a href="./Problems/ContainerWater.html">
+          <span class="topic-number">04</span>
+          <span class="topic-name">Container With Most Water</span>
+          <span class="topic-desc"
+            >Two-pointer technique to maximize area between lines
+          </span>
+        </a>
 
-      Together, they ensure you understand <span class="highlight">sliding window, two-pointer, prefix-suffix,
-        hash-based search, and stack patterns</span> in arrays.
-    </p>
+        <a href="./Problems/trappingRainwater.html">
+          <span class="topic-number">05</span>
+          <span class="topic-name">Trapping Rain Water</span>
+          <span class="topic-desc"
+            >Compute trapped water using stack/two-pointer techniques
+          </span>
+        </a>
+      </ul>
 
+      <p class="pattern-coverage">
+        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+        This set of problems covers most <em>array-related patterns</em> asked
+        in FAANG interviews: <br /><br />
 
+        <span class="pattern-name">Two Sum</span> →
+        <span class="pattern-desc">Hashing, complement, pair sum problem.</span
+        ><br />
+        <span class="pattern-name">Maximum Subarray</span> →
+        <span class="pattern-desc"
+          >Sliding window / Kadane’s algorithm, contiguous subarray sum.</span
+        ><br />
+        <span class="pattern-name">Product of Array Except Self</span> →
+        <span class="pattern-desc"
+          >Prefix/suffix product, space optimization.</span
+        ><br />
+        <span class="pattern-name">Container With Most Water</span> →
+        <span class="pattern-desc">Two-pointer approach for optimization.</span
+        ><br />
+        <span class="pattern-name">Trapping Rain Water</span> →
+        <span class="pattern-desc"
+          >Stack, two-pointer technique, and elevation map problem.</span
+        ><br /><br />
 
-  </main>
+        Together, they ensure you understand
+        <span class="highlight"
+          >sliding window, two-pointer, prefix-suffix, hash-based search, and
+          stack patterns</span
+        >
+        in arrays.
+      </p>
+    </main>
 
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script>
-    function navigateToTopic(page) {
-      window.location.href = page;
-    }
-  </script>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../index.js"></script>
-</body>
-
+  </body>
 </html>

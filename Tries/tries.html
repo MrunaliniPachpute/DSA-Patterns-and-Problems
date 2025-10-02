@@ -1,82 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeDSA Tries</title>
-  <link rel="stylesheet" href="../CSS/AllTopics.css" />
-  <link rel="stylesheet" href="../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeDSA Tries</title>
+    <link rel="stylesheet" href="../CSS/AllTopics.css" />
+    <link rel="stylesheet" href="../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
 
-  <main>
-    <h1>Trie Topics</h1>
-    <p class="intro-text">Master essential trie problems and patterns frequently asked in interviews.</p>
+    <main>
+      <h1>Trie Topics</h1>
+      <p class="intro-text">
+        Master essential trie problems and patterns frequently asked in
+        interviews.
+      </p>
 
-    <ul class="topic-list">
-      <li onclick="navigateToTopic('./Problems/insertSearchTrie.html')">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Insert & Search in Trie</span>
-        <span class="topic-desc">Basic operations: insert words and search prefixes</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/prefixCount.html')">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Prefix Count</span>
-        <span class="topic-desc">Count number of words with given prefix using trie</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/longestCommonPrefix.html')">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Longest Common Prefix</span>
-        <span class="topic-desc">Find common prefix of multiple strings efficiently</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/wordSearch.html')">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Word Search / Dictionary Matching</span>
-        <span class="topic-desc">Use trie to match multiple patterns in a grid or text</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/autocomplete.html')">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Autocomplete / Suggestion System</span>
-        <span class="topic-desc">Return all words starting with given prefix efficiently</span>
-      </li>
-    </ul>
+      <ul class="topic-list">
+        <a href="./Problems/insertSearchTrie.html">
+          <span class="topic-number">01</span>
+          <span class="topic-name">Insert & Search in Trie</span>
+          <span class="topic-desc"
+            >Basic operations: insert words and search prefixes</span
+          >
+        </a>
+        <a href="./Problems/prefixCount.html">
+          <span class="topic-number">02</span>
+          <span class="topic-name">Prefix Count</span>
+          <span class="topic-desc"
+            >Count number of words with given prefix using trie</span
+          >
+        </a>
+        <a href="./Problems/longestCommonPrefix.html">
+          <span class="topic-number">03</span>
+          <span class="topic-name">Longest Common Prefix</span>
+          <span class="topic-desc"
+            >Find common prefix of multiple strings efficiently</span
+          >
+        </a>
+        <a href="./Problems/wordSearch.html">
+          <span class="topic-number">04</span>
+          <span class="topic-name">Word Search / Dictionary Matching</span>
+          <span class="topic-desc"
+            >Use trie to match multiple patterns in a grid or text</span
+          >
+        </a>
+        <a href="./Problems/autocomplete.html">
+          <span class="topic-number">05</span>
+          <span class="topic-name">Autocomplete / Suggestion System</span>
+          <span class="topic-desc"
+            >Return all words starting with given prefix efficiently</span
+          >
+        </a>
+      </ul>
 
-    <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br>
-      These problems cover the most <em>important trie patterns</em> for interviews: <br><br>
+      <p class="pattern-coverage">
+        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+        These problems cover the most <em>important trie patterns</em> for
+        interviews: <br /><br />
 
-      <span class="pattern-name">Insert & Search in Trie</span> → <span class="pattern-desc">Basic trie construction and prefix search operations.</span><br>
-      <span class="pattern-name">Prefix Count</span> → <span class="pattern-desc">Track count of words sharing a prefix using node counts.</span><br>
-      <span class="pattern-name">Longest Common Prefix</span> → <span class="pattern-desc">Traverse trie until branching to find shared prefix.</span><br>
-      <span class="pattern-name">Word Search / Dictionary Matching</span> → <span class="pattern-desc">Use trie to match multiple patterns efficiently in a grid or text.</span><br>
-      <span class="pattern-name">Autocomplete / Suggestion System</span> → <span class="pattern-desc">DFS/BFS from prefix node to find all valid completions.</span><br><br>
+        <span class="pattern-name">Insert & Search in Trie</span> →
+        <span class="pattern-desc"
+          >Basic trie construction and prefix search operations.</span
+        ><br />
+        <span class="pattern-name">Prefix Count</span> →
+        <span class="pattern-desc"
+          >Track count of words sharing a prefix using node counts.</span
+        ><br />
+        <span class="pattern-name">Longest Common Prefix</span> →
+        <span class="pattern-desc"
+          >Traverse trie until branching to find shared prefix.</span
+        ><br />
+        <span class="pattern-name">Word Search / Dictionary Matching</span> →
+        <span class="pattern-desc"
+          >Use trie to match multiple patterns efficiently in a grid or
+          text.</span
+        ><br />
+        <span class="pattern-name">Autocomplete / Suggestion System</span> →
+        <span class="pattern-desc"
+          >DFS/BFS from prefix node to find all valid completions.</span
+        ><br /><br />
 
-      Together, they ensure you understand <span class="highlight">trie construction, prefix counting, common prefix extraction, pattern matching, and autocomplete systems</span>.
-    </p>
-  </main>
+        Together, they ensure you understand
+        <span class="highlight"
+          >trie construction, prefix counting, common prefix extraction, pattern
+          matching, and autocomplete systems</span
+        >.
+      </p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script>
-    function navigateToTopic(path) {
-      window.location.href = path;
-    }
-  </script>
-  <script src="../index.js"></script>
-</body>
+    <script src="../index.js"></script>
+  </body>
 </html>
