@@ -1,68 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Container Water - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Container With Most Water</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container Water - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Container With Most Water
+          </li>
+        </ol>
+      </nav>
+    </div>
 
     <main>
-    <h1>Container With Most Water</h1>
+      <h1>Container With Most Water</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Given an array of heights, find two lines that together with x-axis form a container holding the most water.</p>
-      <p><strong>Example:</strong> heights = [1,8,6,2,5,4,8,3,7] → Output: 49</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given an array of heights, find two lines that together with x-axis
+          form a container holding the most water.
+        </p>
+        <p>
+          <strong>Example:</strong> heights = [1,8,6,2,5,4,8,3,7] → Output: 49
+        </p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Check every pair of lines and calculate area.</p>
-      <p><strong>Time:</strong> O(n²), <strong>Space:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Check every pair of lines and calculate
+          area.
+        </p>
+        <p><strong>Time:</strong> O(n²), <strong>Space:</strong> O(1)</p>
+        <pre class="pseudo-code">
 max_area = 0
 for i = 0 to n-1:
   for j = i+1 to n-1:
     area = min(height[i], height[j]) * (j - i)
     max_area = max(max_area, area)
 return max_area
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Two Pointers (Optimal)</h2>
-      <p><strong>Explanation:</strong> Use two pointers at ends, move the smaller height pointer.</p>
-      <p><strong>Time:</strong> O(n), <strong>Space:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Two Pointers (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Use two pointers at ends, move the
+          smaller height pointer.
+        </p>
+        <p><strong>Time:</strong> O(n), <strong>Space:</strong> O(1)</p>
+        <pre class="pseudo-code">
 left = 0, right = n-1
 max_area = 0
 while left < right:
@@ -71,24 +85,30 @@ while left < right:
   if height[left] < height[right]: left++
   else: right--
 return max_area
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Explanation + Visualization</h2>
-      <p><strong>Explanation:</strong> Moving the smaller line may increase height without decreasing width too much, ensuring we cover maximum area. This guarantees we find optimal solution in one pass.</p>
-      <p><strong>Time:</strong> O(n), <strong>Space:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Explanation + Visualization</h2>
+        <p>
+          <strong>Explanation:</strong> Moving the smaller line may increase
+          height without decreasing width too much, ensuring we cover maximum
+          area. This guarantees we find optimal solution in one pass.
+        </p>
+        <p><strong>Time:</strong> O(n), <strong>Space:</strong> O(1)</p>
+        <pre class="pseudo-code">
 same as two-pointer method
-      </pre>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+      </pre
+        >
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

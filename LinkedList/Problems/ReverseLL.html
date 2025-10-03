@@ -1,58 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reverse Linked List - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Reverse Linked List</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Linked List - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Reverse Linked List</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Reverse Linked List
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given the <strong>head</strong> of a singly linked list, reverse the list and return the new head.
-      </p>
-      <p><strong>Example:</strong> Input: 1 → 2 → 3 → 4 → 5 → NULL, Output: 5 → 4 → 3 → 2 → 1 → NULL</p>
-    </section>
+    <main>
+      <h1>Reverse Linked List</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Iterative</h2>
-      <p><strong>Explanation:</strong> Use three pointers: prev, curr, next. Reverse links one by one.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given the <strong>head</strong> of a singly linked list, reverse the
+          list and return the new head.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: 1 → 2 → 3 → 4 → 5 → NULL, Output: 5 →
+          4 → 3 → 2 → 1 → NULL
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Iterative</h2>
+        <p>
+          <strong>Explanation:</strong> Use three pointers: prev, curr, next.
+          Reverse links one by one.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 prev = NULL
 curr = head
 while curr != NULL:
@@ -61,46 +71,64 @@ while curr != NULL:
     prev = curr
     curr = next
 return prev
-      </pre>
-    </section>
-    <!-- Flowchart Section for Approach 1 -->
-<section class="flowchart-section">
-  <button class="flowchart-btn">View Flowchart</button>
-  <div class="flowchart-container" style="display: none; margin-top: 20px;">
-    <img src="../Flowcharts/iterative_reverse.jpg" alt="Reverse LL Flowchart" class="flowchart-img">
-  </div>
-</section>
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 1 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/iterative_reverse.jpg"
+            alt="Reverse LL Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Recursive</h2>
-      <p><strong>Explanation:</strong> Reverse the rest of the list recursively and fix pointers.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n) (recursion stack)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Recursive</h2>
+        <p>
+          <strong>Explanation:</strong> Reverse the rest of the list recursively
+          and fix pointers.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n) (recursion stack)</p>
+        <pre class="pseudo-code">
 if head == NULL or head.next == NULL:
     return head
 rest = reverse(head.next)
 head.next.next = head
 head.next = NULL
 return rest
-      </pre>
-    </section>
-    <!-- Flowchart Section for Approach 2 -->
-<section class="flowchart-section">
-  <button class="flowchart-btn">View Flowchart</button>
-  <div class="flowchart-container" style="display: none; margin-top: 20px;">
-    <img src="../Flowcharts/recursive_reverse.jpg" alt="Reverse LL Flowchart" class="flowchart-img">
-  </div>
-</section>
-  </main>
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 2 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/recursive_reverse.jpg"
+            alt="Reverse LL Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>
-

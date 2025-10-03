@@ -1,51 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lowest Common Ancestor - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../binaryTrees.html">Binary Trees</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Lowest Common Ancestor</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lowest Common Ancestor - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
- 
-  <main>
-    <h1>Lowest Common Ancestor of Binary Tree</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given a binary tree and two nodes <strong>p</strong> and <strong>q</strong>, find their lowest common ancestor (LCA).  
-        The LCA is the lowest node in the tree that has both p and q as descendants (a node can be a descendant of itself).
-      </p>
-      <p><strong>Example:</strong></p>
-      <pre class="pseudo-code">
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../binaryTrees.html">Binary Trees</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Lowest Common Ancestor
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <main>
+      <h1>Lowest Common Ancestor of Binary Tree</h1>
+
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a binary tree and two nodes <strong>p</strong> and
+          <strong>q</strong>, find their lowest common ancestor (LCA). The LCA
+          is the lowest node in the tree that has both p and q as descendants (a
+          node can be a descendant of itself).
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class="pseudo-code">
         3
        / \
       5   1
@@ -56,31 +63,39 @@
 
 LCA(5,1) = 3
 LCA(6,4) = 5
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Recursive DFS</h2>
-      <p><strong>Explanation:</strong> Traverse tree recursively. If node is p or q, return it. Combine left and right results to find LCA.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(h) recursion stack</p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Recursive DFS</h2>
+        <p>
+          <strong>Explanation:</strong> Traverse tree recursively. If node is p
+          or q, return it. Combine left and right results to find LCA.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(h) recursion stack</p>
+        <pre class="pseudo-code">
 function LCA(root, p, q):
     if root == NULL or root == p or root == q: return root
     left = LCA(root.left, p, q)
     right = LCA(root.right, p, q)
     if left != NULL and right != NULL: return root
     return left if left != NULL else right
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Parent Pointers + Ancestor Set</h2>
-      <p><strong>Explanation:</strong> Store parent of each node in a hash map. Trace ancestors of p, then first ancestor of q in the set is LCA.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Parent Pointers + Ancestor Set</h2>
+        <p>
+          <strong>Explanation:</strong> Store parent of each node in a hash map.
+          Trace ancestors of p, then first ancestor of q in the set is LCA.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 parent = {root: NULL}
 stack = [root]
 while stack not empty:
@@ -99,15 +114,19 @@ while p != NULL:
 while q not in ancestors:
     q = parent[q]
 return q
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Iterative DFS</h2>
-      <p><strong>Explanation:</strong> Use stack for DFS and store path to p and q. Compare paths to find last common node.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Iterative DFS</h2>
+        <p>
+          <strong>Explanation:</strong> Use stack for DFS and store path to p
+          and q. Compare paths to find last common node.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 function findPath(root, target):
     stack = [(root,[root])]
     while stack:
@@ -125,17 +144,17 @@ for i in 0..min(len(pathP),len(pathQ))-1:
     else:
         break
 return LCA
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
+    </main>
 
-  </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

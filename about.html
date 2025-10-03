@@ -1,87 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About CodeDSA</title>
+    <link rel="stylesheet" href="CSS/about.css" />
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="CSS/snake.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About CodeDSA</title>
-  <link rel="stylesheet" href="CSS/about.css">
-  <link rel="stylesheet" href="CSS/breadcrumb.css">
-  <link rel="stylesheet" href="CSS/snake.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">About</li>
-      </ol>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-  <section class="about-section">
-    <h1>About CodeDSA</h1>
-    <p>
-      CodeDSA is a curated platform for mastering Data Structures & Algorithms, focusing on
-      common interview patterns asked in FAANG and top tech companies. Each topic is explained
-      with multiple approaches, pseudo-code, and time-space complexity analysis.
-    </p>
-
-    <p>
-      Our goal is to provide a <span class="highlight">structured learning path</span> for
-      all levels of programmers—from beginners to advanced. We help learners understand patterns,
-      practice problems, and efficiently prepare for coding interviews.
-    </p>
-
-    <div class="features">
-      <h2>Key Features:</h2>
-      <ul>
-        <li><span class="material-icons">check_circle</span>  Curated FAANG interview patterns</li>
-        <li><span class="material-icons">check_circle</span>  Step-by-step problem approaches (Brute, Better, Optimal)</li>
-        <li><span class="material-icons">check_circle</span>  Time & Space Complexity explained</li>
-        <li><span class="material-icons">check_circle</span>  Interactive pseudo-code with explanations</li>
-        <li><span class="material-icons">check_circle</span>  Mobile-friendly and responsive design</li>
-      </ul>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+      </nav>
     </div>
 
-    <div class="mission-vision">
-      <div class="mission">
-        <h3>🎯 Our Mission</h3>
-        <p>To make DSA learning intuitive, engaging, and pattern-focused for all learners.</p>
-      </div>
-      <div class="vision">
-        <h3>🌟 Our Vision</h3>
-        <p>Empower aspiring developers to confidently crack technical interviews at top tech companies.</p>
-      </div>
-    </div>
-  </section>
-</main>
+    <main>
+      <section class="about-section">
+        <h1>About CodeDSA</h1>
+        <p>
+          CodeDSA is a curated platform for mastering Data Structures &
+          Algorithms, focusing on common interview patterns asked in FAANG and
+          top tech companies. Each topic is explained with multiple approaches,
+          pseudo-code, and time-space complexity analysis.
+        </p>
 
+        <p>
+          Our goal is to provide a
+          <span class="highlight">structured learning path</span> for all levels
+          of programmers—from beginners to advanced. We help learners understand
+          patterns, practice problems, and efficiently prepare for coding
+          interviews.
+        </p>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+        <div class="features">
+          <h2>Key Features:</h2>
+          <ul>
+            <li>
+              <span class="material-icons">check_circle</span> Curated FAANG
+              interview patterns
+            </li>
+            <li>
+              <span class="material-icons">check_circle</span> Step-by-step
+              problem approaches (Brute, Better, Optimal)
+            </li>
+            <li>
+              <span class="material-icons">check_circle</span> Time & Space
+              Complexity explained
+            </li>
+            <li>
+              <span class="material-icons">check_circle</span> Interactive
+              pseudo-code with explanations
+            </li>
+            <li>
+              <span class="material-icons">check_circle</span> Mobile-friendly
+              and responsive design
+            </li>
+          </ul>
+        </div>
 
-  <script src="index.js"></script>
-</body>
+        <div class="mission-vision">
+          <div class="mission">
+            <h3>🎯 Our Mission</h3>
+            <p>
+              To make DSA learning intuitive, engaging, and pattern-focused for
+              all learners.
+            </p>
+          </div>
+          <div class="vision">
+            <h3>🌟 Our Vision</h3>
+            <p>
+              Empower aspiring developers to confidently crack technical
+              interviews at top tech companies.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
 </html>

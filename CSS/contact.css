@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Public Sans", sans-serif;
+  font-family: 'Public Sans', sans-serif;
 }
 
 /* Body Background */
@@ -12,6 +12,18 @@ body {
   min-height: 100vh;
 }
 
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363);
+  color: #fff;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+}
+/* Main content sections */
 /* Navbar */
 .navbar {
   display: flex;
@@ -41,7 +53,10 @@ body {
   border-radius: 5px;
   background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
 .navbar .nav-links li a:hover {
@@ -68,6 +83,7 @@ body {
 }
 
 /* Main Content */
+
 main {
   max-width: 1200px;
   margin: 2rem auto;
@@ -85,7 +101,7 @@ main {
 }
 
 .contact-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -120,7 +136,7 @@ main {
 }
 
 .contact-header h1::after {
-  content: "";
+  content: '';
   display: block;
   height: 3px;
   width: 60%;
@@ -244,7 +260,7 @@ main {
 }
 
 .submit-btn::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;

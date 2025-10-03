@@ -1,86 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>String Matching / Pattern Matching - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
-        <li class="breadcrumb-item active" aria-current="page">String Matching / Pattern Matching</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Matching / Pattern Matching - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>String Matching / Pattern Matching</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            String Matching / Pattern Matching
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given a text string <strong>txt</strong> and a pattern <strong>pat</strong>, find all occurrences of the pattern in the text.
-      </p>
-      <p><strong>Example:</strong> Input: txt = "ababcabc", pat = "abc" → Output: [2,5]</p>
-    </section>
+    <main>
+      <h1>String Matching / Pattern Matching</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Check every substring of txt of length len(pat) for equality.</p>
-      <p><strong>Time Complexity:</strong> O(n*m) where n=len(txt), m=len(pat)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a text string <strong>txt</strong> and a pattern
+          <strong>pat</strong>, find all occurrences of the pattern in the text.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: txt = "ababcabc", pat = "abc" →
+          Output: [2,5]
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Check every substring of txt of length
+          len(pat) for equality.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(n*m) where n=len(txt), m=len(pat)
+        </p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 for i = 0 to n-m:
     if txt[i..i+m-1] == pat:
         add i to result
 return result
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Rabin-Karp Algorithm</h2>
-      <p><strong>Explanation:</strong> Use rolling hash to compare pattern and substring efficiently.</p>
-      <p><strong>Time Complexity:</strong> O(n) average, O(n*m) worst-case</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Rabin-Karp Algorithm</h2>
+        <p>
+          <strong>Explanation:</strong> Use rolling hash to compare pattern and
+          substring efficiently.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n) average, O(n*m) worst-case</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 hash_pat = hash(pat)
 for i = 0 to n-m:
     hash_sub = hash(txt[i..i+m-1])
     if hash_sub == hash_pat and txt[i..i+m-1] == pat:
         add i to result
 return result
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: KMP Algorithm (Optimal)</h2>
-      <p><strong>Explanation:</strong> Preprocess pattern to create lps array, then traverse txt to find matches efficiently.</p>
-      <p><strong>Time Complexity:</strong> O(n+m)</p>
-      <p><strong>Space Complexity:</strong> O(m)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: KMP Algorithm (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Preprocess pattern to create lps array,
+          then traverse txt to find matches efficiently.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n+m)</p>
+        <p><strong>Space Complexity:</strong> O(m)</p>
+        <pre class="pseudo-code">
 build lps array for pat
 i = 0, j = 0
 while i < n:
@@ -94,16 +114,17 @@ while i < n:
     else:
         i++
 return result
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

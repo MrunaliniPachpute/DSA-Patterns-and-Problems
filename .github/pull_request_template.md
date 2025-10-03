@@ -1,6 +1,7 @@
 ## 🚀 Pull Request
 
 ### 🔖 Description
+
 <!-- Please include a summary of the change and which issue is fixed. -->
 
 Fixes: # (issue number)
@@ -8,6 +9,7 @@ Fixes: # (issue number)
 ---
 
 ### 📸 Screenshots (if applicable)
+
 <!-- Add screenshots or screen recordings to help us understand your changes. -->
 
 ---
@@ -23,4 +25,5 @@ Fixes: # (issue number)
 ---
 
 ### 🙌 Additional Notes
+
 <!-- Add anything else you’d like to mention (e.g., learning from this PR, challenges faced). -->

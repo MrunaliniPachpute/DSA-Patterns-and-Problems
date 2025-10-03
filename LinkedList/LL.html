@@ -1,111 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeDSA Linked List</title>
-    <link rel="stylesheet" href="../CSS/AllTopics.css" />
-    <link rel="stylesheet" href="../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-      </div>
-    </nav>
 
-    <main>
-      <h1>Linked List Topics</h1>
-      <p class="intro-text">
-        Master essential linked list problems and patterns frequently asked in
-        interviews.
-      </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeDSA Linked List</title>
+  <link rel="stylesheet" href="../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../CSS/AllTopics.css" />
+  <link rel="stylesheet" href="../CSS/snake.css" />
+</head>
 
-      <ul class="topic-list">
-        <a href="./Problems/ReverseLL.html">
-          <span class="topic-number">01</span>
-          <span class="topic-name">Reverse Linked List</span>
-          <span class="topic-desc"
-            >Iterative and recursive reversal of a linked list</span
-          >
-        </a>
-        <a href="./Problems/DetectCycle.html">
-          <span class="topic-number">02</span>
-          <span class="topic-name">Detect Cycle in Linked List</span>
-          <span class="topic-desc"
-            >Floyd's cycle detection algorithm (slow & fast pointers)</span
-          >
-        </a>
-        <a href="./Problems/MergeSortedLL.html">
-          <span class="topic-number">03</span>
-          <span class="topic-name">Merge Two Sorted Lists</span>
-          <span class="topic-desc">Classic merging problem using pointers</span>
-        </a>
-        <a href="./Problems/Palindrome.html">
-          <span class="topic-number">04</span>
-          <span class="topic-name">Palindrome Linked List</span>
-          <span class="topic-desc"
-            >Check palindrome using reverse second half technique</span
-          >
-        </a>
-        <a href="./Problems/IntersectionLL.html">
-          <span class="topic-number">05</span>
-          <span class="topic-name">Intersection of Two Linked Lists</span>
-          <span class="topic-desc"
-            >Find the node where two lists intersect using pointer trick</span
-          >
-        </a>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+    </div>
+  </nav>
 
-      <p class="pattern-coverage">
-        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-        These problems cover the most
-        <em>important linked list patterns</em> for interviews: <br /><br />
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Linked Lists</li>
+      </ol>
+    </nav>
+  </div>
 
-        <span class="pattern-name">Reverse Linked List</span> →
-        <span class="pattern-desc"
-          >Pointer manipulation, iterative & recursive techniques.</span
-        ><br />
-        <span class="pattern-name">Detect Cycle</span> →
-        <span class="pattern-desc"
-          >Floyd’s cycle detection (slow & fast pointers).</span
-        ><br />
-        <span class="pattern-name">Merge Two Sorted Lists</span> →
-        <span class="pattern-desc"
-          >Two-pointer merge, sorted order handling.</span
-        ><br />
-        <span class="pattern-name">Palindrome Linked List</span> →
-        <span class="pattern-desc"
-          >Middle finding, reversing, comparing halves.</span
-        ><br />
-        <span class="pattern-name">Intersection of Two Linked Lists</span> →
-        <span class="pattern-desc"
-          >Length difference trick, pointer redirection.</span
-        ><br /><br />
+  <main>
+    <h1>Linked List Topics</h1>
+    <p class="intro-text">
+      Master essential linked list problems and patterns frequently asked in
+      interviews.
+    </p>
 
-        Together, they ensure you understand
-        <span class="highlight"
-          >pointer manipulation, cycle detection, two-pointer merge,
-          middle-finding, and intersection techniques</span
-        >
-        in linked lists.
-      </p>
-    </main>
+    <ul class="topic-list">
+      <a href="./Problems/ReverseLL.html">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Reverse Linked List</span>
+        <span class="topic-desc">Iterative and recursive reversal of a linked list</span>
+      </a>
+      <a href="./Problems/DetectCycle.html">
+        <span class="topic-number">02</span>
+        <span class="topic-name">Detect Cycle in Linked List</span>
+        <span class="topic-desc">Floyd's cycle detection algorithm (slow & fast pointers)</span>
+      </a>
+      <a href="./Problems/MergeSortedLL.html">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Merge Two Sorted Lists</span>
+        <span class="topic-desc">Classic merging problem using pointers</span>
+      </a>
+      <a href="./Problems/Palindrome.html">
+        <span class="topic-number">04</span>
+        <span class="topic-name">Palindrome Linked List</span>
+        <span class="topic-desc">Check palindrome using reverse second half technique</span>
+      </a>
+      <a href="./Problems/IntersectionLL.html">
+        <span class="topic-number">05</span>
+        <span class="topic-name">Intersection of Two Linked Lists</span>
+        <span class="topic-desc">Find the node where two lists intersect using pointer trick</span>
+      </a>
+    </ul>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    <p class="pattern-coverage">
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most
+      <em>important linked list patterns</em> for interviews: <br /><br />
 
-    <script src="../index.js"></script>
-  </body>
+      <span class="pattern-name">Reverse Linked List</span> →
+      <span class="pattern-desc">Pointer manipulation, iterative & recursive techniques.</span><br />
+      <span class="pattern-name">Detect Cycle</span> →
+      <span class="pattern-desc">Floyd’s cycle detection (slow & fast pointers).</span><br />
+      <span class="pattern-name">Merge Two Sorted Lists</span> →
+      <span class="pattern-desc">Two-pointer merge, sorted order handling.</span><br />
+      <span class="pattern-name">Palindrome Linked List</span> →
+      <span class="pattern-desc">Middle finding, reversing, comparing halves.</span><br />
+      <span class="pattern-name">Intersection of Two Linked Lists</span> →
+      <span class="pattern-desc">Length difference trick, pointer redirection.</span><br /><br />
+
+      Together, they ensure you understand
+      <span class="highlight">pointer manipulation, cycle detection, two-pointer merge,
+        middle-finding, and intersection techniques</span>
+      in linked lists.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../index.js"></script>
+</body>
+
 </html>

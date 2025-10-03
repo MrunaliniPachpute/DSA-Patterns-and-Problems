@@ -1,82 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Factorial - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../recursion.html">Recursion</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Factorial</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorial - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Factorial</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../recursion.html">Recursion</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Factorial</li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Compute the factorial of a non-negative integer <strong>n</strong>, i.e., n! = n × (n-1) × ... × 1.</p>
-      <p><strong>Example:</strong> Input: n = 5 → Output: 120</p>
-    </section>
+    <main>
+      <h1>Factorial</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Simple Recursion</h2>
-      <p><strong>Explanation:</strong> Multiply n with factorial of (n-1) until base case 0! = 1.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n) (call stack)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Compute the factorial of a non-negative integer <strong>n</strong>,
+          i.e., n! = n × (n-1) × ... × 1.
+        </p>
+        <p><strong>Example:</strong> Input: n = 5 → Output: 120</p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Simple Recursion</h2>
+        <p>
+          <strong>Explanation:</strong> Multiply n with factorial of (n-1) until
+          base case 0! = 1.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n) (call stack)</p>
+        <pre class="pseudo-code">
 function factorial(n):
     if n == 0 or n == 1:
         return 1
     return n * factorial(n-1)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Iterative</h2>
-      <p><strong>Explanation:</strong> Use a loop to multiply numbers from 1 to n.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Iterative</h2>
+        <p>
+          <strong>Explanation:</strong> Use a loop to multiply numbers from 1 to
+          n.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 fact = 1
 for i from 2 to n:
     fact = fact * i
 return fact
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Using Memoization (for repeated calls)</h2>
-      <p><strong>Explanation:</strong> Store computed factorials to avoid recomputation.</p>
-      <p><strong>Time Complexity:</strong> O(n) overall</p>
-      <p><strong>Space Complexity:</strong> O(n) (stack + memo)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Using Memoization (for repeated calls)</h2>
+        <p>
+          <strong>Explanation:</strong> Store computed factorials to avoid
+          recomputation.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n) overall</p>
+        <p><strong>Space Complexity:</strong> O(n) (stack + memo)</p>
+        <pre class="pseudo-code">
 memo = {}
 function factorial(n):
     if n in memo:
@@ -85,15 +102,16 @@ function factorial(n):
         return 1
     memo[n] = n * factorial(n-1)
     return memo[n]
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

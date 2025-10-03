@@ -6,111 +6,89 @@
   font-family: 'Public Sans', sans-serif;
 }
 
+/* Body Background */
+body {
+  background: #faf7f5;
+  min-height: 100vh;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363); /* warm, soft professional gradient */
+  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363);
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .navbar .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
-
-.navbar .nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.navbar .nav-links li a:hover {
-  color: #ffe5d4; /* subtle highlight */
-}
-
-/* Navbar Buttons */
 .navbar .nav-links li a {
   display: inline-block;
   padding: 8px 20px;
   color: #fff;
   font-weight: 500;
   text-decoration: none;
-  border-radius: 5px; /* rounded pill shape */
-  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6); /* warm professional gradient */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
-
-/* Hover effect */
 .navbar .nav-links li a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347); /* subtle gradient shift */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347);
 }
-
-/* Optional active button style */
 .navbar .nav-links li a.active {
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   background: linear-gradient(90deg, #ffcc70, #ffb347, #ffd9a6);
 }
-
-
 .navbar .logo {
   font-size: 1.7rem;
   font-weight: bold;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem 0;
-  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363);
-  color: #fff;
-  margin-top: 3rem;
-  font-size: 0.95rem;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+/* Right side container (links + snake button) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
+/* Main Content */
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-.about-section, .contact-section {
+/* About and Contact Sections */
+.about-section,
+.contact-section {
   background-color: #ffffff;
   padding: 2rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.about-section h1, .contact-section h1 {
+.about-section h1,
+.contact-section h1 {
   text-align: center;
-  color: #007BFF;
+  color: #007bff;
   margin-bottom: 1rem;
 }
 
-.about-section p, .contact-section p {
+.about-section p,
+.contact-section p {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
+
 /* Highlighted text */
 .highlight {
   color: #ff6f61;
@@ -144,7 +122,6 @@ main {
   font-size: 1.2rem;
 }
 
-
 /* Mission & Vision */
 .mission-vision {
   display: flex;
@@ -153,25 +130,94 @@ main {
   gap: 2rem;
   margin-top: 2rem;
 }
-.mission, .vision {
+.mission,
+.vision {
   background: #fdf2f0;
   padding: 1rem 1.5rem;
   border-radius: 10px;
   flex: 1 1 300px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.mission:hover, .vision:hover {
+.mission:hover,
+.vision:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-.mission h3, .vision h3 {
+.mission h3,
+.vision h3 {
   color: #ff6f61;
   margin-bottom: 0.5rem;
 }
-/* Right side container (links + snake button) */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem; /* space between links and button */
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363);
+  color: #fff;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .contact-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .info-card {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+  main {
+    padding: 0 1rem;
+  }
+  .contact-section {
+    padding: 2rem;
+  }
+  .contact-header h1 {
+    font-size: 2.2rem;
+  }
+  .contact-form {
+    padding: 2rem;
+  }
+  .contact-info {
+    flex-direction: column;
+  }
+  .submit-btn {
+    padding: 0.9rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 1.5rem;
+  }
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+  .contact-form {
+    padding: 1.5rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem 1rem;
+  }
+  .submit-btn {
+    padding: 0.8rem 2rem;
+    width: 100%;
+  }
 }

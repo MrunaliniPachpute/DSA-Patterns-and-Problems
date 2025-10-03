@@ -1,54 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N-Queens Problem - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-<!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../recursion.html">Recursion</a></li>
-        <li class="breadcrumb-item active" aria-current="page">N-Queens Problem</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N-Queens Problem - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>N-Queens Problem</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../recursion.html">Recursion</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            N-Queens Problem
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Place N queens on an N×N chessboard such that no two queens attack each other. Return all possible board arrangements.</p>
-      <p><strong>Example:</strong> Input: N = 4 → Output: [[".Q..","...Q","Q...","..Q."], ["..Q.","Q...","...Q",".Q.."]]</p>
-    </section>
+    <main>
+      <h1>N-Queens Problem</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Backtracking</h2>
-      <p><strong>Explanation:</strong> Place queens row by row, check safe positions, backtrack if stuck.</p>
-      <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N²) (board storage)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Place N queens on an N×N chessboard such that no two queens attack
+          each other. Return all possible board arrangements.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: N = 4 → Output:
+          [[".Q..","...Q","Q...","..Q."], ["..Q.","Q...","...Q",".Q.."]]
+        </p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Backtracking</h2>
+        <p>
+          <strong>Explanation:</strong> Place queens row by row, check safe
+          positions, backtrack if stuck.
+        </p>
+        <p><strong>Time Complexity:</strong> O(N!)</p>
+        <p><strong>Space Complexity:</strong> O(N²) (board storage)</p>
+        <pre class="pseudo-code">
 function solve(row):
     if row == N:
         add board copy to result
@@ -59,15 +73,19 @@ function solve(row):
             solve(row+1)
             remove queen
 solve(0)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Using Hash Sets for Safety</h2>
-      <p><strong>Explanation:</strong> Track occupied columns and diagonals using sets for faster checks.</p>
-      <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N) (sets + recursion stack)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Using Hash Sets for Safety</h2>
+        <p>
+          <strong>Explanation:</strong> Track occupied columns and diagonals
+          using sets for faster checks.
+        </p>
+        <p><strong>Time Complexity:</strong> O(N!)</p>
+        <p><strong>Space Complexity:</strong> O(N) (sets + recursion stack)</p>
+        <pre class="pseudo-code">
 cols, diag1, diag2 = sets
 function solve(row):
     if row == N:
@@ -80,34 +98,39 @@ function solve(row):
             solve(row+1)
             remove queen and sets
 solve(0)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Bitmask Optimization</h2>
-      <p><strong>Explanation:</strong> Use bitmasks to track columns and diagonals for N ≤ 32 efficiently.</p>
-      <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N) (recursion stack)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Bitmask Optimization</h2>
+        <p>
+          <strong>Explanation:</strong> Use bitmasks to track columns and
+          diagonals for N ≤ 32 efficiently.
+        </p>
+        <p><strong>Time Complexity:</strong> O(N!)</p>
+        <p><strong>Space Complexity:</strong> O(N) (recursion stack)</p>
+        <pre class="pseudo-code">
 function solve(row, cols, diag1, diag2):
     if row == N:
         add solution
         return
-    available = ~(cols | diag1 | diag2) & ((1<<N)-1)
+    available = ~(cols | diag1 | diag2) & ((1&lt;&lt;N)-1)
     while available:
         pos = available & -available
         available = available & (available-1)
-        solve(row+1, cols|pos, (diag1|pos)<<1, (diag2|pos)>>1)
+        solve(row+1, cols|pos, (diag1|pos)&lt;&lt;1, (diag2|pos)&gt;&gt;1)
 solve(0,0,0,0)
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
-</body>
+  </body>
 </html>

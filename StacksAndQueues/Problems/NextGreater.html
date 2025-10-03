@@ -1,56 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next Greater Element - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Greater Element - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../stackAndQueue.html">Stacks & Queues</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Next Greater Element</li>
-      </ol>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Next Greater Element</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../stackAndQueue.html">Stacks & Queues</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Next Greater Element
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Given an array, find the next greater element for each element in the array. If no greater exists, return -1.</p>
-      <p><strong>Example:</strong> nums = [4,5,2,25] → Output: [5,25,25,-1]</p>
-    </section>
+    <main>
+      <h1>Next Greater Element</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> For each element, scan all elements to the right for a greater number.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(n) for output</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given an array, find the next greater element for each element in the
+          array. If no greater exists, return -1.
+        </p>
+        <p>
+          <strong>Example:</strong> nums = [4,5,2,25] → Output: [5,25,25,-1]
+        </p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> For each element, scan all elements to
+          the right for a greater number.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(n) for output</p>
+        <pre class="pseudo-code">
 result = []
 for i in 0..n-1:
     next = -1
@@ -60,15 +72,19 @@ for i in 0..n-1:
             break
     result.append(next)
 return result
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Stack (Better)</h2>
-      <p><strong>Explanation:</strong> Traverse array from end, use stack to keep track of next greater elements.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Stack (Better)</h2>
+        <p>
+          <strong>Explanation:</strong> Traverse array from end, use stack to
+          keep track of next greater elements.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 result = [-1]*n
 for i in n-1..0:
@@ -78,15 +94,19 @@ for i in n-1..0:
         result[i] = stack.top()
     stack.push(nums[i])
 return result
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Optimized for Circular Array</h2>
-      <p><strong>Explanation:</strong> Handle circular arrays by traversing twice using modulo index.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Optimized for Circular Array</h2>
+        <p>
+          <strong>Explanation:</strong> Handle circular arrays by traversing
+          twice using modulo index.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 result = [-1]*n
 for i in 2*n-1..0:
@@ -97,16 +117,16 @@ for i in 2*n-1..0:
         result[index] = stack.top()
     stack.push(nums[index])
 return result
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
-</body>
-
+  </body>
 </html>

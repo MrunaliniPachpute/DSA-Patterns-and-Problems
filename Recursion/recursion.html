@@ -1,114 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeDSA Recursion</title>
-    <link rel="stylesheet" href="../CSS/AllTopics.css" />
-    <link rel="stylesheet" href="../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-      </div>
-    </nav>
 
-    <main>
-      <h1>Recursion Topics</h1>
-      <p class="intro-text">
-        Master essential recursion problems and patterns frequently asked in
-        interviews.
-      </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeDSA Recursion</title>
+  <link rel="stylesheet" href="../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../CSS/AllTopics.css" />
+  <link rel="stylesheet" href="../CSS/snake.css" />
+</head>
 
-      <ul class="topic-list">
-        <a href="./Problems/factorial.html">
-          <span class="topic-number">01</span>
-          <span class="topic-name">Factorial</span>
-          <span class="topic-desc"
-            >Classic recursion example, base and recursive cases</span
-          >
-        </a>
-        <a href="./Problems/fibonacci.html">
-          <span class="topic-number">02</span>
-          <span class="topic-name">Fibonacci Sequence</span>
-          <span class="topic-desc"
-            >Recursive sequence generation with memoization</span
-          >
-        </a>
-        <a href="./Problems/powerSet.html">
-          <span class="topic-number">03</span>
-          <span class="topic-name">Power Set / Subsets</span>
-          <span class="topic-desc"
-            >Backtracking pattern for generating all subsets</span
-          >
-        </a>
-        <a href="./Problems/stringPermutation.html">
-          <span class="topic-number">04</span>
-          <span class="topic-name">String Permutations</span>
-          <span class="topic-desc"
-            >Backtracking pattern for all permutations of a string</span
-          >
-        </a>
-        <a href="./Problems/nQueens.html">
-          <span class="topic-number">05</span>
-          <span class="topic-name">N-Queens Problem</span>
-          <span class="topic-desc"
-            >Backtracking with constraints to place queens safely</span
-          >
-        </a>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+    </div>
+  </nav>
 
-      <p class="pattern-coverage">
-        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-        These problems cover the most
-        <em>important recursion and backtracking patterns</em> for interviews:
-        <br /><br />
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Recursion</li>
+      </ol>
+    </nav>
+  </div>
 
-        <span class="pattern-name">Factorial</span> →
-        <span class="pattern-desc"
-          >Basic recursion with base case and simple recursive call.</span
-        ><br />
-        <span class="pattern-name">Fibonacci Sequence</span> →
-        <span class="pattern-desc"
-          >Simple recursion, optimized with memoization / DP.</span
-        ><br />
-        <span class="pattern-name">Power Set / Subsets</span> →
-        <span class="pattern-desc"
-          >Backtracking, decision tree recursion pattern.</span
-        ><br />
-        <span class="pattern-name">String Permutations</span> →
-        <span class="pattern-desc"
-          >Recursive swapping / backtracking to generate all permutations.</span
-        ><br />
-        <span class="pattern-name">N-Queens Problem</span> →
-        <span class="pattern-desc"
-          >Constraint-based backtracking recursion pattern.</span
-        ><br /><br />
+  <main>
+    <h1>Recursion Topics</h1>
+    <p class="intro-text">
+      Master essential recursion problems and patterns frequently asked in
+      interviews.
+    </p>
 
-        Together, they ensure you understand
-        <span class="highlight"
-          >base recursion, recursive sequence generation, subset generation,
-          permutation generation, and backtracking with constraints</span
-        >
-        in recursion problems.
-      </p>
-    </main>
+    <ul class="topic-list">
+      <a href="./Problems/factorial.html">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Factorial</span>
+        <span class="topic-desc">Classic recursion example, base and recursive cases</span>
+      </a>
+      <a href="./Problems/fibonacci.html">
+        <span class="topic-number">02</span>
+        <span class="topic-name">Fibonacci Sequence</span>
+        <span class="topic-desc">Recursive sequence generation with memoization</span>
+      </a>
+      <a href="./Problems/powerSet.html">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Power Set / Subsets</span>
+        <span class="topic-desc">Backtracking pattern for generating all subsets</span>
+      </a>
+      <a href="./Problems/stringPermutation.html">
+        <span class="topic-number">04</span>
+        <span class="topic-name">String Permutations</span>
+        <span class="topic-desc">Backtracking pattern for all permutations of a string</span>
+      </a>
+      <a href="./Problems/nQueens.html">
+        <span class="topic-number">05</span>
+        <span class="topic-name">N-Queens Problem</span>
+        <span class="topic-desc">Backtracking with constraints to place queens safely</span>
+      </a>
+    </ul>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    <p class="pattern-coverage">
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most
+      <em>important recursion and backtracking patterns</em> for interviews:
+      <br /><br />
 
-    <script src="../index.js"></script>
-  </body>
+      <span class="pattern-name">Factorial</span> →
+      <span class="pattern-desc">Basic recursion with base case and simple recursive call.</span><br />
+      <span class="pattern-name">Fibonacci Sequence</span> →
+      <span class="pattern-desc">Simple recursion, optimized with memoization / DP.</span><br />
+      <span class="pattern-name">Power Set / Subsets</span> →
+      <span class="pattern-desc">Backtracking, decision tree recursion pattern.</span><br />
+      <span class="pattern-name">String Permutations</span> →
+      <span class="pattern-desc">Recursive swapping / backtracking to generate all permutations.</span><br />
+      <span class="pattern-name">N-Queens Problem</span> →
+      <span class="pattern-desc">Constraint-based backtracking recursion pattern.</span><br /><br />
+
+      Together, they ensure you understand
+      <span class="highlight">base recursion, recursive sequence generation, subset generation,
+        permutation generation, and backtracking with constraints</span>
+      in recursion problems.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../index.js"></script>
+</body>
+
 </html>

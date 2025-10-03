@@ -1,0 +1,138 @@
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: #ffffff;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #f0f0f0;
+  backdrop-filter: blur(10px);
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  display: inline-block;
+  padding: 12px 24px;
+  color: #4a5568;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 30px;
+  background: #ffb39a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  font-size: 0.925rem;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  font-family: 'Public Sans', sans-serif;
+}
+
+/* Hover effect */
+.navbar .nav-links li a:hover {
+  background: #ff9478;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 148, 120, 0.25);
+  letter-spacing: -0.005em;
+}
+
+/* Optional active button style */
+.navbar .nav-links li a.active {
+  background: #ff7b54;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 123, 84, 0.3);
+  font-weight: 600;
+}
+
+.navbar .logo {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ff7b54;
+  background: linear-gradient(135deg, #ff7b54, #ff9478);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Right side container (links + snake button) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+  
+  .nav-right {
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .navbar .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1.2rem 1rem;
+  }
+  
+  .navbar .logo {
+    font-size: 1.6rem;
+  }
+  
+  .navbar .nav-links li a {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .nav-right {
+    gap: 1rem;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.navbar .nav-links li a:focus {
+  outline: 2px solid #ff7b54;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

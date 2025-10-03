@@ -1,0 +1,21 @@
+{
+  "name": "DSA-Patterns-and-Problems",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MrunaliniPachpute/DSA-Patterns-and-Problems",
+  "author": "Mrunalini Pachpute",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,html,css,md,json,yml,yaml}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^16.2.3",
+    "prettier": "3.6.2"
+  }
+}

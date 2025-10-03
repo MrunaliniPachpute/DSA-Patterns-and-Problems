@@ -1,61 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Insert Position - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../binarySearch.html">Binary Search</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Search Insert Position</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Insert Position - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
-  
-  <main>
-    <h1>Search Insert Position</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given a sorted array <strong>nums</strong> and a target value <strong>target</strong>, 
-        return the index if the target is found. If not, return the index where it would be inserted 
-        in order to maintain sorted order.
-      </p>
-      <p><strong>Example:</strong> nums = [1,3,5,6], target = 5 → Output: 2</p>
-      <p><strong>Example:</strong> nums = [1,3,5,6], target = 2 → Output: 1</p>
-    </section>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../binarySearch.html">Binary Search</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Search Insert Position
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Iterative Binary Search</h2>
-      <p><strong>Explanation:</strong> Use binary search to find target or insertion point.</p>
-      <p><strong>Time Complexity:</strong> O(log n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+    <main>
+      <h1>Search Insert Position</h1>
+
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a sorted array <strong>nums</strong> and a target value
+          <strong>target</strong>, return the index if the target is found. If
+          not, return the index where it would be inserted in order to maintain
+          sorted order.
+        </p>
+        <p>
+          <strong>Example:</strong> nums = [1,3,5,6], target = 5 → Output: 2
+        </p>
+        <p>
+          <strong>Example:</strong> nums = [1,3,5,6], target = 2 → Output: 1
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Iterative Binary Search</h2>
+        <p>
+          <strong>Explanation:</strong> Use binary search to find target or
+          insertion point.
+        </p>
+        <p><strong>Time Complexity:</strong> O(log n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 low = 0
 high = n - 1
 while low <= high:
@@ -67,15 +80,19 @@ while low <= high:
     else:
         high = mid - 1
 return low  // insertion index
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Recursive Binary Search</h2>
-      <p><strong>Explanation:</strong> Recursively search for target; if not found, return insertion index.</p>
-      <p><strong>Time Complexity:</strong> O(log n)</p>
-      <p><strong>Space Complexity:</strong> O(log n) (recursion stack)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Recursive Binary Search</h2>
+        <p>
+          <strong>Explanation:</strong> Recursively search for target; if not
+          found, return insertion index.
+        </p>
+        <p><strong>Time Complexity:</strong> O(log n)</p>
+        <p><strong>Space Complexity:</strong> O(log n) (recursion stack)</p>
+        <pre class="pseudo-code">
 function searchInsert(nums, low, high, target):
     if low > high:
         return low
@@ -86,29 +103,34 @@ function searchInsert(nums, low, high, target):
         return searchInsert(nums, mid+1, high, target)
     else:
         return searchInsert(nums, low, mid-1, target)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Linear Scan (Naive)</h2>
-      <p><strong>Explanation:</strong> Traverse array until finding first element >= target.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Linear Scan (Naive)</h2>
+        <p>
+          <strong>Explanation:</strong> Traverse array until finding first
+          element >= target.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 for i in 0..n-1:
     if nums[i] >= target:
         return i
 return n  // insert at end if all smaller
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

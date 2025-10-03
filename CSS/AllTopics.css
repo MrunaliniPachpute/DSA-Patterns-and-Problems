@@ -66,7 +66,10 @@ a:visited {
     #ffd9a6
   ); /* warm professional gradient */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
 /* Hover effect */
@@ -148,7 +151,9 @@ main .intro-text {
   border-left: 5px solid #f7b259;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
 .topic-list a:hover {

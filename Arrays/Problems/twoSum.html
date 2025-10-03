@@ -1,88 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Two Sum - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Two Sum</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two Sum - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Two Sum</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Two Sum</li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given an array of integers <strong>nums</strong> and an integer <strong>target</strong>, 
-        return indices of the two numbers such that they add up to <strong>target</strong>. 
-        You may assume that each input would have exactly one solution, and you may not use the same element twice.
-      </p>
-      <p><strong>Example:</strong> nums = [2,7,11,15], target = 9 → Output: [0,1]</p>
-    </section>
+    <main>
+      <h1>Two Sum</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Check all pairs of numbers to see if they sum to target.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given an array of integers <strong>nums</strong> and an integer
+          <strong>target</strong>, return indices of the two numbers such that
+          they add up to <strong>target</strong>. You may assume that each input
+          would have exactly one solution, and you may not use the same element
+          twice.
+        </p>
+        <p>
+          <strong>Example:</strong> nums = [2,7,11,15], target = 9 → Output:
+          [0,1]
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Check all pairs of numbers to see if
+          they sum to target.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 for i = 0 to n-1:
     for j = i+1 to n-1:
         if nums[i] + nums[j] == target:
             return [i, j]
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Using Hash Map (Better)</h2>
-      <p><strong>Explanation:</strong> Store each number's complement (target - num) in a hash map. Check if current number exists in map.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Using Hash Map (Better)</h2>
+        <p>
+          <strong>Explanation:</strong> Store each number's complement (target -
+          num) in a hash map. Check if current number exists in map.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 create empty hash map
 for i = 0 to n-1:
     if nums[i] in map:
         return [map[nums[i]], i]
     else:
         map[target - nums[i]] = i
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Two Pointers (Optimal if array sorted)</h2>
-      <p><strong>Explanation:</strong> Sort the array, use two pointers (start and end) to find sum. Return indices from original array.</p>
-      <p><strong>Time Complexity:</strong> O(n log n) (sorting) + O(n) two pointers → O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(n) (for storing original indices)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Two Pointers (Optimal if array sorted)</h2>
+        <p>
+          <strong>Explanation:</strong> Sort the array, use two pointers (start
+          and end) to find sum. Return indices from original array.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(n log n) (sorting) + O(n) two
+          pointers → O(n log n)
+        </p>
+        <p>
+          <strong>Space Complexity:</strong> O(n) (for storing original indices)
+        </p>
+        <pre class="pseudo-code">
 sort the array with original indices
 left = 0, right = n-1
 while left < right:
@@ -93,16 +115,17 @@ while left < right:
         left++
     else:
         right--
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
-</body>
+  </body>
 </html>

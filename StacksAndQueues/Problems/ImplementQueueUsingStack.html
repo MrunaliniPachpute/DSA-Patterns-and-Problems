@@ -1,56 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implement Queue using Stacks - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Implement Queue using Stacks - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../stackAndQueue.html">Stacks & Queues</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Implement Queue using Stacks</li>
-      </ol>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Implement Queue using Stacks</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../stackAndQueue.html">Stacks & Queues</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Implement Queue using Stacks
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Implement a queue using two stacks. The queue should support push, pop, peek, and empty operations.</p>
-      <p><strong>Example:</strong> push(1), push(2), pop() → returns 1</p>
-    </section>
+    <main>
+      <h1>Implement Queue using Stacks</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> On push, move all elements to auxiliary stack, insert, and restore order.</p>
-      <p><strong>Time Complexity:</strong> push O(n), pop O(1)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Implement a queue using two stacks. The queue should support push,
+          pop, peek, and empty operations.
+        </p>
+        <p><strong>Example:</strong> push(1), push(2), pop() → returns 1</p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> On push, move all elements to auxiliary
+          stack, insert, and restore order.
+        </p>
+        <p><strong>Time Complexity:</strong> push O(n), pop O(1)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack1 = empty
 stack2 = empty
 push(x):
@@ -62,15 +72,19 @@ push(x):
 pop(): return stack1.pop()
 peek(): return stack1.top()
 empty(): return stack1 is empty
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Lazy Transfer (Better)</h2>
-      <p><strong>Explanation:</strong> Push into stack1; pop/peek from stack2; transfer only when stack2 empty.</p>
-      <p><strong>Time Complexity:</strong> Amortized O(1) per operation</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Lazy Transfer (Better)</h2>
+        <p>
+          <strong>Explanation:</strong> Push into stack1; pop/peek from stack2;
+          transfer only when stack2 empty.
+        </p>
+        <p><strong>Time Complexity:</strong> Amortized O(1) per operation</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack1 = empty
 stack2 = empty
 push(x): stack1.push(x)
@@ -81,15 +95,19 @@ pop():
     return stack2.pop()
 peek(): similar to pop but return stack2.top()
 empty(): return stack1 empty and stack2 empty
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Recursive Pop (Alternative)</h2>
-      <p><strong>Explanation:</strong> Use recursion to reverse stack1 temporarily during pop.</p>
-      <p><strong>Time Complexity:</strong> O(n) per pop</p>
-      <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Recursive Pop (Alternative)</h2>
+        <p>
+          <strong>Explanation:</strong> Use recursion to reverse stack1
+          temporarily during pop.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n) per pop</p>
+        <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
+        <pre class="pseudo-code">
 push(x): stack1.push(x)
 pop():
     if stack1 size == 1:
@@ -100,16 +118,16 @@ pop():
     return res
 peek(): similar, but return last element instead of popping
 empty(): stack1 empty
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
-</body>
-
+  </body>
 </html>

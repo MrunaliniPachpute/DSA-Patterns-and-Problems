@@ -1,53 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shortest Path - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-  
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../graph.html">Graphs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Shortest Path</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortest Path - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Shortest Path in Graph</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../graph.html">Graphs</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Shortest Path
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Find the shortest path from a source node to all other nodes in a weighted or unweighted graph.</p>
-      <p><strong>Example:</strong> In an unweighted graph, source = 0 → shortest distances = [0,1,2,1,2,...]</p>
-    </section>
+    <main>
+      <h1>Shortest Path in Graph</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: BFS (Unweighted Graph)</h2>
-      <p><strong>Explanation:</strong> BFS ensures shortest path by layer-wise traversal in unweighted graphs.</p>
-      <p><strong>Time Complexity:</strong> O(V + E)</p>
-      <p><strong>Space Complexity:</strong> O(V)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Find the shortest path from a source node to all other nodes in a
+          weighted or unweighted graph.
+        </p>
+        <p>
+          <strong>Example:</strong> In an unweighted graph, source = 0 →
+          shortest distances = [0,1,2,1,2,...]
+        </p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: BFS (Unweighted Graph)</h2>
+        <p>
+          <strong>Explanation:</strong> BFS ensures shortest path by layer-wise
+          traversal in unweighted graphs.
+        </p>
+        <p><strong>Time Complexity:</strong> O(V + E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <pre class="pseudo-code">
 dist = [∞]*V
 dist[source] = 0
 queue = [source]
@@ -58,15 +71,20 @@ while queue not empty:
             dist[neighbor] = dist[node] + 1
             queue.push(neighbor)
 return dist
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Dijkstra (Weighted Graph)</h2>
-      <p><strong>Explanation:</strong> Use min-heap to select the node with smallest distance iteratively in weighted graph with non-negative edges.</p>
-      <p><strong>Time Complexity:</strong> O((V+E) log V)</p>
-      <p><strong>Space Complexity:</strong> O(V)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Dijkstra (Weighted Graph)</h2>
+        <p>
+          <strong>Explanation:</strong> Use min-heap to select the node with
+          smallest distance iteratively in weighted graph with non-negative
+          edges.
+        </p>
+        <p><strong>Time Complexity:</strong> O((V+E) log V)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <pre class="pseudo-code">
 dist = [∞]*V
 dist[source] = 0
 min_heap = [(0, source)]
@@ -77,15 +95,19 @@ while min_heap not empty:
             dist[neighbor] = dist[node] + weight
             heap.push((dist[neighbor], neighbor))
 return dist
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Bellman-Ford (Negative Weights)</h2>
-      <p><strong>Explanation:</strong> Relax all edges V-1 times; detects negative weight cycles.</p>
-      <p><strong>Time Complexity:</strong> O(V*E)</p>
-      <p><strong>Space Complexity:</strong> O(V)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Bellman-Ford (Negative Weights)</h2>
+        <p>
+          <strong>Explanation:</strong> Relax all edges V-1 times; detects
+          negative weight cycles.
+        </p>
+        <p><strong>Time Complexity:</strong> O(V*E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <pre class="pseudo-code">
 dist = [∞]*V
 dist[source] = 0
 for i in 1..V-1:
@@ -94,14 +116,15 @@ for i in 1..V-1:
             dist[v] = dist[u] + w
 check for negative weight cycles
 return dist
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

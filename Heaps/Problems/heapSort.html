@@ -1,84 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heap Sort - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-  
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../heap.html">Heaps</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Connected Components</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heap Sort - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Heap Sort</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../heap.html">Heaps</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Connected Components
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Sort an array using Heap data structure.
-      </p>
-      <p><strong>Example:</strong> Input: [4,10,3,5,1] → Output: [1,3,4,5,10]</p>
-    </section>
+    <main>
+      <h1>Heap Sort</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Build Max Heap & Extract</h2>
-      <p><strong>Explanation:</strong> Convert array to max heap and repeatedly extract max to sort.</p>
-      <p><strong>Time Complexity:</strong> O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>Sort an array using Heap data structure.</p>
+        <p>
+          <strong>Example:</strong> Input: [4,10,3,5,1] → Output: [1,3,4,5,10]
+        </p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Build Max Heap & Extract</h2>
+        <p>
+          <strong>Explanation:</strong> Convert array to max heap and repeatedly
+          extract max to sort.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n log n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 build max heap from array
 for i = n-1 down to 1:
     swap root with arr[i]
     heapify(arr, 0, i)
 return arr
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Using Min Heap (Extra Space)</h2>
-      <p><strong>Explanation:</strong> Push all elements into min-heap and pop to get sorted order.</p>
-      <p><strong>Time Complexity:</strong> O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Using Min Heap (Extra Space)</h2>
+        <p>
+          <strong>Explanation:</strong> Push all elements into min-heap and pop
+          to get sorted order.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n log n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 create min-heap
 for num in arr:
     push num into heap
 while heap not empty:
     pop element into result
 return result
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

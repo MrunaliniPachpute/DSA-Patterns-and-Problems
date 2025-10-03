@@ -10,13 +10,20 @@ body.snake-cursor {
   position: fixed;
   width: 14px;
   height: 14px;
-  background: linear-gradient(135deg, #ffb347, #ff8a65, #f16363); /* enhanced warm gradient */
+  background: linear-gradient(
+    135deg,
+    #ffb347,
+    #ff8a65,
+    #f16363
+  ); /* enhanced warm gradient */
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   opacity: 0.85;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 /* Subtle fade effect as trail disappears */
@@ -31,16 +38,16 @@ body.snake-cursor {
   padding: 10px 24px;
   font-size: 0.9rem;
   font-weight: 600;
-  border: 2px solid transparent;
+  border: 2px solid #ffb347;
   border-radius: 25px; /* Pill-shaped for snake-like appearance */
   cursor: pointer;
-  background: linear-gradient(135deg, #2d5016, #4a7c23, #6ba82f); /* Snake green gradient */
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  background: #fff;
+  color: #ffb347;
+  box-shadow: 0 4px 12px rgba(255, 179, 71, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
   letter-spacing: 0.5px;
 }
 
@@ -56,8 +63,8 @@ body.snake-cursor {
     45deg,
     transparent,
     transparent 3px,
-    rgba(255, 255, 255, 0.1) 3px,
-    rgba(255, 255, 255, 0.1) 6px
+    rgba(255, 179, 71, 0.1) 3px,
+    rgba(255, 179, 71, 0.1) 6px
   );
   opacity: 0.6;
   pointer-events: none;
@@ -77,52 +84,55 @@ body.snake-cursor {
 /* Hover state - slither effect */
 .snake-btn:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(45, 80, 22, 0.4);
-  background: linear-gradient(135deg, #4a7c23, #6ba82f, #8bc34a);
-  border-color: rgba(255, 255, 255, 0.2);
-  animation: slither 0.6s ease-in-out;
+  box-shadow: 0 8px 20px rgba(255, 179, 71, 0.3);
+  background: linear-gradient(135deg, #ffcc70, #ffb347);
+  border-color: #ff8a65;
+  color: #fff;
+  animation: slither 0.8s ease-in-out;
 }
 
-/* Active (when enabled) - vibrant snake colors */
+/* Active (when enabled) - vibrant orange colors */
 .snake-btn.active {
-  background: linear-gradient(135deg, #d32f2f, #f57c00, #ffc107); /* Bright snake warning colors */
-  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
-  border-color: rgba(255, 255, 255, 0.3);
-  animation: wiggle 0.8s ease-in-out infinite alternate;
-}
-
-.snake-btn.active::after {
-  content: '🔥';
-  animation: pulse 1s ease-in-out infinite;
+  background: linear-gradient(
+    135deg,
+    #ffb347,
+    #ff8a65,
+    #f16363
+  );
+  color: #fff;
+  border-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(255, 179, 71, 0.4);
 }
 
 /* Focus state for accessibility */
 .snake-btn:focus {
   outline: none;
-  border-color: #fff;
-  box-shadow: 0 0 0 3px rgba(107, 168, 47, 0.5);
+  border-color: #ffffff;
 }
 
 /* Keyboard navigation support */
 .snake-btn:focus-visible {
-  border-color: #ffeb3b;
-  box-shadow: 0 0 0 3px rgba(255, 235, 59, 0.6);
+  border-color: #ff8a65;
+  box-shadow: 0 0 0 3px rgba(255, 138, 101, 0.6);
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .snake-btn {
-    border: 2px solid #fff;
-    background: #2d5016;
+    border: 2px solid #ffb347;
+    background: #fff;
+    color: #ffb347;
   }
-  
+
   .snake-btn:hover {
-    background: #4a7c23;
+    background: #ffcc70;
+    color: #fff;
   }
-  
+
   .snake-btn.active {
-    background: #d32f2f;
-    border-color: #fff;
+    background: #ffb347;
+    color: #fff;
+    border-color: #ffffff;
   }
 }
 
@@ -132,9 +142,11 @@ body.snake-cursor {
   .snake-btn:hover,
   .snake-btn.active {
     animation: none;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
   }
-  
+
   .snake-btn:hover {
     transform: none;
   }
@@ -142,22 +154,49 @@ body.snake-cursor {
 
 /* Slither animation */
 @keyframes slither {
-  0%, 100% { transform: translateY(-2px) scale(1.05) skewX(0deg); }
-  25% { transform: translateY(-2px) scale(1.05) skewX(1deg); }
-  75% { transform: translateY(-2px) scale(1.05) skewX(-1deg); }
+  0% {
+    transform: translateY(-2px) scale(1.05) skewX(0deg) rotateZ(0deg);
+  }
+  20% {
+    transform: translateY(-3px) scale(1.06) skewX(2deg) rotateZ(0.5deg);
+  }
+  40% {
+    transform: translateY(-2px) scale(1.05) skewX(0deg) rotateZ(0deg);
+  }
+  60% {
+    transform: translateY(-3px) scale(1.06) skewX(-2deg) rotateZ(-0.5deg);
+  }
+  80% {
+    transform: translateY(-2px) scale(1.05) skewX(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.05) skewX(0deg) rotateZ(0deg);
+  }
 }
 
 /* Wiggle animation for active state */
 @keyframes wiggle {
-  0%, 100% { transform: translateY(-1px) rotate(0deg); }
-  25% { transform: translateY(-1px) rotate(0.5deg); }
-  75% { transform: translateY(-1px) rotate(-0.5deg); }
+  0%,
+  100% {
+    transform: translateY(-1px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(0.5deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(-0.5deg);
+  }
 }
 
 /* Pulse animation for the emoji */
 @keyframes pulse {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(-50%) scale(1.2); }
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
 }
 
 /* Responsive design */
@@ -168,12 +207,12 @@ body.snake-cursor {
     margin-left: 0.8rem;
     border-radius: 20px;
   }
-  
+
   .snake-btn::after {
     left: 6px;
     font-size: 14px;
   }
-  
+
   .snake-btn span {
     margin-left: 16px !important;
   }
@@ -186,16 +225,16 @@ body.snake-cursor {
     margin-left: 0.5rem;
     border-radius: 18px;
   }
-  
+
   .snake-btn::after {
     left: 4px;
     font-size: 12px;
   }
-  
+
   .snake-btn span {
     margin-left: 14px !important;
   }
-  
+
   .snake-btn:hover {
     transform: translateY(-1px) scale(1.02);
   }
@@ -207,10 +246,9 @@ body.snake-cursor {
     transform: none;
     animation: none;
   }
-  
+
   .snake-btn:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
   }
 }
-

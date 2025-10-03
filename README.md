@@ -1,4 +1,4 @@
-<h1 align="center"> 🧩 DSA-Patterns-and-Problems Repository </h1> 
+<h1 align="center"> 🧩 DSA-Patterns-and-Problems Repository </h1>
 
 <div align="center">
 
@@ -19,22 +19,35 @@ Repository for learning, practicing, and contributing Data Structures & Algorith
 
 ## 🚀 Getting Started
 
-1. **Fork** this repository  
-2. **Clone** it to your local machine:  
+1. **Fork** this repository
+2. **Clone** it to your local machine:
    ```bash
    git clone https://github.com/<your-username>/<repo-name>.git
+   ```
 3. To check home page open index.html in project root.
    To contribute Create a branch for your contribution:
    ```
    git checkout -b feature/your-branch-name
    ```
-4. Add your solution in the appropriate folder (see folder structure below)
-5. Commit your changes:
+4. Run
+
+```
+yarn
+```
+
+or
+
+```
+npm i
+```
+
+5. Add your solution in the appropriate folder (see folder structure below)
+6. Commit your changes:
    ```
    git add .
    git commit -m "Add <problem name> solution in <language>"
    ```
-6. Push your branch and create a Pull Request
+7. Push your branch and create a Pull Request
 
 <div align="center">
 
@@ -43,10 +56,11 @@ Repository for learning, practicing, and contributing Data Structures & Algorith
 </div>
 
 ## 📂 Folder Structure
+
 ```
 DSA-Solutions/
 │
-├── Arrays/                  
+├── Arrays/
 │   ├── array.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -55,7 +69,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── LinkedLists/             
+├── LinkedLists/
 │   ├── linkedlist.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -64,7 +78,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── StacksAndQueues/         
+├── StacksAndQueues/
 │   ├── stacksqueues.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -73,7 +87,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── Strings/                 
+├── Strings/
 │   ├── strings.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -82,7 +96,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── Recursion/               
+├── Recursion/
 │   ├── recursion.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -91,7 +105,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── BinarySearch/            
+├── BinarySearch/
 │   ├── binarysearch.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -100,7 +114,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── Heaps/                   
+├── Heaps/
 │   ├── heaps.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -109,7 +123,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── BinaryTrees/             
+├── BinaryTrees/
 │   ├── binarytrees.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -118,7 +132,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── BinarySearchTrees/       
+├── BinarySearchTrees/
 │   ├── bst.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -127,7 +141,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── Graphs/                  
+├── Graphs/
 │   ├── graphs.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -136,7 +150,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── DynamicProgramming/      
+├── DynamicProgramming/
 │   ├── dp.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -145,7 +159,7 @@ DSA-Solutions/
 │   │     ├── problem4.html
 │   │     ├── problem5.html
 │
-├── Tries/                   
+├── Tries/
 │   ├── tries.html
 │   ├── Problems/
 │   │     ├── problem1.html
@@ -173,6 +187,7 @@ DSA-Solutions/
 
 
 ```
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -181,12 +196,12 @@ DSA-Solutions/
 
 ## 📝 Contribution Guidelines
 
-- Ensure your code is **clean and well-commented**  
-- Add **sample input/output** in the code if applicable  
-- Stick to **one problem per file**  
-- PRs should be **meaningful** (no spam or unnecessary changes)  
-- Label issues you solve if available  
-- Follow the **Hacktoberfest rules**: [Hacktoberfest Participation](https://hacktoberfest.com/participation/)  
+- Ensure your code is **clean and well-commented**
+- Add **sample input/output** in the code if applicable
+- Stick to **one problem per file**
+- PRs should be **meaningful** (no spam or unnecessary changes)
+- Label issues you solve if available
+- Follow the **Hacktoberfest rules**: [Hacktoberfest Participation](https://hacktoberfest.com/participation/)
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -195,8 +210,8 @@ DSA-Solutions/
 
 ## 🔖 Issues
 
-- Look for issues labeled: `good first issue` or `hacktoberfest`  
-- You can also create a new issue if you want to suggest a problem to add  
+- Look for issues labeled: `good first issue` or `hacktoberfest`
+- You can also create a new issue if you want to suggest a problem to add
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -204,9 +219,11 @@ DSA-Solutions/
 </div>
 
 ## 🌐 Language
+
 ```
-- No specific language : pseudo codes to focus on approach  
+- No specific language : pseudo codes to focus on approach
 ```
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -214,6 +231,7 @@ DSA-Solutions/
 </div>
 
 ## 🔮 Future Contribution Goals:
+
 - Add flowcharts for commonly asked patterns
 - Include explanatory comments or diagrams for tricky problems
 - Add references or links for further reading if needed
@@ -227,9 +245,9 @@ DSA-Solutions/
 
 This repository is **open for contributions**! If you love DSA and want to help others prepare for coding interviews, you can:
 
-- Add new problems with explanations and pseudo-code  
-- Improve existing pages with better formatting, diagrams, or examples  
-- Fix broken links, typos, or styling issues  
+- Add new problems with explanations and pseudo-code
+- Improve existing pages with better formatting, diagrams, or examples
+- Fix broken links, typos, or styling issues
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -238,9 +256,9 @@ This repository is **open for contributions**! If you love DSA and want to help 
 
 ## 🎯 Hacktoberfest Guidelines
 
-- Repo must be **public** and tagged `hacktoberfest`  
-- PRs must be **valid contributions**  
-- Spammy or duplicate PRs **will not count**  
+- Repo must be **public** and tagged `hacktoberfest`
+- PRs must be **valid contributions**
+- Spammy or duplicate PRs **will not count**
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -251,7 +269,7 @@ This repository is **open for contributions**! If you love DSA and want to help 
 
 This project is licensed under the MIT License.
 See the <a href="/License.md">LICENSE</a> file for more details.
- 
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -260,7 +278,8 @@ See the <a href="/License.md">LICENSE</a> file for more details.
 
 ## 🤝 Support
 
-For questions or help, feel free to **open an issue** in this repo.  
+For questions or help, feel free to **open an issue** in this repo.
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -269,7 +288,8 @@ For questions or help, feel free to **open an issue** in this repo.
 
 ## ⭐ Star this repo
 
-If you find this repo useful, **please give it a star** to help others find it.  
+If you find this repo useful, **please give it a star** to help others find it.
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -295,9 +315,12 @@ If you find this repo useful, **please give it a star** to help others find it.
 
 </div>
 
-## 👨‍💻 Our Contributors 
+## 👨‍💻 Our Contributors
+
 [![Contributors](https://img.shields.io/github/contributors/MrunaliniPachpute/DSA-Patterns-and-Problems?style=for-the-badge)](https://github.com/MrunaliniPachpute/DSA-Patterns-and-Problems/graphs/contributors)
+
 ### View our contributors : <a href="https://github.com/MrunaliniPachpute/DSA-Patterns-and-Problems/graphs/contributors"> Click Here</a>
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)

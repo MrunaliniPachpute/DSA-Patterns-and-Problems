@@ -1,53 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Longest Common Prefix - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../tries.html">Tries</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Longest Common Prefix</li>
-      </ol>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Longest Common Prefix - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Longest Common Prefix</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../tries.html">Tries</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Longest Common Prefix
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Find the longest common prefix among a list of strings using a trie.</p>
-      <p><strong>Example:</strong> ["flower","flow","flight"] → "fl"</p>
-    </section>
+    <main>
+      <h1>Longest Common Prefix</h1>
 
-    <section class="approach-section">
-      <h2>Approach: Trie Path Traversal</h2>
-      <p><strong>Explanation:</strong> Insert all words into trie. Traverse from root until a node has multiple children or end-of-word.</p>
-      <p><strong>Time Complexity:</strong> O(N*L), N = #words, L = avg length</p>
-      <p><strong>Space Complexity:</strong> O(N*L)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Find the longest common prefix among a list of strings using a trie.
+        </p>
+        <p><strong>Example:</strong> ["flower","flow","flight"] → "fl"</p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach: Trie Path Traversal</h2>
+        <p>
+          <strong>Explanation:</strong> Insert all words into trie. Traverse
+          from root until a node has multiple children or end-of-word.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(N*L), N = #words, L = avg length
+        </p>
+        <p><strong>Space Complexity:</strong> O(N*L)</p>
+        <pre class="pseudo-code">
 insert all words in trie
 prefix = ""
 node = root
@@ -55,14 +66,15 @@ while node has exactly one child and not end-of-word:
     node = child
     prefix += child_char
 return prefix
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>
