@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractional Knapsack - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fractional Knapsack</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Fractional Knapsack</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given weights and values of items and a knapsack capacity W, find the maximum value that can be obtained by putting items in the knapsack. 
+        Items can be broken into fractions.
+      </p>
+      <p><strong>Example:</strong><br>
+      Input: W = 50, items = [(value=60, weight=10), (value=100, weight=20), (value=120, weight=30)]<br>
+      Output: 240.0</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach: Greedy by Value/Weight Ratio</h2>
+      <p><strong>Explanation:</strong> Sort items by value/weight ratio in descending order. Take as much of the highest ratio item as possible, then move to next.</p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+sort items by value/weight ratio descending
+for each item:
+    if weight fits in knapsack:
+        take full item
+    else:
+        take fraction that fits
+return total value
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>

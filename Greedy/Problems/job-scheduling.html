@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Scheduling - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Job Scheduling</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Job Scheduling with Deadlines and Profits</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given n jobs with deadlines and profits. Each job takes 1 unit of time. 
+        Schedule jobs to maximize total profit if only one job can be scheduled at a time.
+      </p>
+      <p><strong>Example:</strong><br>
+      Jobs = [(id=1, deadline=2, profit=100), (id=2, deadline=1, profit=19), (id=3, deadline=2, profit=27), (id=4, deadline=1, profit=25), (id=5, deadline=3, profit=15)]<br>
+      Output: Jobs done = 2, Max Profit = 127</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach: Greedy by Profit</h2>
+      <p><strong>Explanation:</strong> Sort jobs by profit in descending order. For each job, place it in the latest available slot before its deadline.</p>
+      <p><strong>Time Complexity:</strong> O(n log n + n*d)</p>
+      <p><strong>Space Complexity:</strong> O(d)</p>
+      <pre class="pseudo-code">
+sort jobs by profit descending
+for each job in sorted list:
+    find empty slot before job.deadline
+    if found:
+        assign job
+return total profit
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>

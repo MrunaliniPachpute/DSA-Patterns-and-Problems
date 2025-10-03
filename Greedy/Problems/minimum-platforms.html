@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimum Platforms - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Minimum Platforms</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Minimum Number of Platforms</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given arrival and departure times of trains, find the minimum number of railway platforms needed so that no train has to wait.
+      </p>
+      <p><strong>Example:</strong><br>
+      Arrival = [900, 940, 950, 1100, 1500, 1800]<br>
+      Departure = [910, 1200, 1120, 1130, 1900, 2000]<br>
+      Output: 3</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach: Sort and Two Pointers</h2>
+      <p><strong>Explanation:</strong> Sort arrivals and departures. Use two pointers to simulate train arrival/departure and track maximum trains at a time.</p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+sort arrival and departure
+platforms = 0, max_platforms = 0
+i = 0, j = 0
+while i < n and j < n:
+    if arrival[i] <= departure[j]:
+        platforms++
+        i++
+        max_platforms = max(max_platforms, platforms)
+    else:
+        platforms--
+        j++
+return max_platforms
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>
