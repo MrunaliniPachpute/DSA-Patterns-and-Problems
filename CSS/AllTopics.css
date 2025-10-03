@@ -20,6 +20,12 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.logo-img img {
+  height:50px;       /* control logo size */
+  width: 50px;
+  vertical-align: middle;
+}
+
 .navbar .nav-links {
   list-style: none;
   display: flex;
@@ -67,6 +73,7 @@
 .navbar .logo {
   font-size: 1.7rem;
   font-weight: bold;
+   transform: translateX(-350px); 
 }
 
 /* Footer */
