@@ -1,14 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intersection of Two Linked Lists - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intersection of Two Linked Lists - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
 
+<<<<<<< HEAD
   <!-- Navbar -->
   <nav class="navbar">
      <div class="logo-img"> 
@@ -21,62 +37,133 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+=======
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Intersection of Two Linked Lists
+          </li>
+        </ol>
+      </nav>
+>>>>>>> upstream/main
     </div>
-  </nav>
 
-  <main>
-    <h1>Intersection of Two Linked Lists</h1>
+    <main>
+      <h1>Intersection of Two Linked Lists</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given the heads of two singly linked lists <strong>headA</strong> and <strong>headB</strong>, 
-        return the node where the two lists intersect. If no intersection, return NULL.
-      </p>
-      <p><strong>Example:</strong> Input: A = 4 → 1 → 8 → 4 → 5, B = 5 → 6 → 1 → 8 → 4 → 5, Output: Node with value 8</p>
-    </section>
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given the heads of two singly linked lists <strong>headA</strong> and
+          <strong>headB</strong>, return the node where the two lists intersect.
+          If no intersection, return NULL.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: A = 4 → 1 → 8 → 4 → 5, B = 5 → 6 → 1
+          → 8 → 4 → 5, Output: Node with value 8
+        </p>
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Hash Set</h2>
-      <p><strong>Explanation:</strong> Store nodes of first list in a set. Traverse second list, first common node is intersection.</p>
-      <p><strong>Time Complexity:</strong> O(m+n)</p>
-      <p><strong>Space Complexity:</strong> O(m)</p>
-      <pre class="pseudo-code">
-nodes = set()
-while headA != NULL:
-    nodes.add(headA)
-    headA = headA.next
-while headB != NULL:
-    if headB in nodes:
-        return headB
-    headB = headB.next
-return NULL
-      </pre>
-    </section>
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Hash Set</h2>
+        <p>
+          <strong>Explanation:</strong> Store nodes of first list in a set.
+          Traverse second list, first common node is intersection.
+        </p>
+        <p><strong>Time Complexity:</strong> O(m+n)</p>
+        <p><strong>Space Complexity:</strong> O(m)</p>
+        <pre class="pseudo-code">
+Function getIntersectionNode(headA, headB):
+    Create an empty set called visitedNodes
 
-    <section class="approach-section">
-      <h2>Approach 2: Two Pointer Technique</h2>
-      <p><strong>Explanation:</strong> Traverse both lists. When one reaches end, redirect to other list’s head. They will meet at intersection.</p>
-      <p><strong>Time Complexity:</strong> O(m+n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
-ptrA = headA
-ptrB = headB
-while ptrA != ptrB:
-    ptrA = ptrA.next if ptrA != NULL else headB
-    ptrB = ptrB.next if ptrB != NULL else headA
-return ptrA
-      </pre>
-    </section>
-  </main>
+    // Traverse list A and store each node reference
+    While headA is not null:
+        Add headA to visitedNodes
+        headA = headA.next
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    // Traverse list B and check for intersection
+    While headB is not null:
+        If headB exists in visitedNodes:
+            Return headB  // Intersection found
+        headB = headB.next
 
-  <script src="../../index.js"></script>
-</body>
+    Return null  // No intersection
+
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 1 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/hashset_intersection.jpg"
+            alt="Intersection LL Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 2: Two Pointer Technique</h2>
+        <p>
+          <strong>Explanation:</strong> Traverse both lists. When one reaches
+          end, redirect to other list’s head. They will meet at intersection.
+        </p>
+        <p><strong>Time Complexity:</strong> O(m+n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
+Function getIntersectionNode(headA, headB):
+    Set pointerA = headA
+    Set pointerB = headB
+
+    While pointerA is not equal to pointerB:
+        If pointerA is null:
+            pointerA = headB
+        Else:
+            pointerA = pointerA.next
+
+        If pointerB is null:
+            pointerB = headA
+        Else:
+            pointerB = pointerB.next
+
+    Return pointerA  // Either the intersection node or null
+
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 2 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/two_pointer.jpg"
+            alt="Intersection LL Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

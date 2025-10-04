@@ -1,12 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodeDSA Heaps</title>
+  <link rel="stylesheet" href="../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../CSS/AllTopics.css" />
-  <link rel="stylesheet" href="../CSS/snake.css">
+  <link rel="stylesheet" href="../CSS/snake.css" />
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -14,58 +17,81 @@
       <img src="../../images/image.png" alt="Logo"></div>
     <div class="logo">CodeDSA</div>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
     </div>
   </nav>
 
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Heaps</li>
+      </ol>
+    </nav>
+  </div>
+
   <main>
     <h1>Heap Topics</h1>
-    <p class="intro-text">Master essential heap problems and patterns frequently asked in interviews.</p>
+    <p class="intro-text">
+      Master essential heap problems and patterns frequently asked in
+      interviews.
+    </p>
 
     <ul class="topic-list">
-      <li onclick="navigateToTopic('./Problems/kthLargest.html')">
+      <a href="./Problems/kthLargest.html">
         <span class="topic-number">01</span>
         <span class="topic-name">Kth Largest / Smallest Element</span>
         <span class="topic-desc">Find Kth largest or smallest using min/max heap</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/mergeKSorted.html')">
+      </a>
+      <a href="./Problems/mergeKSorted.html">
         <span class="topic-number">02</span>
         <span class="topic-name">Merge K Sorted Arrays / Lists</span>
         <span class="topic-desc">Use min-heap to efficiently merge multiple sorted lists</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/heapSort.html')">
+      </a>
+      <a href="./Problems/heapSort.html">
         <span class="topic-number">03</span>
         <span class="topic-name">Heap Sort</span>
         <span class="topic-desc">Classic sorting algorithm using max-heap</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/topKFrequent.html')">
+      </a>
+      <a href="./Problems/topKFrequent.html">
         <span class="topic-number">04</span>
         <span class="topic-name">Top K Frequent Elements</span>
         <span class="topic-desc">Use heap to track most frequent elements efficiently</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/slidingWindowMedian.html')">
+      </a>
+      <a href="./Problems/slidingWindowMedian.html">
         <span class="topic-number">05</span>
         <span class="topic-name">Sliding Window Median</span>
         <span class="topic-desc">Maintain two heaps to find median in a sliding window</span>
-      </li>
+      </a>
     </ul>
 
     <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br>
-      These problems cover the most <em>important heap patterns</em> for interviews: <br><br>
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most <em>important heap patterns</em> for
+      interviews: <br /><br />
 
-      <span class="pattern-name">Kth Largest / Smallest Element</span> → <span class="pattern-desc">Use min/max heap to maintain top k elements efficiently.</span><br>
-      <span class="pattern-name">Merge K Sorted Arrays / Lists</span> → <span class="pattern-desc">Min-heap to merge multiple streams in O(n log k).</span><br>
-      <span class="pattern-name">Heap Sort</span> → <span class="pattern-desc">Build a heap and repeatedly extract max/min for sorting.</span><br>
-      <span class="pattern-name">Top K Frequent Elements</span> → <span class="pattern-desc">Use heap to track k most frequent elements.</span><br>
-      <span class="pattern-name">Sliding Window Median</span> → <span class="pattern-desc">Two-heap approach to maintain median dynamically in a window.</span><br><br>
+      <span class="pattern-name">Kth Largest / Smallest Element</span> →
+      <span class="pattern-desc">Use min/max heap to maintain top k elements efficiently.</span><br />
+      <span class="pattern-name">Merge K Sorted Arrays / Lists</span> →
+      <span class="pattern-desc">Min-heap to merge multiple streams in O(n log k).</span><br />
+      <span class="pattern-name">Heap Sort</span> →
+      <span class="pattern-desc">Build a heap and repeatedly extract max/min for sorting.</span><br />
+      <span class="pattern-name">Top K Frequent Elements</span> →
+      <span class="pattern-desc">Use heap to track k most frequent elements.</span><br />
+      <span class="pattern-name">Sliding Window Median</span> →
+      <span class="pattern-desc">Two-heap approach to maintain median dynamically in a window.</span><br /><br />
 
-      Together, they ensure you understand <span class="highlight">min/max heaps, top k elements, merge patterns, heap-based sorting, and dynamic median tracking</span> in heap problems.
+      Together, they ensure you understand
+      <span class="highlight">min/max heaps, top k elements, merge patterns, heap-based sorting,
+        and dynamic median tracking</span>
+      in heap problems.
     </p>
   </main>
 
@@ -74,11 +100,7 @@
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
-  <script>
-    function navigateToTopic(path) {
-      window.location.href = path;
-    }
-  </script>
   <script src="../index.js"></script>
 </body>
+
 </html>

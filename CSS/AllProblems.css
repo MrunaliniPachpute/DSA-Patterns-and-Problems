@@ -12,12 +12,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363); /* warm, soft professional gradient */
+  background: linear-gradient(
+    90deg,
+    #fbb69f,
+    #f68c6e,
+    #f16363
+  ); /* warm, soft professional gradient */
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .logo-img img {
   height:50px;     
@@ -50,24 +55,36 @@
   font-weight: 500;
   text-decoration: none;
   border-radius: 5px; /* rounded pill shape */
-  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6); /* warm professional gradient */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  background: linear-gradient(
+    90deg,
+    #f5c686,
+    #ffcc70,
+    #ffd9a6
+  ); /* warm professional gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
 /* Hover effect */
 .navbar .nav-links li a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347); /* subtle gradient shift */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    90deg,
+    #ffd9a6,
+    #ffcc70,
+    #ffb347
+  ); /* subtle gradient shift */
 }
 
 /* Optional active button style */
 .navbar .nav-links li a.active {
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   background: linear-gradient(90deg, #ffcc70, #ffb347, #ffd9a6);
 }
-
 
 .navbar .logo {
   font-size: 1.7rem;
@@ -83,7 +100,7 @@ footer {
   color: #fff;
   margin-top: 3rem;
   font-size: 0.95rem;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Responsive */
@@ -103,7 +120,7 @@ main {
 
 h1 {
   text-align: center;
-  color: #007BFF;
+  color: #007bff;
   margin-bottom: 1rem;
 }
 
@@ -116,9 +133,9 @@ h2 {
 .problem-section {
   background-color: #f0f8ff;
   padding: 15px 20px;
-  border-left: 5px solid #007BFF;
+  border-left: 5px solid #007bff;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
@@ -128,7 +145,7 @@ h2 {
   padding: 15px 20px;
   border-left: 5px solid #ffa500;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
 
@@ -152,4 +169,44 @@ h2 {
   display: flex;
   align-items: center;
   gap: 1.5rem; /* space between links and button */
+}
+
+/* View Flowchart Button */
+.flowchart-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  margin-bottom: 50px;
+}
+
+/* Hover effect */
+.flowchart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347);
+}
+
+/* Active/Focused */
+.flowchart-btn:active,
+.flowchart-btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.flowchart-img {
+  max-width: 100%;
+  height: 650px; /* adjust this value as needed */
+  object-fit: contain; /* ensures the image scales without distortion */
+  display: block;
+  margin: 0px auto 40px auto;
+  border-radius: 8px; /* optional, makes corners slightly rounded */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* optional, subtle shadow */
 }

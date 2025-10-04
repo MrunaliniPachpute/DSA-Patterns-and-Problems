@@ -1,42 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Validate BST - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-  <div class="logo-img"> 
-      <img src="../../images/image.png" alt="Logo"></div>
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validate BST - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-img">
+        <img src="../../images/image.png" alt="Logo" />
+      </div>
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px;">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../bst.html">Binary Search Trees</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Validate BST</li>
+        </ol>
+      </nav>
     </div>
-  </nav>
-  <main>
-    <h1>Validate BST</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Check whether a binary tree is a valid Binary Search Tree (BST).</p>
-      <p><strong>Example:</strong> Input: [2,1,3] → Output: true</p>
-    </section>
+    <main>
+      <h1>Validate BST</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Recursive Inorder Traversal</h2>
-      <p><strong>Explanation:</strong> BST inorder traversal must produce sorted values.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(h)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>Check whether a binary tree is a valid Binary Search Tree (BST).</p>
+        <p><strong>Example:</strong> Input: [2,1,3] → Output: true</p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Recursive Inorder Traversal</h2>
+        <p>
+          <strong>Explanation:</strong> BST inorder traversal must produce
+          sorted values.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(h)</p>
+        <pre class="pseudo-code">
 prev = -∞
 function inorder(node):
     if node == NULL: return true
@@ -44,26 +63,32 @@ function inorder(node):
     if node.val <= prev: return false
     prev = node.val
     return inorder(node.right)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Recursion with Min/Max</h2>
-      <p><strong>Explanation:</strong> Each node must satisfy min < val < max constraints.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(h)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Recursion with Min/Max</h2>
+        <p>
+          <strong>Explanation:</strong> Each node must satisfy min < val < max
+          constraints.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(h)</p>
+        <pre class="pseudo-code">
 function isBST(node, min, max):
     if node == NULL: return true
     if node.val <= min or node.val >= max: return false
     return isBST(node.left, min, node.val) and isBST(node.right, node.val, max)
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

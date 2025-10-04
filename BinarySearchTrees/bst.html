@@ -1,84 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeDSA Binary Search Trees</title>
-  <link rel="stylesheet" href="../CSS/AllTopics.css" />
-  <link rel="stylesheet" href="../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-      <div class="logo-img"> 
-      <img src="../../images/image.png" alt="Logo"></div>
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeDSA Binary Search Trees</title>
+    <link rel="stylesheet" href="../CSS/breadcrumb.css">
+    <link rel="stylesheet" href="../CSS/AllTopics.css" />
+    <link rel="stylesheet" href="../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-img">
+        <img src="../../images/image.png" alt="Logo" />
+      </div>
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px;">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Binary Search Trees</li>
+        </ol>
+      </nav>
     </div>
-  </nav>
 
-  <main>
-    <h1>Binary Search Tree (BST) Topics</h1>
-    <p class="intro-text">Master essential BST problems and patterns frequently asked in interviews.</p>
+    <main>
+      <h1>Binary Search Tree (BST) Topics</h1>
+      <p class="intro-text">
+        Master essential BST problems and patterns frequently asked in
+        interviews.
+      </p>
 
-    <ul class="topic-list">
-      <li onclick="navigateToTopic('./Problems/insertSearchBST.html')">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Insert & Search in BST</span>
-        <span class="topic-desc">Basic operations: insert nodes, search values recursively & iteratively</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/validateBST.html')">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Validate BST</span>
-        <span class="topic-desc">Check if a binary tree satisfies BST properties</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/kthSmallestLargest.html')">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Kth Smallest / Largest Element</span>
-        <span class="topic-desc">Use in-order traversal or augmented BST to find kth element</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/lowestCommonAncestorBST.html')">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Lowest Common Ancestor in BST</span>
-        <span class="topic-desc">Leverage BST properties to find LCA efficiently</span>
-      </li>
-      <li onclick="navigateToTopic('./Problems/rangeSumBST.html')">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Range Sum in BST</span>
-        <span class="topic-desc">Compute sum of nodes within a given range using BST traversal</span>
-      </li>
-    </ul>
+      <ul class="topic-list">
+        <a href="./Problems/insertSearchBST.html">
+          <span class="topic-number">01</span>
+          <span class="topic-name">Insert & Search in BST</span>
+          <span class="topic-desc"
+            >Basic operations: insert nodes, search values recursively &
+            iteratively</span
+          >
+        </a>
+        <a href="./Problems/validateBST.html">
+          <span class="topic-number">02</span>
+          <span class="topic-name">Validate BST</span>
+          <span class="topic-desc"
+            >Check if a binary tree satisfies BST properties</span
+          >
+        </a>
+        <a href="./Problems/kthSmallestLargest.html">
+          <span class="topic-number">03</span>
+          <span class="topic-name">Kth Smallest / Largest Element</span>
+          <span class="topic-desc"
+            >Use in-order traversal or augmented BST to find kth element</span
+          >
+        </a>
+        <a href="./Problems/lowestCommonAncestorBST.html">
+          <span class="topic-number">04</span>
+          <span class="topic-name">Lowest Common Ancestor in BST</span>
+          <span class="topic-desc"
+            >Leverage BST properties to find LCA efficiently</span
+          >
+        </a>
+        <a href="./Problems/rangeSumBST.html">
+          <span class="topic-number">05</span>
+          <span class="topic-name">Range Sum in BST</span>
+          <span class="topic-desc"
+            >Compute sum of nodes within a given range using BST traversal</span
+          >
+        </a>
+      </ul>
 
-    <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br>
-      These problems cover the most <em>important BST patterns</em> for interviews: <br><br>
+      <p class="pattern-coverage">
+        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+        These problems cover the most <em>important BST patterns</em> for
+        interviews: <br /><br />
 
-      <span class="pattern-name">Insert & Search in BST</span> → <span class="pattern-desc">Recursive & iterative traversal for basic BST operations.</span><br>
-      <span class="pattern-name">Validate BST</span> → <span class="pattern-desc">DFS traversal with min/max constraints to validate BST property.</span><br>
-      <span class="pattern-name">Kth Smallest / Largest Element</span> → <span class="pattern-desc">In-order traversal, augmented data structures, or iterative stacks.</span><br>
-      <span class="pattern-name">Lowest Common Ancestor in BST</span> → <span class="pattern-desc">Use BST ordering to navigate directly to LCA efficiently.</span><br>
-      <span class="pattern-name">Range Sum in BST</span> → <span class="pattern-desc">DFS traversal with pruning using BST properties for efficiency.</span><br><br>
+        <span class="pattern-name">Insert & Search in BST</span> →
+        <span class="pattern-desc"
+          >Recursive & iterative traversal for basic BST operations.</span
+        ><br />
+        <span class="pattern-name">Validate BST</span> →
+        <span class="pattern-desc"
+          >DFS traversal with min/max constraints to validate BST
+          property.</span
+        ><br />
+        <span class="pattern-name">Kth Smallest / Largest Element</span> →
+        <span class="pattern-desc"
+          >In-order traversal, augmented data structures, or iterative
+          stacks.</span
+        ><br />
+        <span class="pattern-name">Lowest Common Ancestor in BST</span> →
+        <span class="pattern-desc"
+          >Use BST ordering to navigate directly to LCA efficiently.</span
+        ><br />
+        <span class="pattern-name">Range Sum in BST</span> →
+        <span class="pattern-desc"
+          >DFS traversal with pruning using BST properties for efficiency.</span
+        ><br /><br />
 
-      Together, they ensure you understand <span class="highlight">basic operations, validation, kth element retrieval, ancestor queries, and range-based queries</span> in BST problems.
-    </p>
-  </main>
+        Together, they ensure you understand
+        <span class="highlight"
+          >basic operations, validation, kth element retrieval, ancestor
+          queries, and range-based queries</span
+        >
+        in BST problems.
+      </p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script>
-    function navigateToTopic(path) {
-      window.location.href = path;
-    }
-  </script>
-  <script src="../index.js"></script>
-</body>
+    <script src="../index.js"></script>
+  </body>
 </html>

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valid Parentheses - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valid Parentheses - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-
-<body>
+  <body>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -23,39 +23,62 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../stackAndQueue.html">Stacks & Queues</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Valid Parentheses
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-  <main>
-    <h1>Valid Parentheses</h1>
+    <main>
+      <h1>Valid Parentheses</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
-      <p><strong>Example:</strong> s = "({[]})" → Output: true</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a string containing just the characters '(', ')', '{', '}', '['
+          and ']', determine if the input string is valid.
+        </p>
+        <p><strong>Example:</strong> s = "({[]})" → Output: true</p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Repeatedly remove pairs of valid parentheses until none remain.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(n) (for string manipulation)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Repeatedly remove pairs of valid
+          parentheses until none remain.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(n) (for string manipulation)</p>
+        <pre class="pseudo-code">
 while "()" or "[]" or "{}" exists in s:
     remove all occurrences
 if s is empty:
     return true
 else:
     return false
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Using Stack (Better)</h2>
-      <p><strong>Explanation:</strong> Push opening brackets to stack; match closing brackets with top.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Using Stack (Better)</h2>
+        <p>
+          <strong>Explanation:</strong> Push opening brackets to stack; match
+          closing brackets with top.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 for char in s:
     if char is '(', '{', '[':
@@ -65,15 +88,19 @@ for char in s:
             return false
         pop stack
 return stack is empty
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Optimized Stack (Early Return)</h2>
-      <p><strong>Explanation:</strong> Use a map for closing brackets; immediately return false on mismatch.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Optimized Stack (Early Return)</h2>
+        <p>
+          <strong>Explanation:</strong> Use a map for closing brackets;
+          immediately return false on mismatch.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 map = {')':'(', '}':'{', ']':'['}
 stack = empty
 for char in s:
@@ -83,16 +110,17 @@ for char in s:
         if stack is empty or stack.pop() != map[char]:
             return false
 return stack is empty
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
-</body>
-
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

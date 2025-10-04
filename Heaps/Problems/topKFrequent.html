@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top K Frequent Elements - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top K Frequent Elements - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -21,40 +22,57 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../heap.html">Heaps</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Top K Frequent Elements
+          </li>
+        </ol>
+      </nav>  
+    </div>
 
-  <main>
-    <h1>Top K Frequent Elements</h1>
+    <main>
+      <h1>Top K Frequent Elements</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given an array of integers, return the k most frequent elements.
-      </p>
-      <p><strong>Example:</strong> nums = [1,1,1,2,2,3], k=2 → Output: [1,2]</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>Given an array of integers, return the k most frequent elements.</p>
+        <p>
+          <strong>Example:</strong> nums = [1,1,1,2,2,3], k=2 → Output: [1,2]
+        </p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Hash Map + Sorting</h2>
-      <p><strong>Explanation:</strong> Count frequencies and sort by frequency.</p>
-      <p><strong>Time Complexity:</strong> O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 1: Hash Map + Sorting</h2>
+        <p>
+          <strong>Explanation:</strong> Count frequencies and sort by frequency.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n log n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 freq = hashmap()
 for num in nums:
     freq[num] += 1
 sort freq by values descending
 return first k elements
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Min Heap (Optimal)</h2>
-      <p><strong>Explanation:</strong> Maintain min-heap of size k for frequencies.</p>
-      <p><strong>Time Complexity:</strong> O(n log k)</p>
-      <p><strong>Space Complexity:</strong> O(k)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Min Heap (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Maintain min-heap of size k for
+          frequencies.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n log k)</p>
+        <p><strong>Space Complexity:</strong> O(k)</p>
+        <pre class="pseudo-code">
 freq = hashmap()
 for num in nums:
     freq[num] += 1
@@ -64,13 +82,15 @@ for num, count in freq:
     if heap size > k:
         pop min
 return all elements in heap
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

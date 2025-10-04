@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>String Permutations - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Permutations - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+  
 <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-img"> 
@@ -21,24 +22,49 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
 
-  <main>
-    <h1>String Permutations</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../recursion.html">Recursion</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            String Permutations
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Given a string, return all possible permutations of its characters.</p>
-      <p><strong>Example:</strong> Input: "abc" → Output: ["abc","acb","bac","bca","cab","cba"]</p>
-    </section>
+    <main>
+      <h1>String Permutations</h1>
 
-    <section class="approach-section">
-      <h2>Approach 1: Backtracking / Recursive Swapping</h2>
-      <p><strong>Explanation:</strong> Swap each character with all subsequent characters and recurse.</p>
-      <p><strong>Time Complexity:</strong> O(n! × n) (permutation count × copy time)</p>
-      <p><strong>Space Complexity:</strong> O(n) (recursion stack)</p>
-      <pre class="pseudo-code">
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a string, return all possible permutations of its characters.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: "abc" → Output:
+          ["abc","acb","bac","bca","cab","cba"]
+        </p>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Backtracking / Recursive Swapping</h2>
+        <p>
+          <strong>Explanation:</strong> Swap each character with all subsequent
+          characters and recurse.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(n! × n) (permutation count × copy
+          time)
+        </p>
+        <p><strong>Space Complexity:</strong> O(n) (recursion stack)</p>
+        <pre class="pseudo-code">
 function permute(s, l):
     if l == len(s):
         add s to result
@@ -48,15 +74,19 @@ function permute(s, l):
         permute(s, l+1)
         swap back
 permute(string, 0)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Using Used Array</h2>
-      <p><strong>Explanation:</strong> Build permutation step by step, marking characters used.</p>
-      <p><strong>Time Complexity:</strong> O(n! × n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Using Used Array</h2>
+        <p>
+          <strong>Explanation:</strong> Build permutation step by step, marking
+          characters used.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n! × n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 function backtrack(path, used):
     if len(path) == n:
         add path copy to result
@@ -68,25 +98,28 @@ function backtrack(path, used):
         backtrack(path + s[i], used)
         used[i]=False
 backtrack("", [False]*n)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Itertools / Library (Python)</h2>
-      <p><strong>Explanation:</strong> Use built-in permutation function.</p>
-      <p><strong>Time Complexity:</strong> O(n! × n)</p>
-      <p><strong>Space Complexity:</strong> O(n! × n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Itertools / Library (Python)</h2>
+        <p><strong>Explanation:</strong> Use built-in permutation function.</p>
+        <p><strong>Time Complexity:</strong> O(n! × n)</p>
+        <p><strong>Space Complexity:</strong> O(n! × n)</p>
+        <pre class="pseudo-code">
 from itertools import permutations
 result = list(permutations(s))
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
-</body>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

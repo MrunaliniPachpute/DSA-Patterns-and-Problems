@@ -1,14 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detect Cycle - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detect Cycle - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
 
+<<<<<<< HEAD
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-img"> 
@@ -21,29 +37,48 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+=======
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Detect Cycle
+          </li>
+        </ol>
+      </nav>
+>>>>>>> upstream/main
     </div>
-  </nav>
 
-  <main>
-    <h1>Detect Cycle in Linked List</h1>
+    <main>
+      <h1>Detect Cycle in Linked List</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given the <strong>head</strong> of a linked list, determine if the list has a cycle in it. 
-        A cycle exists if a node’s next pointer points back to a previous node.
-      </p>
-      <p><strong>Example:</strong> Input: 3 → 2 → 0 → -4 (with -4.next = node at index 1), Output: true</p>
-    </section>
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given the <strong>head</strong> of a linked list, determine if the
+          list has a cycle in it. A cycle exists if a node’s next pointer points
+          back to a previous node.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: 3 → 2 → 0 → -4 (with -4.next = node
+          at index 1), Output: true
+        </p>
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Hash Set</h2>
-      <p><strong>Explanation:</strong> Store visited nodes in a set. If a node repeats, cycle exists.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Hash Set</h2>
+        <p>
+          <strong>Explanation:</strong> Store visited nodes in a set. If a node
+          repeats, cycle exists.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 visited = set()
 while head != NULL:
     if head in visited:
@@ -51,15 +86,33 @@ while head != NULL:
     visited.add(head)
     head = head.next
 return false
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 1 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/detectcycle1.jpg"
+            alt="Detect Cycle Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Floyd’s Cycle Detection</h2>
-      <p><strong>Explanation:</strong> Use two pointers (slow and fast). If they meet, cycle exists.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Floyd’s Cycle Detection</h2>
+        <p>
+          <strong>Explanation:</strong> Use two pointers (slow and fast). If
+          they meet, cycle exists.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 slow = head
 fast = head
 while fast != NULL and fast.next != NULL:
@@ -68,14 +121,30 @@ while fast != NULL and fast.next != NULL:
     if slow == fast:
         return true
 return false
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+      <!-- Flowchart Section for Approach 2 -->
+      <section class="flowchart-section">
+        <button class="flowchart-btn">View Flowchart</button>
+        <div
+          class="flowchart-container"
+          style="display: none; margin-top: 20px"
+        >
+          <img
+            src="../Flowcharts/detectcycle2.jpg"
+            alt="Detect Cycle Flowchart"
+            class="flowchart-img"
+          />
+        </div>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-<script src="../../index.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

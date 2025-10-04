@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Group Anagrams - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Anagrams - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -21,43 +22,68 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Group Anagrams
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-  <main>
-    <h1>Group Anagrams</h1>
+    <main>
+      <h1>Group Anagrams</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given an array of strings <strong>strs</strong>, group the anagrams together. Return the groups in any order.
-      </p>
-      <p><strong>Example:</strong> Input: ["eat","tea","tan","ate","nat","bat"] → Output: [["eat","tea","ate"],["tan","nat"],["bat"]]</p>
-    </section>
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given an array of strings <strong>strs</strong>, group the anagrams
+          together. Return the groups in any order.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: ["eat","tea","tan","ate","nat","bat"]
+          → Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
+        </p>
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Compare each string with others by sorting and checking equality.</p>
-      <p><strong>Time Complexity:</strong> O(n² * k log k) where k = max string length</p>
-      <p><strong>Space Complexity:</strong> O(n * k)</p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Compare each string with others by
+          sorting and checking equality.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(n² * k log k) where k = max string
+          length
+        </p>
+        <p><strong>Space Complexity:</strong> O(n * k)</p>
+        <pre class="pseudo-code">
 groups = []
 for each word in strs:
     check if it matches existing sorted word in groups
     if yes, add to that group
     else, create new group
 return groups
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Sorting & Hash Map</h2>
-      <p><strong>Explanation:</strong> Sort each string, use it as a key in hash map to group anagrams.</p>
-      <p><strong>Time Complexity:</strong> O(n * k log k)</p>
-      <p><strong>Space Complexity:</strong> O(n * k)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Sorting & Hash Map</h2>
+        <p>
+          <strong>Explanation:</strong> Sort each string, use it as a key in
+          hash map to group anagrams.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n * k log k)</p>
+        <p><strong>Space Complexity:</strong> O(n * k)</p>
+        <pre class="pseudo-code">
 map = {}
 for word in strs:
     key = sort(word)
@@ -65,15 +91,19 @@ for word in strs:
         map[key] = []
     map[key].append(word)
 return list(map.values())
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Character Count Hashing (Optimal)</h2>
-      <p><strong>Explanation:</strong> Count frequency of each char, convert count to tuple as hash map key.</p>
-      <p><strong>Time Complexity:</strong> O(n * k)</p>
-      <p><strong>Space Complexity:</strong> O(n * k)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Character Count Hashing (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Count frequency of each char, convert
+          count to tuple as hash map key.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n * k)</p>
+        <p><strong>Space Complexity:</strong> O(n * k)</p>
+        <pre class="pseudo-code">
 map = {}
 for word in strs:
     count = [0]*26
@@ -84,15 +114,17 @@ for word in strs:
         map[key] = []
     map[key].append(word)
 return list(map.values())
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

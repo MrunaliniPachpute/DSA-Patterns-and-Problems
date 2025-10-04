@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Longest Substring Without Repeating Characters - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Longest Substring Without Repeating Characters - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+ 
   <!-- Navbar -->
   <nav class="navbar">
      <div class="logo-img"> 
@@ -21,43 +22,62 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Longest Substring Without Repeating Characters
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-  <main>
-    <h1>Longest Substring Without Repeating Characters</h1>
+    <main>
+      <h1>Longest Substring Without Repeating Characters</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given a string <strong>s</strong>, find the length of the longest substring without repeating characters.
-      </p>
-      <p><strong>Example:</strong> Input: "abcabcbb" → Output: 3 ("abc")</p>
-    </section>
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a string <strong>s</strong>, find the length of the longest
+          substring without repeating characters.
+        </p>
+        <p><strong>Example:</strong> Input: "abcabcbb" → Output: 3 ("abc")</p>
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Generate all substrings, check if characters are unique.</p>
-      <p><strong>Time Complexity:</strong> O(n³)</p>
-      <p><strong>Space Complexity:</strong> O(min(n,m))</p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Generate all substrings, check if
+          characters are unique.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n³)</p>
+        <p><strong>Space Complexity:</strong> O(min(n,m))</p>
+        <pre class="pseudo-code">
 max_len = 0
 for i = 0 to n-1:
     for j = i to n-1:
         if all chars in s[i..j] are unique:
             max_len = max(max_len, j-i+1)
 return max_len
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Sliding Window</h2>
-      <p><strong>Explanation:</strong> Use two pointers and a set to maintain unique characters in current window.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(min(n,m))</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Sliding Window</h2>
+        <p>
+          <strong>Explanation:</strong> Use two pointers and a set to maintain
+          unique characters in current window.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(min(n,m))</p>
+        <pre class="pseudo-code">
 set = empty
 left = 0, max_len = 0
 for right = 0 to n-1:
@@ -67,15 +87,19 @@ for right = 0 to n-1:
     add s[right] to set
     max_len = max(max_len, right-left+1)
 return max_len
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Sliding Window with Hash Map (Optimal)</h2>
-      <p><strong>Explanation:</strong> Store last index of characters to skip duplicates efficiently.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(min(n,m))</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Sliding Window with Hash Map (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Store last index of characters to skip
+          duplicates efficiently.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(min(n,m))</p>
+        <pre class="pseudo-code">
 map = empty
 left = 0, max_len = 0
 for right = 0 to n-1:
@@ -84,15 +108,17 @@ for right = 0 to n-1:
     map[s[right]] = right
     max_len = max(max_len, right-left+1)
 return max_len
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

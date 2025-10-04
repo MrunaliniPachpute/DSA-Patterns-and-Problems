@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catalan Numbers - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalan Numbers - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -21,44 +22,72 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../dp.html">Dynamic Programming</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Catalan Numbers
+          </li>
+        </ol>
+      </nav>
     </div>
-  </nav>
 
-  <main>
-    <h1>Catalan Numbers</h1>
+    <main>
+      <h1>Catalan Numbers</h1>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        The <strong>n-th Catalan number</strong> counts the number of valid expressions, binary search trees, or ways to parenthesize expressions.
-        Compute the n-th Catalan number efficiently.
-      </p>
-      <p><strong>Example:</strong> Input: n = 4, Output: 14 (valid BSTs / valid parentheses sequences)</p>
-    </section>
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          The <strong>n-th Catalan number</strong> counts the number of valid
+          expressions, binary search trees, or ways to parenthesize expressions.
+          Compute the n-th Catalan number efficiently.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: n = 4, Output: 14 (valid BSTs / valid
+          parentheses sequences)
+        </p>
+      </section>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Recursion</h2>
-      <p><strong>Explanation:</strong> Catalan number can be defined recursively: C<sub>n</sub> = Σ C<sub>i</sub> * C<sub>n-i-1</sub> for i=0..n-1</p>
-      <p><strong>Time Complexity:</strong> O(2<sup>n</sup>)</p>
-      <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Recursion</h2>
+        <p>
+          <strong>Explanation:</strong> Catalan number can be defined
+          recursively: C<sub>n</sub> = Σ C<sub>i</sub> * C<sub>n-i-1</sub> for
+          i=0..n-1
+        </p>
+        <p><strong>Time Complexity:</strong> O(2<sup>n</sup>)</p>
+        <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
+        <pre class="pseudo-code">
 function catalan(n):
     if n == 0 or n == 1: return 1
     res = 0
     for i = 0 to n-1:
         res += catalan(i) * catalan(n-i-1)
     return res
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Memoization (Top-Down DP)</h2>
-      <p><strong>Explanation:</strong> Store results of subproblems to avoid recomputation.</p>
-      <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
-      <p><strong>Space Complexity:</strong> O(n) recursion stack + O(n) DP array</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Memoization (Top-Down DP)</h2>
+        <p>
+          <strong>Explanation:</strong> Store results of subproblems to avoid
+          recomputation.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
+        <p>
+          <strong>Space Complexity:</strong> O(n) recursion stack + O(n) DP
+          array
+        </p>
+        <pre class="pseudo-code">
 dp[0..n] = -1
 function catalan(n):
     if n == 0 or n == 1: return 1
@@ -68,42 +97,48 @@ function catalan(n):
         res += catalan(i) * catalan(n-i-1)
     dp[n] = res
     return res
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
-      <p><strong>Explanation:</strong> Compute all Catalan numbers from 0 to n iteratively.</p>
-      <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
+        <p>
+          <strong>Explanation:</strong> Compute all Catalan numbers from 0 to n
+          iteratively.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 dp[0] = dp[1] = 1
 for k = 2 to n:
     dp[k] = 0
     for i = 0 to k-1:
         dp[k] += dp[i] * dp[k-i-1]
 return dp[n]
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 4: Using Binomial Coefficient</h2>
-      <p><strong>Explanation:</strong> Catalan(n) = C(2n, n) / (n+1)</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 4: Using Binomial Coefficient</h2>
+        <p><strong>Explanation:</strong> Catalan(n) = C(2n, n) / (n+1)</p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 function catalan(n):
     return binomialCoefficient(2*n, n) / (n + 1)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
+    </main>
 
-  </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-
-  <script src="../../index.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

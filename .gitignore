@@ -1,0 +1,71 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+# Compiled output
+**/dist/
+**/*.tsbuildinfo
+
+# Bun package manager
+# https://bun.sh/docs/install/lockfile
+node_modules/
+
+# Logs
+*.log
+
+# Cache
+/.cache
+/*/.swc/
+.eslintcache
+
+# Testing
+/coverage
+*.lcov
+
+# Environment variables
+.env.*.local
+.env.local
+
+# Visual Studio Code
+# https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/mcp.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# WebStorm
+.idea
+
+# Wrangler CLI
+# https://developers.cloudflare.com/workers/wrangler/
+.wrangler/
+
+# Terraform
+# https://github.com/github/gitignore/blob/main/Terraform.gitignore
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+
+# Local development files
+*.local.md
+*.local.json
+*.local.jsonc
+
+# macOS
+# https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+.DS_Store
+
+bun.lock
+yarn.lock
+npm.lock

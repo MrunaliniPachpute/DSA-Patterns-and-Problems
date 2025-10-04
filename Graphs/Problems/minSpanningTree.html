@@ -1,43 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimum Spanning Tree - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-     <div class="logo-img"> 
-      <img src="../../images/image.png" alt="Logo"></div>
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimum Spanning Tree - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-img">
+        <img src="../../images/image.png" alt="Logo" />
+      </div>
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../graph.html">Graphs</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Minimum Spanning Tree
+          </li>
+        </ol>
+      </nav>
     </div>
-  </nav>
 
-  <main>
-    <h1>Minimum Spanning Tree (MST)</h1>
+    <main>
+      <h1>Minimum Spanning Tree (MST)</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Find a tree connecting all nodes with minimum total edge weight in a connected undirected graph.</p>
-      <p><strong>Example:</strong> Graph edges = [[0,1,4],[0,2,3],[1,2,1],[1,3,2],[2,3,4]] → MST total weight = 7</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Find a tree connecting all nodes with minimum total edge weight in a
+          connected undirected graph.
+        </p>
+        <p>
+          <strong>Example:</strong> Graph edges =
+          [[0,1,4],[0,2,3],[1,2,1],[1,3,2],[2,3,4]] → MST total weight = 7
+        </p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Kruskal’s Algorithm</h2>
-      <p><strong>Explanation:</strong> Sort edges by weight, add to MST if it doesn’t form cycle using Union-Find.</p>
-      <p><strong>Time Complexity:</strong> O(E log E)</p>
-      <p><strong>Space Complexity:</strong> O(V)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 1: Kruskal’s Algorithm</h2>
+        <p>
+          <strong>Explanation:</strong> Sort edges by weight, add to MST if it
+          doesn’t form cycle using Union-Find.
+        </p>
+        <p><strong>Time Complexity:</strong> O(E log E)</p>
+        <p><strong>Space Complexity:</strong> O(V)</p>
+        <pre class="pseudo-code">
 sort edges by weight
 parent = [i for i in range(V)]
 function find(x):
@@ -51,15 +77,19 @@ for edge(u,v,w) in sorted edges:
         union(u,v)
         mst_weight += w
 return mst_weight
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Prim’s Algorithm</h2>
-      <p><strong>Explanation:</strong> Start from a node, iteratively add smallest edge connecting MST to remaining nodes using min-heap.</p>
-      <p><strong>Time Complexity:</strong> O(E log V)</p>
-      <p><strong>Space Complexity:</strong> O(V + E)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Prim’s Algorithm</h2>
+        <p>
+          <strong>Explanation:</strong> Start from a node, iteratively add
+          smallest edge connecting MST to remaining nodes using min-heap.
+        </p>
+        <p><strong>Time Complexity:</strong> O(E log V)</p>
+        <p><strong>Space Complexity:</strong> O(V + E)</p>
+        <pre class="pseudo-code">
 visited = set()
 min_heap = [(0, start_node)]
 mst_weight = 0
@@ -72,13 +102,15 @@ while min_heap not empty:
         if neighbor not in visited:
             heap.push((w, neighbor))
 return mst_weight
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

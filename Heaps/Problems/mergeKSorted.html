@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merge K Sorted Arrays / Lists - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge K Sorted Arrays / Lists - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -21,41 +22,66 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
-  <main>
-    <h1>Merge K Sorted Arrays / Lists</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../heap.html">Heaps</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Merge K Sorted Arrays / Lists
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given K sorted arrays (or linked lists), merge them into one sorted array (or list).
-      </p>
-      <p><strong>Example:</strong> Input: [[1,4,5],[1,3,4],[2,6]] → Output: [1,1,2,3,4,4,5,6]</p>
-    </section>
+    <main>
+      <h1>Merge K Sorted Arrays / Lists</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Concatenate all arrays and sort them.</p>
-      <p><strong>Time Complexity:</strong> O(N log N), N = total number of elements</p>
-      <p><strong>Space Complexity:</strong> O(N)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given K sorted arrays (or linked lists), merge them into one sorted
+          array (or list).
+        </p>
+        <p>
+          <strong>Example:</strong> Input: [[1,4,5],[1,3,4],[2,6]] → Output:
+          [1,1,2,3,4,4,5,6]
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Concatenate all arrays and sort them.
+        </p>
+        <p>
+          <strong>Time Complexity:</strong> O(N log N), N = total number of
+          elements
+        </p>
+        <p><strong>Space Complexity:</strong> O(N)</p>
+        <pre class="pseudo-code">
 merged = []
 for arr in arrays:
     merged.extend(arr)
 sort(merged)
 return merged
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Min Heap (Optimal)</h2>
-      <p><strong>Explanation:</strong> Use a min-heap to always pick the smallest element from heads of arrays.</p>
-      <p><strong>Time Complexity:</strong> O(N log K)</p>
-      <p><strong>Space Complexity:</strong> O(K)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Min Heap (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Use a min-heap to always pick the
+          smallest element from heads of arrays.
+        </p>
+        <p><strong>Time Complexity:</strong> O(N log K)</p>
+        <p><strong>Space Complexity:</strong> O(K)</p>
+        <pre class="pseudo-code">
 create min-heap
 for each array:
     push first element with array index and element index
@@ -65,15 +91,18 @@ while heap not empty:
     if next element exists in same array:
         push next element
 return result
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Divide & Conquer</h2>
-      <p><strong>Explanation:</strong> Merge arrays pairwise recursively.</p>
-      <p><strong>Time Complexity:</strong> O(N log K)</p>
-      <p><strong>Space Complexity:</strong> O(1) extra (if merged in place)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Divide & Conquer</h2>
+        <p><strong>Explanation:</strong> Merge arrays pairwise recursively.</p>
+        <p><strong>Time Complexity:</strong> O(N log K)</p>
+        <p>
+          <strong>Space Complexity:</strong> O(1) extra (if merged in place)
+        </p>
+        <pre class="pseudo-code">
 function mergeKArrays(arrays):
     if arrays.size == 1:
         return arrays[0]
@@ -81,13 +110,15 @@ function mergeKArrays(arrays):
     left = mergeKArrays(arrays[0..mid])
     right = mergeKArrays(arrays[mid+1..end])
     return mergeTwo(left, right)
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <script src="../../index.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

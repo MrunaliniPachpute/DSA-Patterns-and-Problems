@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Min Stack - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Min Stack - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-
-<body>
+  <body>
+ 
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -23,38 +24,62 @@
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
     <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
   </nav>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../stackAndQueue.html">Stacks & Queues</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Min Stack</li>
+        </ol>
+      </nav>
+    </div>
 
-  <main>
-    <h1>Min Stack</h1>
+    <main>
+      <h1>Min Stack</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-      <p><strong>Example:</strong> push(2), push(0), push(3), push(0), getMin() → 0</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Design a stack that supports push, pop, top, and retrieving the
+          minimum element in constant time.
+        </p>
+        <p>
+          <strong>Example:</strong> push(2), push(0), push(3), push(0), getMin()
+          → 0
+        </p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Store all elements; find min by scanning stack each time.</p>
-      <p><strong>Time Complexity:</strong> push/pop O(1), getMin O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Store all elements; find min by scanning
+          stack each time.
+        </p>
+        <p><strong>Time Complexity:</strong> push/pop O(1), getMin O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 push(x): stack.push(x)
 pop(): stack.pop()
 top(): return stack[-1]
 getMin(): return min(stack)
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Auxiliary Stack (Better)</h2>
-      <p><strong>Explanation:</strong> Maintain an additional stack to track current minimum.</p>
-      <p><strong>Time Complexity:</strong> O(1) for all operations</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Auxiliary Stack (Better)</h2>
+        <p>
+          <strong>Explanation:</strong> Maintain an additional stack to track
+          current minimum.
+        </p>
+        <p><strong>Time Complexity:</strong> O(1) for all operations</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 minStack = empty
 push(x):
@@ -66,15 +91,19 @@ pop():
         minStack.pop()
 top(): return stack.top()
 getMin(): return minStack.top()
-      </pre>
-    </section>
+      </pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Single Stack with Encoded Values (Optimal)</h2>
-      <p><strong>Explanation:</strong> Use single stack with encoded differences to track minimum.</p>
-      <p><strong>Time Complexity:</strong> O(1)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Single Stack with Encoded Values (Optimal)</h2>
+        <p>
+          <strong>Explanation:</strong> Use single stack with encoded
+          differences to track minimum.
+        </p>
+        <p><strong>Time Complexity:</strong> O(1)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
 stack = empty
 minVal = ∞
 push(x):
@@ -89,15 +118,16 @@ pop():
         minVal = 2*minVal - top
 top(): return minVal if top < minVal else top
 getMin(): return minVal
-      </pre>
-    </section>
-  </main>
+      </pre
+        >
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
-</body>
-
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

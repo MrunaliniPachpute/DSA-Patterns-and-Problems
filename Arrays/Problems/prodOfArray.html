@@ -1,85 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product of array - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product of array - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
 
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-      <div class="logo-img"> 
-      <img src="../../images/image.png" alt="Logo"></div>
-    <div class="logo">CodeDSA</div>
-    <div class="nav-right">
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo-img">
+    <img src="../../images/image.png" alt="Logo">
+  </div>
+  <div class="logo">CodeDSA</div>
+  <div class="nav-right">
     <ul class="nav-links">
       <li><a href="../../index.html">Home</a></li>
       <li><a href="../../about.html">About</a></li>
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    </div>
+    <button id="snakeToggle" class="snake-btn">
+      <span style="margin-left: 20px;">Snake Cursor</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Breadcrumb Navigation -->
+<div class="breadcrumb-container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Product of Array
+      </li>
+    </ol>
   </nav>
+</div>
     <main>
-    <h1>Product of Array Except Self</h1>
+      <h1>Product of Array Except Self</h1>
 
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>Return an array output such that output[i] is the product of all elements of nums except nums[i].</p>
-      <p><strong>Example:</strong> nums = [1,2,3,4] → Output: [24,12,8,6]</p>
-    </section>
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Return an array output such that output[i] is the product of all
+          elements of nums except nums[i].
+        </p>
+        <p><strong>Example:</strong> nums = [1,2,3,4] → Output: [24,12,8,6]</p>
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Multiply all elements except current for each index.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(1) or O(n) for output</p>
-      <pre class="pseudo-code">for i in 0..n-1:
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Multiply all elements except current for
+          each index.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(1) or O(n) for output</p>
+        <pre class="pseudo-code">
+for i in 0..n-1:
     prod=1
     for j in 0..n-1:
         if i != j:
             prod *= nums[j]
-    output[i]=prod</pre>
-    </section>
+    output[i]=prod</pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Prefix & Suffix Arrays</h2>
-      <p><strong>Explanation:</strong> Compute prefix and suffix products separately.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
-      <pre class="pseudo-code">prefix[0]=1
+      <section class="approach-section">
+        <h2>Approach 2: Prefix & Suffix Arrays</h2>
+        <p>
+          <strong>Explanation:</strong> Compute prefix and suffix products
+          separately.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
+prefix[0]=1
 for i in 1..n-1:
     prefix[i]=prefix[i-1]*nums[i-1]
 suffix[n-1]=1
 for i in n-2..0:
     suffix[i]=suffix[i+1]*nums[i+1]
 for i in 0..n-1:
-    output[i]=prefix[i]*suffix[i]</pre>
-    </section>
+    output[i]=prefix[i]*suffix[i]</pre
+        >
+      </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Optimal (No extra arrays)</h2>
-      <p><strong>Explanation:</strong> Use output array as prefix, then multiply suffix on the go.</p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1) ignoring output array</p>
-      <pre class="pseudo-code">output[0]=1
+      <section class="approach-section">
+        <h2>Approach 3: Optimal (No extra arrays)</h2>
+        <p>
+          <strong>Explanation:</strong> Use output array as prefix, then
+          multiply suffix on the go.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1) ignoring output array</p>
+        <pre class="pseudo-code">
+output[0]=1
 for i in 1..n-1:
     output[i]=output[i-1]*nums[i-1]
 suffix=1
 for i in n-1..0:
     output[i] *= suffix
-    suffix *= nums[i]</pre>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    suffix *= nums[i]</pre
+        >
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
-  <script src="../../index.js"></script>
-</body>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>
