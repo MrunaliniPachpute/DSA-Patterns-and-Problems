@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -65,6 +66,59 @@
         </p>
         <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B[Insert all words into trie]
+              B --> C[Initialize result set]
+              C --> D[For each cell in grid]
+              D --> E[Start DFS from current cell]
+              E --> F[Initialize visited matrix]
+              F --> G[Call DFS with cell position and trie root]
+              
+              G --> H{Cell is valid and not visited?}
+              H -->|No| I[Return from DFS]
+              H -->|Yes| J[Mark cell as visited]
+              J --> K[Get current character from grid]
+              K --> L{Character exists in trie node?}
+              L -->|No| M[Unmark cell and return]
+              L -->|Yes| N[Move to next trie node]
+              N --> O{Current node is end of word?}
+              O -->|Yes| P[Add word to result set]
+              O -->|No| Q[Continue DFS]
+              P --> Q
+              
+              Q --> R[For each direction: up, down, left, right]
+              R --> S[Calculate new position]
+              S --> T[Recursively call DFS on new position]
+              T --> R
+              R -->|All directions explored| U[Unmark current cell]
+              U --> V[Return from DFS]
+              
+              I --> W[Continue to next cell]
+              M --> W
+              V --> W
+              W --> X{More cells to explore?}
+              X -->|Yes| D
+              X -->|No| Y[Return result set]
+              Y --> Z[End]
+              
+              style A fill:#e1f5fe
+              style Z fill:#e8f5e8
+              style H fill:#fff3e0
+              style L fill:#fff3e0
+              style O fill:#fff3e0
+              style X fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -72,5 +126,23 @@
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>

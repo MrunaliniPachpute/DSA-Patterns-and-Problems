@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -71,6 +72,35 @@ startsWith(prefix):
       </pre
         >
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B[Initialize node = root]
+              B --> C[For each character in prefix]
+              C --> D{Character exists in node.children?}
+              D -->|No| E[Return false]
+              D -->|Yes| F[Move to child node]
+              F --> G{More characters in prefix?}
+              G -->|Yes| C
+              G -->|No| H[Return true]
+              
+              E --> I[End]
+              H --> I
+              
+              style A fill:#e1f5fe
+              style I fill:#e8f5e8
+              style D fill:#fff3e0
+              style G fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -78,5 +108,23 @@ startsWith(prefix):
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -64,6 +65,51 @@
         </p>
         <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B[Initialize result list]
+              B --> C[Traverse trie to prefix node]
+              C --> D[Initialize node = root]
+              D --> E[For each character in prefix]
+              E --> F{Character exists in node.children?}
+              F -->|No| G[Return empty list]
+              F -->|Yes| H[Move to child node]
+              H --> I{More characters in prefix?}
+              I -->|Yes| E
+              I -->|No| J[Start DFS from prefix node]
+              
+              J --> K[Call DFS with prefix node and current word]
+              K --> L{Node is end of word?}
+              L -->|Yes| M[Add word to result list]
+              L -->|No| N[Continue DFS]
+              M --> N
+              N --> O[For each child of current node]
+              O --> P[Add child character to word]
+              P --> Q[Recursively call DFS on child]
+              Q --> R[Remove last character from word]
+              R --> O
+              O -->|No more children| S[Return from DFS]
+              
+              S --> T[Return result list]
+              G --> T
+              T --> U[End]
+              
+              style A fill:#e1f5fe
+              style U fill:#e8f5e8
+              style F fill:#fff3e0
+              style I fill:#fff3e0
+              style L fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -71,5 +117,23 @@
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>

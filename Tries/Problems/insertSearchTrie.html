@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -87,6 +88,58 @@ class Trie:
       </pre
         >
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B{Operation Type?}
+              B -->|Insert| C[Initialize node = root]
+              B -->|Search| D[Initialize node = root]
+              
+              C --> E[For each character in word]
+              E --> F{Character exists in node.children?}
+              F -->|No| G[Create new TrieNode]
+              F -->|Yes| H[Move to existing child]
+              G --> I[Add new node to children]
+              I --> J[Move to new node]
+              H --> J
+              J --> K{More characters?}
+              K -->|Yes| E
+              K -->|No| L[Set node.isEnd = true]
+              L --> M[End Insert]
+              
+              D --> N[For each character in word]
+              N --> O{Character exists in node.children?}
+              O -->|No| P[Return false]
+              O -->|Yes| Q[Move to child node]
+              Q --> R{More characters?}
+              R -->|Yes| N
+              R -->|No| S{node.isEnd == true?}
+              S -->|Yes| T[Return true]
+              S -->|No| U[Return false]
+              
+              M --> V[End]
+              P --> V
+              T --> V
+              U --> V
+              
+              style A fill:#e1f5fe
+              style V fill:#e8f5e8
+              style B fill:#fff3e0
+              style F fill:#fff3e0
+              style K fill:#fff3e0
+              style O fill:#fff3e0
+              style R fill:#fff3e0
+              style S fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -94,5 +147,23 @@ class Trie:
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>
