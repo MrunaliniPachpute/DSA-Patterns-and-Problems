@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display C++ Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        code {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>C++ Code Example</h1>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int x) {
+        this-&gt;data = x;
+        this-&gt;next = nullptr;
+    }
+};
+
+int getMiddle(Node* head) {
+
+    Node* slowptr = head;
+    Node* fastptr = head;
+
+    while (fastptr != NULL && fastptr-&gt;next != NULL) {
+
+        // move the fast pointer by two nodes
+        fastptr = fastptr-&gt;next-&gt;next;
+
+        // move the slow pointer by one node
+        slowptr = slowptr-&gt;next;
+    }
+
+    return slowptr-&gt;data;
+}
+
+int main() {
+
+    Node* head = new Node(10);
+    head-&gt;next = new Node(20);
+    head-&gt;next-&gt;next = new Node(30);
+    head-&gt;next-&gt;next-&gt;next = new Node(40);
+    head-&gt;next-&gt;next-&gt;next-&gt;next = new Node(50);
+    head-&gt;next-&gt;next-&gt;next-&gt;next-&gt;next = new Node(60);
+
+    cout &lt;&lt; getMiddle(head) &lt;&lt; endl;
+
+    return 0;
+}
+    </code></pre>
+</body>
+</html>

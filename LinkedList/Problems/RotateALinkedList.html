@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotate Linked List - C++ Code</title>
+    <style>
+        body {
+            font-family: Consolas, monospace;
+            margin: 30px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ccc;
+        }
+        code {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Rotate a Linked List in C++</h1>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Node {
+  public:
+    int data;
+    Node *next;
+    Node(int new_data) {
+        data = new_data;
+        next = nullptr;
+    }
+};
+
+Node *rotate(Node *head, int k) {
+    if (k == 0 || head == nullptr)
+        return head;
+
+    // rotate the list by k nodes
+    for (int i = 0; i &lt; k; ++i) {
+        Node *curr = head;
+        while (curr-&gt;next != nullptr)
+            curr = curr-&gt;next;
+        
+        // move the first node to the last
+        curr-&gt;next = head;
+        curr = curr-&gt;next;
+        head = head-&gt;next;
+        curr-&gt;next = nullptr;
+    }
+    return head;
+}
+
+void printList(Node *node) {
+    while (node != nullptr) {
+        cout &lt;&lt; node-&gt;data;
+        if(node-&gt;next != NULL){
+            cout &lt;&lt; &quot; -&gt; &quot;;
+        }
+        node = node-&gt;next;
+    }
+    cout &lt;&lt; endl;
+}
+
+int main() {
+
+    Node *head = new Node(10);
+    head-&gt;next = new Node(20);
+    head-&gt;next-&gt;next = new Node(30);
+    head-&gt;next-&gt;next-&gt;next = new Node(40);
+  
+    head = rotate(head, 6);
+    printList(head);
+
+    return 0;
+}
+</code></pre>
+
+</body>
+</html>
