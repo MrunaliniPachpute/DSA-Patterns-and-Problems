@@ -1,127 +1,130 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeDSA Binary Search</title>
-    <link rel="stylesheet" href="../CSS/breadcrumb.css">
-    <link rel="stylesheet" href="../CSS/AllTopics.css">
-    <link rel="stylesheet" href="../CSS/snake.css">
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo-img">
-        <img src="../../images/image.png" alt="Logo">
-      </div>
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px;">Snake Cursor</span>
-        </button>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeDSA Binary Search Trees</title>
+  <link rel="stylesheet" href="../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../CSS/AllTopics.css" />
+  <link rel="stylesheet" href="../CSS/snake.css" />
+</head>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Binary Search</li>
-        </ol>
-      </nav>
+<body>
+  <script src="../JS/ProgressBar.js" defer></script>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-img">
+      <img src="../../images/image.png" alt="Logo" />
+    </div>
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px;">Snake Cursor</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Binary Search Trees</li>
+      </ol>
+    </nav>
+  </div>
+  <main>
+    <h1>Binary Search Topics</h1>
+    <p class="intro-text">Master essential binary search problems and patterns frequently asked in interviews.</p>
+
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
     </div>
 
-    <main>
-      <h1>Binary Search Topics</h1>
-      <p class="intro-text">
-        Master essential binary search problems and patterns frequently asked in
-        interviews.
-      </p>
-
-      <ul class="topic-list">
+    <ul id="topics" class="topic-list" data-topic="binary-search">
+      <li>
         <a href="./Problems/basicBinarySearch.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">01</span>
           <span class="topic-name">Basic Binary Search</span>
           <span class="topic-desc">Search for a target in a sorted array</span>
         </a>
+      </li>
+
+      <li>
         <a href="./Problems/firstAndLast.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">02</span>
           <span class="topic-name">First & Last Position of Element</span>
-          <span class="topic-desc"
-            >Find the starting and ending index using modified binary
-            search</span
-          >
+          <span class="topic-desc">Find the starting and ending index using modified binary search</span>
         </a>
+      </li>
+
+      <li>
         <a href="./Problems/searchInsertPos.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">03</span>
           <span class="topic-name">Search Insert Position</span>
-          <span class="topic-desc"
-            >Find the position to insert element in sorted array</span
-          >
+          <span class="topic-desc">Find the position to insert element in sorted array</span>
         </a>
+      </li>
+
+      <li>
         <a href="./Problems/peakEl.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">04</span>
           <span class="topic-name">Peak Element</span>
-          <span class="topic-desc"
-            >Find a peak element where neighbors are smaller</span
-          >
+          <span class="topic-desc">Find a peak element where neighbors are smaller</span>
         </a>
+      </li>
+
+      <li>
         <a href="./Problems/sqrtOrBSOnAnswer.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">05</span>
           <span class="topic-name">Binary Search on Answer</span>
-          <span class="topic-desc"
-            >Apply binary search on solution space, e.g., sqrt, capacity,
-            etc.</span
-          >
+          <span class="topic-desc">Apply binary search on solution space, e.g., sqrt, capacity, etc.</span>
         </a>
-      </ul>
+      </li>
 
-      <p class="pattern-coverage">
-        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-        These problems cover the most
-        <em>important binary search patterns</em> for interviews: <br /><br />
+    </ul>
 
-        <span class="pattern-name">Basic Binary Search</span> →
-        <span class="pattern-desc"
-          >Standard binary search template for sorted arrays.</span
-        ><br />
-        <span class="pattern-name">First & Last Position of Element</span> →
-        <span class="pattern-desc"
-          >Modified binary search for boundary indices.</span
-        ><br />
-        <span class="pattern-name">Search Insert Position</span> →
-        <span class="pattern-desc"
-          >Binary search to find insert position / lower bound.</span
-        ><br />
-        <span class="pattern-name">Peak Element</span> →
-        <span class="pattern-desc"
-          >Binary search in unsorted arrays to find local maxima.</span
-        ><br />
-        <span class="pattern-name">Binary Search on Answer</span> →
-        <span class="pattern-desc"
-          >Decision-space search pattern for optimization problems.</span
-        ><br /><br />
+    <p class="pattern-coverage">
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most
+      <em>important binary search patterns</em> for interviews: <br /><br />
 
-        Together, they ensure you understand
-        <span class="highlight"
-          >classic binary search, boundary search, insert position, peak
-          finding, and searching on answer space</span
-        >
-        techniques.
-      </p>
-    </main>
+      <span class="pattern-name">Basic Binary Search</span> →
+      <span class="pattern-desc">Standard binary search template for sorted arrays.</span><br />
+      <span class="pattern-name">First & Last Position of Element</span> →
+      <span class="pattern-desc">Modified binary search for boundary indices.</span><br />
+      <span class="pattern-name">Search Insert Position</span> →
+      <span class="pattern-desc">Binary search to find insert position / lower bound.</span><br />
+      <span class="pattern-name">Peak Element</span> →
+      <span class="pattern-desc">Binary search in unsorted arrays to find local maxima.</span><br />
+      <span class="pattern-name">Binary Search on Answer</span> →
+      <span class="pattern-desc">Decision-space search pattern for optimization problems.</span><br /><br />
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+      Together, they ensure you understand
+      <span class="highlight">classic binary search, boundary search, insert position, peak
+        finding, and searching on answer space</span>
+      techniques.
+    </p>
+  </main>
 
-    <script src="../index.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../index.js"></script>
+</body>
+
 </html>

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script src="../JS/ProgressBar.js" defer></script>
   <!-- Navbar -->
   <nav class="navbar">
      <div class="logo-img"> 
@@ -19,8 +20,11 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+
         <li><a href="../about.html">About</a></li>
+
         <li><a href="../contact.html">Contact</a></li>
+
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -32,7 +36,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Linked Lists</li>
+
+        <li class="breadcrumb-item active" aria-current="page">Linked Lists</a></li>
+
       </ol>
     </nav>
   </div>
@@ -44,32 +50,55 @@
       interviews.
     </p>
 
-    <ul class="topic-list">
-      <a href="./Problems/ReverseLL.html">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Reverse Linked List</span>
-        <span class="topic-desc">Iterative and recursive reversal of a linked list</span>
-      </a>
-      <a href="./Problems/DetectCycle.html">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Detect Cycle in Linked List</span>
-        <span class="topic-desc">Floyd's cycle detection algorithm (slow & fast pointers)</span>
-      </a>
-      <a href="./Problems/MergeSortedLL.html">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Merge Two Sorted Lists</span>
-        <span class="topic-desc">Classic merging problem using pointers</span>
-      </a>
-      <a href="./Problems/Palindrome.html">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Palindrome Linked List</span>
-        <span class="topic-desc">Check palindrome using reverse second half technique</span>
-      </a>
-      <a href="./Problems/IntersectionLL.html">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Intersection of Two Linked Lists</span>
-        <span class="topic-desc">Find the node where two lists intersect using pointer trick</span>
-      </a>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="ll">
+      <li>
+        <a href="./Problems/ReverseLL.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Reverse Linked List</span>
+          <span class="topic-desc">Iterative and recursive reversal of a linked list</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/DetectCycle.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Detect Cycle in Linked List</span>
+          <span class="topic-desc">Floyd’s cycle detection algorithm (slow & fast pointers)</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/MergeSortedLL.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">Merge Two Sorted Lists</span>
+          <span class="topic-desc">Classic merging problem using pointers</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/Palindrome.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">Palindrome Linked List</span>
+          <span class="topic-desc">Check palindrome using reverse second half technique</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/IntersectionLL.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">Intersection of Two Linked Lists</span>
+          <span class="topic-desc">Find the node where two lists intersect using pointer trick</span>
+        </a>
     </ul>
 
     <p class="pattern-coverage">

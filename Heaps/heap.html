@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script src="../JS/ProgressBar.js" defer></script>
   <!-- Navbar -->
   <nav class="navbar">
      <div class="logo-img"> 
@@ -19,8 +20,11 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+
         <li><a href="../about.html">About</a></li>
+
         <li><a href="../contact.html">Contact</a></li>
+
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -32,7 +36,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Heaps</li>
+
+        <li class="breadcrumb-item active" aria-current="page">Heaps</a></li>
+
       </ol>
     </nav>
   </div>
@@ -44,32 +50,55 @@
       interviews.
     </p>
 
-    <ul class="topic-list">
-      <a href="./Problems/kthLargest.html">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Kth Largest / Smallest Element</span>
-        <span class="topic-desc">Find Kth largest or smallest using min/max heap</span>
-      </a>
-      <a href="./Problems/mergeKSorted.html">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Merge K Sorted Arrays / Lists</span>
-        <span class="topic-desc">Use min-heap to efficiently merge multiple sorted lists</span>
-      </a>
-      <a href="./Problems/heapSort.html">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Heap Sort</span>
-        <span class="topic-desc">Classic sorting algorithm using max-heap</span>
-      </a>
-      <a href="./Problems/topKFrequent.html">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Top K Frequent Elements</span>
-        <span class="topic-desc">Use heap to track most frequent elements efficiently</span>
-      </a>
-      <a href="./Problems/slidingWindowMedian.html">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Sliding Window Median</span>
-        <span class="topic-desc">Maintain two heaps to find median in a sliding window</span>
-      </a>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="heap">
+      <li>
+        <a href="./Problems/kthLargest.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Kth Largest / Smallest Element</span>
+          <span class="topic-desc">Find Kth largest or smallest using min/max heap</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/mergeKSorted.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Merge K Sorted Arrays / Lists</span>
+          <span class="topic-desc">Use min-heap to efficiently merge multiple sorted lists</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/heapSort.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">Heap Sort</span>
+          <span class="topic-desc">Classic sorting algorithm using max-heap</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/topKFrequent.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">Top K Frequent Elements</span>
+          <span class="topic-desc">Use heap to track most frequent elements efficiently</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/slidingWindowMedian.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">Sliding Window Median</span>
+          <span class="topic-desc">Maintain two heaps to find median in a sliding window</span>
+        </a>
     </ul>
 
     <p class="pattern-coverage">
