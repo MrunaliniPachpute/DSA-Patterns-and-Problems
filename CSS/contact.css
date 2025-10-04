@@ -12,6 +12,61 @@ body {
   min-height: 100vh;
 }
 
+.logo-img img {
+  height:50px;       /* control logo size */
+  width: 50px;
+  vertical-align: middle;
+}
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar .nav-links li a:hover {
+  color: #ffe5d4; /* subtle highlight */
+}
+
+/* Navbar Buttons */
+.navbar .nav-links li a {
+  display: inline-block;
+  padding: 8px 20px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px; /* rounded pill shape */
+  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6); /* warm professional gradient */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+/* Hover effect */
+.navbar .nav-links li a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347); /* subtle gradient shift */
+}
+
+/* Optional active button style */
+.navbar .nav-links li a.active {
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  background: linear-gradient(90deg, #ffcc70, #ffb347, #ffd9a6);
+}
+
+
+.navbar .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+   transform: translateX(-350px); 
+}
+
 
 /* Footer */
 footer {

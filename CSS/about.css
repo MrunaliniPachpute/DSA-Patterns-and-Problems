@@ -25,6 +25,13 @@ body {
   z-index: 100;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.logo-img img {
+  height:50px;       
+  width: 50px;
+  vertical-align: middle;
+}
+
 .navbar .nav-links {
   list-style: none;
   display: flex;
@@ -51,6 +58,7 @@ body {
 .navbar .logo {
   font-size: 1.7rem;
   font-weight: bold;
+   transform: translateX(-350px); 
 }
 
 /* Right side container (links + snake button) */

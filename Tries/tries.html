@@ -1,28 +1,28 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CodeDSA Tries</title>
-  <link rel="stylesheet" href="../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../CSS/breadcrumb.css" />
   <link rel="stylesheet" href="../CSS/AllTopics.css" />
   <link rel="stylesheet" href="../CSS/snake.css" />
 </head>
 
 <body>
   <script src="../JS/ProgressBar.js" defer></script>
+
   <!-- Navbar -->
   <nav class="navbar">
+    <div class="logo-img">
+      <img src="../../images/image.png" alt="Logo" />
+    </div>
     <div class="logo">CodeDSA</div>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-
         <li><a href="../about.html">About</a></li>
-
         <li><a href="../contact.html">Contact</a></li>
-
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -30,23 +30,19 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-
-        <li class="breadcrumb-item active" aria-current="page">Tries</a></li>
-
+        <li class="breadcrumb-item active" aria-current="page">Tries</li>
       </ol>
     </nav>
   </div>
 
   <main>
     <h1>Trie Topics</h1>
-    <p class="intro-text">
-      Master essential trie problems and patterns frequently asked in
-      interviews.
-    </p>
+    <p class="intro-text">Master essential trie problems and patterns frequently asked in interviews.</p>
 
     <div id="topic-progress-bar">
       <div id="topic-progress"></div>
@@ -62,7 +58,6 @@
           <span class="topic-desc">Basic operations: insert words and search prefixes</span>
         </a>
       </li>
-
       <li>
         <a href="./Problems/prefixCount.html">
           <span class="topic-completed">&nbsp;</span>
@@ -71,7 +66,6 @@
           <span class="topic-desc">Count number of words with given prefix using trie</span>
         </a>
       </li>
-
       <li>
         <a href="./Problems/longestCommonPrefix.html">
           <span class="topic-completed">&nbsp;</span>
@@ -80,7 +74,6 @@
           <span class="topic-desc">Find common prefix of multiple strings efficiently</span>
         </a>
       </li>
-
       <li>
         <a href="./Problems/wordSearch.html">
           <span class="topic-completed">&nbsp;</span>
@@ -89,7 +82,6 @@
           <span class="topic-desc">Use trie to match multiple patterns in a grid or text</span>
         </a>
       </li>
-
       <li>
         <a href="./Problems/autocomplete.html">
           <span class="topic-completed">&nbsp;</span>
@@ -98,13 +90,11 @@
           <span class="topic-desc">Return all words starting with given prefix efficiently</span>
         </a>
       </li>
-
     </ul>
 
     <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-      These problems cover the most <em>important trie patterns</em> for
-      interviews: <br /><br />
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong><br />
+      These problems cover the most <em>important trie patterns</em> for interviews:<br /><br />
 
       <span class="pattern-name">Insert & Search in Trie</span> →
       <span class="pattern-desc">Basic trie construction and prefix search operations.</span><br />
@@ -113,14 +103,12 @@
       <span class="pattern-name">Longest Common Prefix</span> →
       <span class="pattern-desc">Traverse trie until branching to find shared prefix.</span><br />
       <span class="pattern-name">Word Search / Dictionary Matching</span> →
-      <span class="pattern-desc">Use trie to match multiple patterns efficiently in a grid or
-        text.</span><br />
+      <span class="pattern-desc">Use trie to match multiple patterns efficiently in a grid or text.</span><br />
       <span class="pattern-name">Autocomplete / Suggestion System</span> →
       <span class="pattern-desc">DFS/BFS from prefix node to find all valid completions.</span><br /><br />
 
       Together, they ensure you understand
-      <span class="highlight">trie construction, prefix counting, common prefix extraction, pattern
-        matching, and autocomplete systems</span>.
+      <span class="highlight">trie construction, prefix counting, common prefix extraction, pattern matching, and autocomplete systems</span>.
     </p>
   </main>
 
@@ -131,5 +119,4 @@
 
   <script src="../index.js"></script>
 </body>
-
 </html>
