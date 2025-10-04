@@ -34,11 +34,23 @@ a:visited {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.logo-img img {
-  height:50px;       /* control logo size */
-  width: 50px;
-  vertical-align: middle;
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between logo and text */
 }
+
+.logo-img img {
+  height: 50px;
+  width: 50px;
+}
+
+.navbar .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  transform: none; /* remove the old transform */
+}
+
 
 .navbar .nav-links {
   list-style: none;
@@ -94,12 +106,6 @@ a:visited {
 .navbar .nav-links li a.active {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   background: linear-gradient(90deg, #ffcc70, #ffb347, #ffd9a6);
-}
-
-.navbar .logo {
-  font-size: 1.7rem;
-  font-weight: bold;
-   transform: translateX(-350px); 
 }
 
 /* Footer */
