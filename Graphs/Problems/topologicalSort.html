@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -99,6 +100,57 @@ return result
       </pre
         >
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B{Choose Algorithm}
+              B -->|DFS Post-order| C[Initialize visited set and stack]
+              B -->|Kahn's Algorithm| D[Calculate in-degree for all nodes]
+              
+              C --> E[For each unvisited node]
+              E --> F[Call DFS on node]
+              F --> G[Mark node as visited]
+              G --> H[For each unvisited neighbor]
+              H --> I[Recursively call DFS on neighbor]
+              I --> H
+              H -->|No more neighbors| J[Push node to stack]
+              J --> K{More unvisited nodes?}
+              K -->|Yes| E
+              K -->|No| L[Reverse stack to get topological order]
+              
+              D --> M[Initialize queue with nodes having in-degree 0]
+              M --> N[Initialize result array]
+              N --> O{Queue not empty?}
+              O -->|Yes| P[Dequeue node]
+              P --> Q[Add node to result]
+              Q --> R[For each neighbor of node]
+              R --> S[Decrement neighbor's in-degree]
+              S --> T{In-degree becomes 0?}
+              T -->|Yes| U[Enqueue neighbor]
+              T -->|No| R
+              U --> R
+              R -->|No more neighbors| O
+              O -->|No| V[Return result array]
+              
+              L --> W[End]
+              V --> W
+              
+              style A fill:#e1f5fe
+              style W fill:#e8f5e8
+              style B fill:#fff3e0
+              style K fill:#fff3e0
+              style O fill:#fff3e0
+              style T fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -106,5 +158,23 @@ return result
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>

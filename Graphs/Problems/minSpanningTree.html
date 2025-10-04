@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -102,6 +103,59 @@ return mst_weight
       </pre
         >
       </section>
+
+      <!-- Flowchart Section -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <button id="flowchartBtn" class="flowchart-btn" onclick="toggleFlowchart()">
+          View Flowchart
+        </button>
+      </div>
+      
+      <div id="flowchartContainer" style="display: none;">
+        <div class="mermaid">
+          flowchart TD
+              A[Start] --> B{Choose Algorithm}
+              B -->|Kruskal's| C[Sort all edges by weight]
+              B -->|Prim's| D[Initialize min-heap with start node]
+              
+              C --> E[Initialize Union-Find structure]
+              E --> F[Initialize MST weight = 0]
+              F --> G[For each edge in sorted order]
+              G --> H{Edge connects different components?}
+              H -->|No| G
+              H -->|Yes| I[Add edge to MST]
+              I --> J[Union the two components]
+              J --> K[Add edge weight to MST weight]
+              K --> L{All edges processed?}
+              L -->|No| G
+              L -->|Yes| M[Return MST weight]
+              
+              D --> N[Initialize visited set]
+              N --> O[Initialize MST weight = 0]
+              O --> P{Min-heap not empty?}
+              P -->|Yes| Q[Extract minimum weight node]
+              Q --> R{Node already visited?}
+              R -->|Yes| P
+              R -->|No| S[Mark node as visited]
+              S --> T[Add weight to MST weight]
+              T --> U[For each unvisited neighbor]
+              U --> V[Add neighbor to min-heap with weight]
+              V --> U
+              U -->|No more neighbors| P
+              P -->|No| W[Return MST weight]
+              
+              M --> X[End]
+              W --> X
+              
+              style A fill:#e1f5fe
+              style X fill:#e8f5e8
+              style B fill:#fff3e0
+              style H fill:#fff3e0
+              style L fill:#fff3e0
+              style P fill:#fff3e0
+              style R fill:#fff3e0
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -109,5 +163,23 @@ return mst_weight
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script>
+      // Initialize Mermaid
+      mermaid.initialize({ startOnLoad: true });
+      
+      // Toggle flowchart visibility
+      function toggleFlowchart() {
+        const container = document.getElementById('flowchartContainer');
+        const button = document.getElementById('flowchartBtn');
+        
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          button.textContent = 'Hide Flowchart';
+        } else {
+          container.style.display = 'none';
+          button.textContent = 'View Flowchart';
+        }
+      }
+    </script>
   </body>
 </html>
