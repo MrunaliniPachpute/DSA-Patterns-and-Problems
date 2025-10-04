@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawSnake(e) {
       const seg = document.createElement('div');
       seg.className = 'snake-segment';
-      seg.style.left = e.pageX + 'px';
-      seg.style.top = e.pageY + 'px';
+      seg.style.left = e.clientX + 'px';
+      seg.style.top = e.clientY + 'px';
       document.body.appendChild(seg);
       trail.push(seg);
       setTimeout(() => {
