@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huffman Encoding - CodeDSA</title>
+  <title>Huffman Coding - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-<body>
 
+<body>
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">CodeDSA</div>
     <div class="nav-right">
@@ -22,43 +24,49 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Huffman Encoding</li>
+        <li class="breadcrumb-item active" aria-current="page">Huffman Coding</li>
       </ol>
     </nav>
   </div>
 
   <main>
-    <h1>Huffman Encoding</h1>
+    <h1>Huffman Coding</h1>
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>
-        Given frequencies of characters, build a Huffman Tree and encode the characters to minimize the total cost of encoding.
-      </p>
-      <p><strong>Example:</strong><br>
-      Characters = {a:5, b:9, c:12, d:13, e:16, f:45}<br>
-      Output Codes may be:<br>
-      f=0, c=100, d=101, a=1100, b=1101, e=111</p>
+      <p>Given characters and their frequencies, create a prefix-free binary code (Huffman code) that minimizes total weighted path length.</p>
+      <p><strong>Example:</strong> Characters: ['a', 'b', 'c', 'd'], Frequencies: [5, 9, 12, 13], Output: Minimum encoding tree</p>
     </section>
 
     <section class="approach-section">
-      <h2>Approach: Greedy using Min Heap</h2>
-      <p><strong>Explanation:</strong> Push all characters with frequency into min-heap. Extract two minimums, create a new node with their sum, push back into heap. Repeat until one node remains.</p>
-      <p><strong>Time Complexity:</strong> O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(n)</p>
+      <h2>Brute Force Approach</h2>
+      <p>Try all possible prefix codes to find minimal weighted sum.</p>
+      <p><strong>Time Complexity:</strong> Exponential, <strong>Space Complexity:</strong> Very large</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>Use DP to compute optimal binary trees (still costly).</p>
+      <p><strong>Time Complexity:</strong> O(n³), <strong>Space Complexity:</strong> O(n²)</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach (Greedy)</h2>
+      <p>Use a min-heap: repeatedly merge the two smallest frequency nodes until only one tree remains.</p>
+      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(n)</p>
       <pre class="pseudo-code">
-create min-heap of all chars with freq
+create min-heap with all characters by frequency
 while heap size > 1:
-    left = extract min
-    right = extract min
-    create new node with freq = left+right
-    push new node into heap
-assign 0/1 to edges and traverse tree for codes
+    extract two smallest nodes
+    create new internal node with sum frequency
+    insert back into heap
+return remaining node as root
       </pre>
     </section>
   </main>
@@ -69,4 +77,5 @@ assign 0/1 to edges and traverse tree for codes
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-<body>
 
+<body>
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">CodeDSA</div>
     <div class="nav-right">
@@ -22,6 +24,7 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -37,27 +40,38 @@
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>
-        Given weights and values of items and a knapsack capacity W, find the maximum value that can be obtained by putting items in the knapsack. 
-        Items can be broken into fractions.
+      <p>Given weights and values of n items, put items in a knapsack of capacity W to maximize total value. You can take fractions of items.</p>
+      <p><strong>Example:</strong> Values = [60, 100, 120], Weights = [10, 20, 30], W = 50 <br>
+        Output: 240 (Take 10+20+20 fraction of 30)
       </p>
-      <p><strong>Example:</strong><br>
-      Input: W = 50, items = [(value=60, weight=10), (value=100, weight=20), (value=120, weight=30)]<br>
-      Output: 240.0</p>
     </section>
 
     <section class="approach-section">
-      <h2>Approach: Greedy by Value/Weight Ratio</h2>
-      <p><strong>Explanation:</strong> Sort items by value/weight ratio in descending order. Take as much of the highest ratio item as possible, then move to next.</p>
-      <p><strong>Time Complexity:</strong> O(n log n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
+      <h2>Brute Force Approach</h2>
+      <p>Try all combinations of items to find the maximum value.</p>
+      <p><strong>Time Complexity:</strong> O(2^n), <strong>Space Complexity:</strong> O(1)</p>
       <pre class="pseudo-code">
-sort items by value/weight ratio descending
-for each item:
-    if weight fits in knapsack:
-        take full item
-    else:
-        take fraction that fits
+generate all subsets of items
+calculate total weight and value for each
+return max value with weight <= W
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>Sort items by weight and attempt different packings.</p>
+      <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(n)</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach (Greedy)</h2>
+      <p>Sort items by value/weight ratio, pick items in order until knapsack is full. Take fraction of the last item if needed.</p>
+      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+calculate value/weight ratio for each item
+sort items by ratio descending
+take items until capacity full
+take fraction if last item exceeds remaining capacity
 return total value
       </pre>
     </section>
@@ -69,4 +83,5 @@ return total value
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>
