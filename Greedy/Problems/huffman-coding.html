@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huffman Coding - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Huffman Coding</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Huffman Coding</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Given frequencies of characters, construct a prefix code (Huffman code) to minimize the average code length of characters.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Brute Force Approach</h2>
+      <p>Generate all possible prefix codes and select the one with minimum weighted path length. Extremely inefficient.</p>
+      <pre class="pseudo-code">
+generate all prefix-free codes
+for each code assignment:
+    calculate weighted path length
+return minimum
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>Sort characters by frequency and repeatedly combine the two smallest. But if sorting is done again and again, it becomes inefficient.</p>
+      <pre class="pseudo-code">
+while more than one character:
+    sort frequencies
+    pick two smallest
+    merge them into a new node
+    push back into list
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach (Heap)</h2>
+      <p>Use a min-heap to efficiently extract smallest frequencies and build the tree.</p>
+      <pre class="pseudo-code">
+make minHeap of frequencies
+while heap has more than one:
+    left = extractMin
+    right = extractMin
+    newNode = left+right
+    insert newNode
+generate codes by traversing tree
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>

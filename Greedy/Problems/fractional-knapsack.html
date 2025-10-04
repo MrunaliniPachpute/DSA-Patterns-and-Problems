@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractional Knapsack - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fractional Knapsack</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Fractional Knapsack</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Given weights and values of items, put items in a knapsack of capacity W to get the maximum total value. You can take fractions of items.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Brute Force Approach</h2>
+      <p>Generate all subsets of items and try to take full/fractional items to maximize value. This is exponential and infeasible for large n.</p>
+      <pre class="pseudo-code">
+function bruteForceKnapsack(items, W):
+    try all subsets of items
+    for each item:
+        take full, fraction, or skip
+    return max value
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>Sort items by value and try placing them greedily without considering value/weight ratio. This does not always give the best answer.</p>
+      <pre class="pseudo-code">
+sort items by value descending
+for each item:
+    if weight fits:
+        take it
+    else:
+        take fraction
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach (Greedy)</h2>
+      <p>Sort items by value/weight ratio and take as much as possible from highest ratio first.</p>
+      <pre class="pseudo-code">
+sort items by value/weight ratio
+for each item in sorted order:
+    if item fits fully:
+        take full
+    else:
+        take fraction
+        break
+return max value
+      </pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>

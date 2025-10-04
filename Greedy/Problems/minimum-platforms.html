@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimum Platforms - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Minimum Platforms</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Minimum Number of Platforms</h1>
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Given arrival and departure times of trains, find the minimum number of platforms required so that no train waits.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Brute Force Approach</h2>
+      <p>For each train, check how many other trains overlap with it and update the maximum. This results in O(n²) time.</p>
+      <pre class="pseudo-code">
+sort arrivals
+sort departures
+
+for i = 0 to n-1:
+    count = 1
+    for j = i+1 to n-1:
+        if arrivals[j] < departures[i]:
+            count++
+    update maxPlatforms = max(maxPlatforms, count)
+
+return maxPlatforms
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>Sort arrival times and for each train check the number of trains currently on the station using a line sweep.</p>
+      <pre class="pseudo-code">
+sort arrivals and departures
+for each arrival:
+    if arrival < earliest departure:
+        need new platform
+    else:
+        reuse platform
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach</h2>
+      <p>Use two pointers: one for arrivals, one for departures. Move whichever is smaller and track count of trains at station.</p>
+<pre class="pseudo-code">
+while i &lt; n and j &lt; n:
+    if arrivals[i] &lt;= departures[j]:
+        count++
+        max = max(max, count)
+        i++
+    else:
+        count--
+        j++
+return max
+</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>
