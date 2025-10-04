@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimum Number of Platforms - CodeDSA</title>
+  <title>Minimum Platforms - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -30,7 +28,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Minimum Number of Platforms</li>
+        <li class="breadcrumb-item active" aria-current="page">Minimum Platforms</li>
       </ol>
     </nav>
   </div>
@@ -40,55 +38,54 @@
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>Given arrival and departure times of trains at a station, find the minimum number of platforms required so that no train waits.</p>
-      <p><strong>Example:</strong> Arrival = [9:00, 9:45, 9:55], Departure = [9:30, 10:00, 11:00] → Output: 2 platforms</p>
+      <p>Given arrival and departure times of trains, find the minimum number of platforms required so that no train waits.</p>
     </section>
 
     <section class="approach-section">
       <h2>Brute Force Approach</h2>
-      <p>For each train, check how many trains are at the station at the same time and take the maximum.</p>
-      <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(1)</p>
+      <p>For each train, check how many other trains overlap with it and update the maximum. This results in O(n²) time.</p>
       <pre class="pseudo-code">
+sort arrivals
+sort departures
+
 for i = 0 to n-1:
     count = 1
-    for j = 0 to n-1, j != i:
-        if arrival[j] <= departure[i] and departure[j] >= arrival[i]:
-            count += 1
-    update max_platforms
-return max_platforms
+    for j = i+1 to n-1:
+        if arrivals[j] < departures[i]:
+            count++
+    update maxPlatforms = max(maxPlatforms, count)
+
+return maxPlatforms
       </pre>
     </section>
 
     <section class="approach-section">
       <h2>Better Approach</h2>
-      <p>Sort arrival and departure times and use two pointers to check overlaps.</p>
-      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(n)</p>
+      <p>Sort arrival times and for each train check the number of trains currently on the station using a line sweep.</p>
+      <pre class="pseudo-code">
+sort arrivals and departures
+for each arrival:
+    if arrival < earliest departure:
+        need new platform
+    else:
+        reuse platform
+      </pre>
     </section>
 
     <section class="approach-section">
-      <h2>Optimal Approach (Greedy)</h2>
-      <p>
-        Sort both arrival and departure times separately. Traverse both arrays:
-        - If next train arrives before the previous departs, increment platform count.
-        - Else, decrement count as train departs.
-      </p>
-      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
-sort arrival[]
-sort departure[]
-platform_needed = 1
-max_platforms = 1
-i = 1, j = 0
-while i < n and j < n:
-    if arrival[i] <= departure[j]:
-        platform_needed += 1
-        i += 1
+      <h2>Optimal Approach</h2>
+      <p>Use two pointers: one for arrivals, one for departures. Move whichever is smaller and track count of trains at station.</p>
+<pre class="pseudo-code">
+while i &lt; n and j &lt; n:
+    if arrivals[i] &lt;= departures[j]:
+        count++
+        max = max(max, count)
+        i++
     else:
-        platform_needed -= 1
-        j += 1
-    max_platforms = max(max_platforms, platform_needed)
-return max_platforms
-      </pre>
+        count--
+        j++
+return max
+</pre>
     </section>
   </main>
 
@@ -98,5 +95,4 @@ return max_platforms
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
-
 </html>

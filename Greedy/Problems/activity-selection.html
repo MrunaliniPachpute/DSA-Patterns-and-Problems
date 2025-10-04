@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -36,44 +34,53 @@
   </div>
 
   <main>
-    <h1>Activity Selection</h1>
+    <h1>Activity Selection Problem</h1>
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given start and finish times of activities, select the maximum number of activities that can be performed by a single person assuming a person can only work on one activity at a time.</p>
-      <p><strong>Example:</strong> Input: start = [1, 3, 0, 5, 8, 5], end = [2, 4, 6, 7, 9, 9] <br>
-        Output: 4 (Activities chosen: {1,2}, {3,4}, {5,7}, {8,9})
-      </p>
+      <p><strong>Example:</strong> start = [1,3,0,5,8,5], end = [2,4,6,7,9,9] → Output: 4</p>
     </section>
 
     <section class="approach-section">
       <h2>Brute Force Approach</h2>
-      <p>Try all subsets of activities to find maximum non-overlapping set.</p>
-      <p><strong>Time Complexity:</strong> O(2^n), <strong>Space Complexity:</strong> O(1)</p>
+      <p>Try all possible subsets of activities and check which set is valid (non-overlapping). Return the size of the maximum valid subset.</p>
       <pre class="pseudo-code">
-generate all subsets of activities
-for each subset:
-    check if all activities are non-overlapping
-return maximum count
+for each subset of activities:
+    check if no two activities overlap
+    if valid:
+        update maximum
+return maximum
       </pre>
     </section>
 
     <section class="approach-section">
       <h2>Better Approach</h2>
-      <p>Sort activities by start time and use recursion to select compatible activities.</p>
-      <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(n)</p>
+      <p>Sort activities by start time. Then, for each activity, recursively try to include it if it does not overlap with the previously included one. This reduces redundant subsets but still takes quadratic time.</p>
+      <pre class="pseudo-code">
+sort activities by start time
+function recur(index, last_end):
+    if index == n:
+        return 0
+    skip = recur(index+1, last_end)
+    take = 0
+    if start[index] >= last_end:
+        take = 1 + recur(index+1, end[index])
+    return max(skip, take)
+      </pre>
     </section>
 
     <section class="approach-section">
       <h2>Optimal Approach (Greedy)</h2>
-      <p>Sort by finish time and pick the next activity that starts after the last selected one finishes.</p>
-      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(1)</p>
+      <p>Sort by finish time. Pick the activity that finishes earliest, then repeatedly pick the next activity that starts after the last chosen one finishes.</p>
       <pre class="pseudo-code">
 sort activities by finish time
 select first activity
-for each next activity:
-    if start >= last_finish:
-        select activity
+last_end = finish of first
+for each activity in sorted list:
+    if start >= last_end:
+        select it
+        last_end = finish
 return count
       </pre>
     </section>
@@ -85,5 +92,4 @@ return count
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
-
 </html>

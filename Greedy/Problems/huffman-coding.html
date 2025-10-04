@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -40,33 +38,43 @@
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>Given characters and their frequencies, create a prefix-free binary code (Huffman code) that minimizes total weighted path length.</p>
-      <p><strong>Example:</strong> Characters: ['a', 'b', 'c', 'd'], Frequencies: [5, 9, 12, 13], Output: Minimum encoding tree</p>
+      <p>Given frequencies of characters, construct a prefix code (Huffman code) to minimize the average code length of characters.</p>
     </section>
 
     <section class="approach-section">
       <h2>Brute Force Approach</h2>
-      <p>Try all possible prefix codes to find minimal weighted sum.</p>
-      <p><strong>Time Complexity:</strong> Exponential, <strong>Space Complexity:</strong> Very large</p>
+      <p>Generate all possible prefix codes and select the one with minimum weighted path length. Extremely inefficient.</p>
+      <pre class="pseudo-code">
+generate all prefix-free codes
+for each code assignment:
+    calculate weighted path length
+return minimum
+      </pre>
     </section>
 
     <section class="approach-section">
       <h2>Better Approach</h2>
-      <p>Use DP to compute optimal binary trees (still costly).</p>
-      <p><strong>Time Complexity:</strong> O(n³), <strong>Space Complexity:</strong> O(n²)</p>
+      <p>Sort characters by frequency and repeatedly combine the two smallest. But if sorting is done again and again, it becomes inefficient.</p>
+      <pre class="pseudo-code">
+while more than one character:
+    sort frequencies
+    pick two smallest
+    merge them into a new node
+    push back into list
+      </pre>
     </section>
 
     <section class="approach-section">
-      <h2>Optimal Approach (Greedy)</h2>
-      <p>Use a min-heap: repeatedly merge the two smallest frequency nodes until only one tree remains.</p>
-      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(n)</p>
+      <h2>Optimal Approach (Heap)</h2>
+      <p>Use a min-heap to efficiently extract smallest frequencies and build the tree.</p>
       <pre class="pseudo-code">
-create min-heap with all characters by frequency
-while heap size > 1:
-    extract two smallest nodes
-    create new internal node with sum frequency
-    insert back into heap
-return remaining node as root
+make minHeap of frequencies
+while heap has more than one:
+    left = extractMin
+    right = extractMin
+    newNode = left+right
+    insert newNode
+generate codes by traversing tree
       </pre>
     </section>
   </main>
@@ -77,5 +85,4 @@ return remaining node as root
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
-
 </html>

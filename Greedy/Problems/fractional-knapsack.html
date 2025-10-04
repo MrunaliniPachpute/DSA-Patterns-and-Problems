@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
-
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -40,39 +38,46 @@
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>Given weights and values of n items, put items in a knapsack of capacity W to maximize total value. You can take fractions of items.</p>
-      <p><strong>Example:</strong> Values = [60, 100, 120], Weights = [10, 20, 30], W = 50 <br>
-        Output: 240 (Take 10+20+20 fraction of 30)
-      </p>
+      <p>Given weights and values of items, put items in a knapsack of capacity W to get the maximum total value. You can take fractions of items.</p>
     </section>
 
     <section class="approach-section">
       <h2>Brute Force Approach</h2>
-      <p>Try all combinations of items to find the maximum value.</p>
-      <p><strong>Time Complexity:</strong> O(2^n), <strong>Space Complexity:</strong> O(1)</p>
+      <p>Generate all subsets of items and try to take full/fractional items to maximize value. This is exponential and infeasible for large n.</p>
       <pre class="pseudo-code">
-generate all subsets of items
-calculate total weight and value for each
-return max value with weight <= W
+function bruteForceKnapsack(items, W):
+    try all subsets of items
+    for each item:
+        take full, fraction, or skip
+    return max value
       </pre>
     </section>
 
     <section class="approach-section">
       <h2>Better Approach</h2>
-      <p>Sort items by weight and attempt different packings.</p>
-      <p><strong>Time Complexity:</strong> O(n²), <strong>Space Complexity:</strong> O(n)</p>
+      <p>Sort items by value and try placing them greedily without considering value/weight ratio. This does not always give the best answer.</p>
+      <pre class="pseudo-code">
+sort items by value descending
+for each item:
+    if weight fits:
+        take it
+    else:
+        take fraction
+      </pre>
     </section>
 
     <section class="approach-section">
       <h2>Optimal Approach (Greedy)</h2>
-      <p>Sort items by value/weight ratio, pick items in order until knapsack is full. Take fraction of the last item if needed.</p>
-      <p><strong>Time Complexity:</strong> O(n log n), <strong>Space Complexity:</strong> O(1)</p>
+      <p>Sort items by value/weight ratio and take as much as possible from highest ratio first.</p>
       <pre class="pseudo-code">
-calculate value/weight ratio for each item
-sort items by ratio descending
-take items until capacity full
-take fraction if last item exceeds remaining capacity
-return total value
+sort items by value/weight ratio
+for each item in sorted order:
+    if item fits fully:
+        take full
+    else:
+        take fraction
+        break
+return max value
       </pre>
     </section>
   </main>
@@ -83,5 +88,4 @@ return total value
   <script src="../../index.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
-
 </html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Scheduling - CodeDSA</title>
+  <title>Job Scheduling with Deadlines - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
 <body>
-
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">CodeDSA</div>
     <div class="nav-right">
@@ -22,42 +22,82 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Job Scheduling</li>
+        <li class="breadcrumb-item active" aria-current="page">Job Scheduling with Deadlines</li>
       </ol>
     </nav>
   </div>
 
   <main>
-    <h1>Job Scheduling with Deadlines and Profits</h1>
+    <h1>Job Scheduling with Deadlines</h1>
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
-        Given n jobs with deadlines and profits. Each job takes 1 unit of time. 
-        Schedule jobs to maximize total profit if only one job can be scheduled at a time.
+        You are given <strong>n jobs</strong>, each job has a <strong>deadline</strong> and a <strong>profit</strong>. 
+        Each job takes <strong>1 unit of time</strong> to complete. The task is to find the maximum profit 
+        you can earn by scheduling jobs such that each job is completed on or before its deadline.
       </p>
-      <p><strong>Example:</strong><br>
-      Jobs = [(id=1, deadline=2, profit=100), (id=2, deadline=1, profit=19), (id=3, deadline=2, profit=27), (id=4, deadline=1, profit=25), (id=5, deadline=3, profit=15)]<br>
-      Output: Jobs done = 2, Max Profit = 127</p>
     </section>
 
     <section class="approach-section">
-      <h2>Approach: Greedy by Profit</h2>
-      <p><strong>Explanation:</strong> Sort jobs by profit in descending order. For each job, place it in the latest available slot before its deadline.</p>
-      <p><strong>Time Complexity:</strong> O(n log n + n*d)</p>
-      <p><strong>Space Complexity:</strong> O(d)</p>
+      <h2>Brute Force Approach</h2>
+      <p>
+        Generate all possible subsets of jobs, check if the deadlines can be satisfied, and compute profit.
+        This ensures correctness but runs in <strong>O(2<sup>n</sup>)</strong> time.
+      </p>
       <pre class="pseudo-code">
-sort jobs by profit descending
+for each subset of jobs:
+    if deadlines satisfied:
+        profit = sum of job profits
+        update max profit
+return max profit
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Better Approach</h2>
+      <p>
+        Sort jobs by profit and try to place each job in the latest available slot before its deadline.
+        This takes <strong>O(n * maxDeadline)</strong> time.
+      </p>
+      <pre class="pseudo-code">
+sort jobs by profit (descending)
+slots = array of size maxDeadline initialized to empty
 for each job in sorted list:
-    find empty slot before job.deadline
-    if found:
-        assign job
-return total profit
+    for t = job.deadline downto 1:
+        if slots[t] is empty:
+            assign job to slots[t]
+            break
+return total profit of scheduled jobs
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Optimal Approach</h2>
+      <p>
+        Use a Disjoint Set Union (DSU) or Union-Find to optimize slot finding.  
+        This reduces scheduling from O(n * maxDeadline) to <strong>O(n log n)</strong>.
+      </p>
+      <pre class="pseudo-code">
+sort jobs by profit (descending)
+initialize parent array for DSU with size maxDeadline
+function find(x):
+    if parent[x] == x: return x
+    parent[x] = find(parent[x])
+    return parent[x]
+
+for each job in sorted list:
+    available = find(job.deadline)
+    if available &gt; 0:
+        assign job to available
+        union(available, available-1)
+return total profit of scheduled jobs
       </pre>
     </section>
   </main>
