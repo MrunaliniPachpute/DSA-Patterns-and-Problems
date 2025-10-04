@@ -7,9 +7,40 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <style>
+      .flowchart-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .flowchart-btn:hover {
+        background-color: #1558b3;
+      }
+      .flowchart-image {
+        display: none; /* Images are hidden by default */
+        max-width: 100%;
+        margin-top: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        background-color: white;
+      }
+      /* This class makes the image visible when added by JavaScript */
+      .flowchart-image.visible {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="logo">CodeDSA</div>
       <div class="nav-right">
@@ -24,7 +55,6 @@
       </div>
     </nav>
 
-    <!-- Breadcrumb Navigation -->
     <div class="breadcrumb-container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -40,7 +70,6 @@
     <main>
       <h1>Group Anagrams</h1>
 
-      <!-- Problem Statement -->
       <section class="problem-section">
         <h2>Problem Statement</h2>
         <p>
@@ -53,7 +82,6 @@
         </p>
       </section>
 
-      <!-- Approaches -->
       <section class="approach-section">
         <h2>Approach 1: Brute Force</h2>
         <p>
@@ -72,8 +100,11 @@ for each word in strs:
     if yes, add to that group
     else, create new group
 return groups
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/4stringapproach1.png" alt="Flowchart for Brute Force Approach" class="flowchart-image">
+        </div>
       </section>
 
       <section class="approach-section">
@@ -92,8 +123,11 @@ for word in strs:
         map[key] = []
     map[key].append(word)
 return list(map.values())
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/4stringapproach2.png" alt="Flowchart for Sorting & Hash Map Approach" class="flowchart-image">
+        </div>
       </section>
 
       <section class="approach-section">
@@ -115,17 +149,43 @@ for word in strs:
         map[key] = []
     map[key].append(word)
 return list(map.values())
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/4stringapproach3.png" alt="Flowchart for Character Count Hashing Approach" class="flowchart-image">
+        </div>
       </section>
     </main>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
     </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const flowchartButtons = document.querySelectorAll('.flowchart-btn');
+
+        flowchartButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const container = this.closest('.flowchart-container');
+            if (!container) return;
+
+            const flowchartImage = container.querySelector('.flowchart-image');
+            if (!flowchartImage) return;
+
+            if (flowchartImage.classList.contains('visible')) {
+              flowchartImage.classList.remove('visible');
+              this.textContent = 'Hide Flowchart';
+            } else {
+              flowchartImage.classList.add('visible');
+              this.textContent = 'View Flowchart';
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

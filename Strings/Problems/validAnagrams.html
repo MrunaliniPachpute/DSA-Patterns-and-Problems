@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
+    <style>
+      .flowchart-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .flowchart-btn:hover {
+        background-color: #1558b3;
+      }
+      .flowchart-image {
+        display: none; /* Images are hidden by default */
+        max-width: 100%;
+        margin-top: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        background-color: white;
+      }
+      /* This class makes the image visible when added by JavaScript */
+      .flowchart-image.visible {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -68,8 +100,11 @@ if sort(s) == sort(t):
     return true
 else:
     return false
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/3stringapproach1.png" alt="Flowchart for Sorting Approach" class="flowchart-image">
+        </div>
       </section>
 
       <section class="approach-section">
@@ -88,8 +123,11 @@ for char in s:
 for char in t:
     count_t[char]++
 return count_s == count_t
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/3stringapproach2.png" alt="Flowchart for Hash Map Frequency Count Approach" class="flowchart-image">
+        </div>
       </section>
 
       <section class="approach-section">
@@ -112,8 +150,11 @@ for val in count.values():
     if val != 0:
         return false
 return true
-      </pre
-        >
+        </pre>
+        <div class="flowchart-container">
+            <button class="flowchart-btn">View Flowchart</button>
+            <img src="../Flowcharts/3stringapproach3.png" alt="Flowchart for Single Hash Map Approach" class="flowchart-image">
+        </div>
       </section>
     </main>
 
@@ -124,5 +165,29 @@ return true
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const flowchartButtons = document.querySelectorAll('.flowchart-btn');
+
+        flowchartButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const container = this.closest('.flowchart-container');
+            if (!container) return;
+
+            const flowchartImage = container.querySelector('.flowchart-image');
+            if (!flowchartImage) return;
+
+            if (flowchartImage.classList.contains('visible')) {
+              flowchartImage.classList.remove('visible');
+              this.textContent = 'Hide Flowchart';
+            } else {
+              flowchartImage.classList.add('visible');
+              this.textContent = 'View Flowchart';
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
