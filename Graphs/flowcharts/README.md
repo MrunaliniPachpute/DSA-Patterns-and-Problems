@@ -1,11 +1,11 @@
 # Flowcharts for Graphs Problems
 
-This folder contains flowcharts for all 5 problems in the Graphs topic. The flowcharts are implemented using Mermaid diagrams directly in the HTML files.
+This folder contains PNG flowcharts for all 5 problems in the Graphs topic. The flowcharts are stored as PNG images and displayed in the HTML files.
 
 ## Implementation Details
 
-- **Technology**: Mermaid.js for interactive flowcharts
-- **Integration**: Flowcharts are embedded directly in each problem's HTML page
+- **Technology**: PNG images for clear, static flowcharts
+- **Integration**: Flowcharts are displayed as images in each problem's HTML page
 - **Functionality**: Each page has a "View Flowchart" button that toggles the flowchart visibility
 - **Styling**: Uses existing CSS classes for consistent styling
 
@@ -34,10 +34,10 @@ This folder contains flowcharts for all 5 problems in the Graphs topic. The flow
 ## Features
 
 - ✅ Interactive toggle button
-- ✅ Clear, readable flowcharts
+- ✅ Clear, readable PNG flowcharts
 - ✅ Consistent styling with existing design
 - ✅ Responsive design
-- ✅ No external dependencies (uses CDN for Mermaid)
+- ✅ No external dependencies (no CDN required)
 - ✅ Beginner-friendly visual explanations
 
 ## Usage

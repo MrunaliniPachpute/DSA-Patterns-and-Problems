@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -129,69 +128,7 @@ return dist
       </div>
       
       <div id="flowchartContainer" style="display: none;">
-        <div class="mermaid">
-          flowchart TD
-              A[Start] --> B{Graph Type?}
-              B -->|Unweighted| C[BFS Algorithm]
-              B -->|Weighted Non-negative| D[Dijkstra's Algorithm]
-              B -->|Weighted with Negative| E[Bellman-Ford Algorithm]
-              
-              C --> F[Initialize distance array with infinity]
-              F --> G[Set source distance = 0]
-              G --> H[Initialize queue with source]
-              H --> I{Queue not empty?}
-              I -->|Yes| J[Dequeue node]
-              J --> K[For each unvisited neighbor]
-              K --> L{Distance through current node is shorter?}
-              L -->|Yes| M[Update neighbor distance]
-              M --> N[Enqueue neighbor]
-              N --> K
-              L -->|No| K
-              K -->|No more neighbors| I
-              I -->|No| O[Return distance array]
-              
-              D --> P[Initialize distance array with infinity]
-              P --> Q[Set source distance = 0]
-              Q --> R[Initialize min-heap with source]
-              R --> S{Min-heap not empty?}
-              S -->|Yes| T[Extract minimum distance node]
-              T --> U{Node already processed?}
-              U -->|Yes| S
-              U -->|No| V[For each neighbor]
-              V --> W{Distance through current node is shorter?}
-              W -->|Yes| X[Update neighbor distance]
-              X --> Y[Add neighbor to min-heap]
-              Y --> V
-              W -->|No| V
-              V -->|No more neighbors| S
-              S -->|No| Z[Return distance array]
-              
-              E --> AA[Initialize distance array with infinity]
-              AA --> BB[Set source distance = 0]
-              BB --> CC[For i = 1 to V-1]
-              CC --> DD[For each edge in graph]
-              DD --> EE{Distance through edge is shorter?}
-              EE -->|Yes| FF[Update destination distance]
-              EE -->|No| DD
-              FF --> DD
-              DD -->|All edges processed| CC
-              CC -->|V-1 iterations done| GG[Check for negative cycles]
-              GG --> HH[Return distance array]
-              
-              O --> II[End]
-              Z --> II
-              HH --> II
-              
-              style A fill:#e1f5fe
-              style II fill:#e8f5e8
-              style B fill:#fff3e0
-              style I fill:#fff3e0
-              style L fill:#fff3e0
-              style S fill:#fff3e0
-              style U fill:#fff3e0
-              style W fill:#fff3e0
-              style EE fill:#fff3e0
-        </div>
+        <img src="../flowcharts/shortest_path.png" alt="Shortest Path Flowchart" class="flowchart-img" />
       </div>
     </main>
 
@@ -201,9 +138,6 @@ return dist
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
     <script>
-      // Initialize Mermaid
-      mermaid.initialize({ startOnLoad: true });
-      
       // Toggle flowchart visibility
       function toggleFlowchart() {
         const container = document.getElementById('flowchartContainer');

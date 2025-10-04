@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -119,54 +118,7 @@ while stack not empty:
       </div>
       
       <div id="flowchartContainer" style="display: none;">
-        <div class="mermaid">
-          flowchart TD
-              A[Start] --> B{Choose Algorithm}
-              B -->|BFS| C[Initialize Queue with start node]
-              B -->|DFS| D[Initialize Stack with start node]
-              B -->|DFS Recursive| E[Call DFS function with start node]
-              
-              C --> F[Mark start node as visited]
-              F --> G{Queue not empty?}
-              G -->|Yes| H[Dequeue node from front]
-              H --> I[Process current node]
-              I --> J[For each unvisited neighbor]
-              J --> K[Mark neighbor as visited]
-              K --> L[Enqueue neighbor to back]
-              L --> J
-              J -->|No more neighbors| G
-              G -->|No| M[End BFS]
-              
-              D --> N[Mark start node as visited]
-              N --> O{Stack not empty?}
-              O -->|Yes| P[Pop node from top]
-              P --> Q[Process current node]
-              Q --> R[For each unvisited neighbor]
-              R --> S[Mark neighbor as visited]
-              S --> T[Push neighbor to stack]
-              T --> R
-              R -->|No more neighbors| O
-              O -->|No| U[End DFS Iterative]
-              
-              E --> V[Mark node as visited]
-              V --> W[Process current node]
-              W --> X[For each unvisited neighbor]
-              X --> Y[Recursively call DFS on neighbor]
-              Y --> X
-              X -->|No more neighbors| Z[Return from DFS]
-              Z --> AA[End DFS Recursive]
-              
-              M --> BB[All nodes visited]
-              U --> BB
-              AA --> BB
-              BB --> CC[End]
-              
-              style A fill:#e1f5fe
-              style CC fill:#e8f5e8
-              style B fill:#fff3e0
-              style G fill:#fff3e0
-              style O fill:#fff3e0
-        </div>
+        <img src="../flowcharts/bfs_dfs.png" alt="BFS & DFS Flowchart" class="flowchart-img" />
       </div>
     </main>
 
@@ -176,9 +128,6 @@ while stack not empty:
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
     <script>
-      // Initialize Mermaid
-      mermaid.initialize({ startOnLoad: true });
-      
       // Toggle flowchart visibility
       function toggleFlowchart() {
         const container = document.getElementById('flowchartContainer');
