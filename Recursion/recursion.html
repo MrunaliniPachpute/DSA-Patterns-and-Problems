@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script src="../JS/ProgressBar.js" defer></script>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-container">
@@ -22,8 +23,11 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+
         <li><a href="../about.html">About</a></li>
+
         <li><a href="../contact.html">Contact</a></li>
+
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -35,7 +39,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Recursion</li>
+
+        <li class="breadcrumb-item active" aria-current="page">Recursion</a></li>
+
       </ol>
     </nav>
   </div>
@@ -47,32 +53,55 @@
       interviews.
     </p>
 
-    <ul class="topic-list">
-      <a href="./Problems/factorial.html">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Factorial</span>
-        <span class="topic-desc">Classic recursion example, base and recursive cases</span>
-      </a>
-      <a href="./Problems/fibonacci.html">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Fibonacci Sequence</span>
-        <span class="topic-desc">Recursive sequence generation with memoization</span>
-      </a>
-      <a href="./Problems/powerSet.html">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Power Set / Subsets</span>
-        <span class="topic-desc">Backtracking pattern for generating all subsets</span>
-      </a>
-      <a href="./Problems/stringPermutation.html">
-        <span class="topic-number">04</span>
-        <span class="topic-name">String Permutations</span>
-        <span class="topic-desc">Backtracking pattern for all permutations of a string</span>
-      </a>
-      <a href="./Problems/nQueens.html">
-        <span class="topic-number">05</span>
-        <span class="topic-name">N-Queens Problem</span>
-        <span class="topic-desc">Backtracking with constraints to place queens safely</span>
-      </a>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="recursion">
+      <li>
+        <a href="./Problems/factorial.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Factorial</span>
+          <span class="topic-desc">Classic recursion example, base and recursive cases</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/fibonacci.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Fibonacci Sequence</span>
+          <span class="topic-desc">Recursive sequence generation with memoization</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/powerSet.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">Power Set / Subsets</span>
+          <span class="topic-desc">Backtracking pattern for generating all subsets</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/stringPermutation.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">String Permutations</span>
+          <span class="topic-desc">Backtracking pattern for all permutations of a string</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/nQueens.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">N-Queens Problem</span>
+          <span class="topic-desc">Backtracking with constraints to place queens safely</span>
+        </a>
     </ul>
 
     <p class="pattern-coverage">

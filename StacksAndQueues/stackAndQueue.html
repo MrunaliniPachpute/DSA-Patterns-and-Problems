@@ -11,7 +11,8 @@
 </head>
 
 <body>
-  <!-- Navbar -->
+  <script src="../JS/ProgressBar.js" defer></script>
+  <!-- Navbar --->
   <nav class="navbar">
     <div class="logo-container">
   <div class="logo-img">
@@ -22,8 +23,11 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+
         <li><a href="../about.html">About</a></li>
+
         <li><a href="../contact.html">Contact</a></li>
+
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -35,7 +39,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Stacks & Queues</li>
+
+        <li class="breadcrumb-item active" aria-current="page">Stacks & Queues</a></li>
+
       </ol>
     </nav>
   </div>
@@ -47,32 +53,55 @@
       in interviews.
     </p>
 
-    <ul class="topic-list">
-      <a href="./Problems/validParentheses.html">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Valid Parentheses</span>
-        <span class="topic-desc">Balanced parentheses check using stack</span>
-      </a>
-      <a href="./Problems/MinStack.html">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Min Stack</span>
-        <span class="topic-desc">Design stack with O(1) min retrieval</span>
-      </a>
-      <a href="./Problems/NextGreater.html">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Next Greater Element</span>
-        <span class="topic-desc">Monotonic stack pattern for array problems</span>
-      </a>
-      <a href="./Problems/ImplementQueueUsingStack.html">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Implement Queue using Stacks</span>
-        <span class="topic-desc">Classic stack-to-queue conversion</span>
-      </a>
-      <a href="./Problems/slidingWindowMax.html">
-        <span class="topic-number">05</span>
-        <span class="topic-name">Sliding Window Maximum</span>
-        <span class="topic-desc">Deque-based optimization for window problems</span>
-      </a>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="stack-queue">
+      <li>
+        <a href="./Problems/validParentheses.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Valid Parentheses</span>
+          <span class="topic-desc">Balanced parentheses check using stack</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/MinStack.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Min Stack</span>
+          <span class="topic-desc">Design stack with O(1) min retrieval</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/NextGreater.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">Next Greater Element</span>
+          <span class="topic-desc">Monotonic stack pattern for array problems</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/ImplementQueueUsingStack.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">Implement Queue using Stacks</span>
+          <span class="topic-desc">Classic stack-to-queue conversion</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/slidingWindowMax.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">Sliding Window Maximum</span>
+          <span class="topic-desc">Deque-based optimization for window problems</span>
+        </a>
     </ul>
 
     <p class="pattern-coverage">

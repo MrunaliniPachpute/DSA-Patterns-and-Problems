@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="../CSS/AllTopics.css" />
   <link rel="stylesheet" href="../CSS/snake.css" />
 </head>
+
 <body>
+  <script src="../JS/ProgressBar.js" defer></script>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-container">
@@ -39,92 +42,86 @@
     </nav>
   </div>
 
-    <main>
-      <h1>Binary Tree Topics</h1>
-      <p class="intro-text">
-        Master essential binary tree problems and patterns frequently asked in
-        interviews.
-      </p>
+  <main>
+    <h1>Binary Tree Topics</h1>
+    <p class="intro-text">
+      Master essential binary tree problems and patterns frequently asked in interviews.
+    </p>
 
-      <ul class="topic-list">
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="binaryTrees">
+      <li>
         <a href="./Problems/treeTraversal.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">01</span>
           <span class="topic-name">Tree Traversals</span>
-          <span class="topic-desc"
-            >Inorder, Preorder, Postorder traversal (recursive &
-            iterative)</span
-          >
+          <span class="topic-desc">Inorder, Preorder, Postorder traversal (recursive & iterative)</span>
         </a>
+      </li>
+      <li>
         <a href="./Problems/heightDiameter.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">02</span>
           <span class="topic-name">Height & Diameter of Tree</span>
-          <span class="topic-desc"
-            >Depth calculation & longest path in tree</span
-          >
+          <span class="topic-desc">Depth calculation & longest path in tree</span>
         </a>
+      </li>
+      <li>
         <a href="./Problems/lowestCommonAncestor.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">03</span>
           <span class="topic-name">Lowest Common Ancestor (LCA)</span>
-          <span class="topic-desc"
-            >Find LCA using recursion / parent pointers</span
-          >
+          <span class="topic-desc">Find LCA using recursion / parent pointers</span>
         </a>
+      </li>
+      <li>
         <a href="./Problems/serializeDeserialize.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">04</span>
           <span class="topic-name">Serialize & Deserialize Tree</span>
-          <span class="topic-desc"
-            >Convert tree to string and back, DFS/BFS approach</span
-          >
+          <span class="topic-desc">Convert tree to string and back, DFS/BFS approach</span>
         </a>
+      </li>
+      <li>
         <a href="./Problems/binaryTreePaths.html">
+          <span class="topic-completed">&nbsp;</span>
           <span class="topic-number">05</span>
           <span class="topic-name">All Root-to-Leaf Paths</span>
-          <span class="topic-desc"
-            >Generate all paths using DFS/backtracking</span
-          >
+          <span class="topic-desc">Generate all paths using DFS/backtracking</span>
         </a>
-      </ul>
+      </li>
+    </ul>
 
-      <p class="pattern-coverage">
-        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-        These problems cover the most
-        <em>important binary tree patterns</em> for interviews: <br /><br />
+    <p class="pattern-coverage">
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most <em>important binary tree patterns</em> for interviews: <br /><br />
 
-        <span class="pattern-name">Tree Traversals</span> →
-        <span class="pattern-desc"
-          >Recursive & iterative traversal patterns for visiting nodes.</span
-        ><br />
-        <span class="pattern-name">Height & Diameter of Tree</span> →
-        <span class="pattern-desc"
-          >Post-order recursion pattern to compute depth and longest path.</span
-        ><br />
-        <span class="pattern-name">Lowest Common Ancestor (LCA)</span> →
-        <span class="pattern-desc"
-          >DFS recursion pattern to identify common ancestors.</span
-        ><br />
-        <span class="pattern-name">Serialize & Deserialize Tree</span> →
-        <span class="pattern-desc"
-          >DFS/BFS traversal to convert tree structure to string and back.</span
-        ><br />
-        <span class="pattern-name">All Root-to-Leaf Paths</span> →
-        <span class="pattern-desc"
-          >Backtracking recursion pattern to generate all paths.</span
-        ><br /><br />
+      <span class="pattern-name">Tree Traversals</span> →
+      <span class="pattern-desc">Recursive & iterative traversal patterns for visiting nodes.</span><br />
+      <span class="pattern-name">Height & Diameter of Tree</span> →
+      <span class="pattern-desc">Post-order recursion pattern to compute depth and longest path.</span><br />
+      <span class="pattern-name">Lowest Common Ancestor (LCA)</span> →
+      <span class="pattern-desc">DFS recursion pattern to identify common ancestors.</span><br />
+      <span class="pattern-name">Serialize & Deserialize Tree</span> →
+      <span class="pattern-desc">DFS/BFS traversal to convert tree structure to string and back.</span><br />
+      <span class="pattern-name">All Root-to-Leaf Paths</span> →
+      <span class="pattern-desc">Backtracking recursion pattern to generate all paths.</span><br /><br />
 
-        Together, they ensure you understand
-        <span class="highlight"
-          >traversals, depth calculations, ancestor queries, serialization, and
-          path generation</span
-        >
-        in binary tree problems.
-      </p>
-    </main>
+      Together, they ensure you understand
+      <span class="highlight">traversals, depth calculations, ancestor queries, serialization, and path generation</span>
+      in binary tree problems.
+    </p>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
 
-    <script src="../index.js"></script>
-  </body>
+  <script src="../index.js"></script>
+</body>
 </html>

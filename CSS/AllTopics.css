@@ -149,7 +149,7 @@ main .intro-text {
 
 .topic-list {
   list-style: none;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0;
 }
@@ -181,6 +181,12 @@ main .intro-text {
   flex-shrink: 0;
 }
 
+.topic-completed {
+  font-weight: bold;
+  color: #f68c6e;
+  min-width: 1.5ch;  
+}
+
 .topic-name {
   font-weight: 600;
   color: #f16363;
@@ -193,6 +199,48 @@ main .intro-text {
   font-size: 0.95rem;
   margin-left: auto;
   text-align: right;
+}
+
+/* Progress bar container */
+#topic-progress-bar {
+  max-width: 800px;
+  height: 50px;
+  position: relative;
+  padding: 0;
+  margin: 0 auto 3rem auto;
+  background: transparent;
+  border: 5px solid #f7b259;
+  border-radius: 10px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+}
+
+/* Progress fill */
+#topic-progress {
+  display: flex;
+  height: 100%; 
+  width: 0%;
+  background:#fcc688;
+  /* border-radius: 5px; */
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #f16363;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+}
+
+/* Progress text */
+#topic-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #f16363;
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Style for the intro paragraph */

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script src="../JS/ProgressBar.js" defer></script>
   <!-- Navbar -->
   <nav class="navbar">
      <div class="logo-container">
@@ -22,8 +23,11 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+
         <li><a href="../about.html">About</a></li>
+
         <li><a href="../contact.html">Contact</a></li>
+
       </ul>
       <button id="snakeToggle" class="snake-btn">
         <span style="margin-left: 20px">Snake Cursor</span>
@@ -35,7 +39,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Strings</li>
+
+        <li class="breadcrumb-item active" aria-current="page">Strings</a></li>
+
       </ol>
     </nav>
   </div>
@@ -48,32 +54,55 @@
       interviews.
     </p>
 
-    <ul class="topic-list">
-      <a href="./Problems/longestPalinSubstring.html">
-        <span class="topic-number">01</span>
-        <span class="topic-name">Longest Palindromic Substring</span>
-        <span class="topic-desc">Find the longest substring that is a palindrome</span>
-      </a>
-      <a href="./Problems/longestSubstringWithoutRepeat.html">
-        <span class="topic-number">02</span>
-        <span class="topic-name">Longest Substring Without Repeating Characters</span>
-        <span class="topic-desc">Sliding window pattern to track unique characters</span>
-      </a>
-      <a href="./Problems/validAnagrams.html">
-        <span class="topic-number">03</span>
-        <span class="topic-name">Valid Anagram</span>
-        <span class="topic-desc">Hash map pattern to check frequency of characters</span>
-      </a>
-      <a href="./Problems/groupAnagrams.html">
-        <span class="topic-number">04</span>
-        <span class="topic-name">Group Anagrams</span>
-        <span class="topic-desc">Sorting & hash-based grouping of strings</span>
-      </a>
-      <a href="./Problems/Matching.html">
-        <span class="topic-number">05</span>
-        <span class="topic-name">String Matching / Pattern Matching</span>
-        <span class="topic-desc">KMP / Rabin-Karp algorithm for substring search</span>
-      </a>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
+
+    <ul id="topics" class="topic-list" data-topic="string">
+      <li>
+        <a href="./Problems/longestPalinSubstring.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Longest Palindromic Substring</span>
+          <span class="topic-desc">Find the longest substring that is a palindrome</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/longestSubstringWithoutRepeat.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Longest Substring Without Repeating Characters</span>
+          <span class="topic-desc">Sliding window pattern to track unique characters</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/validAnagrams.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">Valid Anagram</span>
+          <span class="topic-desc">Hash map pattern to check frequency of characters</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/groupAnagrams.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">Group Anagrams</span>
+          <span class="topic-desc">Sorting & hash-based grouping of strings</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="./Problems/Matching.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">String Matching / Pattern Matching</span>
+          <span class="topic-desc">KMP / Rabin-Karp algorithm for substring search</span>
+        </a>
     </ul>
 
     <p class="pattern-coverage">
