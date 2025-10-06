@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plus One - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <div class="logo-img">
+        <img src="../../images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../arrays.html">Arrays</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Plus One</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Plus One</h1>
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        You are given a large integer represented as an array of digits, where each digit is stored in <code>digits[i]</code>.
+        Increment the integer by one and return the resulting array of digits.
+      </p>
+      <p><strong>Example:</strong> digits = [1,2,3] → Output: [1,2,4]</p>
+      <p><strong>Example:</strong> digits = [9,9,9] → Output: [1,0,0,0]</p>
+    </section>
+
+    <!-- Approach 1 -->
+    <section class="approach-section">
+      <h2>Approach 1: Convert to Number and Back</h2>
+      <p>
+        <strong>Explanation:</strong> Combine all digits into one integer, add 1, then split it back into digits.  
+        This is easy to understand but not memory-efficient for very large arrays.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+num = 0
+for d in digits:
+    num = num * 10 + d
+num += 1
+res = []
+while num > 0:
+    res.insert(0, num % 10)
+    num //= 10
+return res
+      </pre>
+    </section>
+
+    <!-- Approach 2 -->
+    <section class="approach-section">
+      <h2>Approach 2: Carry Handling from the End (Optimal)</h2>
+      <p>
+        <strong>Explanation:</strong> Start from the last digit, add 1, and manage any carry-over.  
+        If all digits were 9, a new leading 1 is added at the start.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+for i = n - 1 down to 0:
+    digits[i] += 1
+    if digits[i] < 10:
+        return digits
+    digits[i] = 0
+return [1] + digits
+      </pre>
+    </section>
+
+    <!-- Python Code -->
+    <section class="approach-section">
+      <h2>Python Implementation</h2>
+      <pre class="pseudo-code">
+class Solution:
+    def plusOne(self, digits):
+        for i in range(len(digits) - 1, -1, -1):
+            digits[i] += 1
+            if digits[i] < 10:
+                return digits
+            digits[i] = 0
+        return [1] + digits
+      </pre>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>
