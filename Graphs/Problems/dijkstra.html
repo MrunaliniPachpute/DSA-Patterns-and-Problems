@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dijkstra's Algorithm - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="separator">></span>
+      <a href="../graph.html">Graphs</a>
+      <span class="separator">></span>
+      <span class="current-page">Dijkstra's Algorithm</span>
+    </div>
+
+    <div class="problem-container">
+      <h1>Dijkstra's Shortest Path Algorithm</h1>
+
+      <div class="problem-description">
+        <h2>Problem Description</h2>
+        <p>
+          Dijkstra's algorithm finds the shortest path between nodes in a
+          weighted graph. It works on both directed and undirected graphs, but
+          all weights must be non-negative.
+        </p>
+
+        <h3>Time Complexity:</h3>
+        <ul>
+          <li>Using Priority Queue: O((V + E) log V)</li>
+          <li>Using Array: O(V²)</li>
+        </ul>
+
+        <h3>Space Complexity:</h3>
+        <p>O(V) where V is the number of vertices</p>
+      </div>
+
+      <div class="implementation">
+        <h2>Try It Out</h2>
+        <div class="input-section">
+          <p>Enter graph edges as source,target,weight (one edge per line):</p>
+          <textarea id="inputGraph" rows="5">
+0,1,4
+0,2,2
+1,2,1
+1,3,5
+2,3,8
+2,4,10
+3,4,2
+4,0,7</textarea
+          >
+          <p>Enter source vertex:</p>
+          <input type="number" id="sourceVertex" value="0" min="0" />
+          <button onclick="runDijkstra()">Find Shortest Paths</button>
+        </div>
+        <div class="output-section">
+          <h3>Output:</h3>
+          <pre id="output"></pre>
+        </div>
+      </div>
+
+      <script>
+        class PriorityQueue {
+          constructor() {
+            this.values = [];
+          }
+
+          enqueue(val, priority) {
+            this.values.push({ val, priority });
+            this.sort();
+          }
+
+          dequeue() {
+            return this.values.shift();
+          }
+
+          sort() {
+            this.values.sort((a, b) => a.priority - b.priority);
+          }
+        }
+
+        function dijkstra(graph, start) {
+          const nodes = new PriorityQueue();
+          const distances = {};
+          const previous = {};
+          const path = []; // to return at end
+          let smallest;
+
+          // Build up initial state
+          for (let vertex in graph) {
+            if (vertex === start) {
+              distances[vertex] = 0;
+              nodes.enqueue(vertex, 0);
+            } else {
+              distances[vertex] = Infinity;
+              nodes.enqueue(vertex, Infinity);
+            }
+            previous[vertex] = null;
+          }
+
+          // As long as there is something to visit
+          while (nodes.values.length) {
+            smallest = nodes.dequeue().val;
+            if (smallest || smallest === 0) {
+              path.push(smallest);
+
+              for (let neighbor in graph[smallest]) {
+                // Find neighboring node
+                let nextNode = graph[smallest][neighbor];
+                // Calculate new distance to neighboring node
+                let candidate = distances[smallest] + nextNode.weight;
+                let nextNeighbor = nextNode.node;
+
+                if (candidate < distances[nextNeighbor]) {
+                  // Updating new smallest distance to neighbor
+                  distances[nextNeighbor] = candidate;
+                  // Updating previous - How we got to neighbor
+                  previous[nextNeighbor] = smallest;
+                  // Enqueue in priority queue with new priority
+                  nodes.enqueue(nextNeighbor, candidate);
+                }
+              }
+            }
+          }
+          return { distances, previous, path };
+        }
+
+        function runDijkstra() {
+          const input = document.getElementById('inputGraph').value;
+          const source = parseInt(
+            document.getElementById('sourceVertex').value
+          );
+
+          // Parse input and create adjacency list
+          const graph = {};
+          const edges = input.trim().split('\n');
+
+          edges.forEach((edge) => {
+            const [src, dest, weight] = edge
+              .split(',')
+              .map((x) => parseInt(x.trim()));
+
+            if (!graph[src]) graph[src] = [];
+            if (!graph[dest]) graph[dest] = [];
+
+            graph[src].push({ node: dest, weight: weight });
+            // For undirected graph, add the reverse edge
+            graph[dest].push({ node: src, weight: weight });
+          });
+
+          const result = dijkstra(graph, source);
+
+          // Format output
+          let output = `Shortest distances from vertex ${source}:\n`;
+          for (let vertex in result.distances) {
+            output += `To vertex ${vertex}: ${result.distances[vertex]}\n`;
+          }
+
+          output += '\nPath taken:\n';
+          output += result.path.join(' -> ');
+
+          document.getElementById('output').textContent = output;
+        }
+
+        // Run with initial example on page load
+        window.onload = runDijkstra;
+      </script>
+    </div>
+  </body>
+</html>

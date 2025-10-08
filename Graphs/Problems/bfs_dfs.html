@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFS & DFS Graph Traversal - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeDSA</div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="separator">></span>
+      <a href="../graph.html">Graphs</a>
+      <span class="separator">></span>
+      <span class="current-page">BFS & DFS Traversal</span>
+    </div>
+
+    <div class="problem-container">
+      <h1>Breadth-First Search & Depth-First Search</h1>
+
+      <div class="problem-description">
+        <h2>Problem Description</h2>
+        <p>BFS and DFS are two fundamental graph traversal algorithms:</p>
+        <ul>
+          <li>
+            <strong>BFS (Breadth-First Search)</strong>: Explores the graph
+            level by level, visiting all neighbors of a vertex before moving to
+            the next level.
+          </li>
+          <li>
+            <strong>DFS (Depth-First Search)</strong>: Explores the graph by
+            going as deep as possible along each branch before backtracking.
+          </li>
+        </ul>
+
+        <h3>Time Complexity:</h3>
+        <ul>
+          <li>BFS: O(V + E)</li>
+          <li>DFS: O(V + E)</li>
+        </ul>
+
+        <h3>Space Complexity:</h3>
+        <ul>
+          <li>BFS: O(V) for queue</li>
+          <li>DFS: O(V) for recursion stack</li>
+        </ul>
+      </div>
+
+      <div class="implementation">
+        <h2>Try It Out</h2>
+        <div class="input-section">
+          <p>Enter graph edges (one edge per line, format: source,target):</p>
+          <textarea id="inputGraph" rows="5">
+0,1
+0,2
+1,2
+2,0
+2,3
+3,3</textarea
+          >
+          <p>Start vertex:</p>
+          <input type="number" id="startVertex" value="2" min="0" />
+          <button onclick="runBFS()">Run BFS</button>
+          <button onclick="runDFS()">Run DFS</button>
+        </div>
+        <div class="output-section">
+          <h3>Output:</h3>
+          <pre id="output"></pre>
+        </div>
+      </div>
+
+      <script>
+        function createGraph(edges) {
+          const graph = {};
+          edges.forEach((edge) => {
+            const [src, dest] = edge.split(',').map((x) => parseInt(x.trim()));
+            if (!graph[src]) graph[src] = [];
+            if (!graph[dest]) graph[dest] = [];
+            graph[src].push(dest);
+          });
+          return graph;
+        }
+
+        function bfs(graph, start) {
+          const visited = new Set();
+          const queue = [start];
+          const result = [];
+
+          visited.add(start);
+
+          while (queue.length) {
+            const vertex = queue.shift();
+            result.push(vertex);
+
+            for (let neighbor of graph[vertex] || []) {
+              if (!visited.has(neighbor)) {
+                visited.add(neighbor);
+                queue.push(neighbor);
+              }
+            }
+          }
+
+          return result;
+        }
+
+        function dfs(graph, start) {
+          const visited = new Set();
+          const result = [];
+
+          function dfsHelper(vertex) {
+            visited.add(vertex);
+            result.push(vertex);
+
+            for (let neighbor of graph[vertex] || []) {
+              if (!visited.has(neighbor)) {
+                dfsHelper(neighbor);
+              }
+            }
+          }
+
+          dfsHelper(start);
+          return result;
+        }
+
+        function runBFS() {
+          const input = document.getElementById('inputGraph').value;
+          const start = parseInt(document.getElementById('startVertex').value);
+          const edges = input.trim().split('\n');
+          const graph = createGraph(edges);
+
+          const traversal = bfs(graph, start);
+          document.getElementById('output').textContent =
+            `BFS Traversal starting from vertex ${start}:\n${traversal.join(' -> ')}`;
+        }
+
+        function runDFS() {
+          const input = document.getElementById('inputGraph').value;
+          const start = parseInt(document.getElementById('startVertex').value);
+          const edges = input.trim().split('\n');
+          const graph = createGraph(edges);
+
+          const traversal = dfs(graph, start);
+          document.getElementById('output').textContent =
+            `DFS Traversal starting from vertex ${start}:\n${traversal.join(' -> ')}`;
+        }
+
+        // Run BFS with initial example on page load
+        window.onload = runBFS;
+      </script>
+    </div>
+  </body>
+</html>
