@@ -13,12 +13,11 @@
   <body>
     <nav class="navbar">
       <div class="logo-container">
-  <div class="logo-img">
-    <img src="Images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-
-</div>
+        <div class="logo-img">
+          <img src="Images/logo.png" alt="Logo">
+        </div>
+        <div class="logo">CodeDSA</div>
+      </div>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -36,87 +35,80 @@
       <main>
         <h1>Explore Topics</h1>
         <div class="card-container">
-          <a class="card" href="./Arrays/arrays.html">
+          <a class="card" href="./Arrays/arrays.html" data-topic="arrays">
             <h3>Arrays</h3>
             <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
           </a>
-          <a class="card" href="./Sorting/sorting.html">
+          <a class="card" href="./Sorting/sorting.html" data-topic="arrays">
             <h3>Sorting</h3>
             <p>Problems related to sorting (Bubble sort, Merge Sort, ...)</p>
           </a>
-          <a class="card" href="./LinkedList/LL.html">
+          <a class="card" href="./LinkedList/LL.html" data-topic="linkedlist">
             <h3>Linked Lists</h3>
             <p>Single, double, circular linked list problems</p>
           </a>
-          <a class="card" href="./StacksAndQueues/stackAndQueue.html">
+          <a class="card" href="./StacksAndQueues/stackAndQueue.html" data-topic="stacks">
             <h3>Stacks & Queues</h3>
             <p>Stack and Queue related problems</p>
           </a>
-          <a class="card" href="./Strings/String.html">
+          <a class="card" href="./Strings/String.html" data-topic="strings">
             <h3>Strings</h3>
             <p>String manipulation problems</p>
           </a>
-          <a class="card" href="./Recursion/recursion.html">
+          <a class="card" href="./Recursion/recursion.html" data-topic="recursion">
             <h3>Recursion</h3>
-            <p>
-              Recursive solutions and backtracking (Factorial, NQueens, ...)
-            </p>
+            <p>Recursive solutions and backtracking (Factorial, NQueens, ...)</p>
           </a>
-          <a class="card" href="./Backtracking/Backtracking.html">
+          <a class="card" href="./Backtracking/Backtracking.html" data-topic="recursion">
             <h3>Backtracking</h3>
             <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
           </a>
-        
-          <a class="card" href="./BinarySearch/binarySearch.html">
+          <a class="card" href="./BinarySearch/binarySearch.html" data-topic="binarysearch">
             <h3>Binary Search</h3>
             <p>Binary search and its variations</p>
           </a>
-          <a class="card" href="./Heaps/heap.html">
+          <a class="card" href="./Heaps/heap.html" data-topic="heaps">
             <h3>Heaps</h3>
             <p>Heap / PriorityQueue problems</p>
           </a>
-          <a class="card" href="./BinaryTrees/binaryTrees.html">
+          <a class="card" href="./BinaryTrees/binaryTrees.html" data-topic="binarytrees">
             <h3>Binary Trees</h3>
             <p>Binary tree problems (InorderTraversal, ...)</p>
           </a>
-          <a class="card" href="./BinarySearchTrees/bst.html">
+          <a class="card" href="./BinarySearchTrees/bst.html" data-topic="bst">
             <h3>Binary Search Trees</h3>
             <p>BST-specific problems (ValidateBST, ...)</p>
           </a>
-          <a class="card" href="./Graphs/graph.html">
+          <a class="card" href="./Graphs/graph.html" data-topic="graphs">
             <h3>Graphs</h3>
             <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
           </a>
-          <a class="card" href="./Dynamic_Programming/dp.html">
+          <a class="card" href="./Dynamic_Programming/dp.html" data-topic="dp">
             <h3>Dynamic Programming</h3>
             <p>DP problems (1D, 2D, memoization, tabulation)</p>
           </a>
-          <a class="card" href="./Tries/tries.html">
+          <a class="card" href="./Tries/tries.html" data-topic="tries">
             <h3>Tries</h3>
             <p>Trie / Prefix tree problems</p>
           </a>
-          <a class="card" href="./Maths/MathProblems.html">
+          <a class="card" href="./Maths/MathProblems.html" data-topic="maths">
             <h3>Maths</h3>
             <p>Mathematical problems and concepts</p>
           </a>
-          <a
-            class="card"
-            href="./DivideAndConquer/DivideAndConquerProblems.html"
-          >
+          <a class="card" href="./DivideAndConquer/DivideAndConquerProblems.html" data-topic="divideandconquer">
             <h3>Divide and Conquer</h3>
-            <p>
-              Problems related to Divide and Conquer (Kth Kthlargestelement,
-              Median of 2 sorted lists, ...)
-            </p>
+            <p>Problems related to Divide and Conquer (Kth largest element, Median of 2 sorted lists, ...)</p>
           </a>
         </div>
       </main>
+
       <div class="right-sidebar">
         <aside class="recently-viewed-sidebar">
           <h2>🕒<span> &nbsp;Recently Viewed</span></h2>
           <ul id="recently-viewed-list"></ul>
           <button id="clear-history-btn">Clear History</button>
         </aside>
+
         <aside class="topics-filter-sidebar">
           <h2>Topics Filter</h2>
           <div class="filter-dropdown">
@@ -124,141 +116,33 @@
               Select Topics <span class="dropdown-arrow">▼</span>
             </button>
             <div class="dropdown-content" id="topicsDropdownContent">
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="arrays"
-                  checked
-                />
-                Arrays</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="linkedlist"
-                  checked
-                />
-                Linked Lists</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="stacks"
-                  checked
-                />
-                Stacks & Queues</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="strings"
-                  checked
-                />
-                Strings</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="recursion"
-                  checked
-                />
-                Recursion</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarysearch"
-                  checked
-                />
-                Binary Search</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="heaps"
-                  checked
-                />
-                Heaps</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarytrees"
-                  checked
-                />
-                Binary Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="bst"
-                  checked
-                />
-                Binary Search Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="graphs"
-                  checked
-                />
-                Graphs</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="dp"
-                  checked
-                />
-                Dynamic Programming</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="tries"
-                  checked
-                />
-                Tries</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="divideandconquer"
-                  checked
-                />
-                Divide and Conquer</label
-              >
+              <label><input type="checkbox" class="topic-filter" value="arrays" checked /> Arrays</label>
+              <label><input type="checkbox" class="topic-filter" value="linkedlist" checked /> Linked Lists</label>
+              <label><input type="checkbox" class="topic-filter" value="stacks" checked /> Stacks & Queues</label>
+              <label><input type="checkbox" class="topic-filter" value="strings" checked /> Strings</label>
+              <label><input type="checkbox" class="topic-filter" value="recursion" checked /> Recursion</label>
+              <label><input type="checkbox" class="topic-filter" value="binarysearch" checked /> Binary Search</label>
+              <label><input type="checkbox" class="topic-filter" value="heaps" checked /> Heaps</label>
+              <label><input type="checkbox" class="topic-filter" value="binarytrees" checked /> Binary Trees</label>
+              <label><input type="checkbox" class="topic-filter" value="bst" checked /> Binary Search Trees</label>
+              <label><input type="checkbox" class="topic-filter" value="graphs" checked /> Graphs</label>
+              <label><input type="checkbox" class="topic-filter" value="dp" checked /> Dynamic Programming</label>
+              <label><input type="checkbox" class="topic-filter" value="tries" checked /> Tries</label>
+              <label><input type="checkbox" class="topic-filter" value="divideandconquer" checked /> Divide and Conquer</label>
+              <label><input type="checkbox" class="topic-filter" value="maths" checked /> Maths</label>
             </div>
           </div>
         </aside>
       </div>
     </div>
+
     <footer>
       <div class="footer-content">
         <div class="footer-links">
           <a href="index.html" aria-label="Go to Home page">Home</a>
           <a href="about.html" aria-label="Go to About page">About</a>
           <a href="contact.html" aria-label="Go to Contact page">Contact</a>
-          <a
-            href="https://github.com/MrunaliniPachpute"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit GitHub"
-            >GitHub</a
-          >
+          <a href="https://github.com/MrunaliniPachpute" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub">GitHub</a>
         </div>
         <p>&copy; 2025 CodeDSA. All rights reserved.</p>
       </div>

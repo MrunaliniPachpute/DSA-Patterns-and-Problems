@@ -1,6 +1,65 @@
+/* 📌 Right Sidebar Base */
 .right-sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 220px;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: 'Public Sans', sans-serif;
+  gap: 1rem;
+  position: sticky;
+  top: 100px;
+}
+
+.right-sidebar h3 {
+  font-size: 1.2rem;
+  color: #f16363;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  align-self: flex-start;
+  border-bottom: 2px solid #ffd9a6;
+  padding-bottom: 6px;
+}
+
+.right-sidebar .sidebar-item {
+  width: 100%;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.right-sidebar .sidebar-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================= */
+/* 🌙 Dark Mode Right Sidebar */
+/* ========================= */
+body.dark-mode .right-sidebar {
+  background: #1f1f1f;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .right-sidebar h3 {
+  color: #ffcc70;
+  border-bottom: 2px solid #f16363;
+}
+
+body.dark-mode .right-sidebar .sidebar-item {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .right-sidebar .sidebar-item:hover {
+  background: #333;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
