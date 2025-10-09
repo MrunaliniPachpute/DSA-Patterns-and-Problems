@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="../../CSS/AllProblems.css" />
     <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../../CSS/snake.css" />
-    <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
-            <link rel="stylesheet" href="../../CSS/copyToClipboard.css"/>
-
+    <link rel="stylesheet" href="../../CSS/Flowchart.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
   </head>
+
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+      <div class="logo-container">
+        <div class="logo-img">
+          <img src="../../images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </div>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="../../index.html">Home</a></li>
@@ -30,50 +30,46 @@
           <span style="margin-left: 20px">Snake Cursor</span>
         </button>
       </div>
-      <div class="logo">CodeDSA</div>
-    </div>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../../about.html">About</a></li>
-        <li><a href="../../contact.html">Contact</a></li>
-      </ul>
-      <button id="snakeToggle" class="snake-btn">
-        <span style="margin-left: 20px">Snake Cursor</span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Longest Palindromic Substring</li>
-      </ol>
     </nav>
-  </div>
 
-  <main>
-    <h1>Longest Palindromic Substring</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../String.html">Strings</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Longest Palindromic Substring
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given a string <strong>s</strong>, return the longest substring of <strong>s</strong> that is a palindrome.
-      </p>
-      <p><strong>Example:</strong> Input: "babad" → Output: "bab" (or "aba")</p>
-    </section>
+    <main>
+      <h1>Longest Palindromic Substring</h1>
 
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Brute Force</h2>
-      <p><strong>Explanation:</strong> Check all possible substrings and return the longest palindrome.</p>
-      <p><strong>Time Complexity:</strong> O(n³)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given a string <strong>s</strong>, return the longest substring of
+          <strong>s</strong> that is a palindrome.
+        </p>
+        <p>
+          <strong>Example:</strong> Input: "babad" → Output: "bab" (or "aba")
+        </p>
+      </section>
+
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Check all possible substrings and return
+          the longest palindrome.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n³)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 max_len = 0
 res = ""
 for i = 0 to n-1:
@@ -84,39 +80,58 @@ for i = 0 to n-1:
                 res = s[i..j]
 return res
       </pre
-        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
         <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/1stringproblem1approach1.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
+          <button class="fc-button">View Flowchart</button>
+          <img
+            src="../Flowcharts/1stringproblem1approach1.png"
+            alt="Heap Sort Flowchart"
+            class="fc-image"
+          />
+        </div>
       </section>
 
-    <section class="approach-section">
-      <h2>Approach 2: Expand Around Center</h2>
-      <p><strong>Explanation:</strong> Expand from each character (and between characters) to find palindromes
-        efficiently.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Expand Around Center</h2>
+        <p>
+          <strong>Explanation:</strong> Expand from each character (and between
+          characters) to find palindromes efficiently.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 for i = 0 to n-1:
     expand around center i (odd length)
     expand around center i and i+1 (even length)
     update max palindrome
 return longest palindrome
       </pre
-        > <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
         <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/1stringproblem1approach2.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
+          <button class="fc-button">View Flowchart</button>
+          <img
+            src="../Flowcharts/1stringproblem1approach2.png"
+            alt="Heap Sort Flowchart"
+            class="fc-image"
+          />
+        </div>
       </section>
 
-    <section class="approach-section">
-      <h2>Approach 3: Dynamic Programming</h2>
-      <p><strong>Explanation:</strong> Use DP table where dp[i][j] = true if s[i..j] is palindrome.</p>
-      <p><strong>Time Complexity:</strong> O(n²)</p>
-      <p><strong>Space Complexity:</strong> O(n²)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Dynamic Programming</h2>
+        <p>
+          <strong>Explanation:</strong> Use DP table where dp[i][j] = true if
+          s[i..j] is palindrome.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(n²)</p>
+        <pre class="pseudo-code">
 dp[n][n] = false
 for i = n-1 to 0:
     for j = i to n-1:
@@ -125,24 +140,29 @@ for i = n-1 to 0:
             update max palindrome
 return longest palindrome
       </pre
-        > <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
         <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/1stringproblem1approach3.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
+          <button class="fc-button">View Flowchart</button>
+          <img
+            src="../Flowcharts/1stringproblem1approach3.png"
+            alt="Heap Sort Flowchart"
+            class="fc-image"
+          />
+        </div>
       </section>
     </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
 
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
     <script src="../../JS/Flowcharts.js"></script>
-      <script src="../../copyToClipboard.js"></script>
-
-
+    <script src="../../copyToClipboard.js"></script>
   </body>
 </html>

@@ -1,66 +1,66 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree Traversals - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tree Traversals - CodeDSA</title>
- <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/snake.css">
-</head>
-
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo-container">
-      <div class="logo-img">
-        <img src="../../images/logo.png" alt="Logo">
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <div class="logo-img">
+          <img src="../../images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
       </div>
-      <div class="logo">CodeDSA</div>
-    </div>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../../about.html">About</a></li>
-        <li><a href="../../contact.html">Contact</a></li>
-      </ul>
-      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
-    </div>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Navigation -->
-  <div class="breadcrumb-container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-        <li class="breadcrumb-item">
-          <a href="../binaryTrees.html">Binary Trees</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          Tree Traversals
-        </li>
-      </ol>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
     </nav>
-  </div>
 
-  <main>
-    <h1>Tree Traversals</h1>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../binaryTrees.html">Binary Trees</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Tree Traversals
+          </li>
+        </ol>
+      </nav>
+    </div>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-      <h2>Problem Statement</h2>
-      <p>
-        Given the root of a binary tree, traverse it in different orders:
-        <strong>inorder</strong>, <strong>preorder</strong>, and
-        <strong>postorder</strong>.
-      </p>
-      <p><strong>Example:</strong></p>
-      <pre class="pseudo-code">
+    <main>
+      <h1>Tree Traversals</h1>
+
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given the root of a binary tree, traverse it in different orders:
+          <strong>inorder</strong>, <strong>preorder</strong>, and
+          <strong>postorder</strong>.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class="pseudo-code">
        1
       / \
      2   3
@@ -70,23 +70,26 @@
 Inorder → [4,2,5,1,3]
 Preorder → [1,2,4,5,3]
 Postorder → [4,5,2,3,1]
-          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
 
-    </section>
-
-    <!-- Approaches -->
-    <section class="approach-section">
-      <h2>Approach 1: Recursive Traversal</h2>
-      <p>
-        <strong>Explanation:</strong> Use standard recursion for inorder,
-        preorder, and postorder.
-      </p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p>
-        <strong>Space Complexity:</strong> O(h) for recursion stack, where h
-        is tree height
-      </p>
-      <pre class="pseudo-code">
+      <!-- Approaches -->
+      <section class="approach-section">
+        <h2>Approach 1: Recursive Traversal</h2>
+        <p>
+          <strong>Explanation:</strong> Use standard recursion for inorder,
+          preorder, and postorder.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p>
+          <strong>Space Complexity:</strong> O(h) for recursion stack, where h
+          is tree height
+        </p>
+        <pre class="pseudo-code">
 // Inorder
 inorder(node):
     if node == NULL: return
@@ -107,19 +110,22 @@ postorder(node):
     postorder(node.left)
     postorder(node.right)
     print(node.val)
-          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
 
-    </section>
-
-    <section class="approach-section">
-      <h2>Approach 2: Iterative Using Stack</h2>
-      <p>
-        <strong>Explanation:</strong> Use a stack to simulate recursion for
-        inorder, preorder, or postorder traversal.
-      </p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(h)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 2: Iterative Using Stack</h2>
+        <p>
+          <strong>Explanation:</strong> Use a stack to simulate recursion for
+          inorder, preorder, or postorder traversal.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(h)</p>
+        <pre class="pseudo-code">
 // Iterative Inorder
 stack = empty
 curr = root
@@ -130,19 +136,22 @@ while curr != NULL or stack not empty:
     curr = stack.pop()
     print(curr.val)
     curr = curr.right
-          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
 
-    </section>
-
-    <section class="approach-section">
-      <h2>Approach 3: Morris Traversal (Inorder, O(1) space)</h2>
-      <p>
-        <strong>Explanation:</strong> Threaded binary tree technique to
-        traverse without recursion or stack.
-      </p>
-      <p><strong>Time Complexity:</strong> O(n)</p>
-      <p><strong>Space Complexity:</strong> O(1)</p>
-      <pre class="pseudo-code">
+      <section class="approach-section">
+        <h2>Approach 3: Morris Traversal (Inorder, O(1) space)</h2>
+        <p>
+          <strong>Explanation:</strong> Threaded binary tree technique to
+          traverse without recursion or stack.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
 curr = root
 while curr != NULL:
     if curr.left == NULL:
@@ -159,19 +168,32 @@ while curr != NULL:
             predecessor.right = NULL
             print(curr.val)
             curr = curr.right
-          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    </section>
-  </main>
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+      <section>
+        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+        <div id="flowchart" class="flowchart-container">
+          <img
+            src="../Flowcharts/treetraversal.png"
+            alt="Height & Diameter Flowchart"
+            height="1000px"
+            width="850px"
+          />
+        </div>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-
-  <script src="../../index.js"></script>
-  <script src="../../copyToClipboard.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
-</body>
-
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <script src="../../index.js"></script>
+    <script src="../../copyToClipboard.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
 </html>

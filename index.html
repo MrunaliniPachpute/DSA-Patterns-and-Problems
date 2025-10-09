@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/snake.css" />
     <link rel="stylesheet" href="CSS/topicsFilter.css" />
     <link rel="stylesheet" href="CSS/RightSidebar.css" />
+    <link rel="stylesheet" href="CSS/oneQuestionQuiz.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -24,14 +25,15 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li class="starred">
-            <a href="Revised.html" aria-current="page"
-              ><svg class="star-icon" viewBox="0 0 24 24">
+            <a href="Revised.html" aria-current="page">
+              <svg class="star-icon" viewBox="0 0 24 24">
                 <path
                   d="M12 17.27L18.18 21l-1.64-7.03
-                 L22 9.24l-7.19-.61L12 2 9.19 8.63
-                 2 9.24l5.46 4.73L5.82 21z"
-                /></svg
-            ></a>
+                        L22 9.24l-7.19-.61L12 2 9.19 8.63
+                        2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            </a>
           </li>
         </ul>
         <button id="snakeToggle" class="snake-btn">
@@ -40,7 +42,6 @@
         <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
       </div>
     </nav>
-
     <div class="home-container">
       <main>
         <h1>Explore Topics</h1>
@@ -200,5 +201,7 @@
     </footer>
     <script type="module" src="index.js"></script>
     <script src="JS/filterDropdownScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="JS/oneQuestionQuiz.js"></script>
   </body>
 </html>
