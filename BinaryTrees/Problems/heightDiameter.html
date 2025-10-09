@@ -150,19 +150,25 @@ while stack not empty:
     rightH = mapHeight.get(node.right,0)
     mapHeight[node] = 1 + max(leftH, rightH)
     diameter = max(diameter, leftH + rightH + 1)
-          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-
+    
+      </pre
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      </section>
+    <section>
+  <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+  <div id="flowchart" class="flowchart-container">
+    <img src="../Flowcharts/heightDiameter.png" alt="Height & Diameter Flowchart" height="1050px" width="600px"/>
+  </div>
+</section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+  
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
-</body>
-
+  </body>
 </html>
+

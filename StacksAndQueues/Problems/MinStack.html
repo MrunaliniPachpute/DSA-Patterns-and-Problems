@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
 
 <body>
@@ -64,8 +65,10 @@ pop(): stack.pop()
 top(): return stack[-1]
 getMin(): return min(stack)
       </pre>
-            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob2app1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -86,8 +89,10 @@ pop():
 top(): return stack.top()
 getMin(): return minStack.top()
       </pre>
-            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob2app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -111,8 +116,10 @@ pop():
 top(): return minVal if top < minVal else top
 getMin(): return minVal
       </pre>
-            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob2app3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
   </main>
 
@@ -120,9 +127,9 @@ getMin(): return minVal
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
-  <script src="../../index.js"></script>
-  <script src="../../copyToClipboard.js"></script>
-  <script src="../../JS/problemTracker.js"></script>
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>

@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Valid Anagram - CodeDSA</title>
-    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
-    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
-    <link rel="stylesheet" href="../../CSS/snake.css" />
-    <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
-            <link rel="stylesheet" href="../../CSS/copyToClipboard.css"/>
 
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-       <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../about.html">About</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valid Anagram - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+  <link rel="stylesheet" href="../../CSS/snake.css" />
+  <link rel="stylesheet" href="../../CSS/Flowchart.css" />
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <div class="logo-img">
+        <img src="../../images/logo.png" alt="Logo">
       </div>
       <div class="logo">CodeDSA</div>
     </div>
@@ -80,13 +70,12 @@ if sort(s) == sort(t):
     return true
 else:
     return false
-      </pre
-        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-        <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/4stringapproach1.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
-      </section>
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowcharts/4stringapproach1.png" alt="Heap Sort Flowchart" class="fc-image" />
+      </div>
+    </section>
 
     <section class="approach-section">
       <h2>Approach 2: Hash Map Frequency Count</h2>
@@ -101,13 +90,12 @@ for char in s:
 for char in t:
     count_t[char]++
 return count_s == count_t
-      </pre
-        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-        <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/4stringapproach2.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
-      </section>
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowcharts/4stringapproach2.png" alt="Heap Sort Flowchart" class="fc-image" />
+      </div>
+    </section>
 
     <section class="approach-section">
       <h2>Approach 3: Single Hash Map (Optimal)</h2>
@@ -126,24 +114,24 @@ for val in count.values():
     if val != 0:
         return false
 return true
-      </pre
-        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-        <div class="fc-container">
-    <button class="fc-button">View Flowchart</button>
-    <img src="../Flowcharts/4stringapproach3.png" alt="Heap Sort Flowchart" class="fc-image" />
-  </div>
-      </section>
-    </main>
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowcharts/4stringapproach3.png" alt="Heap Sort Flowchart" class="fc-image" />
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-    <script src="../../JS/Flowcharts.js"></script>
+  <script src="../../index.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
   <script src="../../copyToClipboard.js"></script>
 
-  </body>
+</body>
+
 </html>
