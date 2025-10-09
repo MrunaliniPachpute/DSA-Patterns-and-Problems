@@ -12,12 +12,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: linear-gradient(90deg, #fbb69f, #f68c6e, #f16363); /* warm, soft professional gradient */
+  background: linear-gradient(
+    90deg,
+    #fbb69f,
+    #f68c6e,
+    #f16363
+  ); /* warm, soft professional gradient */
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .logo-container {
   display: flex;
@@ -55,24 +60,36 @@
   font-weight: 500;
   text-decoration: none;
   border-radius: 5px; /* rounded pill shape */
-  background: linear-gradient(90deg, #f5c686, #ffcc70, #ffd9a6); /* warm professional gradient */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  background: linear-gradient(
+    90deg,
+    #f5c686,
+    #ffcc70,
+    #ffd9a6
+  ); /* warm professional gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
 /* Hover effect */
 .navbar .nav-links li a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  background: linear-gradient(90deg, #ffd9a6, #ffcc70, #ffb347); /* subtle gradient shift */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    90deg,
+    #ffd9a6,
+    #ffcc70,
+    #ffb347
+  ); /* subtle gradient shift */
 }
 
 /* Optional active button style */
 .navbar .nav-links li a.active {
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   background: linear-gradient(90deg, #ffcc70, #ffb347, #ffd9a6);
 }
-
 
 .navbar .logo {
   font-size: 1.7rem;
@@ -87,7 +104,7 @@ footer {
   color: #fff;
   margin-top: 3rem;
   font-size: 0.95rem;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Responsive */
@@ -104,20 +121,23 @@ main {
   padding: 0 1rem;
 }
 
-.about-section, .contact-section {
+.about-section,
+.contact-section {
   background-color: #ffffff;
   padding: 2rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.about-section h1, .contact-section h1 {
+.about-section h1,
+.contact-section h1 {
   text-align: center;
-  color: #007BFF;
+  color: #007bff;
   margin-bottom: 1rem;
 }
 
-.about-section p, .contact-section p {
+.about-section p,
+.contact-section p {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -141,7 +161,9 @@ main {
   display: flex;
   align-items: center;
   gap: 10px; /* space between icon and text */
-  transition: transform 0.3s, background 0.3s;
+  transition:
+    transform 0.3s,
+    background 0.3s;
 }
 
 .features ul li:hover {
@@ -154,7 +176,6 @@ main {
   font-size: 1.2rem;
 }
 
-
 /* Mission & Vision */
 .mission-vision {
   display: flex;
@@ -163,19 +184,24 @@ main {
   gap: 2rem;
   margin-top: 2rem;
 }
-.mission, .vision {
+.mission,
+.vision {
   background: #fdf2f0;
   padding: 1rem 1.5rem;
   border-radius: 10px;
   flex: 1 1 300px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
-.mission:hover, .vision:hover {
+.mission:hover,
+.vision:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-.mission h3, .vision h3 {
+.mission h3,
+.vision h3 {
   color: #ff6f61;
   margin-bottom: 0.5rem;
 }
@@ -221,7 +247,9 @@ main {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s, text-decoration 0.2s;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
   padding: 0.5rem;
   border-radius: 4px;
 }
@@ -490,4 +518,23 @@ body.dark-mode .vision p {
 body.dark-mode .mission .material-icons,
 body.dark-mode .vision .material-icons {
   color: #6d6666; /* grayish icons */
+}
+.star-btn:hover {
+  transform: scale(1.1);
+}
+
+.star-icon {
+  width: 17px;
+  height: 17px;
+  fill: transparent;
+  stroke: #555;
+  stroke-width: 1.4;
+  transition:
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.starred .star-icon {
+  fill: gold;
+  stroke: gold;
 }
