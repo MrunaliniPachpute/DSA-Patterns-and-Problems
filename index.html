@@ -13,17 +13,26 @@
   <body>
     <nav class="navbar">
       <div class="logo-container">
-  <div class="logo-img">
-    <img src="Images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-
-</div>
+        <div class="logo-img">
+          <img src="Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </div>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="starred">
+            <a href="Revised.html" aria-current="page"
+              ><svg class="star-icon" viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03
+                 L22 9.24l-7.19-.61L12 2 9.19 8.63
+                 2 9.24l5.46 4.73L5.82 21z"
+                /></svg
+            ></a>
+          </li>
         </ul>
         <button id="snakeToggle" class="snake-btn">
           <span style="margin-left: 20px">Snake Cursor</span>
@@ -35,81 +44,7 @@
     <div class="home-container">
       <main>
         <h1>Explore Topics</h1>
-        <div class="card-container">
-          <a class="card" href="./Arrays/arrays.html">
-            <h3>Arrays</h3>
-            <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
-          </a>
-          <a class="card" href="./Sorting/sorting.html">
-            <h3>Sorting</h3>
-            <p>Problems related to sorting (Bubble sort, Merge Sort, ...)</p>
-          </a>
-          <a class="card" href="./LinkedList/LL.html">
-            <h3>Linked Lists</h3>
-            <p>Single, double, circular linked list problems</p>
-          </a>
-          <a class="card" href="./StacksAndQueues/stackAndQueue.html">
-            <h3>Stacks & Queues</h3>
-            <p>Stack and Queue related problems</p>
-          </a>
-          <a class="card" href="./Strings/String.html">
-            <h3>Strings</h3>
-            <p>String manipulation problems</p>
-          </a>
-          <a class="card" href="./Recursion/recursion.html">
-            <h3>Recursion</h3>
-            <p>
-              Recursive solutions and backtracking (Factorial, NQueens, ...)
-            </p>
-          </a>
-          <a class="card" href="./Backtracking/Backtracking.html">
-            <h3>Backtracking</h3>
-            <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
-          </a>
-        
-          <a class="card" href="./BinarySearch/binarySearch.html">
-            <h3>Binary Search</h3>
-            <p>Binary search and its variations</p>
-          </a>
-          <a class="card" href="./Heaps/heap.html">
-            <h3>Heaps</h3>
-            <p>Heap / PriorityQueue problems</p>
-          </a>
-          <a class="card" href="./BinaryTrees/binaryTrees.html">
-            <h3>Binary Trees</h3>
-            <p>Binary tree problems (InorderTraversal, ...)</p>
-          </a>
-          <a class="card" href="./BinarySearchTrees/bst.html">
-            <h3>Binary Search Trees</h3>
-            <p>BST-specific problems (ValidateBST, ...)</p>
-          </a>
-          <a class="card" href="./Graphs/graph.html">
-            <h3>Graphs</h3>
-            <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
-          </a>
-          <a class="card" href="./Dynamic_Programming/dp.html">
-            <h3>Dynamic Programming</h3>
-            <p>DP problems (1D, 2D, memoization, tabulation)</p>
-          </a>
-          <a class="card" href="./Tries/tries.html">
-            <h3>Tries</h3>
-            <p>Trie / Prefix tree problems</p>
-          </a>
-          <a class="card" href="./Maths/MathProblems.html">
-            <h3>Maths</h3>
-            <p>Mathematical problems and concepts</p>
-          </a>
-          <a
-            class="card"
-            href="./DivideAndConquer/DivideAndConquerProblems.html"
-          >
-            <h3>Divide and Conquer</h3>
-            <p>
-              Problems related to Divide and Conquer (Kth Kthlargestelement,
-              Median of 2 sorted lists, ...)
-            </p>
-          </a>
-        </div>
+        <div id="card-container" class="card-container"></div>
       </main>
       <div class="right-sidebar">
         <aside class="recently-viewed-sidebar">
@@ -263,8 +198,7 @@
         <p>&copy; 2025 CodeDSA. All rights reserved.</p>
       </div>
     </footer>
-
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
     <script src="JS/filterDropdownScript.js"></script>
   </body>
 </html>

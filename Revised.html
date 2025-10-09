@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starred Topics - CodeDSA</title>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="CSS/snake.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo-container">
+        <div class="logo-img">
+          <img src="Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="starred">
+            <a href="Revised.html" aria-current="page"
+              ><svg class="star-icon" viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03
+                 L22 9.24l-7.19-.61L12 2 9.19 8.63
+                 2 9.24l5.46 4.73L5.82 21z"
+                /></svg
+            ></a>
+          </li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
+    </nav>
+
+    <main class="home-container">
+      <h1>Explore Topics</h1>
+      <div id="card-container" class="card-container"></div>
+      <p
+        id="no-starred-msg"
+        style="color: #666; font-style: italic; margin-top: 1rem; display: none"
+      >
+        You have no starred topics yet.
+      </p>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" aria-label="Go to Home page">Home</a>
+          <a href="about.html" aria-label="Go to About page">About</a>
+          <a href="contact.html" aria-label="Go to Contact page">Contact</a>
+          <a
+            href="https://github.com/MrunaliniPachpute"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit GitHub"
+            >GitHub</a
+          >
+        </div>
+        <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./JS/revised.js"></script>
+  </body>
+</html>
