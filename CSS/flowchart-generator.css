@@ -1,0 +1,227 @@
+/**
+ * Flowchart Generator Styles
+ * Styles for modal, buttons, and flowchart display area
+ */
+
+/* Modal Overlay */
+.flowchart-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+/* Modal Content Container */
+.flowchart-modal-content {
+  background-color: #ffffff;
+  margin: 2% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.flowchart-close {
+  color: #999;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 1001;
+}
+
+.flowchart-close:hover,
+.flowchart-close:focus {
+  color: #333;
+}
+
+/* Flowchart Display Area */
+.flowchart-display {
+  min-height: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mermaid Flowchart Styling */
+.flowchart-display .mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.flowchart-display svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure no overlapping elements */
+.flowchart-display .node {
+  padding: 8px 12px;
+  margin: 5px;
+}
+
+/* Download Button */
+.download-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: inline-block;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+/* Get Flowchart Button */
+.get-flowchart-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  margin-top: 15px;
+}
+
+.get-flowchart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.get-flowchart-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .flowchart-modal-content {
+    width: 95%;
+    padding: 20px;
+    margin: 5% auto;
+  }
+
+  .flowchart-display {
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .download-btn,
+  .get-flowchart-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .flowchart-close {
+    font-size: 28px;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flowchart-modal-content {
+    width: 98%;
+    padding: 15px;
+    margin: 10% auto;
+  }
+
+  .flowchart-display {
+    min-height: 250px;
+    padding: 10px;
+  }
+
+  .flowchart-close {
+    font-size: 24px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .flowchart-modal-content {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+  }
+
+  .flowchart-display {
+    background-color: #1a1a1a;
+    border-color: #444;
+  }
+
+  .flowchart-close {
+    color: #aaa;
+  }
+
+  .flowchart-close:hover,
+  .flowchart-close:focus {
+    color: #fff;
+  }
+}
+
+/* Loading State */
+.flowchart-display.loading::before {
+  content: 'Generating flowchart...';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 18px;
+}
+
+/* Error State */
+.flowchart-display.error::before {
+  content: 'Error generating flowchart. Please try again.';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d32f2f;
+  font-size: 16px;
+}
