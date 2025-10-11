@@ -316,10 +316,15 @@ If you find this repo useful, **please give it a star** to help others find it.
 </div>
 
 ## 👨‍💻 Our Contributors
+<img src="https://contributors-img.web.app/image?repo=MrunaliniPachpute/DSA-Patterns-and-Problems"/>
 
-[![Contributors](https://img.shields.io/github/contributors/MrunaliniPachpute/DSA-Patterns-and-Problems?style=for-the-badge)](https://github.com/MrunaliniPachpute/DSA-Patterns-and-Problems/graphs/contributors)
 
-### View our contributors : <a href="https://github.com/MrunaliniPachpute/DSA-Patterns-and-Problems/graphs/contributors"> Click Here</a>
+## 🌟 Our Stargazers
+<img src="https://reporoster.com/stars/dark/MrunaliniPachpute/DSA-Patterns-and-Problems"/>
+
+
+## 🍴 Our Forkers
+<img src="https://reporoster.com/forks/dark/MrunaliniPachpute/DSA-Patterns-and-Problems"/>
 
 <div align="center">
 
