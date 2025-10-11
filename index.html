@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="CSS/topicsFilter.css" />
   <link rel="stylesheet" href="CSS/RightSidebar.css" />
   <link rel="stylesheet" href="CSS/oneQuestionQuiz.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
@@ -42,71 +43,98 @@
     </div>
     <main>
       <h1>Explore Topics</h1>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search topics or problems..." />
+        </div>
+      </div>
       <div class="card-container">
-        <a class="card" href="./Arrays/arrays.html">
+        <a class="card" href="./Arrays/arrays.html" data-topic="arrays">
+          <div class="card-icon"><i class="fas fa-list"></i></div>
           <h3>Arrays</h3>
           <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
         </a>
-        <a class="card" href="./Sorting/sorting.html">
+        <a class="card" href="./Sorting/sorting.html" data-topic="sorting">
+          <div class="card-icon"><i class="fas fa-sort"></i></div>
           <h3>Sorting</h3>
           <p>Problems related to sorting (Bubble sort, Merge Sort, ...)</p>
         </a>
-        <a class="card" href="./LinkedList/LL.html">
+        <a class="card" href="./LinkedList/LL.html" data-topic="linkedlist">
+          <div class="card-icon"><i class="fas fa-link"></i></div>
           <h3>Linked Lists</h3>
           <p>Single, double, circular linked list problems</p>
         </a>
-        <a class="card" href="./StacksAndQueues/stackAndQueue.html">
+        <a class="card" href="./StacksAndQueues/stackAndQueue.html" data-topic="stacks">
+          <div class="card-icon"><i class="fas fa-layer-group"></i></div>
           <h3>Stacks & Queues</h3>
           <p>Stack and Queue related problems</p>
         </a>
-        <a class="card" href="./Strings/String.html">
+        <a class="card" href="./Strings/String.html" data-topic="strings">
+          <div class="card-icon"><i class="fas fa-font"></i></div>
           <h3>Strings</h3>
           <p>String manipulation problems</p>
         </a>
-        <a class="card" href="./Recursion/recursion.html">
+        <a class="card" href="./Recursion/recursion.html" data-topic="recursion">
+          <div class="card-icon"><i class="fas fa-recycle"></i></div>
           <h3>Recursion</h3>
           <p>
             Recursive solutions and backtracking (Factorial, NQueens, ...)
           </p>
         </a>
-        <a class="card" href="./Backtracking/Backtracking.html">
+        <a class="card" href="./Backtracking/Backtracking.html" data-topic="backtracking">
+          <div class="card-icon"><i class="fas fa-route"></i></div>
           <h3>Backtracking</h3>
           <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
         </a>
 
-        <a class="card" href="./BinarySearch/binarySearch.html">
+        <a class="card" href="./BinarySearch/binarySearch.html" data-topic="binarysearch">
+          <div class="card-icon"><i class="fas fa-search"></i></div>
           <h3>Binary Search</h3>
           <p>Binary search and its variations</p>
         </a>
-        <a class="card" href="./Heaps/heap.html">
+        <a class="card" href="./Heaps/heap.html" data-topic="heaps">
+          <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
           <h3>Heaps</h3>
           <p>Heap / PriorityQueue problems</p>
         </a>
-        <a class="card" href="./BinaryTrees/binaryTrees.html">
+        <a class="card" href="./BinaryTrees/binaryTrees.html" data-topic="binarytrees">
+          <div class="card-icon"><i class="fas fa-tree"></i></div>
           <h3>Binary Trees</h3>
           <p>Binary tree problems (InorderTraversal, ...)</p>
         </a>
-        <a class="card" href="./BinarySearchTrees/bst.html">
+        <a class="card" href="./BinarySearchTrees/bst.html" data-topic="bst">
+          <div class="card-icon"><i class="fas fa-sitemap"></i></div>
           <h3>Binary Search Trees</h3>
           <p>BST-specific problems (ValidateBST, ...)</p>
         </a>
-        <a class="card" href="./Graphs/graph.html">
+        <a class="card" href="./Graphs/graph.html" data-topic="graphs">
+          <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
           <h3>Graphs</h3>
           <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
         </a>
-        <a class="card" href="./Dynamic_Programming/dp.html">
+        <a class="card" href="./Dynamic_Programming/dp.html" data-topic="dp">
+          <div class="card-icon"><i class="fas fa-brain"></i></div>
           <h3>Dynamic Programming</h3>
           <p>DP problems (1D, 2D, memoization, tabulation)</p>
         </a>
-        <a class="card" href="./Tries/tries.html">
+        <a class="card" href="./Tries/tries.html" data-topic="tries">
+          <div class="card-icon"><i class="fas fa-network-wired"></i></div>
           <h3>Tries</h3>
           <p>Trie / Prefix tree problems</p>
         </a>
-        <a class="card" href="./Maths/MathProblems.html">
+        <a class="card" href="./Maths/MathProblems.html" data-topic="maths">
+          <div class="card-icon"><i class="fas fa-calculator"></i></div>
           <h3>Maths</h3>
           <p>Mathematical problems and concepts</p>
         </a>
-        <a class="card" href="./DivideAndConquer/DivideAndConquerProblems.html">
+        <a class="card" href="./GreedyAlgorithms/greedyAlgo.html" data-topic="greedy">
+          <div class="card-icon"><i class="fas fa-coins"></i></div>
+          <h3>Greedy Algorithms</h3>
+          <p>Greedy algorithm problems</p>
+        </a>
+        <a class="card" href="./DivideAndConquer/DivideAndConquerProblems.html" data-topic="divideandconquer">
+          <div class="card-icon"><i class="fas fa-divide"></i></div>
           <h3>Divide and Conquer</h3>
           <p>
             Problems related to Divide and Conquer (Kth Kthlargestelement,
@@ -131,6 +159,8 @@
           <div class="dropdown-content" id="topicsDropdownContent">
             <label><input type="checkbox" class="topic-filter" value="arrays" checked />
               Arrays</label>
+            <label><input type="checkbox" class="topic-filter" value="sorting" checked />
+              Sorting</label>
             <label><input type="checkbox" class="topic-filter" value="linkedlist" checked />
               Linked Lists</label>
             <label><input type="checkbox" class="topic-filter" value="stacks" checked />
@@ -139,6 +169,8 @@
               Strings</label>
             <label><input type="checkbox" class="topic-filter" value="recursion" checked />
               Recursion</label>
+            <label><input type="checkbox" class="topic-filter" value="backtracking" checked />
+              Backtracking</label>
             <label><input type="checkbox" class="topic-filter" value="binarysearch" checked />
               Binary Search</label>
             <label><input type="checkbox" class="topic-filter" value="heaps" checked />
@@ -153,6 +185,10 @@
               Dynamic Programming</label>
             <label><input type="checkbox" class="topic-filter" value="tries" checked />
               Tries</label>
+            <label><input type="checkbox" class="topic-filter" value="maths" checked />
+              Maths</label>
+            <label><input type="checkbox" class="topic-filter" value="greedy" checked />
+              Greedy Algorithms</label>
             <label><input type="checkbox" class="topic-filter" value="divideandconquer" checked />
               Divide and Conquer</label>
           </div>
