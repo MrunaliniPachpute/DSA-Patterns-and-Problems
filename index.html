@@ -41,146 +41,128 @@
         </button>
         <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
       </div>
-    </nav>
-    <div class="home-container">
-      <div class="left-sidebar">
-        <div id="one-question-container"></div>
+    </div>
+    <main>
+      <h1>Explore Topics</h1>
+      <div class="card-container">
+        <a class="card" topic="arrays" href="./Arrays/arrays.html">
+          <h3>Arrays</h3>
+          <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
+        </a>
+        <a class="card" topic="sorting" href="./Sorting/sorting.html">
+          <h3>Sorting</h3>
+          <p>Problems related to sorting (Bubble sort, Merge Sort, ...)</p>
+        </a>
+        <a class="card" topic="linkedlist" href="./LinkedList/LL.html">
+          <h3>Linked Lists</h3>
+          <p>Single, double, circular linked list problems</p>
+        </a>
+        <a class="card" topic="stacks" href="./StacksAndQueues/stackAndQueue.html">
+          <h3>Stacks & Queues</h3>
+          <p>Stack and Queue related problems</p>
+        </a>
+        <a class="card" topic="strings" href="./Strings/String.html">
+          <h3>Strings</h3>
+          <p>String manipulation problems</p>
+        </a>
+        <a class="card" topic="recursion" href="./Recursion/recursion.html">
+          <h3>Recursion</h3>
+          <p>
+            Recursive solutions and backtracking (Factorial, NQueens, ...)
+          </p>
+        </a>
+        <a class="card" topic="backtracking" href="./Backtracking/Backtracking.html">
+          <h3>Backtracking</h3>
+          <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
+        </a>
+
+        <a class="card" topic="binarysearch" href="./BinarySearch/binarySearch.html">
+          <h3>Binary Search</h3>
+          <p>Binary search and its variations</p>
+        </a>
+        <a class="card" topic="heaps" href="./Heaps/heap.html">
+          <h3>Heaps</h3>
+          <p>Heap / PriorityQueue problems</p>
+        </a>
+        <a class="card" topic="binarytrees" href="./BinaryTrees/binaryTrees.html">
+          <h3>Binary Trees</h3>
+          <p>Binary tree problems (InorderTraversal, ...)</p>
+        </a>
+        <a class="card" topic="bst" href="./BinarySearchTrees/bst.html">
+          <h3>Binary Search Trees</h3>
+          <p>BST-specific problems (ValidateBST, ...)</p>
+        </a>
+        <a class="card" topic="graphs" href="./Graphs/graph.html">
+          <h3>Graphs</h3>
+          <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
+        </a>
+        <a class="card" topic="dp" href="./Dynamic_Programming/dp.html">
+          <h3>Dynamic Programming</h3>
+          <p>DP problems (1D, 2D, memoization, tabulation)</p>
+        </a>
+        <a class="card" topic="tries" href="./Tries/tries.html">
+          <h3>Tries</h3>
+          <p>Trie / Prefix tree problems</p>
+        </a>
+        <a class="card" topic="maths" href="./Maths/MathProblems.html">
+          <h3>Maths</h3>
+          <p>Mathematical problems and concepts</p>
+        </a>
+        <a class="card" topic="divideandconquer" href="./DivideAndConquer/DivideAndConquerProblems.html">
+          <h3>Divide and Conquer</h3>
+          <p>
+            Problems related to Divide and Conquer (Kth Kthlargestelement,
+            Median of 2 sorted lists, ...)
+          </p>
+        </a>
       </div>
-      <main>
-        <h1>Explore Topics</h1>
-        <div id="card-container" class="card-container"></div>
-      </main>
-      <div class="right-sidebar">
-        <aside class="recently-viewed-sidebar">
-          <h2>🕒<span> &nbsp;Recently Viewed</span></h2>
-          <ul id="recently-viewed-list"></ul>
-          <button id="clear-history-btn">Clear History</button>
-        </aside>
-        <aside class="topics-filter-sidebar">
-          <h2>Topics Filter</h2>
-          <div class="filter-dropdown">
-            <button class="dropdown-toggle" id="topicsDropdownBtn">
-              Select Topics <span class="dropdown-arrow">▼</span>
-            </button>
-            <div class="dropdown-content" id="topicsDropdownContent">
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="arrays"
-                  checked
-                />
-                Arrays</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="linkedlist"
-                  checked
-                />
-                Linked Lists</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="stacks"
-                  checked
-                />
-                Stacks & Queues</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="strings"
-                  checked
-                />
-                Strings</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="recursion"
-                  checked
-                />
-                Recursion</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarysearch"
-                  checked
-                />
-                Binary Search</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="heaps"
-                  checked
-                />
-                Heaps</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarytrees"
-                  checked
-                />
-                Binary Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="bst"
-                  checked
-                />
-                Binary Search Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="graphs"
-                  checked
-                />
-                Graphs</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="dp"
-                  checked
-                />
-                Dynamic Programming</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="tries"
-                  checked
-                />
-                Tries</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="divideandconquer"
-                  checked
-                />
-                Divide and Conquer</label
-              >
-            </div>
+    </main>
+    <div class="right-sidebar">
+      <aside class="recently-viewed-sidebar">
+        <h2>🕒<span> &nbsp;Recently Viewed</span></h2>
+        <ul id="recently-viewed-list"></ul>
+        <button id="clear-history-btn">Clear History</button>
+      </aside>
+      
+      <aside class="topics-filter-sidebar">
+        <h2>Topics Filter</h2>
+        <div class="filter-dropdown">
+          <button class="dropdown-toggle" id="topicsDropdownBtn">
+            Select Topics <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="dropdown-content" id="topicsDropdownContent">
+            <label><input type="checkbox" class="topic-filter" value="arrays" checked />
+              Arrays</label>
+            <label><input type="checkbox" class="topic-filter" value="sorting" checked />
+              Sorting</label>
+            <label><input type="checkbox" class="topic-filter" value="linkedlist" checked />
+              Linked Lists</label>
+            <label><input type="checkbox" class="topic-filter" value="stacks" checked />
+              Stacks & Queues</label>
+            <label><input type="checkbox" class="topic-filter" value="strings" checked />
+              Strings</label>
+            <label><input type="checkbox" class="topic-filter" value="recursion" checked />
+              Recursion</label>
+            <label><input type="checkbox" class="topic-filter" value="backtracking" checked />
+              BackTracking</label>
+            <label><input type="checkbox" class="topic-filter" value="binarysearch" checked />
+              Binary Search</label>
+            <label><input type="checkbox" class="topic-filter" value="heaps" checked />
+              Heaps</label>
+            <label><input type="checkbox" class="topic-filter" value="binarytrees" checked />
+              Binary Trees</label>
+            <label><input type="checkbox" class="topic-filter" value="bst" checked />
+              Binary Search Trees</label>
+            <label><input type="checkbox" class="topic-filter" value="graphs" checked />
+              Graphs</label>
+            <label><input type="checkbox" class="topic-filter" value="dp" checked />
+              Dynamic Programming</label>
+            <label><input type="checkbox" class="topic-filter" value="tries" checked />
+              Tries</label>
+            <label><input type="checkbox" class="topic-filter" value="maths" checked />
+              Maths</label>
+            <label><input type="checkbox" class="topic-filter" value="divideandconquer" checked />
+              Divide and Conquer</label>
           </div>
         </aside>
       </div>

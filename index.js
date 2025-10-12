@@ -188,22 +188,4 @@ if (darkModeToggle) {
   });
 
   // Check localStorage for saved dark mode state
-  darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-
-  // Initialize dark mode state based on saved preference
-  if (darkModeEnabled) {
-    enableDarkMode();
-  }
-
-  darkModeToggle.addEventListener('click', () => {
-    darkModeEnabled = !darkModeEnabled;
-    // Save state to localStorage
-    localStorage.setItem('darkModeEnabled', darkModeEnabled);
-
-    if (darkModeEnabled) {
-      enableDarkMode();
-    } else {
-      disableDarkMode();
-    }
-  });
 }
