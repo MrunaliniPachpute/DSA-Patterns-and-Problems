@@ -1,17 +1,4 @@
-import { topics } from './TOPICS_LIST.js';
-
 // Flowchart toggle functionality
-
-document.querySelectorAll('.flowchart-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const container = btn.nextElementSibling; // find the div right after this button
-    container.style.display =
-      container.style.display === 'none' ? 'block' : 'none';
-    // Optional: toggle button text
-    btn.textContent =
-      container.style.display === 'block' ? 'Hide Flowchart' : 'View Flowchart';
-  });
-});
 
 function enableDarkMode() {
   document.body.classList.add('dark-mode');
@@ -36,54 +23,6 @@ function updateStarredInStorage(id, isStarred) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('card-container');
-
-  topics.forEach((topic) => {
-    const card = document.createElement('a');
-    card.className = 'card';
-    card.href = topic.href;
-    card.setAttribute('data-id', topic.id); // important for starring
-
-    card.innerHTML = `
-  <div class="card-header">
-    <h3>${topic.title}</h3>
-    <button class="star-btn" aria-label="Star this card">
-      <svg class="star-icon" viewBox="0 0 24 24">
-        <path d="M12 17.27L18.18 21l-1.64-7.03
-                 L22 9.24l-7.19-.61L12 2 9.19 8.63
-                 2 9.24l5.46 4.73L5.82 21z"/>
-      </svg>
-    </button>
-  </div>
-  <div class="card-body">
-    <p>${topic.description}</p>
-  </div>
-`;
-
-    container.appendChild(card);
-  });
-  document.addEventListener('click', (e) => {
-    const strBtn = e.target.closest('.star-btn');
-    if (strBtn) {
-      e.preventDefault();
-      const card = e.target.closest('.card');
-      card.classList.toggle('starred');
-
-      // Use data-id instead of title
-      const id = card.getAttribute('data-id');
-      updateStarredInStorage(id, card.classList.contains('starred'));
-    }
-  });
-
-  // On page load, restore starred state by id
-  const starred = JSON.parse(localStorage.getItem('starredTopics') || '[]');
-  document.querySelectorAll('.card').forEach((card) => {
-    const id = card.getAttribute('data-id');
-    if (starred.includes(id)) {
-      card.classList.add('starred');
-    }
-  });
-
   // Snake toggle logic with persistence
   const toggleBtn = document.getElementById('snakeToggle');
   if (toggleBtn) {
@@ -196,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Topics Filter Logic
   const topicFilters = document.querySelectorAll('.topic-filter');
-  const cards = document.querySelectorAll('.card[data-topic]');
+  const cards = document.querySelectorAll('.card');
+  console.log(topicFilters, cards);
   if (topicFilters.length > 0 && cards.length > 0) {
     topicFilters.forEach((checkbox) => {
       checkbox.addEventListener('change', filterCards);
@@ -206,9 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const checkedTopics = Array.from(topicFilters)
         .filter((cb) => cb.checked)
         .map((cb) => cb.value);
+        console.log(checkedTopics)
       // Show/hide cards based on filter
       cards.forEach((card) => {
-        const cardTopic = card.getAttribute('data-topic');
+        console.log(card);
+        const cardTopic = card.getAttribute('topic');
         if (checkedTopics.includes(cardTopic)) {
           card.style.display = '';
         } else {

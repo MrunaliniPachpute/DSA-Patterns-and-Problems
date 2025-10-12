@@ -136,3 +136,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.star-btn:hover {
+  transform: scale(1.1);
+}
+
+.star-icon {
+  width: 17px;
+  height: 17px;
+  fill: transparent;
+  stroke: #555;
+  stroke-width: 1.4;
+  transition:
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.starred .star-icon {
+  fill: gold;
+  stroke: gold;
+}
