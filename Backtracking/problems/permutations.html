@@ -101,6 +101,84 @@ function backtrack(result, nums, start_index):
 // It's a non-recursive way to achieve the same result.
       </pre>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the swap-based backtracking approach (Approach 2) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public IList<IList<int>> Permute(int[] nums) {
+        var result = new List<IList<int>>();
+        Backtrack(nums, 0, result);
+        return result;
+    }
+    
+    private void Backtrack(int[] nums, int start, IList<IList<int>> result) {
+        // If we've processed all positions, we have a valid permutation
+        if (start == nums.Length) {
+            // Create a new list with current permutation
+            result.Add(new List<int>(nums));
+            return;
+        }
+        
+        // Try all possible elements at the current position
+        for (int i = start; i < nums.Length; i++) {
+            // Swap elements to create new permutation
+            Swap(nums, start, i);
+            
+            // Recurse with next position
+            Backtrack(nums, start + 1, result);
+            
+            // Backtrack: restore original order
+            Swap(nums, start, i);
+        }
+    }
+    
+    private void Swap(int[] nums, int i, int j) {
+        if (i != j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
+
+    // Bonus: Here's the implementation of Heap's Algorithm (Approach 3)
+    public IList<IList<int>> PermuteHeaps(int[] nums) {
+        var result = new List<IList<int>>();
+        HeapsAlgorithm(nums, nums.Length, result);
+        return result;
+    }
+    
+    private void HeapsAlgorithm(int[] nums, int size, IList<IList<int>> result) {
+        if (size == 1) {
+            result.Add(new List<int>(nums));
+            return;
+        }
+        
+        for (int i = 0; i < size; i++) {
+            HeapsAlgorithm(nums, size - 1, result);
+            
+            // If size is odd, swap first and last element
+            // If size is even, swap i-th and last element
+            int j = (size % 2 == 1) ? 0 : i;
+            Swap(nums, j, size - 1);
+        }
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call Permute method with your array<br>
+        3. Example: <br>
+        var result = new Solution().Permute(new int[] {1,2,3});<br>
+        // This will return: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,2,1],[3,1,2]]<br>
+        4. For Heap's Algorithm:<br>
+        var result = new Solution().PermuteHeaps(new int[] {1,2,3});<br>
+        // Returns same permutations but may be in different order
+      </p>
+    </section>
   </main>
 
   <footer>

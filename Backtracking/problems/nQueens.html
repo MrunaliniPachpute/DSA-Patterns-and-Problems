@@ -112,6 +112,82 @@ function backtrack(row, col_mask, pos_diag_mask, neg_diag_mask):
         // Recurse with updated masks
       </pre>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the optimized backtracking approach (Approach 2) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public IList<IList<string>> SolveNQueens(int n) {
+        var result = new List<IList<string>>();
+        var board = new char[n][];
+        
+        // Initialize the board with empty spaces
+        for (int i = 0; i < n; i++) {
+            board[i] = new char[n];
+            for (int j = 0; j < n; j++) {
+                board[i][j] = '.';
+            }
+        }
+        
+        // Sets to track occupied positions
+        var cols = new HashSet<int>();              // Columns
+        var posDiag = new HashSet<int>();           // Positive diagonals (r-c)
+        var negDiag = new HashSet<int>();           // Negative diagonals (r+c)
+        
+        Backtrack(0, n, board, result, cols, posDiag, negDiag);
+        return result;
+    }
+    
+    private void Backtrack(int row, int n, char[][] board, 
+                          IList<IList<string>> result,
+                          HashSet<int> cols, 
+                          HashSet<int> posDiag, 
+                          HashSet<int> negDiag) {
+        // Base case: if we've placed queens in all rows
+        if (row == n) {
+            // Convert current board state to list of strings
+            result.Add(board.Select(r => new string(r)).ToList());
+            return;
+        }
+        
+        // Try placing queen in each column of current row
+        for (int col = 0; col < n; col++) {
+            // Check if current position is under attack
+            if (cols.Contains(col) || 
+                posDiag.Contains(row - col) || 
+                negDiag.Contains(row + col)) {
+                continue; // Position is under attack
+            }
+            
+            // Place queen and update tracking sets
+            board[row][col] = 'Q';
+            cols.Add(col);
+            posDiag.Add(row - col);
+            negDiag.Add(row + col);
+            
+            // Recurse to next row
+            Backtrack(row + 1, n, board, result, cols, posDiag, negDiag);
+            
+            // Backtrack: remove queen and remove from tracking sets
+            board[row][col] = '.';
+            cols.Remove(col);
+            posDiag.Remove(row - col);
+            negDiag.Remove(row + col);
+        }
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call SolveNQueens method with the board size n<br>
+        3. Example: <br>
+        var result = new Solution().SolveNQueens(4);<br>
+        // This will return: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+      </p>
+    </section>
   </main>
 
   <footer>

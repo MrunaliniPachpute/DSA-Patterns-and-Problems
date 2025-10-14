@@ -101,6 +101,82 @@ function subsets(nums):
     return result
       </pre>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of all three approaches in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    // Approach 1: Backtracking
+    public IList<IList<int>> Subsets(int[] nums) {
+        var result = new List<IList<int>>();
+        Backtrack(nums, 0, new List<int>(), result);
+        return result;
+    }
+    
+    private void Backtrack(int[] nums, int start, List<int> current, IList<IList<int>> result) {
+        // Add current subset to result
+        result.Add(new List<int>(current));
+        
+        // Try including each remaining number
+        for (int i = start; i < nums.Length; i++) {
+            current.Add(nums[i]);
+            Backtrack(nums, i + 1, current, result);
+            current.RemoveAt(current.Count - 1); // Backtrack
+        }
+    }
+
+    // Approach 2: Cascading/Iterative
+    public IList<IList<int>> SubsetsCascading(int[] nums) {
+        var result = new List<IList<int>> { new List<int>() }; // Start with empty subset
+        
+        foreach (int num in nums) {
+            int n = result.Count;
+            for (int i = 0; i < n; i++) {
+                var newSubset = new List<int>(result[i]); // Copy existing subset
+                newSubset.Add(num); // Add current number
+                result.Add(newSubset);
+            }
+        }
+        
+        return result;
+    }
+
+    // Approach 3: Bit Manipulation
+    public IList<IList<int>> SubsetsBitwise(int[] nums) {
+        var result = new List<IList<int>>();
+        int n = nums.Length;
+        int powerSetSize = 1 << n; // 2^n
+        
+        for (int i = 0; i < powerSetSize; i++) {
+            var subset = new List<int>();
+            for (int j = 0; j < n; j++) {
+                // Check if jth bit is set in i
+                if ((i & (1 << j)) != 0) {
+                    subset.Add(nums[j]);
+                }
+            }
+            result.Add(subset);
+        }
+        
+        return result;
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Choose one of the three methods:<br>
+        // Backtracking approach (most common in interviews):<br>
+        var result1 = new Solution().Subsets(new int[] {1,2,3});<br>
+        // Cascading/Iterative approach:<br>
+        var result2 = new Solution().SubsetsCascading(new int[] {1,2,3});<br>
+        // Bit manipulation approach (most concise):<br>
+        var result3 = new Solution().SubsetsBitwise(new int[] {1,2,3});<br>
+        // All approaches return: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+      </p>
+    </section>
   </main>
 
   <footer>
