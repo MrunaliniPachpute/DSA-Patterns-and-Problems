@@ -99,6 +99,58 @@ for candidate in candidates:
 return dp[target]
       </pre>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the optimized backtracking approach (Approach 2) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public IList<IList<int>> CombinationSum(int[] candidates, int target) {
+        var result = new List<IList<int>>();
+        // Sort candidates for optimization (pruning)
+        Array.Sort(candidates);
+        Backtrack(candidates, target, 0, new List<int>(), result);
+        return result;
+    }
+    
+    private void Backtrack(int[] candidates, int remain, int start, 
+                          List<int> current, IList<IList<int>> result) {
+        // Base case: if remaining sum is 0, we found a valid combination
+        if (remain == 0) {
+            result.Add(new List<int>(current)); // Add a copy of current combination
+            return;
+        }
+        
+        // Try each candidate from the start index
+        for (int i = start; i < candidates.Length; i++) {
+            // Pruning: if current candidate is larger than remaining sum, skip this
+            // and all following candidates (they're larger as array is sorted)
+            if (candidates[i] > remain) {
+                break;
+            }
+            
+            // Include current candidate
+            current.Add(candidates[i]);
+            
+            // Recurse with remaining sum and same start index (can reuse same number)
+            Backtrack(candidates, remain - candidates[i], i, current, result);
+            
+            // Backtrack: remove the current candidate to try next one
+            current.RemoveAt(current.Count - 1);
+        }
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call CombinationSum method with your candidates array and target sum<br>
+        3. Example: <br>
+        var result = new Solution().CombinationSum(new int[] {2,3,6,7}, 7);<br>
+        // This will return: [[2,2,3],[7]]
+      </p>
+    </section>
   </main>
 
   <footer>

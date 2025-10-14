@@ -103,6 +103,127 @@ function solve():
     return false
       </pre>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the optimized backtracking approach with pre-computation (Approach 2) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    private bool[][] rows = new bool[9][];    // rows[r][n] means number n is used in row r
+    private bool[][] cols = new bool[9][];    // cols[c][n] means number n is used in column c
+    private bool[][] boxes = new bool[9][];   // boxes[b][n] means number n is used in box b
+    
+    public void SolveSudoku(char[][] board) {
+        // Initialize tracking arrays
+        for (int i = 0; i < 9; i++) {
+            rows[i] = new bool[10];   // 0-9, we'll ignore index 0
+            cols[i] = new bool[10];
+            boxes[i] = new bool[10];
+        }
+        
+        // Pre-process the board to mark used numbers
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.') {
+                    int num = board[i][j] - '0';
+                    int boxIndex = (i / 3) * 3 + j / 3;
+                    rows[i][num] = true;
+                    cols[j][num] = true;
+                    boxes[boxIndex][num] = true;
+                }
+            }
+        }
+        
+        // Solve the board
+        Solve(board);
+    }
+    
+    private bool Solve(char[][] board) {
+        // Find empty cell with fewest possibilities (optimization)
+        int minPossibilities = 10;
+        int bestRow = -1, bestCol = -1;
+        
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    int possibilities = CountPossibilities(i, j);
+                    if (possibilities < minPossibilities) {
+                        minPossibilities = possibilities;
+                        bestRow = i;
+                        bestCol = j;
+                    }
+                }
+            }
+        }
+        
+        // If no empty cell found, puzzle is solved
+        if (bestRow == -1 && bestCol == -1) {
+            return true;
+        }
+        
+        int boxIndex = (bestRow / 3) * 3 + bestCol / 3;
+        
+        // Try each possible number
+        for (int num = 1; num <= 9; num++) {
+            if (!rows[bestRow][num] && !cols[bestCol][num] && !boxes[boxIndex][num]) {
+                // Place the number
+                board[bestRow][bestCol] = (char)(num + '0');
+                rows[bestRow][num] = true;
+                cols[bestCol][num] = true;
+                boxes[boxIndex][num] = true;
+                
+                // Recurse
+                if (Solve(board)) {
+                    return true;
+                }
+                
+                // Backtrack
+                board[bestRow][bestCol] = '.';
+                rows[bestRow][num] = false;
+                cols[bestCol][num] = false;
+                boxes[boxIndex][num] = false;
+            }
+        }
+        
+        return false;
+    }
+    
+    private int CountPossibilities(int row, int col) {
+        int boxIndex = (row / 3) * 3 + col / 3;
+        int count = 0;
+        
+        for (int num = 1; num <= 9; num++) {
+            if (!rows[row][num] && !cols[col][num] && !boxes[boxIndex][num]) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Create a 9x9 char array representing the Sudoku board<br>
+        3. Call SolveSudoku method with your board<br>
+        4. Example: <br>
+        var board = new char[][] {<br>
+            new char[] {'5','3','.','.','7','.','.','.','.'},<br>
+            new char[] {'6','.','.','1','9','5','.','.','.'},<br>
+            new char[] {'.','9','8','.','.','.','.','6','.'},<br>
+            new char[] {'8','.','.','.','6','.','.','.','3'},<br>
+            new char[] {'4','.','.','8','.','3','.','.','1'},<br>
+            new char[] {'7','.','.','.','2','.','.','.','6'},<br>
+            new char[] {'.','6','.','.','.','.','2','8','.'},<br>
+            new char[] {'.','.','.','4','1','9','.','.','5'},<br>
+            new char[] {'.','.','.','.','8','.','.','7','9'}<br>
+        };<br>
+        new Solution().SolveSudoku(board);<br>
+        // The board will be modified in place with the solution
+      </p>
+    </section>
   </main>
 
   <footer>
