@@ -1,266 +1,286 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Topics Home</title>
-    <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="CSS/navbar.css" />
-    <link rel="stylesheet" href="CSS/snake.css" />
-    <link rel="stylesheet" href="CSS/topicsFilter.css" />
-    <link rel="stylesheet" href="CSS/RightSidebar.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo-container">
-  <div class="logo-img">
-    <img src="/DSA-Patterns-And-Problems/Images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
 
-</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Topics Home</title>
+  <link rel="stylesheet" href="CSS/index.css" />
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/snake.css" />
+  <link rel="stylesheet" href="CSS/topicsFilter.css" />
+  <link rel="stylesheet" href="CSS/RightSidebar.css" />
+  <link rel="stylesheet" href="CSS/oneQuestionQuiz.css" />
+  <link rel="stylesheet" href="CSS/big4.css">
+  <link rel="stylesheet" href="CSS/big4sidebar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
 
-    <div class="home-container">
-      <main>
-        <h1>Explore Topics</h1>
-        <div class="card-container">
-          <a class="card" href="./Arrays/arrays.html">
-            <h3>Arrays</h3>
-            <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
-          </a>
-          <a class="card" href="./LinkedList/LL.html">
-            <h3>Linked Lists</h3>
-            <p>Single, double, circular linked list problems</p>
-          </a>
-          <a class="card" href="./StacksAndQueues/stackAndQueue.html">
-            <h3>Stacks & Queues</h3>
-            <p>Stack and Queue related problems</p>
-          </a>
-          <a class="card" href="./Strings/String.html">
-            <h3>Strings</h3>
-            <p>String manipulation problems</p>
-          </a>
-          <a class="card" href="./Recursion/recursion.html">
-            <h3>Recursion</h3>
-            <p>
-              Recursive solutions and backtracking (Factorial, NQueens, ...)
-            </p>
-          </a>
-          <a class="card" href="./Backtracking/Backtracking.html">
-            <h3>Backtracking</h3>
-            <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
-          </a>
-        
-          <a class="card" href="./BinarySearch/binarySearch.html">
-            <h3>Binary Search</h3>
-            <p>Binary search and its variations</p>
-          </a>
-          <a class="card" href="./Heaps/heap.html">
-            <h3>Heaps</h3>
-            <p>Heap / PriorityQueue problems</p>
-          </a>
-          <a class="card" href="./BinaryTrees/binaryTrees.html">
-            <h3>Binary Trees</h3>
-            <p>Binary tree problems (InorderTraversal, ...)</p>
-          </a>
-          <a class="card" href="./BinarySearchTrees/bst.html">
-            <h3>Binary Search Trees</h3>
-            <p>BST-specific problems (ValidateBST, ...)</p>
-          </a>
-          <a class="card" href="./Graphs/graph.html">
-            <h3>Graphs</h3>
-            <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
-          </a>
-          <a class="card" href="./Dynamic_Programming/dp.html">
-            <h3>Dynamic Programming</h3>
-            <p>DP problems (1D, 2D, memoization, tabulation)</p>
-          </a>
-          <a class="card" href="./Tries/tries.html">
-            <h3>Tries</h3>
-            <p>Trie / Prefix tree problems</p>
-          </a>
-          <a class="card" href="./Maths/MathProblems.html">
-            <h3>Maths</h3>
-            <p>Mathematical problems and concepts</p>
-          </a>
-          <a
-            class="card"
-            href="./DivideAndConquer/DivideAndConquerProblems.html"
-          >
-            <h3>Divide and Conquer</h3>
-            <p>
-              Problems related to Divide and Conquer (Kth Kthlargestelement,
-              Median of 2 sorted lists, ...)
-            </p>
-          </a>
-        </div>
-      </main>
-      <div class="right-sidebar">
-        <aside class="recently-viewed-sidebar">
-          <h2>🕒<span> &nbsp;Recently Viewed</span></h2>
-          <ul id="recently-viewed-list"></ul>
-          <button id="clear-history-btn">Clear History</button>
-        </aside>
-        <aside class="topics-filter-sidebar">
-          <h2>Topics Filter</h2>
-          <div class="filter-dropdown">
-            <button class="dropdown-toggle" id="topicsDropdownBtn">
-              Select Topics <span class="dropdown-arrow">▼</span>
-            </button>
-            <div class="dropdown-content" id="topicsDropdownContent">
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="arrays"
-                  checked
-                />
-                Arrays</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="linkedlist"
-                  checked
-                />
-                Linked Lists</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="stacks"
-                  checked
-                />
-                Stacks & Queues</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="strings"
-                  checked
-                />
-                Strings</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="recursion"
-                  checked
-                />
-                Recursion</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarysearch"
-                  checked
-                />
-                Binary Search</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="heaps"
-                  checked
-                />
-                Heaps</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="binarytrees"
-                  checked
-                />
-                Binary Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="bst"
-                  checked
-                />
-                Binary Search Trees</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="graphs"
-                  checked
-                />
-                Graphs</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="dp"
-                  checked
-                />
-                Dynamic Programming</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="tries"
-                  checked
-                />
-                Tries</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  class="topic-filter"
-                  value="divideandconquer"
-                  checked
-                />
-                Divide and Conquer</label
-              >
-            </div>
-          </div>
-        </aside>
+<body>
+  <nav class="navbar">
+    <div class="logo-container">
+      <div class="logo-img">
+        <img src="Images/logo.png" alt="Logo">
       </div>
+      <div class="logo">CodeDSA</div>
+
     </div>
-    <footer>
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="index.html" aria-label="Go to Home page">Home</a>
-          <a href="about.html" aria-label="Go to About page">About</a>
-          <a href="contact.html" aria-label="Go to Contact page">Contact</a>
-          <a
-            href="https://github.com/MrunaliniPachpute"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit GitHub"
-            >GitHub</a
-          >
-        </div>
-        <p>&copy; 2025 CodeDSA. All rights reserved.</p>
-      </div>
-    </footer>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
 
-    <script src="index.js"></script>
-    <script src="JS/filterDropdownScript.js"></script>
-  </body>
+  <div class="home-container">
+    <div class="left-sidebar">
+      <div id="one-question-container">
+        </div>
+
+      <div id="big-4-questions-container" class="big-4-sidebar">
+        <h2>🔥 Top 10 Big 4 Interview Problems</h2>
+        <ul id="big-4-problems-list">
+          <li>
+            <a href="Big4 Top Problems/max_product_subarray.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Max Product Subarray
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/find_duplicate_number.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Find Duplicate in Array
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/merge_intervals.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Merge Overlapping Intervals
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/longest_common_subsequence.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Longest Common Subsequence
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/number_of_islands.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Number of Islands
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/search_in_rotated_sorted_array.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Search in Rotated Sorted Array
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/three_sum.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Three Sum
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/Valid Parentheses.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i>Valid Parentheses
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/climbing_stairs.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i>  Climbing Stairs
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/merge_k_sorted_arrays.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Merge K Sorted Lists
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      </div>
+    <main>
+      <h1>Explore Topics</h1>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search topics or problems..." />
+        </div>
+      </div>
+      <div class="card-container">
+        <a class="card" href="./Arrays/arrays.html" data-topic="arrays">
+          <div class="card-icon"><i class="fas fa-list"></i></div>
+          <h3>Arrays</h3>
+          <p>Problems related to arrays (TwoSum, MaximumSubarray, ...)</p>
+        </a>
+        <a class="card" href="./Sorting/sorting.html" data-topic="sorting">
+          <div class="card-icon"><i class="fas fa-sort"></i></div>
+          <h3>Sorting</h3>
+          <p>Problems related to sorting (Bubble sort, Merge Sort, ...)</p>
+        </a>
+        <a class="card" href="./LinkedList/LL.html" data-topic="linkedlist">
+          <div class="card-icon"><i class="fas fa-link"></i></div>
+          <h3>Linked Lists</h3>
+          <p>Single, double, circular linked list problems</p>
+        </a>
+        <a class="card" href="./StacksAndQueues/stackAndQueue.html" data-topic="stacks">
+          <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Stacks & Queues</h3>
+          <p>Stack and Queue related problems</p>
+        </a>
+        <a class="card" href="./Strings/String.html" data-topic="strings">
+          <div class="card-icon"><i class="fas fa-font"></i></div>
+          <h3>Strings</h3>
+          <p>String manipulation problems</p>
+        </a>
+        <a class="card" href="./Recursion/recursion.html" data-topic="recursion">
+          <div class="card-icon"><i class="fas fa-recycle"></i></div>
+          <h3>Recursion</h3>
+          <p>
+            Recursive solutions and backtracking (Factorial, NQueens, ...)
+          </p>
+        </a>
+        <a class="card" href="./Backtracking/Backtracking.html" data-topic="backtracking">
+          <div class="card-icon"><i class="fas fa-route"></i></div>
+          <h3>Backtracking</h3>
+          <p>Backtracking solutions (Combination Sum, Sudoku Solver, ...)</p>
+        </a>
+
+        <a class="card" href="./BinarySearch/binarySearch.html" data-topic="binarysearch">
+          <div class="card-icon"><i class="fas fa-search"></i></div>
+          <h3>Binary Search</h3>
+          <p>Binary search and its variations</p>
+        </a>
+        <a class="card" href="./Heaps/heap.html" data-topic="heaps">
+          <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Heaps</h3>
+          <p>Heap / PriorityQueue problems</p>
+        </a>
+        <a class="card" href="./BinaryTrees/binaryTrees.html" data-topic="binarytrees">
+          <div class="card-icon"><i class="fas fa-tree"></i></div>
+          <h3>Binary Trees</h3>
+          <p>Binary tree problems (InorderTraversal, ...)</p>
+        </a>
+        <a class="card" href="./BinarySearchTrees/bst.html" data-topic="bst">
+          <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+          <h3>Binary Search Trees</h3>
+          <p>BST-specific problems (ValidateBST, ...)</p>
+        </a>
+        <a class="card" href="./Graphs/graph.html" data-topic="graphs">
+          <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+          <h3>Graphs</h3>
+          <p>Graph algorithms (DFS, BFS, Dijkstra, ...)</p>
+        </a>
+        <a class="card" href="./Dynamic_Programming/dp.html" data-topic="dp">
+          <div class="card-icon"><i class="fas fa-brain"></i></div>
+          <h3>Dynamic Programming</h3>
+          <p>DP problems (1D, 2D, memoization, tabulation)</p>
+        </a>
+        <a class="card" href="./Tries/tries.html" data-topic="tries">
+          <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>Tries</h3>
+          <p>Trie / Prefix tree problems</p>
+        </a>
+        <a class="card" href="./Maths/MathProblems.html" data-topic="maths">
+          <div class="card-icon"><i class="fas fa-calculator"></i></div>
+          <h3>Maths</h3>
+          <p>Mathematical problems and concepts</p>
+        </a>
+        <a class="card" href="./GreedyAlgorithms/greedyAlgo.html" data-topic="greedy">
+          <div class="card-icon"><i class="fas fa-coins"></i></div>
+          <h3>Greedy Algorithms</h3>
+          <p>Greedy algorithm problems</p>
+        </a>
+        <a class="card" href="./DivideAndConquer/DivideAndConquerProblems.html" data-topic="divideandconquer">
+          <div class="card-icon"><i class="fas fa-divide"></i></div>
+          <h3>Divide and Conquer</h3>
+          <p>
+            Problems related to Divide and Conquer (Kth Kthlargestelement,
+            Median of 2 sorted lists, ...)
+          </p>
+        </a>
+        <a class="card" href="./big4 questions/big4faqs.html" data-topic="big4faqs">
+          <div class="card-icon"><i class="fas fa-building"></i></div>
+          <h3>Big 4 FAQs</h3>
+          <p>Frequently Asked Questions from Big 4 companies' interviews.</p>
+        </a>
+      </div>
+    </main>
+    <div class="right-sidebar">
+      <aside class="recently-viewed-sidebar">
+        <h2>🕒<span> &nbsp;Recently Viewed</span></h2>
+        <ul id="recently-viewed-list"></ul>
+        <button id="clear-history-btn">Clear History</button>
+      </aside>
+
+      <aside class="topics-filter-sidebar">
+        <h2>Topics Filter</h2>
+        <div class="filter-dropdown">
+          <button class="dropdown-toggle" id="topicsDropdownBtn">
+            Select Topics <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="dropdown-content" id="topicsDropdownContent">
+            <label><input type="checkbox" class="topic-filter" value="arrays" checked />
+              Arrays</label>
+            <label><input type="checkbox" class="topic-filter" value="sorting" checked />
+              Sorting</label>
+            <label><input type="checkbox" class="topic-filter" value="linkedlist" checked />
+              Linked Lists</label>
+            <label><input type="checkbox" class="topic-filter" value="stacks" checked />
+              Stacks & Queues</label>
+            <label><input type="checkbox" class="topic-filter" value="strings" checked />
+              Strings</label>
+            <label><input type="checkbox" class="topic-filter" value="recursion" checked />
+              Recursion</label>
+            <label><input type="checkbox" class="topic-filter" value="backtracking" checked />
+              Backtracking</label>
+            <label><input type="checkbox" class="topic-filter" value="binarysearch" checked />
+              Binary Search</label>
+            <label><input type="checkbox" class="topic-filter" value="heaps" checked />
+              Heaps</label>
+            <label><input type="checkbox" class="topic-filter" value="binarytrees" checked />
+              Binary Trees</label>
+            <label><input type="checkbox" class="topic-filter" value="bst" checked />
+              Binary Search Trees</label>
+            <label><input type="checkbox" class="topic-filter" value="graphs" checked />
+              Graphs</label>
+            <label><input type="checkbox" class="topic-filter" value="dp" checked />
+              Dynamic Programming</label>
+            <label><input type="checkbox" class="topic-filter" value="tries" checked />
+              Tries</label>
+            <label><input type="checkbox" class="topic-filter" value="maths" checked />
+              Maths</label>
+            <label><input type="checkbox" class="topic-filter" value="greedy" checked />
+              Greedy Algorithms</label>
+            <label><input type="checkbox" class="topic-filter" value="divideandconquer" checked />
+              Divide and Conquer</label>
+            <label><input type="checkbox" class="topic-filter" value="big4faqs" checked />
+              Big 4 FAQs</label>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html" aria-label="Go to Home page">Home</a>
+        <a href="about.html" aria-label="Go to About page">About</a>
+        <a href="contact.html" aria-label="Go to Contact page">Contact</a>
+        <a href="https://github.com/MrunaliniPachpute" target="_blank" rel="noopener noreferrer"
+          aria-label="Visit GitHub">GitHub</a>
+      </div>
+      <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script src="JS/filterDropdownScript.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="JS/oneQuestionQuiz.js"></script>
+  <script src="JS/big4sidebar.js"></script>
+</body>
+
 </html>

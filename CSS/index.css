@@ -204,7 +204,7 @@ main h1 {
 
 .card h3 {
   margin-bottom: 1rem;
-  color: black; 
+  color: black;
   font-weight: 600;
 }
 
@@ -249,6 +249,69 @@ main h1::after {
   align-items: center;
   gap: 1.5rem; /* space between links and button */
 }
+
+/* ------------------------------------------- */
+/* --- LEFT SIDEBAR (Top Problems List) --- */
+/* ------------------------------------------- */
+.left-sidebar {
+    width: 300px; /* Example fixed width */
+    padding: 25px 20px;
+    background-color: #e9e9e1; /* Soft cream background for light mode */
+    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+    position: sticky;
+    top: 80px; /* Start below the sticky navbar */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: left; /* Ensure text alignment is correct */
+}
+
+.left-sidebar h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #f16363;
+    border-bottom: 2px solid #ffcc70;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.left-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-sidebar li {
+    font-size: 1.0rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    border-radius: 4px;
+}
+
+/* Icon/Emoji Styling (The 'fire' icon) */
+.left-sidebar li::before {
+    content: '🔥';
+    margin-right: 2px;
+    flex-shrink: 0;
+    font-size: 0.9em;
+    transform: translateY(2px);
+}
+
+/* Hover Effect */
+.left-sidebar li:hover {
+    color: #f16363;
+    background-color: #f3f3ee; /* Slightly darker cream on hover */
+}
+/* ------------------------------------------- */
+
 
 /* styling for Recently Viewed section */
 
@@ -456,6 +519,31 @@ body.dark-mode footer {
   background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
   box-shadow: 0 -4px 20px rgba(106, 17, 203, 0.3);
 }
+
+/* ------------------------------------------- */
+/* --- Dark Mode Left Sidebar Overrides --- */
+/* ------------------------------------------- */
+body.dark-mode .left-sidebar {
+    background-color: #1a1a2e; /* Darkest background, similar to dark body */
+    color: #e0e0e0;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .left-sidebar h3 {
+    color: #bb86fc; /* Dark mode heading accent color */
+    border-bottom-color: #03dac6;
+}
+
+body.dark-mode .left-sidebar li {
+    color: #b0b0b0; /* Subdued text color */
+}
+
+body.dark-mode .left-sidebar li:hover {
+    color: #03dac6; /* Dark mode hover accent color */
+    background-color: rgba(187, 134, 252, 0.1); /* Subtle background */
+}
+/* ------------------------------------------- */
+
 
 /* Dark Mode Recently Viewed Sidebar */
 body.dark-mode .recently-viewed-sidebar {

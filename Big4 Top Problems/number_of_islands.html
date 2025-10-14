@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number of Islands</title>
+
+    <link rel="stylesheet" href="../CSS/index.css" /> 
+    <link rel="stylesheet" href="../CSS/navbar.css" />
+    <link rel="stylesheet" href="../CSS/big4.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        /* Specific CSS for the question page layout - Consistent with other problem pages */
+        .question-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-header {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-header h2 {
+            color: #ff4500; /* Red-Orange */
+            font-size: 1.8rem;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .difficulty-tag {
+            background-color: #fff3cd; /* Medium difficulty color */
+            color: #856404;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: 15px;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        .problem-details p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .example-block {
+            background-color: #f8f8f8;
+            border-left: 5px solid #1e90ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .section-title {
+            color: #1e90ff;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.4rem;
+        }
+
+        .solution-section {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .solution-section pre {
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .approach-summary {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-img">
+                <img src="../Images/logo.png" alt="CodeDSA Logo"> 
+            </div>
+            <div class="logo">CodeDSA</div>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button id="snakeToggle" class="snake-btn">
+                <span style="margin-left: 20px">Snake Cursor</span>
+            </button>
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <div class="question-container">
+        
+        <div class="question-header">
+            <h2>Number of Islands</h2>
+            <span class="difficulty-tag">Medium</span>
+        </div>
+
+        <div class="problem-details">
+            <p>Given an $m \times n$ 2D binary grid `grid` which represents a map of **'1's (land)** and **'0's (water)**, return the number of islands.</p>
+            <p>An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+
+            <h3 class="section-title">Example 1:</h3>
+            <div class="example-block">
+                Input: grid = [
+                    ["1","1","1","1","0"],
+                    ["1","1","0","1","0"],
+                    ["1","1","0","0","0"],
+                    ["0","0","0","0","0"]
+                ]
+                Output: 1
+
+                Explanation: All '1's form a single contiguous island.
+            </div>
+            
+            <h3 class="section-title">Example 2:</h3>
+            <div class="example-block">
+                Input: grid = [
+                    ["1","1","0","0","0"],
+                    ["1","1","0","0","0"],
+                    ["0","0","1","0","0"],
+                    ["0","0","0","1","1"]
+                ]
+                Output: 3
+
+                Explanation: There are three separate islands.
+            </div>
+
+            <h3 class="section-title">Constraints:</h3>
+            <ul>
+                <li>$m$ is the number of rows, $n$ is the number of columns.</li>
+                <li>$1 \le m, n \le 300$</li>
+                <li>$\text{grid}[i][j]$ is '0' or '1'.</li>
+            </ul>
+
+            <h3 class="section-title">Approach: Depth First Search (DFS) or Breadth First Search (BFS)</h3>
+            <div class="solution-section">
+                <p class="approach-summary">The problem is a graph traversal challenge. We iterate through every cell of the grid. If we find a '1' (land), it signifies the start of a new island. We increment the island count, and then use DFS (or BFS) to visit every connected piece of land belonging to that island, marking them as '0' (visited/water) to ensure they are not counted again.</p>
+                
+                <p><strong>Time Complexity:</strong> $O(M \times N)$, where $M$ is the number of rows and $N$ is the number of columns. We visit each cell in the grid at most twice (once in the loop, and once in the traversal function).</p>
+
+                <p><strong>Steps (using DFS):</strong></p>
+                <ol>
+                    <li>Initialize an `island_count` to 0.</li>
+                    <li>Iterate through every cell `(r, c)` in the grid.</li>
+                    <li>If `grid[r][c] == '1'`:
+                        <ul>
+                            <li>Increment `island_count`.</li>
+                            <li>Call a recursive DFS function starting at `(r, c)`.</li>
+                        </ul>
+                    </li>
+                    <li>The DFS function takes the grid and coordinates `(r, c)`.
+                        <ul>
+                            <li>Base Case: If `(r, c)` is out of bounds or `grid[r][c] == '0'`, return.</li>
+                            <li>Mark the current cell as visited by setting `grid[r][c] = '0'`.</li>
+                            <li>Recursively call DFS for the four adjacent neighbors (up, down, left, right).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4 class="section-title" style="margin-top: 20px;">Example Solution (Conceptual Python):</h4>
+                <pre>
+def numIslands(grid):
+    rows, cols = len(grid), len(grid[0])
+    island_count = 0
+
+    def dfs(r, c):
+        # Base case: out of bounds or water
+        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == '0':
+            return
+        
+        # Mark current land cell as visited (change '1' to '0')
+        grid[r][c] = '0' 
+        
+        # Visit all adjacent neighbors (Up, Down, Left, Right)
+        dfs(r + 1, c)
+        dfs(r - 1, c)
+        dfs(r, c + 1)
+        dfs(r, c - 1)
+
+
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == '1':
+                island_count += 1
+                dfs(r, c)
+                
+    return island_count
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html" aria-label="Go to Home page">Home</a>
+                <a href="../about.html" aria-label="Go to About page">About</a>
+                <a href="../contact.html" aria-label="Go to Contact page">Contact</a>
+                <a href="https://github.com/MrunaliniPachpute" target="_blank" rel="noopener noreferrer"
+                    aria-label="Visit GitHub">GitHub</a>
+            </div>
+            <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../index.js"></script>
+    <script src="../JS/filterDropdownScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="../JS/oneQuestionQuiz.js"></script>
+    <script src="../JS/big4sidebar.js"></script>
+
+</body>
+</html>
