@@ -125,6 +125,52 @@ while left < right:
         <img src="../Flowcharts/Trapping_rain_water_approach_3.png" alt="Kadane's Algorithm" class="fc-image" />
       </div>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the optimal two-pointer approach (Approach 3) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public int Trap(int[] height) {
+        if (height == null || height.Length < 3)
+            return 0;
+            
+        int left = 0, right = height.Length - 1;
+        int leftMax = 0, rightMax = 0;
+        int water = 0;
+        
+        while (left < right) {
+            // If height at left is smaller, process left side
+            if (height[left] < height[right]) {
+                // Update left max height
+                leftMax = Math.Max(leftMax, height[left]);
+                // Add trapped water for current position
+                water += leftMax - height[left];
+                left++;
+            }
+            // If height at right is smaller or equal, process right side
+            else {
+                // Update right max height
+                rightMax = Math.Max(rightMax, height[right]);
+                // Add trapped water for current position
+                water += rightMax - height[right];
+                right--;
+            }
+        }
+        
+        return water;
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call Trap method with your height array<br>
+        3. Example: var result = new Solution().Trap(new int[] {0,1,0,2,1,0,1,3,2,1,2,1});<br>
+        4. This will return: 6 (representing the total units of water that can be trapped)
+      </p>
+    </section>
   </main>
   <!-- Footer -->
   <footer>
