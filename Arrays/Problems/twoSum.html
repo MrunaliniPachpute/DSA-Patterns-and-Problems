@@ -139,6 +139,47 @@ while left < right:
           <img src="../Flowcharts/Two_sum_approach_3.png" alt="Heap Sort Flowchart" class="fc-image" />
         </div>
       </section>
+
+      <section class="approach-section">
+        <h2>C# Implementation</h2>
+        <p><strong>Implementation of the Hash Map approach (Approach 2) in C#:</strong></p>
+        <pre class="pseudo-code">
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        // Dictionary to store complement of each number
+        Dictionary<int, int> numMap = new Dictionary<int, int>();
+        
+        // Iterate through the array
+        for (int i = 0; i < nums.Length; i++) {
+            int complement = target - nums[i];
+            
+            // If we've seen the complement before, we found our pair
+            if (numMap.ContainsKey(nums[i])) {
+                return new int[] { numMap[nums[i]], i };
+            }
+            
+            // Store the complement and current index
+            // We store complement as key and current index as value
+            if (!numMap.ContainsKey(complement)) {
+                numMap.Add(complement, i);
+            }
+        }
+        
+        // No solution found (though problem states there will always be one)
+        throw new ArgumentException("No two numbers add up to the target");
+    }
+}
+        </pre>
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <p>
+          <strong>Usage:</strong><br>
+          1. Create an instance of Solution class<br>
+          2. Call TwoSum method with your array and target sum<br>
+          3. Example: <br>
+          var result = new Solution().TwoSum(new int[] {2,7,11,15}, 9);<br>
+          // This will return: [0,1] (because nums[0] + nums[1] = 2 + 7 = 9)
+        </p>
+      </section>
     </main>
 
     <!-- Footer -->

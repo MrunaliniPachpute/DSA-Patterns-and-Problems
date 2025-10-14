@@ -125,6 +125,47 @@ same as two-pointer method
         <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
       </section>
+
+      <section class="approach-section">
+        <h2>C# Implementation</h2>
+        <p><strong>Implementation of the optimal two-pointer approach in C#:</strong></p>
+        <pre class="pseudo-code">
+public class Solution {
+    public int MaxArea(int[] height) {
+        int maxArea = 0;
+        int left = 0;
+        int right = height.Length - 1;
+        
+        while (left < right) {
+            // Calculate width between lines
+            int width = right - left;
+            // Calculate height (minimum of two lines)
+            int h = Math.Min(height[left], height[right]);
+            // Calculate area
+            int area = width * h;
+            // Update max area if current area is larger
+            maxArea = Math.Max(maxArea, area);
+            
+            // Move the pointer of smaller height inward
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        
+        return maxArea;
+    }
+}
+        </pre>
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <p>
+          <strong>Usage:</strong><br>
+          1. Create an instance of Solution class<br>
+          2. Call MaxArea method with your height array<br>
+          3. Example: var result = new Solution().MaxArea(new int[] {1,8,6,2,5,4,8,3,7});
+        </p>
+      </section>
     </main>
     <!-- Footer -->
     <footer>

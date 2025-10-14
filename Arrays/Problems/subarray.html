@@ -121,6 +121,44 @@ return max_sum    </pre> <button class="copyToClipboard" onclick="copyToClipboar
             <img src="../Flowcharts/Max_subarray_approach_3.png" alt="Kadane's algorithm" class="fc-image" />
           </div>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of Kadane's Algorithm (Approach 3) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public int MaxSubArray(int[] nums) {
+        if (nums == null || nums.Length == 0) {
+            throw new ArgumentException("Array cannot be null or empty");
+        }
+        
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        
+        // Start from second element since we initialized with first
+        for (int i = 1; i < nums.Length; i++) {
+            // Either start new subarray from current element
+            // or continue previous subarray by adding current element
+            currentSum = Math.Max(nums[i], currentSum + nums[i]);
+            
+            // Update maximum sum if current sum is larger
+            maxSum = Math.Max(maxSum, currentSum);
+        }
+        
+        return maxSum;
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call MaxSubArray method with your input array<br>
+        3. Example: <br>
+        var result = new Solution().MaxSubArray(new int[] {-2,1,-3,4,-1,2,1,-5,4});<br>
+        // This will return: 6 (representing the sum of subarray [4,-1,2,1])
+      </p>
+    </section>
   </main>
   <!-- Footer -->
   <footer>

@@ -126,6 +126,42 @@ for i in n-1..0:
         <img src="../Flowcharts/Product_of_array_approach_3.png" alt="Optimal approach" class="fc-image" />
       </div>
     </section>
+
+    <section class="approach-section">
+      <h2>C# Implementation</h2>
+      <p><strong>Implementation of the optimal approach (Approach 3) in C#:</strong></p>
+      <pre class="pseudo-code">
+public class Solution {
+    public int[] ProductExceptSelf(int[] nums) {
+        int n = nums.Length;
+        int[] output = new int[n];
+        
+        // Calculate prefix products
+        output[0] = 1;
+        for (int i = 1; i < n; i++) {
+            output[i] = output[i-1] * nums[i-1];
+        }
+        
+        // Calculate suffix products and combine with prefix
+        int suffix = 1;
+        for (int i = n-1; i >= 0; i--) {
+            output[i] *= suffix;
+            suffix *= nums[i];
+        }
+        
+        return output;
+    }
+}
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p>
+        <strong>Usage:</strong><br>
+        1. Create an instance of Solution class<br>
+        2. Call ProductExceptSelf method with your input array<br>
+        3. Example: var result = new Solution().ProductExceptSelf(new int[] {1,2,3,4});<br>
+        4. This will return: [24,12,8,6]
+      </p>
+    </section>
   </main>
   <!-- Footer -->
   <footer>
