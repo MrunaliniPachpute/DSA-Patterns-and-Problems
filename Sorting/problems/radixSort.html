@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radix Sort - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">🐍 Snake Cursor</button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../Sorting.html">Sorting</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Radix Sort</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Radix Sort</h1>
+
+    <section class="problem-section">
+      <h2>Algorithm Explanation</h2>
+      <p>Radix Sort is a non-comparative sorting algorithm that sorts numbers by processing individual digits. It sorts elements by each digit from least significant to most significant using a stable sorting method like Counting Sort. It works efficiently for fixed-length integer or string keys.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Pseudocode</h2>
+      <pre class="pseudo-code">
+function radixSort(array):
+  maxNum = getMax(array)
+  exp = 1
+  while maxNum / exp > 0:
+    countingSort(array, exp)
+    exp = exp * 10
+
+function countingSort(array, exp):
+  n = length(array)
+  output = array of size n
+  count = array[0...9] initialized to 0
+
+  for i = 0 to n - 1:
+    index = (array[i] / exp) % 10
+    count[index]++
+
+  for i = 1 to 9:
+    count[i] += count[i - 1]
+
+  for i = n - 1 down to 0:
+    index = (array[i] / exp) % 10
+    output[count[index] - 1] = array[i]
+    count[index]--
+
+  copy output[] to array[]
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Complexity & Properties</h2>
+      <ul>
+        <li><strong>Time Complexity:</strong> O(n·k), where k is the number of digits.</li>
+        <li><strong>Space Complexity:</strong> O(n + k)</li>
+        <li><strong>Stable:</strong> Yes</li>
+        <li><strong>In-place:</strong> No</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell Sort - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">CodeDSA</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">🐍 Snake Cursor</button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../Sorting.html">Sorting</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shell Sort</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Shell Sort</h1>
+
+    <section class="problem-section">
+      <h2>Algorithm Explanation</h2>
+      <p>Shell Sort is an optimization over Insertion Sort that allows the exchange of far-apart elements. It works by sorting elements at specific intervals (gaps), which are gradually reduced until the array becomes fully sorted. It improves performance significantly for moderately sized datasets.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Pseudocode</h2>
+      <pre class="pseudo-code">
+function shellSort(array):
+  n = length(array)
+  gap = n / 2
+  while gap > 0:
+    for i = gap to n - 1:
+      temp = array[i]
+      j = i
+      while j >= gap and array[j - gap] > temp:
+        array[j] = array[j - gap]
+        j = j - gap
+      array[j] = temp
+    gap = gap / 2
+      </pre>
+    </section>
+
+    <section class="approach-section">
+      <h2>Complexity & Properties</h2>
+      <ul>
+        <li><strong>Time Complexity:</strong> O(n log n) to O(n²), depending on gap sequence.</li>
+        <li><strong>Space Complexity:</strong> O(1)</li>
+        <li><strong>Stable:</strong> No</li>
+        <li><strong>In-place:</strong> Yes</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+</body>
+</html>
