@@ -1,75 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Count Inversions - CodeDSA</title>
-    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
-    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
-    <link rel="stylesheet" href="../../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../about.html">About</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Count Inversions - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+  <link rel="stylesheet" href="../../CSS/snake.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+     <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
       </div>
-    </nav>
-
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Count Inversions
-          </li>
-        </ol>
-      </nav>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
+  </nav>
 
-    <main>
-      <h1>Count Inversions</h1>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Count Inversions
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given an array <strong>arr[]</strong>, count the number of
-          <strong>inversions</strong> in the array. Two elements arr[i] and
-          arr[j] form an inversion if <strong>i &lt; j</strong> and
-          <strong>arr[i] &gt; arr[j]</strong>.
-        </p>
-        <p>
-          <strong>Example:</strong> Input: arr = [8, 4, 2, 1]<br />
-          Output: 6<br />
-          Explanation: Inversions are (8,4), (8,2), (8,1), (4,2), (4,1), (2,1).
-        </p>
-      </section>
+  <main>
+    <h1>Count Inversions</h1>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Brute Force</h2>
-        <p>
-          <strong>Explanation:</strong> Use two nested loops to check every pair
-          of elements and count inversions where i &lt; j and arr[i] &gt;
-          arr[j].
-        </p>
-        <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given an array <strong>arr[]</strong>, count the number of
+        <strong>inversions</strong> in the array. Two elements arr[i] and
+        arr[j] form an inversion if <strong>i &lt; j</strong> and
+        <strong>arr[i] &gt; arr[j]</strong>.
+      </p>
+      <p>
+        <strong>Example:</strong> Input: arr = [8, 4, 2, 1]<br />
+        Output: 6<br />
+        Explanation: Inversions are (8,4), (8,2), (8,1), (4,2), (4,1), (2,1).
+      </p>
+    </section>
+
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force</h2>
+      <p>
+        <strong>Explanation:</strong> Use two nested loops to check every pair
+        of elements and count inversions where i &lt; j and arr[i] &gt;
+        arr[j].
+      </p>
+      <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function countInversions(arr):
     n = length(arr)
     count = 0
@@ -80,21 +87,21 @@ function countInversions(arr):
                 count = count + 1
     
     return count
-      </pre
-        >
-      </section>
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Optimized Brute Force with Early Termination</h2>
-        <p>
-          <strong>Explanation:</strong> Similar to brute force but with minor
-          optimizations like reducing redundant comparisons. Though still O(n²),
-          it performs better in practice by avoiding unnecessary iterations when
-          possible.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Optimized Brute Force with Early Termination</h2>
+      <p>
+        <strong>Explanation:</strong> Similar to brute force but with minor
+        optimizations like reducing redundant comparisons. Though still O(n²),
+        it performs better in practice by avoiding unnecessary iterations when
+        possible.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function countInversions(arr):
     n = length(arr)
     count = 0
@@ -111,22 +118,22 @@ function countInversions(arr):
     
     return count
 
-     </pre
-        >
-      </section>
+         </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Divide and Conquer (Modified Merge Sort)</h2>
-        <p>
-          <strong>Explanation:</strong> Divide the array into two halves. Count
-          inversions in left half, right half, and cross inversions during
-          merge. When merging, if an element from the right half is smaller than
-          an element from the left half, all remaining elements in the left half
-          form inversions with it.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log n)</p>
-        <p><strong>Space Complexity:</strong> O(n) for temporary array</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Divide and Conquer (Modified Merge Sort)</h2>
+      <p>
+        <strong>Explanation:</strong> Divide the array into two halves. Count
+        inversions in left half, right half, and cross inversions during
+        merge. When merging, if an element from the right half is smaller than
+        an element from the left half, all remaining elements in the left half
+        form inversions with it.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(n) for temporary array</p>
+      <pre class="pseudo-code">
 function mergeAndCount(arr, temp, left, mid, right):
     i = left
     j = mid + 1
@@ -173,42 +180,39 @@ function mergeSortAndCount(arr, temp, left, right):
     n = length(arr)
     temp = new array of size n
     return mergeSortAndCount(arr, temp, 0, n-1)
-        </pre>
-      </section>
+            </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <br />
 
-      <p>
-        <strong
-          >The Divide and Conquer approach using Modified Merge Sort is the most
-          commonly used optimal solution for counting inversions with O(n log n)
-          time complexity. It elegantly combines sorting with inversion
-          counting.</strong
-        >
-      </p>
+    </section>
 
-      <br />
+    <br />
 
-      <!-- Flowchart Section -->
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img
-            src="../flowcharts/problem3.png"
-            alt="Flowchart"
-            height="1000px"
-            width="500px"
-          />
-        </div>
-      </section>
-    </main>
+    <p>
+      <strong>The Divide and Conquer approach using Modified Merge Sort is the most
+        commonly used optimal solution for counting inversions with O(n log n)
+        time complexity. It elegantly combines sorting with inversion
+        counting.</strong>
+    </p>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    <br />
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    <!-- Flowchart Section -->
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem3.png" alt="Flowchart" height="1000px" width="500px" />
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

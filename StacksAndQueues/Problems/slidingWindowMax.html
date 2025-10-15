@@ -5,28 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sliding Window Maximum - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+<link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
 
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
+     <a href="../../index.html" class="logo-container">
   <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
+    <img src="../../Images/logo.png" alt="Logo">
   </div>
   <div class="logo">CodeDSA</div>
-</div>
+</a>
     <div class="nav-right">
     <ul class="nav-links">
       <li><a href="../../index.html">Home</a></li>
       <li><a href="../../about.html">About</a></li>
       <li><a href="../../contact.html">Contact</a></li>
     </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+  <button id="snakeToggle" class="snake-btn"><span>Snake Cursor</span></button>
     <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
   </nav>
@@ -63,6 +64,10 @@ for i in 0..n-k:
     result.append(max_val)
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob5app1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -83,6 +88,10 @@ for i in 0..n-1:
         result.append(nums[deque[0]])
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob5app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -99,6 +108,10 @@ for i in k..n-1:
     result.append(heap.max())
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob5app3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
   </main>
 
@@ -107,7 +120,9 @@ return result
   </footer>
 
     <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>

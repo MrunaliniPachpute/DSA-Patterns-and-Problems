@@ -1,33 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merge K Sorted Arrays / Lists - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css"> 
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
   </nav>
-  
+
   <!-- Breadcrumb Navigation -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
@@ -39,52 +43,58 @@
     </nav>
   </div>
 
-    <main>
-      <h1>Merge K Sorted Arrays / Lists</h1>
+  <main>
+    <h1>Merge K Sorted Arrays / Lists</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given K sorted arrays (or linked lists), merge them into one sorted
-          array (or list).
-        </p>
-        <p>
-          <strong>Example:</strong> Input: [[1,4,5],[1,3,4],[2,6]] → Output:
-          [1,1,2,3,4,4,5,6]
-        </p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given K sorted arrays (or linked lists), merge them into one sorted
+        array (or list).
+      </p>
+      <p>
+        <strong>Example:</strong> Input: [[1,4,5],[1,3,4],[2,6]] → Output:
+        [1,1,2,3,4,4,5,6]
+      </p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Brute Force</h2>
-        <p>
-          <strong>Explanation:</strong> Concatenate all arrays and sort them.
-        </p>
-        <p>
-          <strong>Time Complexity:</strong> O(N log N), N = total number of
-          elements
-        </p>
-        <p><strong>Space Complexity:</strong> O(N)</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force</h2>
+      <p>
+        <strong>Explanation:</strong> Concatenate all arrays and sort them.
+      </p>
+      <p>
+        <strong>Time Complexity:</strong> O(N log N), N = total number of
+        elements
+      </p>
+      <p><strong>Space Complexity:</strong> O(N)</p>
+      <pre class="pseudo-code">
 merged = []
 for arr in arrays:
     merged.extend(arr)
 sort(merged)
 return merged
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem2app1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
 
-      <section class="approach-section">
-        <h2>Approach 2: Min Heap (Optimal)</h2>
-        <p>
-          <strong>Explanation:</strong> Use a min-heap to always pick the
-          smallest element from heads of arrays.
-        </p>
-        <p><strong>Time Complexity:</strong> O(N log K)</p>
-        <p><strong>Space Complexity:</strong> O(K)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Min Heap (Optimal)</h2>
+      <p>
+        <strong>Explanation:</strong> Use a min-heap to always pick the
+        smallest element from heads of arrays.
+      </p>
+      <p><strong>Time Complexity:</strong> O(N log K)</p>
+      <p><strong>Space Complexity:</strong> O(K)</p>
+      <pre class="pseudo-code">
 create min-heap
 for each array:
     push first element with array index and element index
@@ -95,17 +105,21 @@ while heap not empty:
         push next element
 return result
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem2app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
 
-      <section class="approach-section">
-        <h2>Approach 3: Divide & Conquer</h2>
-        <p><strong>Explanation:</strong> Merge arrays pairwise recursively.</p>
-        <p><strong>Time Complexity:</strong> O(N log K)</p>
-        <p>
-          <strong>Space Complexity:</strong> O(1) extra (if merged in place)
-        </p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 3: Divide & Conquer</h2>
+      <p><strong>Explanation:</strong> Merge arrays pairwise recursively.</p>
+      <p><strong>Time Complexity:</strong> O(N log K)</p>
+      <p>
+        <strong>Space Complexity:</strong> O(1) extra (if merged in place)
+      </p>
+      <pre class="pseudo-code">
 function mergeKArrays(arrays):
     if arrays.size == 1:
         return arrays[0]
@@ -114,7 +128,11 @@ function mergeKArrays(arrays):
     right = mergeKArrays(arrays[mid+1..end])
     return mergeTwo(left, right)
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem2app3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
     </main>
 
@@ -123,5 +141,9 @@ function mergeKArrays(arrays):
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
+    <script src="../../copyToClipboard.js"></script>
+
+
   </body>
 </html>

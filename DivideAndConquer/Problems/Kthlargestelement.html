@@ -1,90 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kth Largest Element - CodeDSA</title>
-    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
-    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
-    <link rel="stylesheet" href="../../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../about.html">About</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kth Largest Element - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+  <link rel="stylesheet" href="../../CSS/snake.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+     <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
       </div>
-    </nav>
-
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Kth Largest Element in an Array
-          </li>
-        </ol>
-      </nav>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
+  </nav>
 
-    <main>
-      <h1>Kth Largest Element in an Array</h1>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Kth Largest Element in an Array
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given an integer array <strong>nums[]</strong> and an integer k, find
-          the <strong>kth largest element </strong>in the array.
-        </p>
-        <p>
-          <strong>Exanple:</strong> Input: val = [3, 2, 1], wt = [5, 6, 4], k=2,
-          Output: 2
-        </p>
-      </section>
+  <main>
+    <h1>Kth Largest Element in an Array</h1>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Sorting</h2>
-        <p>
-          <strong>Explanation:</strong> Sort the array and then find the kth
-          largest element.
-        </p>
-        <p><strong>Time Complexity:</strong> O(nlogn)</p>
-        <p>
-          <strong>Space Complexity:</strong> O(1) excluding the auxiliary array
-          required
-        </p>
-        <pre class="pseudo-code">
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given an integer array <strong>nums[]</strong> and an integer k, find
+        the <strong>kth largest element </strong>in the array.
+      </p>
+      <p>
+        <strong>Exanple:</strong> Input: val = [3, 2, 1], wt = [5, 6, 4], k=2,
+        Output: 2
+      </p>
+    </section>
+
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Sorting</h2>
+      <p>
+        <strong>Explanation:</strong> Sort the array and then find the kth
+        largest element.
+      </p>
+      <p><strong>Time Complexity:</strong> O(nlogn)</p>
+      <p>
+        <strong>Space Complexity:</strong> O(1) excluding the auxiliary array
+        required
+      </p>
+      <pre class="pseudo-code">
 function Kthlargestelement(arr, k):
     sort(arr) // Sort the array in ascending order
     return arr[n-k] // Return the kth largest element
-      </pre
-        >
-      </section>
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Using MaxHeap</h2>
-        <p>
-          <strong>Explanation:</strong> Store all the elements in the heap and
-          pop k times to get kth largest element.
-        </p>
-        <p><strong>Time Complexity:</strong> O(nlogn+klogn)=O(nlogn)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Using MaxHeap</h2>
+      <p>
+        <strong>Explanation:</strong> Store all the elements in the heap and
+        pop k times to get kth largest element.
+      </p>
+      <p><strong>Time Complexity:</strong> O(nlogn+klogn)=O(nlogn)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 pq = new MaxHeap()
 function Kthlargestelement(arr, k):
     for i in range(0, n):
@@ -93,25 +100,25 @@ function Kthlargestelement(arr, k):
         pq.pop()
     return pq.top()
     
-      </pre
-        >
-      </section>
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Using Quickselect(Divide and Conquer)</h2>
-        <p>
-          <strong>Explanation:</strong> Using modified QuickSort and during each
-          step with help of index of pivot performing Binary Search to look for
-          kth Largest element.
-        </p>
-        <p>
-          <strong>Time Complexity:</strong> O(nlogn) worst case:O(n<sup>2</sup>)
-        </p>
-        <p>
-          <strong>Space Complexity:</strong> O(logn) worst case:O(n) due to
-          recursive stack
-        </p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Using Quickselect(Divide and Conquer)</h2>
+      <p>
+        <strong>Explanation:</strong> Using modified QuickSort and during each
+        step with help of index of pivot performing Binary Search to look for
+        kth Largest element.
+      </p>
+      <p>
+        <strong>Time Complexity:</strong> O(nlogn) worst case:O(n<sup>2</sup>)
+      </p>
+      <p>
+        <strong>Space Complexity:</strong> O(logn) worst case:O(n) due to
+        recursive stack
+      </p>
+      <pre class="pseudo-code">
 function partition(arr, low, high):
     pivot = arr[high]
     i = low - 1
@@ -136,29 +143,28 @@ function quickselect(arr, low, high, k):
 function Kthlargestelement(arr, k):
     n = length(arr)
     return quickselect(arr, 0, n - 1, n - k)
-        </pre>
-      </section>
+            </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <!-- Flowchart Section -->
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img
-            src="../flowcharts/problem1.png"
-            alt="Flowchart"
-            height="1000px"
-            width="500px"
-          />
-        </div>
-      </section>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    <!-- Flowchart Section -->
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem1.png" alt="Flowchart" height="1000px" width="500px" />
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

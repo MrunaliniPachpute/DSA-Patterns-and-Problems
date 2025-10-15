@@ -1,73 +1,76 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merge Two Sorted Lists - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Merge Two Sorted Lists
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../LL.html">Linked Lists</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Merge Two Sorted Lists
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Merge Two Sorted Lists</h1>
+  <main>
+    <h1>Merge Two Sorted Lists</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          You are given the heads of two sorted linked lists
-          <strong>list1</strong> and <strong>list2</strong>. Merge the two lists
-          into one sorted linked list and return its head.
-        </p>
-        <p>
-          <strong>Example:</strong> Input: 1 → 2 → 4, 1 → 3 → 4 → Output: 1 → 1
-          → 2 → 3 → 4 → 4
-        </p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        You are given the heads of two sorted linked lists
+        <strong>list1</strong> and <strong>list2</strong>. Merge the two lists
+        into one sorted linked list and return its head.
+      </p>
+      <p>
+        <strong>Example:</strong> Input: 1 → 2 → 4, 1 → 3 → 4 → Output: 1 → 1
+        → 2 → 3 → 4 → 4
+      </p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Iterative Merge</h2>
-        <p>
-          <strong>Explanation:</strong> Use a dummy node and append smaller node
-          at each step.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m+n)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Iterative Merge</h2>
+      <p>
+        <strong>Explanation:</strong> Use a dummy node and append smaller node
+        at each step.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m+n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 dummy = new Node(-1)
 tail = dummy
 while list1 != NULL and list2 != NULL:
@@ -80,33 +83,26 @@ while list1 != NULL and list2 != NULL:
     tail = tail.next
 tail.next = list1 if list1 != NULL else list2
 return dummy.next
-      </pre
-        >
-      </section>
-      <!-- Flowchart Section for Approach 1 -->
-      <section class="flowchart-section">
-        <button class="flowchart-btn">View Flowchart</button>
-        <div
-          class="flowchart-container"
-          style="display: none; margin-top: 20px"
-        >
-          <img
-            src="../Flowcharts/iterative_merge.jpg"
-            alt="Merge Sorted LL Flowchart"
-            class="flowchart-img"
-          />
-        </div>
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Recursive Merge</h2>
-        <p>
-          <strong>Explanation:</strong> Compare heads recursively and build
-          merged list.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m+n)</p>
-        <p><strong>Space Complexity:</strong> O(m+n) (recursion stack)</p>
-        <pre class="pseudo-code">
+    </section>
+    <!-- Flowchart Section for Approach 1 -->
+    <section class="flowchart-section">
+      <button class="flowchart-btn">View Flowchart</button>
+      <div class="flowchart-container" style="display: none; margin-top: 20px">
+        <img src="../Flowcharts/iterative_merge.jpg" alt="Merge Sorted LL Flowchart" class="flowchart-img" />
+      </div>
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Recursive Merge</h2>
+      <p>
+        <strong>Explanation:</strong> Compare heads recursively and build
+        merged list.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m+n)</p>
+      <p><strong>Space Complexity:</strong> O(m+n) (recursion stack)</p>
+      <pre class="pseudo-code">
 if list1 == NULL:
     return list2
 if list2 == NULL:
@@ -117,31 +113,26 @@ if list1.val < list2.val:
 else:
     list2.next = merge(list1, list2.next)
     return list2
-      </pre
-        >
-      </section>
-      <!-- Flowchart Section for Approach 2 -->
-      <section class="flowchart-section">
-        <button class="flowchart-btn">View Flowchart</button>
-        <div
-          class="flowchart-container"
-          style="display: none; margin-top: 20px"
-        >
-          <img
-            src="../Flowcharts/recursive_merge.jpg"
-            alt="Merge Sorted Flowchart"
-            class="flowchart-img"
-          />
-        </div>
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
+    <!-- Flowchart Section for Approach 2 -->
+    <section class="flowchart-section">
+      <button class="flowchart-btn">View Flowchart</button>
+      <div class="flowchart-container" style="display: none; margin-top: 20px">
+        <img src="../Flowcharts/recursive_merge.jpg" alt="Merge Sorted Flowchart" class="flowchart-img" />
+      </div>
+    </section>
+  </main>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

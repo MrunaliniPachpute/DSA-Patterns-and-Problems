@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infix To Postfix Conversion - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../stackAndQueue.html">Stacks & Queues</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Infix To Postfix Conversion</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Infix To Postfix Conversion</h1>
+    
+
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Convert a given infix expression (e.g., <code>(A+B)*C</code>) into its postfix form (e.g., <code>AB+C*</code>) using a stack.</p>
+      <p><strong>Example:</strong> (A+B)*C → AB+C*</p>
+    </section>
+
+    <!-- Approach 1 -->
+    <section class="approach-section">
+      <h2>Approach 1: Simple Stack Traversal</h2>
+      <p><strong>Explanation:</strong> Traverse the infix expression, push operators to stack, append operands to output. Pop operators based on precedence and parentheses.</p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+stack = empty
+result = ""
+for each character c in expression:
+    if c is operand:
+        append c to result
+    else if c is '(':
+        push c to stack
+    else if c is ')':
+        pop until '(' and append to result
+    else if c is operator:
+        while top of stack has higher precedence:
+            pop and append to result
+        push c to stack
+pop remaining operators and append to result
+      </pre>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowchart/Prob6app1.png" alt="Flowchart Approach 1" class="fc-image" />
+      </div>
+    </section>
+
+    <!-- Approach 2 -->
+    <section class="approach-section">
+      <h2>Approach 2: Handle Multi-Character Operands (Better)</h2>
+      <p><strong>Explanation:</strong> Tokenize the expression to support multi-character operands, then apply same stack-based algorithm.</p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+tokens = tokenize(expression)
+stack = empty
+result = ""
+for each token:
+    if token is operand:
+        append token to result
+    else if token is '(':
+        push token
+    else if token is ')':
+        pop until '(' and append to result
+    else if token is operator:
+        while top has higher precedence:
+            pop and append to result
+        push token
+pop remaining operators
+      </pre>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowchart/Prob6app2.png" alt="Flowchart Approach 2" class="fc-image" />
+      </div>
+    </section>
+
+    <!-- Approach 3 -->
+    <section class="approach-section">
+      <h2>Approach 3: Optimized Stack with Precedence Map (Optimal)</h2>
+      <p><strong>Explanation:</strong> Use a precedence map for operators to efficiently decide when to pop stack elements.</p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+precedence = {'+':1, '-':1, '*':2, '/':2, '^':3}
+stack = empty
+result = ""
+for each token:
+    if token is operand:
+        append to result
+    else if token is '(':
+        push to stack
+    else if token is ')':
+        pop until '('
+    else if token is operator:
+        while stack not empty and precedence[top] >= precedence[token]:
+            pop and append to result
+        push token
+pop remaining operators
+      </pre>
+      <div class="fc-container">
+        <button class="fc-button">View Flowchart</button>
+        <img src="../Flowchart/Prob6app3.png" alt="Flowchart Approach 3" class="fc-image" />
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+</body>
+
+</html>

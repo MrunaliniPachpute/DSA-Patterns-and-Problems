@@ -1,22 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power of Two - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../../index.html">Home</a></li>
@@ -46,7 +49,9 @@
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
-        Given an integer <strong>n</strong>, return <strong>true</strong> if it is a power of two. Otherwise, return <strong>false</strong>. An integer <strong>n</strong> is a power of two if there exists an integer <strong>x</strong> such that <strong>n == 2^x</strong>.
+        Given an integer <strong>n</strong>, return <strong>true</strong> if it is a power of two. Otherwise, return
+        <strong>false</strong>. An integer <strong>n</strong> is a power of two if there exists an integer
+        <strong>x</strong> such that <strong>n == 2^x</strong>.
       </p>
       <p>
         <strong>Example:</strong> n = 16 → Output: true (16 = 2^4)<br>
@@ -58,7 +63,8 @@
     <section class="approach-section">
       <h2>Approach 1: Logarithmic Check</h2>
       <p>
-        <strong>Explanation:</strong> Use logarithm base 2 to check if n is a power of two. If log2(n) is an integer, n is a power of two.
+        <strong>Explanation:</strong> Use logarithm base 2 to check if n is a power of two. If log2(n) is an integer, n
+        is a power of two.
       </p>
       <p><strong>Time Complexity:</strong> O(1)</p>
       <p><strong>Space Complexity:</strong> O(1)</p>
@@ -71,6 +77,8 @@ if x == floor(x):
 else:
     return false
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
 
     <!-- Approach 2: Iterative Power Check -->
@@ -87,13 +95,16 @@ for x in range(0, 31):
         return true
 return false
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
 
     <!-- Approach 3: Bit Manipulation -->
     <section class="approach-section">
       <h2>Approach 3: Bit Manipulation</h2>
       <p>
-        <strong>Explanation:</strong> A power of two has exactly one bit set in its binary representation. Check if n has only one set bit using bit counting.
+        <strong>Explanation:</strong> A power of two has exactly one bit set in its binary representation. Check if n
+        has only one set bit using bit counting.
       </p>
       <p><strong>Time Complexity:</strong> O(1)</p>
       <p><strong>Space Complexity:</strong> O(1)</p>
@@ -102,6 +113,8 @@ if n <= 0:
     return false
 return popcount(n) == 1
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
   </main>
 
@@ -111,6 +124,8 @@ return popcount(n) == 1
   </footer>
 
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

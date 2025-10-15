@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Autocomplete / Suggestions - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
   </nav>
 
@@ -45,13 +48,15 @@
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given a prefix, return all words from the trie that start with this prefix (autocomplete feature).</p>
-      <p><strong>Example:</strong> Prefix = "app", Words = ["apple","app","application"] → ["apple","app","application"]</p>
+      <p><strong>Example:</strong> Prefix = "app", Words = ["apple","app","application"] → ["apple","app","application"]
+      </p>
     </section>
 
     <section class="approach-section">
       <h2>Approach: Trie DFS</h2>
       <p><strong>Explanation:</strong> Traverse trie to prefix node, then DFS from that node to collect all words.</p>
-      <p><strong>Time Complexity:</strong> O(P + K*L), P = prefix length, K = #words with prefix, L = avg word length</p>
+      <p><strong>Time Complexity:</strong> O(P + K*L), P = prefix length, K = #words with prefix, L = avg word length
+      </p>
       <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
     </section>
   </main>
@@ -60,6 +65,8 @@
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

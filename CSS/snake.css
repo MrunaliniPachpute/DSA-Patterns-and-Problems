@@ -81,6 +81,11 @@ body.snake-cursor {
   opacity: 0.8;
 }
 
+/* Text inside the snake button - set via CSS instead of inline styles */
+.snake-btn span {
+  margin-left: 20px;
+}
+
 /* Hover state - slither effect */
 .snake-btn:hover {
   transform: translateY(-2px) scale(1.05);

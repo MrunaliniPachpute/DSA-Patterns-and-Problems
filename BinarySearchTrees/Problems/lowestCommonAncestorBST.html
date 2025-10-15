@@ -1,72 +1,75 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LCA in BST - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../bst.html">Binary Search Trees</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Lowest Common Ancestor
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../bst.html">Binary Search Trees</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Lowest Common Ancestor
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Lowest Common Ancestor (BST)</h1>
+  <main>
+    <h1>Lowest Common Ancestor (BST)</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given two nodes in a BST, find their Lowest Common Ancestor (LCA).
-        </p>
-        <p>
-          <strong>Example:</strong> Input: root=[6,2,8,0,4,7,9,null,null,3,5],
-          p=2, q=8 → Output: 6
-        </p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given two nodes in a BST, find their Lowest Common Ancestor (LCA).
+      </p>
+      <p>
+        <strong>Example:</strong> Input: root=[6,2,8,0,4,7,9,null,null,3,5],
+        p=2, q=8 → Output: 6
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach: BST Property</h2>
-        <p>
-          <strong>Explanation:</strong> If both nodes are less than root, go
-          left. If both greater, go right. Otherwise, root is LCA.
-        </p>
-        <p><strong>Time Complexity:</strong> O(h)</p>
-        <p><strong>Space Complexity:</strong> O(h) recursion stack</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach: BST Property</h2>
+      <p>
+        <strong>Explanation:</strong> If both nodes are less than root, go
+        left. If both greater, go right. Otherwise, root is LCA.
+      </p>
+      <p><strong>Time Complexity:</strong> O(h)</p>
+      <p><strong>Space Complexity:</strong> O(h) recursion stack</p>
+      <pre class="pseudo-code">
 function LCA(node, p, q):
     if node == NULL: return NULL
     if p.val < node.val and q.val < node.val:
@@ -74,15 +77,17 @@ function LCA(node, p, q):
     if p.val > node.val and q.val > node.val:
         return LCA(node.right, p, q)
     return node
-      </pre
-        >
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

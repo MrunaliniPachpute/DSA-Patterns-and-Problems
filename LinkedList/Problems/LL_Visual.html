@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Linked List in HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .input-area {
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #list-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .node {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .arrow {
+      margin: 5px 10px;
+      font-weight: bold;
+      font-size: 20px;
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔗 Linked List Visualizer</h1>
+
+  <div class="input-area">
+    <input type="text" id="value" placeholder="Enter value">
+    <button onclick="addNode()">Add Node</button>
+    <button onclick="removeFirst()">Remove First</button>
+  </div>
+
+  <div id="list-container"></div>
+
+  <script>
+    // Define Node
+    class Node {
+      constructor(value) {
+        this.value = value;
+        this.next = null;
+      }
+    }
+
+    // Linked List Class
+    class LinkedList {
+      constructor() {
+        this.head = null;
+      }
+
+      add(value) {
+        const newNode = new Node(value);
+        if (!this.head) {
+          this.head = newNode;
+        } else {
+          let current = this.head;
+          while (current.next) {
+            current = current.next;
+          }
+          current.next = newNode;
+        }
+        this.display();
+      }
+
+      removeFirst() {
+        if (this.head) {
+          this.head = this.head.next;
+        }
+        this.display();
+      }
+
+      display() {
+        const container = document.getElementById("list-container");
+        container.innerHTML = "";
+
+        let current = this.head;
+        while (current) {
+          const nodeDiv = document.createElement("div");
+          nodeDiv.className = "node";
+          nodeDiv.textContent = current.value;
+          container.appendChild(nodeDiv);
+
+          if (current.next) {
+            const arrow = document.createElement("div");
+            arrow.className = "arrow";
+            arrow.textContent = "→";
+            container.appendChild(arrow);
+          }
+
+          current = current.next;
+        }
+      }
+    }
+
+    // Instantiate list
+    const list = new LinkedList();
+
+    // UI Functions
+    function addNode() {
+      const val = document.getElementById("value").value;
+      if (val.trim() === "") return;
+      list.add(val);
+      document.getElementById("value").value = "";
+    }
+
+    function removeFirst() {
+      list.removeFirst();
+    }
+  </script>
+
+</body>
+</html>

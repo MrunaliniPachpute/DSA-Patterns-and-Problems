@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minimum Platforms - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+<link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
 <body>
 
 <nav class="navbar">
-  <div class="logo-container">
-    <div class="logo-img"><img src="../../images/logo.png" alt="Logo"></div>
+  <a href="../../index.html" class="logo-container">
+    <div class="logo-img"><img src="../../Images/logo.png" alt="Logo"></div>
     <div class="logo">CodeDSA</div>
-  </div>
+  </a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="../../index.html">Home</a></li>
@@ -57,6 +57,8 @@ for each train i:
     maxPlatforms = max(maxPlatforms, count)
 return maxPlatforms
     </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
   </section>
 
   <section class="approach-section">
@@ -73,6 +75,8 @@ for i=1 to n:
         j++
 return max platforms
     </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
   </section>
 
   <section class="approach-section">
@@ -92,6 +96,8 @@ while i < n:
         j++
 return result
     </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
   </section>
 </main>
 
@@ -99,6 +105,7 @@ return result
   <p>&copy; 2025 CodeDSA. All rights reserved.</p>
 </footer>
 <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
 <script src="../../JS/problemTracker.js"></script>
 </body>
 </html>

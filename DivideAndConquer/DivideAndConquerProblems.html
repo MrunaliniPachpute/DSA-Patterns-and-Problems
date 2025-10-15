@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeDSA Divide and Conquer</title>
+    <link rel="stylesheet" href="../CSS/breadcrumb.css">
     <link rel="stylesheet" href="../CSS/AllTopics.css" />
     <link rel="stylesheet" href="../CSS/snake.css" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
+       <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
       <div class="logo">CodeDSA</div>
+    </a>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
@@ -23,125 +29,113 @@
         <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
       </div>
     </nav>
+    <div class="breadcrumb-container">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+    <li class="breadcrumb-item active">Divide and Conquer</li>
+  </ul>
+</div>
 
-    <main>
-      <h1>Divide and Conquer Topics</h1>
-      <p class="intro-text">
-        Master essential Divide and Conquer problems and patterns frequently
-        asked in interviews.
-      </p>
+  <main>
+    <h1>Divide and Conquer Topics</h1>
+    <p class="intro-text">
+      Master essential Divide and Conquer problems and patterns frequently
+      asked in interviews.
+    </p>
 
-      <div id="topic-progress-bar">
-        <div id="topic-progress"></div>
-        <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
-      </div>
+    <div id="topic-progress-bar">
+      <div id="topic-progress"></div>
+      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    </div>
 
-      <ul id="topics" class="topic-list" data-topic="divideandconquer">
-        <li>
-          <a href="./Problems/Kthlargestelement.html">
-            <span class="topic-completed">&nbsp;</span>
-            <span class="topic-number">01</span>
-            <span class="topic-name">Kth Largest Element in an Array</span>
-            <span class="topic-desc"
-              >Using Quickselect(Modified QuickSort)</span
-            >
-          </a>
-        </li>
+    <ul id="topics" class="topic-list" data-topic="divideandconquer">
+      <li>
+        <a href="./Problems/Kthlargestelement.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">01</span>
+          <span class="topic-name">Kth Largest Element in an Array</span>
+          <span class="topic-desc">Using Quickselect(Modified QuickSort)</span>
+        </a>
+      </li>
 
-        <li>
-          <a href="./Problems/MaximumSubArray.html">
-            <span class="topic-completed">&nbsp;</span>
-            <span class="topic-number">02</span>
-            <span class="topic-name">Maximum SubArray</span>
-            <span class="topic-desc"
-              >Find the maximum sum in the left and right half, and the subarray
-              crossing the midpoint.</span
-            >
-          </a>
-        </li>
+      <li>
+        <a href="./Problems/MaximumSubArray.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">02</span>
+          <span class="topic-name">Maximum SubArray</span>
+          <span class="topic-desc">Find the maximum sum in the left and right half, and the subarray
+            crossing the midpoint.</span>
+        </a>
+      </li>
 
-        <li>
-          <a href="./Problems/CountInversions.html">
-            <span class="topic-completed">&nbsp;</span>
-            <span class="topic-number">03</span>
-            <span class="topic-name">CountInversions</span>
-            <span class="topic-desc"
-              >Find number of them in left and right halves, and between the two
-              halves while merging using Modified MergSort</span
-            >
-          </a>
-        </li>
+      <li>
+        <a href="./Problems/CountInversions.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">03</span>
+          <span class="topic-name">CountInversions</span>
+          <span class="topic-desc">Find number of them in left and right halves, and between the two
+            halves while merging using Modified MergSort</span>
+        </a>
+      </li>
 
-        <li>
-          <a href="./Problems/Medianof2SortedLists.html">
-            <span class="topic-completed">&nbsp;</span>
-            <span class="topic-number">04</span>
-            <span class="topic-name">Median of two sorted lists</span>
-            <span class="topic-desc"
-              >Using Binary Search logic to come up with the right partition
-              point</span
-            >
-          </a>
-        </li>
+      <li>
+        <a href="./Problems/Medianof2SortedLists.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">04</span>
+          <span class="topic-name">Median of two sorted lists</span>
+          <span class="topic-desc">Using Binary Search logic to come up with the right partition
+            point</span>
+        </a>
+      </li>
 
-        <li>
-          <a href="./Problems/ClosestPairofPoints.html">
-            <span class="topic-completed">&nbsp;</span>
-            <span class="topic-number">05</span>
-            <span class="topic-name">Closest pair of points on plane</span>
-            <span class="topic-desc"
-              >Find closest pair in left and right halves and around narrow
-              strip of point around dividing line</span
-            >
-          </a>
-        </li>
-      </ul>
+      <li>
+        <a href="./Problems/ClosestPairofPoints.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">05</span>
+          <span class="topic-name">Closest pair of points on plane</span>
+          <span class="topic-desc">Find closest pair in left and right halves and around narrow
+            strip of point around dividing line</span>
+        </a>
+      </li>
+    </ul>
 
-      <p class="pattern-coverage">
-        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-        These problems cover the most
-        <em>important Divide and conquer patterns</em> for interviews:
-        <br /><br />
+    <p class="pattern-coverage">
+      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+      These problems cover the most
+      <em>important Divide and conquer patterns</em> for interviews:
+      <br /><br />
 
-        <span class="pattern-name">Kth Largest Element </span> →
-        <span class="pattern-desc"
-          >Quickselect, a partition-based selection algorithm</span
-        ><br />
-        <span class="pattern-name">Maximum SubArray</span> →
-        <span class="pattern-desc"
-          >3-step analysis(solution in left, right or crossing around the
-          center)</span
-        ><br />
-        <span class="pattern-name">CountInversions</span> →
-        <span class="pattern-desc"
-          >Designing Modified MergeSort with divideandconquer during the merge
-          step</span
-        ><br />
-        <span class="pattern-name">Median of 2 sorted lists</span> →
-        <span class="pattern-desc"
-          >Designing Advanced Binary Search using Divide and Conquer</span
-        ><br />
-        <span class="pattern-name">Closest pair of points on plane</span> →
-        <span class="pattern-desc"
-          >Using Divide and Conquer with complex "strip" combine step in a
-          geometrical setting </span
-        ><br /><br />
+      <span class="pattern-name">Kth Largest Element </span> →
+      <span class="pattern-desc">Quickselect, a partition-based selection algorithm</span><br />
+      <span class="pattern-name">Maximum SubArray</span> →
+      <span class="pattern-desc">3-step analysis(solution in left, right or crossing around the
+        center)</span><br />
+      <span class="pattern-name">CountInversions</span> →
+      <span class="pattern-desc">Designing Modified MergeSort with divideandconquer during the merge
+        step</span><br />
+      <span class="pattern-name">Median of 2 sorted lists</span> →
+      <span class="pattern-desc">Designing Advanced Binary Search using Divide and Conquer</span><br />
+      <span class="pattern-name">Closest pair of points on plane</span> →
+      <span class="pattern-desc">Using Divide and Conquer with complex "strip" combine step in a
+        geometrical setting </span><br /><br />
 
-        Together, they ensure you understand
-        <span class="highlight"
-          >partition-based selection, three-case analysis, modifying Merge Sort,
-          advanced binary searching using DAC, and applying DAC in geometric
-          contexts
-        </span>
-        in Divide and Conquer problems.
-      </p>
-    </main>
+      Together, they ensure you understand
+      <span class="highlight">partition-based selection, three-case analysis, modifying Merge Sort,
+        advanced binary searching using DAC, and applying DAC in geometric
+        contexts
+      </span>
+      in Divide and Conquer problems.
+    </p>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
 
-    <script src="../index.js"></script>
-  </body>
+  <script src="../index.js"></script>
+  <script src="../JS/ProgressBar.js"></script>
+  
+</body>
+
 </html>

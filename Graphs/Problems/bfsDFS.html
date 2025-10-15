@@ -1,35 +1,38 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BFS & DFS Traversals - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-  
+
   <!-- Breadcrumb Navigation -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
@@ -41,30 +44,30 @@
     </nav>
   </div>
 
-    <main>
-      <h1>BFS & DFS Traversals</h1>
+  <main>
+    <h1>BFS & DFS Traversals</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given a graph, traverse all nodes using BFS and DFS starting from a
-          given node.
-        </p>
-        <p>
-          <strong>Example:</strong> Graph: 0→1,0→2,1→2,2→0,2→3 → BFS(0) =
-          [0,1,2,3], DFS(0) = [0,1,2,3]
-        </p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given a graph, traverse all nodes using BFS and DFS starting from a
+        given node.
+      </p>
+      <p>
+        <strong>Example:</strong> Graph: 0→1,0→2,1→2,2→0,2→3 → BFS(0) =
+        [0,1,2,3], DFS(0) = [0,1,2,3]
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: BFS (Queue)</h2>
-        <p>
-          <strong>Explanation:</strong> Use a queue to explore nodes level by
-          level.
-        </p>
-        <p><strong>Time Complexity:</strong> O(V + E)</p>
-        <p><strong>Space Complexity:</strong> O(V)</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 1: BFS (Queue)</h2>
+      <p>
+        <strong>Explanation:</strong> Use a queue to explore nodes level by
+        level.
+      </p>
+      <p><strong>Time Complexity:</strong> O(V + E)</p>
+      <p><strong>Space Complexity:</strong> O(V)</p>
+      <pre class="pseudo-code">
 queue = [start]
 visited[start] = true
 while queue not empty:
@@ -73,35 +76,35 @@ while queue not empty:
         if neighbor not visited:
             queue.push(neighbor)
             visited[neighbor] = true
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: DFS (Recursive)</h2>
-        <p>
-          <strong>Explanation:</strong> Recursively visit neighbors using a
-          visited set.
-        </p>
-        <p><strong>Time Complexity:</strong> O(V + E)</p>
-        <p><strong>Space Complexity:</strong> O(V) (recursion stack)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: DFS (Recursive)</h2>
+      <p>
+        <strong>Explanation:</strong> Recursively visit neighbors using a
+        visited set.
+      </p>
+      <p><strong>Time Complexity:</strong> O(V + E)</p>
+      <p><strong>Space Complexity:</strong> O(V) (recursion stack)</p>
+      <pre class="pseudo-code">
 function DFS(node):
     visited[node] = true
     for neighbor in node.neighbors:
         if neighbor not visited:
             DFS(neighbor)
 DFS(start)
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: DFS (Iterative)</h2>
-        <p><strong>Explanation:</strong> Use a stack to simulate recursion.</p>
-        <p><strong>Time Complexity:</strong> O(V + E)</p>
-        <p><strong>Space Complexity:</strong> O(V)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: DFS (Iterative)</h2>
+      <p><strong>Explanation:</strong> Use a stack to simulate recursion.</p>
+      <p><strong>Time Complexity:</strong> O(V + E)</p>
+      <p><strong>Space Complexity:</strong> O(V)</p>
+      <pre class="pseudo-code">
 stack = [start]
 visited[start] = true
 while stack not empty:
@@ -110,15 +113,17 @@ while stack not empty:
         if neighbor not visited:
             stack.push(neighbor)
             visited[neighbor] = true
-      </pre
-        >
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

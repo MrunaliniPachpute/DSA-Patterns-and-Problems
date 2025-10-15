@@ -1,64 +1,70 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Huffman Encoding - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-  <div class="logo-container">
-    <div class="logo-img"><img src="../../images/logo.png" alt="Logo"></div>
-    <div class="logo">CodeDSA</div>
-  </div>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left:20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
-  </div>
-</nav>
-
-<div class="breadcrumb-container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Huffman Encoding</li>
-    </ol>
+  <nav class="navbar">
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img"><img src="../../Images/logo.png" alt="Logo"></div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left:20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
   </nav>
-</div>
 
-<main>
-  <h1>Huffman Encoding Problem</h1>
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../greedyAlgo.html">Greedy Algorithms</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Huffman Encoding</li>
+      </ol>
+    </nav>
+  </div>
 
-  <section class="problem-section">
-    <h2>Problem Statement</h2>
-    <p>Compress data using minimum bits using Huffman coding based on character frequencies.</p>
-    <p><strong>Example:</strong> Characters = [a,b,c,d], Freq = [5,9,12,13] → Build Huffman Tree & codes.</p>
-  </section>
+  <main>
+    <h1>Huffman Encoding Problem</h1>
 
-  <section class="approach-section">
-    <h2>Approach 1: Brute Force</h2>
-    <p>Generate all possible prefix codes and select minimum weighted sum.</p>
-    <pre class="pseudo-code">
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Compress data using minimum bits using Huffman coding based on character frequencies.</p>
+      <p><strong>Example:</strong> Characters = [a,b,c,d], Freq = [5,9,12,13] → Build Huffman Tree & codes.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force</h2>
+      <p>Generate all possible prefix codes and select minimum weighted sum.</p>
+      <pre class="pseudo-code">
 generate all possible prefix codes
 calculate sum(freq * codeLength)
 return minimum sum code
     </pre>
-  </section>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-  <section class="approach-section">
-    <h2>Approach 2: Better</h2>
-    <p>Sort characters by frequency and merge two smallest repeatedly.</p>
-    <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Better</h2>
+      <p>Sort characters by frequency and merge two smallest repeatedly.</p>
+      <pre class="pseudo-code">
 create list of nodes with freq
 while more than 1 node:
     pick two smallest nodes
@@ -66,12 +72,14 @@ while more than 1 node:
     insert back
 assign codes from tree
     </pre>
-  </section>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-  <section class="approach-section">
-    <h2>Approach 3: Optimal Greedy</h2>
-    <p>Use min-heap to efficiently build Huffman tree.</p>
-    <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Optimal Greedy</h2>
+      <p>Use min-heap to efficiently build Huffman tree.</p>
+      <pre class="pseudo-code">
 create min-heap of characters by freq
 while heap size > 1:
     left = pop()
@@ -80,13 +88,17 @@ while heap size > 1:
     push mergeNode
 assign 0/1 to tree edges to get codes
     </pre>
-  </section>
-</main>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-<footer>
-  <p>&copy; 2025 CodeDSA. All rights reserved.</p>
-</footer>
-<script src="../../index.js"></script>
-<script src="../../JS/problemTracker.js"></script>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

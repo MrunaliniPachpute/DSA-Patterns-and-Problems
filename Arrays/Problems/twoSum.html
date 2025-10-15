@@ -1,31 +1,36 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Two Sum - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
   </nav>
 
@@ -39,7 +44,7 @@
       </ol>
     </nav>
 
-   
+
 
     <main>
       <h1>Two Sum</h1>
@@ -74,8 +79,12 @@ for i = 0 to n-1:
     for j = i+1 to n-1:
         if nums[i] + nums[j] == target:
             return [i, j]
-      </pre
-        >
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+          <button class="fc-button">View Flowchart</button>
+          <img src="../Flowcharts/Two_sum_approach_1.png" alt="Heap Sort Flowchart" class="fc-image" />
+        </div>
+
       </section>
 
       <section class="approach-section">
@@ -93,8 +102,11 @@ for i = 0 to n-1:
         return [map[nums[i]], i]
     else:
         map[target - nums[i]] = i
-      </pre
-        >
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+          <button class="fc-button">View Flowchart</button>
+          <img src="../Flowcharts/Two_sum_approach_2.png" alt="Heap Sort Flowchart" class="fc-image" />
+        </div>
       </section>
 
       <section class="approach-section">
@@ -121,8 +133,11 @@ while left < right:
         left++
     else:
         right--
-      </pre
-        >
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+          <button class="fc-button">View Flowchart</button>
+          <img src="../Flowcharts/Two_sum_approach_3.png" alt="Heap Sort Flowchart" class="fc-image" />
+        </div>
       </section>
     </main>
 
@@ -132,6 +147,9 @@ while left < right:
     </footer>
 
     <script src="../../index.js"></script>
+    <script src="../../copyToClipboard.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
     <script src="../../JS/problemTracker.js"></script>
-  </body>
+</body>
+
 </html>

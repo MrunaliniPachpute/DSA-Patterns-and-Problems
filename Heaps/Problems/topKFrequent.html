@@ -1,33 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Top K Frequent Elements - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
   </nav>
-  
+
   <!-- Breadcrumb Navigation -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
@@ -39,43 +43,49 @@
     </nav>
   </div>
 
-    <main>
-      <h1>Top K Frequent Elements</h1>
+  <main>
+    <h1>Top K Frequent Elements</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>Given an array of integers, return the k most frequent elements.</p>
-        <p>
-          <strong>Example:</strong> nums = [1,1,1,2,2,3], k=2 → Output: [1,2]
-        </p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Given an array of integers, return the k most frequent elements.</p>
+      <p>
+        <strong>Example:</strong> nums = [1,1,1,2,2,3], k=2 → Output: [1,2]
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: Hash Map + Sorting</h2>
-        <p>
-          <strong>Explanation:</strong> Count frequencies and sort by frequency.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 1: Hash Map + Sorting</h2>
+      <p>
+        <strong>Explanation:</strong> Count frequencies and sort by frequency.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 freq = hashmap()
 for num in nums:
     freq[num] += 1
 sort freq by values descending
 return first k elements
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem4app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
 
-      <section class="approach-section">
-        <h2>Approach 2: Min Heap (Optimal)</h2>
-        <p>
-          <strong>Explanation:</strong> Maintain min-heap of size k for
-          frequencies.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log k)</p>
-        <p><strong>Space Complexity:</strong> O(k)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Min Heap (Optimal)</h2>
+      <p>
+        <strong>Explanation:</strong> Maintain min-heap of size k for
+        frequencies.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log k)</p>
+      <p><strong>Space Complexity:</strong> O(k)</p>
+      <pre class="pseudo-code">
 freq = hashmap()
 for num in nums:
     freq[num] += 1
@@ -86,7 +96,11 @@ for num, count in freq:
         pop min
 return all elements in heap
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem4app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
     </main>
 
@@ -95,5 +109,8 @@ return all elements in heap
     </footer>
     <script src="../../index.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+
   </body>
 </html>

@@ -1,73 +1,76 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insert & Search in BST - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../bst.html">Binary Search Trees</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Insert & Search in BST
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../bst.html">Binary Search Trees</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Insert & Search in BST
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Insert & Search in BST</h1>
+  <main>
+    <h1>Insert & Search in BST</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Implement insert and search operations in a Binary Search Tree (BST).
-        </p>
-        <p>
-          <strong>Example:</strong> Insert 5, 3, 7, 2, 4 → Search 4 → Output:
-          Found
-        </p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Implement insert and search operations in a Binary Search Tree (BST).
+      </p>
+      <p>
+        <strong>Example:</strong> Insert 5, 3, 7, 2, 4 → Search 4 → Output:
+        Found
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: Recursive Insertion & Search</h2>
-        <p>
-          <strong>Explanation:</strong> Insert by comparing with root and recur
-          left/right. Search similarly.
-        </p>
-        <p><strong>Time Complexity:</strong> O(h), where h is height of BST</p>
-        <p><strong>Space Complexity:</strong> O(h) due to recursion stack</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 1: Recursive Insertion & Search</h2>
+      <p>
+        <strong>Explanation:</strong> Insert by comparing with root and recur
+        left/right. Search similarly.
+      </p>
+      <p><strong>Time Complexity:</strong> O(h), where h is height of BST</p>
+      <p><strong>Space Complexity:</strong> O(h) due to recursion stack</p>
+      <pre class="pseudo-code">
 function insert(node, val):
     if node == NULL:
         return new Node(val)
@@ -83,19 +86,19 @@ function search(node, val):
     if val < node.val:
         return search(node.left, val)
     return search(node.right, val)
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Iterative Insertion & Search</h2>
-        <p>
-          <strong>Explanation:</strong> Traverse iteratively to insert or search
-          without recursion.
-        </p>
-        <p><strong>Time Complexity:</strong> O(h)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Iterative Insertion & Search</h2>
+      <p>
+        <strong>Explanation:</strong> Traverse iteratively to insert or search
+        without recursion.
+      </p>
+      <p><strong>Time Complexity:</strong> O(h)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function insert(root, val):
     parent = NULL
     node = root
@@ -120,17 +123,19 @@ function search(root, val):
             return node
         node = node.left if val < node.val else node.right
     return NULL
-      </pre
-        >
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
+  </main>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

@@ -11,12 +11,12 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <div class="logo-container">
+      <a href="../index.html" class="logo-container">
   <div class="logo-img">
-    <img src="../images/logo.png" alt="Logo">
+    <img src="../Images/logo.png" alt="Logo">
   </div>
   <div class="logo">CodeDSA</div>
-</div>
+</a>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
@@ -24,7 +24,7 @@
           <li><a href="../contact.html">Contact</a></li>
         </ul>
         <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
+          <span>Snake Cursor</span>
         </button>
         <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
       </div>
@@ -45,7 +45,7 @@
 
     <div id="topic-progress-bar">
       <div id="topic-progress"></div>
-      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+      <div id="topic-progress-text">Progress: 0 / 6 Topics</div>
     </div>
 
     <ul id="topics" class="topic-list" data-topic="stack-queue">
@@ -91,7 +91,18 @@
           <span class="topic-number">05</span>
           <span class="topic-name">Sliding Window Maximum</span>
           <span class="topic-desc">Deque-based optimization for window problems</span>
+          <span class="topic-desc">Classic stack-to-queue conversion</span>
         </a>
+      </li>
+
+      <li>
+        <a href="./Problems/InfixToPostfix.html">
+          <span class="topic-completed">&nbsp;</span>
+          <span class="topic-number">06</span>
+          <span class="topic-name">Infix To Postfix Evaluator using Stacks</span>
+          <span class="topic-desc">Convert infix expressions to postfix using stack</span>
+        </a>
+      </li>
     </ul>
 
     <p class="pattern-coverage">
@@ -108,13 +119,16 @@
       <span class="pattern-name">Implement Queue using Stacks</span> →
       <span class="pattern-desc">Stack-Queue conversion, data structure simulation.</span><br />
       <span class="pattern-name">Sliding Window Maximum</span> →
-      <span class="pattern-desc">Deque pattern, window-based optimization.</span><br /><br />
+      <span class="pattern-desc">Deque pattern, window-based optimization.</span><br />
+      <span class="pattern-name">Infix To Postfix Conversion</span> →
+      <span class="pattern-desc">Convert infix expressions to postfix using stack operations.</span><br /><br />
+
 
       Together, they ensure you understand
       <span class="highlight">stack-based matching, design with auxiliary structures, monotonic
         stack tricks, stack-to-queue conversions, and sliding window
-        optimization</span>
-      using queues.
+        optimization,Infix To Postfix Conversion</span>
+      using queues and stacks.
     </p>
   </main>
 
@@ -124,6 +138,7 @@
   </footer>
 
   <script src="../index.js"></script>
+  <script src="../JS/ProgressBar.js"></script>
 </body>
 
 </html>

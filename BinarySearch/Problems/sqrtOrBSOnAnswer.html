@@ -1,91 +1,94 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Square Root (Binary Search on Answer) - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+  <button id="snakeToggle" class="snake-btn"><span>Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../binarySearch.html">Binary Search</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Square Root (Binary Search on Answer)
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../binarySearch.html">Binary Search</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Square Root (Binary Search on Answer)
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Square Root (Binary Search on Answer)</h1>
+  <main>
+    <h1>Square Root (Binary Search on Answer)</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given a non-negative integer <strong>x</strong>, compute and return
-          the integer part of its square root. You must not use built-in
-          exponent functions.
-        </p>
-        <p><strong>Example:</strong> x = 8 → Output: 2 (because 2² ≤ 8 < 3²)</p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given a non-negative integer <strong>x</strong>, compute and return
+        the integer part of its square root. You must not use built-in
+        exponent functions.
+      </p>
+      <p><strong>Example:</strong> x = 8 → Output: 2 (because 2² ≤ 8 < 3²)</p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Linear Scan</h2>
-        <p>
-          <strong>Explanation:</strong> Try every integer from 0 to x to find
-          the square root.
-        </p>
-        <p><strong>Time Complexity:</strong> O(√x)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Linear Scan</h2>
+      <p>
+        <strong>Explanation:</strong> Try every integer from 0 to x to find
+        the square root.
+      </p>
+      <p><strong>Time Complexity:</strong> O(√x)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 for i in 0..x:
     if i*i > x:
         return i-1
 return x
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Binary Search on Answer</h2>
-        <p>
-          <strong>Explanation:</strong> Treat square root as an answer in range
-          [0, x] and use binary search.
-        </p>
-        <p><strong>Time Complexity:</strong> O(log x)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Binary Search on Answer</h2>
+      <p>
+        <strong>Explanation:</strong> Treat square root as an answer in range
+        [0, x] and use binary search.
+      </p>
+      <p><strong>Time Complexity:</strong> O(log x)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 low = 0
 high = x
 while low <= high:
@@ -98,34 +101,36 @@ while low <= high:
     else:
         high = mid - 1
 return ans
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Newton's Method (Optional)</h2>
-        <p>
-          <strong>Explanation:</strong> Iteratively improve guess using x /
-          guess formula.
-        </p>
-        <p><strong>Time Complexity:</strong> O(log x)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Newton's Method (Optional)</h2>
+      <p>
+        <strong>Explanation:</strong> Iteratively improve guess using x /
+        guess formula.
+      </p>
+      <p><strong>Time Complexity:</strong> O(log x)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 guess = x
 while guess*guess - x > epsilon:
     guess = (guess + x/guess) / 2
 return int(guess)
-      </pre
-        >
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
+  </main>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

@@ -1,80 +1,87 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Median of 2 Sorted Lists - CodeDSA</title>
-    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
-    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
-    <link rel="stylesheet" href="../../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../about.html">About</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Median of 2 Sorted Lists - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+  <link rel="stylesheet" href="../../CSS/snake.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+     <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
       </div>
-    </nav>
-
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Median of 2 Sorted Lists
-          </li>
-        </ol>
-      </nav>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
+  </nav>
 
-    <main>
-      <h1>Median of 2 Sorted Lists</h1>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Median of 2 Sorted Lists
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-      <!-- Problem Statement -->
+  <main>
+    <h1>Median of 2 Sorted Lists</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given two sorted arrays <strong>arr1[]</strong> and
-          <strong>arr2[]</strong>, find the <strong>median</strong> of the two
-          sorted arrays. The overall run time complexity should be
-          O(log(min(m,n))).
-        </p>
-        <p>
-          <strong>Example 1:</strong> Input: arr1 = [1, 3], arr2 = [2]<br />
-          Output: 2.0<br />
-          Explanation: Merged array = [1, 2, 3], median is 2.<br /><br />
-          <strong>Example 2:</strong> Input: arr1 = [1, 2], arr2 = [3, 4]<br />
-          Output: 2.5<br />
-          Explanation: Merged array = [1, 2, 3, 4], median is (2 + 3) / 2 = 2.5
-        </p>
-      </section>
+    <!-- Problem Statement -->
 
-      <!-- Approaches -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given two sorted arrays <strong>arr1[]</strong> and
+        <strong>arr2[]</strong>, find the <strong>median</strong> of the two
+        sorted arrays. The overall run time complexity should be
+        O(log(min(m,n))).
+      </p>
+      <p>
+        <strong>Example 1:</strong> Input: arr1 = [1, 3], arr2 = [2]<br />
+        Output: 2.0<br />
+        Explanation: Merged array = [1, 2, 3], median is 2.<br /><br />
+        <strong>Example 2:</strong> Input: arr1 = [1, 2], arr2 = [3, 4]<br />
+        Output: 2.5<br />
+        Explanation: Merged array = [1, 2, 3, 4], median is (2 + 3) / 2 = 2.5
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: Merge and Find Median</h2>
-        <p>
-          <strong>Explanation:</strong> Merge both sorted arrays into a single
-          sorted array using the merge procedure of merge sort, then find the
-          median from the merged array.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m + n)</p>
-        <p><strong>Space Complexity:</strong> O(m + n)</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+
+    <section class="approach-section">
+      <h2>Approach 1: Merge and Find Median</h2>
+      <p>
+        <strong>Explanation:</strong> Merge both sorted arrays into a single
+        sorted array using the merge procedure of merge sort, then find the
+        median from the merged array.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m + n)</p>
+      <p><strong>Space Complexity:</strong> O(m + n)</p>
+      <pre class="pseudo-code">
 function findMedian(arr1, arr2):
     m = length(arr1)
     n = length(arr2)
@@ -107,20 +114,20 @@ function findMedian(arr1, arr2):
         return merged[total / 2]
     else:
         return (merged[total / 2 - 1] + merged[total / 2]) / 2.0
-      </pre
-        >
-      </section>
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Without Extra Space (Counting)</h2>
-        <p>
-          <strong>Explanation:</strong> Instead of creating a merged array, use
-          two pointers to traverse both arrays and count elements until reaching
-          the median position(s). Only store the median element(s).
-        </p>
-        <p><strong>Time Complexity:</strong> O(m + n)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Without Extra Space (Counting)</h2>
+      <p>
+        <strong>Explanation:</strong> Instead of creating a merged array, use
+        two pointers to traverse both arrays and count elements until reaching
+        the median position(s). Only store the median element(s).
+      </p>
+      <p><strong>Time Complexity:</strong> O(m + n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function findMedian(arr1, arr2):
     m = length(arr1)
     n = length(arr2)
@@ -156,21 +163,21 @@ function findMedian(arr1, arr2):
         return median1
     else:
         return (median1 + median2) / 2.0
-      </pre
-        >
-      </section>
+          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Binary Search (Divide and Conquer)</h2>
-        <p>
-          <strong>Explanation:</strong> Use binary search on the smaller array
-          to find the correct partition. The partition divides both arrays such
-          that all elements on the left are smaller than elements on the right.
-          This ensures the median is at the partition boundary.
-        </p>
-        <p><strong>Time Complexity:</strong> O(log(min(m, n)))</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Binary Search (Divide and Conquer)</h2>
+      <p>
+        <strong>Explanation:</strong> Use binary search on the smaller array
+        to find the correct partition. The partition divides both arrays such
+        that all elements on the left are smaller than elements on the right.
+        This ensures the median is at the partition boundary.
+      </p>
+      <p><strong>Time Complexity:</strong> O(log(min(m, n)))</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function findMedian(arr1, arr2):
     // Ensure arr1 is the smaller array
     if length(arr1) &gt; length(arr2):
@@ -204,42 +211,41 @@ function findMedian(arr1, arr2):
         else:
             // Move towards right in arr1
             low = partition1 + 1
-        </pre>
-      </section>
+            </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <br />
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <p>
-        <strong
-          >The Binary Search approach (Divide and Conquer) is the optimal
-          solution with O(log(min(m,n))) time complexity. It efficiently finds
-          the median without merging the arrays by using binary search to
-          partition both arrays correctly.</strong
-        >
-      </p>
 
-      <br />
+    </section>
 
-      <!-- Flowchart Section -->
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img
-            src="../flowcharts/problem4.png"
-            alt="Flowchart"
-            height="1500px"
-            width="750px"
-          />
-        </div>
-      </section>
-    </main>
+    <br />
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    <p>
+      <strong>The Binary Search approach (Divide and Conquer) is the optimal
+        solution with O(log(min(m,n))) time complexity. It efficiently finds
+        the median without merging the arrays by using binary search to
+        partition both arrays correctly.</strong>
+    </p>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    <br />
+
+    <!-- Flowchart Section -->
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem4.png" alt="Flowchart" height="1500px" width="750px" />
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

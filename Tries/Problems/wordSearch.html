@@ -1,80 +1,85 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Word Search in Grid - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+  <button id="snakeToggle" class="snake-btn"><span>Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="../tries.html">Tries</a></li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Word Search in Grid
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../tries.html">Tries</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Word Search in Grid
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Word Search in 2D Grid</h1>
+  <main>
+    <h1>Word Search in 2D Grid</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given a 2D board and a list of words, check which words exist in the
-          board using trie + DFS.
-        </p>
-        <p>
-          <strong>Example:</strong> Board =
-          [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]],
-          Words = ["oath","pea"] → ["oath"]
-        </p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given a 2D board and a list of words, check which words exist in the
+        board using trie + DFS.
+      </p>
+      <p>
+        <strong>Example:</strong> Board =
+        [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]],
+        Words = ["oath","pea"] → ["oath"]
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach: Trie + DFS Backtracking</h2>
-        <p>
-          <strong>Explanation:</strong> Insert words into trie. DFS on grid,
-          mark visited, check trie path.
-        </p>
-        <p>
-          <strong>Time Complexity:</strong> O(M*N*4^L), M,N = grid size, L = max
-          word length
-        </p>
-        <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
-      </section>
-    </main>
+    <section class="approach-section">
+      <h2>Approach: Trie + DFS Backtracking</h2>
+      <p>
+        <strong>Explanation:</strong> Insert words into trie. DFS on grid,
+        mark visited, check trie path.
+      </p>
+      <p>
+        <strong>Time Complexity:</strong> O(M*N*4^L), M,N = grid size, L = max
+        word length
+      </p>
+      <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
+    </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

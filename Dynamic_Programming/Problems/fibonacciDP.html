@@ -1,92 +1,95 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fibonacci Sequence - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../dp.html">Dynamic Programming</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Fibonacci Sequence
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../dp.html">Dynamic Programming</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Fibonacci Sequence
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Fibonacci Sequence</h1>
+  <main>
+    <h1>Fibonacci Sequence</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given an integer <strong>n</strong>, return the
-          <strong>n<sup>th</sup></strong> number in the Fibonacci sequence. The
-          sequence is defined as:
-        </p>
-        <p>F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2) for n &gt; 1</p>
-        <p><strong>Example:</strong> Input: n = 6, Output: 8</p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given an integer <strong>n</strong>, return the
+        <strong>n<sup>th</sup></strong> number in the Fibonacci sequence. The
+        sequence is defined as:
+      </p>
+      <p>F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2) for n &gt; 1</p>
+      <p><strong>Example:</strong> Input: n = 6, Output: 8</p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Recursion</h2>
-        <p>
-          <strong>Explanation:</strong> Direct recursive definition of
-          Fibonacci.
-        </p>
-        <p><strong>Time Complexity:</strong> O(2<sup>n</sup>)</p>
-        <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Recursion</h2>
+      <p>
+        <strong>Explanation:</strong> Direct recursive definition of
+        Fibonacci.
+      </p>
+      <p><strong>Time Complexity:</strong> O(2<sup>n</sup>)</p>
+      <p><strong>Space Complexity:</strong> O(n) recursion stack</p>
+      <pre class="pseudo-code">
 function fib(n):
     if n == 0: return 0
     if n == 1: return 1
     return fib(n-1) + fib(n-2)
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Memoization (Top-Down DP)</h2>
-        <p>
-          <strong>Explanation:</strong> Store results of subproblems to avoid
-          recomputation.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Memoization (Top-Down DP)</h2>
+      <p>
+        <strong>Explanation:</strong> Store results of subproblems to avoid
+        recomputation.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 memo = [-1]*(n+1)
 function fib(n):
     if n == 0: return 0
@@ -94,57 +97,59 @@ function fib(n):
     if memo[n] != -1: return memo[n]
     memo[n] = fib(n-1) + fib(n-2)
     return memo[n]
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
-        <p><strong>Explanation:</strong> Build DP array iteratively.</p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
+      <p><strong>Explanation:</strong> Build DP array iteratively.</p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 dp[0] = 0
 dp[1] = 1
 for i = 2 to n:
     dp[i] = dp[i-1] + dp[i-2]
 return dp[n]
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 4: Space Optimized DP</h2>
-        <p>
-          <strong>Explanation:</strong> Only store last two values to save
-          space.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 4: Space Optimized DP</h2>
+      <p>
+        <strong>Explanation:</strong> Only store last two values to save
+        space.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 a = 0, b = 1
 for i = 2 to n:
     c = a + b
     a = b
     b = c
 return b
-      </pre
-        >
-      </section>
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img src="../flowcharts/problem0.png" alt="Flowchart" height="500px" width="600px"/>
-        </div>
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem0.png" alt="Flowchart" height="500px" width="600px" />
+      </div>
+    </section>
+  </main>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

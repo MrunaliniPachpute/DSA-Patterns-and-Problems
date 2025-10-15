@@ -1,33 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kth Largest / Smallest Element - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css"> 
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
   </nav>
-  
+
   <!-- Breadcrumb Navigation -->
   <div class="breadcrumb-container">
     <nav aria-label="breadcrumb">
@@ -39,52 +43,58 @@
     </nav>
   </div>
 
-    <main>
-      <h1>Kth Largest / Smallest Element</h1>
+  <main>
+    <h1>Kth Largest / Smallest Element</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given an integer array <strong>nums</strong> and an integer
-          <strong>k</strong>, return the kth largest element in the array.
-          Similarly, the kth smallest element can be found.
-        </p>
-        <p>
-          <strong>Example:</strong> nums = [3,2,1,5,6,4], k = 2 → Output: 5 (2nd
-          largest)
-        </p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given an integer array <strong>nums</strong> and an integer
+        <strong>k</strong>, return the kth largest element in the array.
+        Similarly, the kth smallest element can be found.
+      </p>
+      <p>
+        <strong>Example:</strong> nums = [3,2,1,5,6,4], k = 2 → Output: 5 (2nd
+        largest)
+      </p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Sorting (Simple)</h2>
-        <p>
-          <strong>Explanation:</strong> Sort the array and pick the kth
-          largest/smallest directly.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log n)</p>
-        <p>
-          <strong>Space Complexity:</strong> O(1) or O(n) depending on sort
-          implementation
-        </p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Sorting (Simple)</h2>
+      <p>
+        <strong>Explanation:</strong> Sort the array and pick the kth
+        largest/smallest directly.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p>
+        <strong>Space Complexity:</strong> O(1) or O(n) depending on sort
+        implementation
+      </p>
+      <pre class="pseudo-code">
 sort(nums)
 return nums[n-k]  # kth largest
 return nums[k-1]  # kth smallest
       </pre
-        >
+        ></pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem1app1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
 
-      <section class="approach-section">
-        <h2>Approach 2: Min Heap (Optimal for Kth Largest)</h2>
-        <p>
-          <strong>Explanation:</strong> Maintain a min-heap of size k. Push
-          elements. The root is the kth largest.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log k)</p>
-        <p><strong>Space Complexity:</strong> O(k)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Min Heap (Optimal for Kth Largest)</h2>
+      <p>
+        <strong>Explanation:</strong> Maintain a min-heap of size k. Push
+        elements. The root is the kth largest.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log k)</p>
+      <p><strong>Space Complexity:</strong> O(k)</p>
+      <pre class="pseudo-code">
 create empty min-heap
 for num in nums:
     add num to heap
@@ -92,18 +102,22 @@ for num in nums:
         remove min element
 return heap root
       </pre
-        >
+        ></pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem1app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
 
-      <section class="approach-section">
-        <h2>Approach 3: Quickselect (Optimal Average)</h2>
-        <p>
-          <strong>Explanation:</strong> Use partitioning like in quicksort to
-          find kth largest without full sort.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n) average, O(n^2) worst-case</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 3: Quickselect (Optimal Average)</h2>
+      <p>
+        <strong>Explanation:</strong> Use partitioning like in quicksort to
+        find kth largest without full sort.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n) average, O(n^2) worst-case</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 choose pivot
 partition array into < pivot and >= pivot
 if k in right partition:
@@ -113,16 +127,17 @@ elif k in left:
 else:
     return pivot
       </pre
-        >
+        ></pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/heapproblem1app3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
-
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+   <script src="../../JS/Flowcharts.js"></script>
+</body>
 </html>

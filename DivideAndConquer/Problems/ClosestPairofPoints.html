@@ -1,77 +1,84 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Closest Pair of points - CodeDSA</title>
-    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
-    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
-    <link rel="stylesheet" href="../../CSS/snake.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CodeDSA</div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../about.html">About</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-        </ul>
-        <button id="snakeToggle" class="snake-btn">
-          <span style="margin-left: 20px">Snake Cursor</span>
-        </button>
-        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closest Pair of points - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+  <link rel="stylesheet" href="../../CSS/snake.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+     <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
       </div>
-    </nav>
-
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Closest Pair of Points
-          </li>
-        </ol>
-      </nav>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn">
+        <span style="margin-left: 20px">Snake Cursor</span>
+      </button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
+  </nav>
 
-    <main>
-      <h1>Closest Pair of Points</h1>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../DivideAndConquerProblems.html">Divide and Conquer</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Closest Pair of Points
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-      <!-- Problem Statement -->
+  <main>
+    <h1>Closest Pair of Points</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given an array of <strong>n points</strong> in a 2D plane, find the
-          <strong>pair of points with the minimum Euclidean distance</strong>
-          between them.
-        </p>
-        <p>
-          <strong>Example:</strong> Input: points = [(2, 3), (12, 30), (40, 50),
-          (5, 1), (12, 10), (3, 4)]<br />
-          Output: Minimum distance = 1.414 (between points (2, 3) and (3, 4))<br />
-          Explanation: Distance = √[(3-2)² + (4-3)²] = √2 ≈ 1.414
-        </p>
-      </section>
+    <!-- Problem Statement -->
 
-      <!-- Approaches -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given an array of <strong>n points</strong> in a 2D plane, find the
+        <strong>pair of points with the minimum Euclidean distance</strong>
+        between them.
+      </p>
+      <p>
+        <strong>Example:</strong> Input: points = [(2, 3), (12, 30), (40, 50),
+        (5, 1), (12, 10), (3, 4)]<br />
+        Output: Minimum distance = 1.414 (between points (2, 3) and (3, 4))<br />
+        Explanation: Distance = √[(3-2)² + (4-3)²] = √2 ≈ 1.414
+      </p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: Brute Force</h2>
-        <p>
-          <strong>Explanation:</strong> Calculate the distance between every
-          pair of points using nested loops and keep track of the minimum
-          distance found.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force</h2>
+      <p>
+        <strong>Explanation:</strong> Calculate the distance between every
+        pair of points using nested loops and keep track of the minimum
+        distance found.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n<sup>2</sup>)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function distance(p1, p2):
     return sqrt((p1.x - p2.x)² + (p1.y - p2.y)²)
 
@@ -87,23 +94,23 @@ function closestPair(points):
                 pair = (points[i], points[j])
     
     return minDist
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Sort by X-coordinate then Brute Force</h2>
-        <p>
-          <strong>Explanation:</strong> Sort points by x-coordinate first. For
-          each point, only check points within a reasonable x-distance range,
-          reducing unnecessary comparisons in practice.
-        </p>
-        <p>
-          <strong>Time Complexity:</strong> O(n<sup>2</sup>) worst case, better
-          average case
-        </p>
-        <p><strong>Space Complexity:</strong> O(1)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Sort by X-coordinate then Brute Force</h2>
+      <p>
+        <strong>Explanation:</strong> Sort points by x-coordinate first. For
+        each point, only check points within a reasonable x-distance range,
+        reducing unnecessary comparisons in practice.
+      </p>
+      <p>
+        <strong>Time Complexity:</strong> O(n<sup>2</sup>) worst case, better
+        average case
+      </p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
 function closestPair(points):
     n = length(points)
     sort(points by x-coordinate)
@@ -121,21 +128,21 @@ function closestPair(points):
                 pair = (points[i], points[j])
     
     return minDist
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Divide and Conquer</h2>
-        <p>
-          <strong>Explanation:</strong> Sort points by x-coordinate and divide
-          into two halves. Recursively find closest pairs in both halves. The
-          minimum distance could be in left half, right half, or across the
-          dividing line. Check the strip near the dividing line efficiently.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n log n) with optimization</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Divide and Conquer</h2>
+      <p>
+        <strong>Explanation:</strong> Sort points by x-coordinate and divide
+        into two halves. Recursively find closest pairs in both halves. The
+        minimum distance could be in left half, right half, or across the
+        dividing line. Check the strip near the dividing line efficiently.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n) with optimization</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 function stripClosest(strip, d):
     minDist = d
     sort(strip by y-coordinate)
@@ -183,41 +190,38 @@ function closestPair(points):
     pointsY = sort(copy of points by y-coordinate)
     return closestPairRec(pointsX, pointsY)
         </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
       </section>
 
-      <br />
+    <br />
 
-      <p>
-        <strong
-          >The Divide and Conquer approach is the optimal solution with O(n log
-          n) time complexity when properly optimized. It efficiently divides the
-          problem into smaller subproblems and handles the merge step by
-          checking only relevant points in the strip area.</strong
-        >
-      </p>
+    <p>
+      <strong>The Divide and Conquer approach is the optimal solution with O(n log
+        n) time complexity when properly optimized. It efficiently divides the
+        problem into smaller subproblems and handles the merge step by
+        checking only relevant points in the strip area.</strong>
+    </p>
 
-      <br />
+    <br />
 
-      <!-- Flowchart Section -->
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img
-            src="../flowcharts/problem5.png"
-            alt="Flowchart"
-            height="1000px"
-            width="500px"
-          />
-        </div>
-      </section>
-    </main>
+    <!-- Flowchart Section -->
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem5.png" alt="Flowchart" height="1000px" width="500px" />
+      </div>
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

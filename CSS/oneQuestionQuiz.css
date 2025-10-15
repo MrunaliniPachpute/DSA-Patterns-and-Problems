@@ -1,0 +1,102 @@
+/* CSS/oneQuestion.css */
+
+#one-question-card {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 250px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #4a627a;
+    font-family: 'Poppins', sans-serif; 
+    position: relative;
+    overflow: hidden;    
+}
+
+#one-question-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+#oq-question {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+#oq-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.oq-option-btn {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: 2px solid #4a627a;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    width: 100%;
+}
+
+.oq-option-btn:hover:not(:disabled) {
+    background-color: #4a627a;
+    border-color: #1abc9c;
+    transform: translateY(-2px);
+}
+
+.oq-option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.oq-option-btn.correct {
+    background-color: #27ae60;
+    border-color: #2ecc71;
+    color: white;
+}
+
+.oq-option-btn.incorrect {
+    background-color: #c0392b;
+    border-color: #e74c3c;
+    color: white;
+}
+
+#oq-feedback {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#oq-show-answer-btn {
+    background-color: transparent;
+    border: 2px solid #e67e22;
+    color: #e67e22;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    display: none; 
+}
+
+#oq-show-answer-btn:hover {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+/* #one-question-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0392b;
+} */

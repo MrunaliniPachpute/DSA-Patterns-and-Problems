@@ -1,22 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Largest Perimeter Triangle - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../../index.html">Home</a></li>
@@ -46,7 +49,9 @@
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
-        Given an integer array <strong>nums</strong>, return the largest perimeter of a triangle with a non-zero area, formed from three of these lengths. If it is impossible to form any triangle of a non-zero area, return <strong>0</strong>.
+        Given an integer array <strong>nums</strong>, return the largest perimeter of a triangle with a non-zero area,
+        formed from three of these lengths. If it is impossible to form any triangle of a non-zero area, return
+        <strong>0</strong>.
       </p>
       <p>
         <strong>Example:</strong> nums = [2,1,2] → Output: 5 (triangle with sides 2,1,2)<br>
@@ -58,7 +63,8 @@
     <section class="approach-section">
       <h2>Approach 1: Sorting and Greedy Check</h2>
       <p>
-        <strong>Explanation:</strong> Sort the array in descending order and check each triplet to see if it forms a valid triangle (sum of two sides > third side). Return the first valid perimeter.
+        <strong>Explanation:</strong> Sort the array in descending order and check each triplet to see if it forms a
+        valid triangle (sum of two sides > third side). Return the first valid perimeter.
       </p>
       <p><strong>Time Complexity:</strong> O(n log n)</p>
       <p><strong>Space Complexity:</strong> O(1)</p>
@@ -72,13 +78,16 @@ for i in range(0, n-2):
         return a + b + c
 return 0
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
 
     <!-- Approach 2: Brute Force (Not Recommended) -->
     <section class="approach-section">
       <h2>Approach 2: Brute Force</h2>
       <p>
-        <strong>Explanation:</strong> Check all possible triplets in the array to find the largest valid triangle perimeter.
+        <strong>Explanation:</strong> Check all possible triplets in the array to find the largest valid triangle
+        perimeter.
       </p>
       <p><strong>Time Complexity:</strong> O(n^3)</p>
       <p><strong>Space Complexity:</strong> O(1)</p>
@@ -94,6 +103,8 @@ for i in range(0, n):
                 maxPerimeter = max(maxPerimeter, a + b + c)
 return maxPerimeter
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
   </main>
 
@@ -103,6 +114,8 @@ return maxPerimeter
   </footer>
 
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

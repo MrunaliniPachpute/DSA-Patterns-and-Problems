@@ -1,67 +1,70 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kth Smallest/Largest in BST - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../bst.html">Binary Search Trees</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Kth Smallest/Largest in BST
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../bst.html">Binary Search Trees</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Kth Smallest/Largest in BST
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Kth Smallest / Largest in BST</h1>
+  <main>
+    <h1>Kth Smallest / Largest in BST</h1>
 
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>Find the Kth smallest or largest element in a BST.</p>
-        <p><strong>Example:</strong> Input: [3,1,4,null,2], k=2 → Output: 2</p>
-      </section>
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>Find the Kth smallest or largest element in a BST.</p>
+      <p><strong>Example:</strong> Input: [3,1,4,null,2], k=2 → Output: 2</p>
+    </section>
 
-      <section class="approach-section">
-        <h2>Approach 1: Inorder Traversal</h2>
-        <p>
-          <strong>Explanation:</strong> Inorder gives sorted elements. Return
-          kth element.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(h)</p>
-        <pre class="pseudo-code">
+    <section class="approach-section">
+      <h2>Approach 1: Inorder Traversal</h2>
+      <p>
+        <strong>Explanation:</strong> Inorder gives sorted elements. Return
+        kth element.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(h)</p>
+      <pre class="pseudo-code">
 count = 0
 result = NULL
 function inorder(node, k):
@@ -70,19 +73,19 @@ function inorder(node, k):
     count += 1
     if count == k: result = node.val
     inorder(node.right, k)
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Reverse Inorder for Largest</h2>
-        <p>
-          <strong>Explanation:</strong> Traverse right->node->left to get
-          descending order.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(h)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Reverse Inorder for Largest</h2>
+      <p>
+        <strong>Explanation:</strong> Traverse right->node->left to get
+        descending order.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(h)</p>
+      <pre class="pseudo-code">
 count = 0
 function reverseInorder(node, k):
     if node == NULL: return
@@ -90,15 +93,17 @@ function reverseInorder(node, k):
     count += 1
     if count == k: result = node.val
     reverseInorder(node.left, k)
-      </pre
-        >
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

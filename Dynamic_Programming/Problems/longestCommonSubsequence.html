@@ -1,100 +1,103 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Longest Common Subsequence - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../dp.html">Dynamic Programming</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Longest Common Subsequence
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../dp.html">Dynamic Programming</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Longest Common Subsequence
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Longest Common Subsequence (LCS)</h1>
+  <main>
+    <h1>Longest Common Subsequence (LCS)</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Given two strings <strong>s1</strong> and <strong>s2</strong>, find
-          the length of their longest common subsequence (LCS). A subsequence is
-          a sequence that appears in the same relative order, but not
-          necessarily contiguous.
-        </p>
-        <p>
-          <strong>Example:</strong> Input: s1 = "abcde", s2 = "ace", Output: 3
-          ("ace")
-        </p>
-      </section>
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Given two strings <strong>s1</strong> and <strong>s2</strong>, find
+        the length of their longest common subsequence (LCS). A subsequence is
+        a sequence that appears in the same relative order, but not
+        necessarily contiguous.
+      </p>
+      <p>
+        <strong>Example:</strong> Input: s1 = "abcde", s2 = "ace", Output: 3
+        ("ace")
+      </p>
+    </section>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Recursion</h2>
-        <p>
-          <strong>Explanation:</strong> Compare characters at current indices.
-          If match, move both pointers. Else, take max by skipping either
-          character.
-        </p>
-        <p><strong>Time Complexity:</strong> O(2<sup>m+n</sup>)</p>
-        <p><strong>Space Complexity:</strong> O(m+n) recursion stack</p>
-        <pre class="pseudo-code">
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Recursion</h2>
+      <p>
+        <strong>Explanation:</strong> Compare characters at current indices.
+        If match, move both pointers. Else, take max by skipping either
+        character.
+      </p>
+      <p><strong>Time Complexity:</strong> O(2<sup>m+n</sup>)</p>
+      <p><strong>Space Complexity:</strong> O(m+n) recursion stack</p>
+      <pre class="pseudo-code">
 function LCS(s1, s2, i, j):
     if i == len(s1) or j == len(s2): return 0
     if s1[i] == s2[j]:
         return 1 + LCS(s1, s2, i+1, j+1)
     return max(LCS(s1, s2, i+1, j), LCS(s1, s2, i, j+1))
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Memoization (Top-Down DP)</h2>
-        <p>
-          <strong>Explanation:</strong> Store results of subproblems (i, j) in
-          DP array to avoid recomputation.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m * n)</p>
-        <p>
-          <strong>Space Complexity:</strong> O(m * n) DP array + O(m+n)
-          recursion stack
-        </p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Memoization (Top-Down DP)</h2>
+      <p>
+        <strong>Explanation:</strong> Store results of subproblems (i, j) in
+        DP array to avoid recomputation.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m * n)</p>
+      <p>
+        <strong>Space Complexity:</strong> O(m * n) DP array + O(m+n)
+        recursion stack
+      </p>
+      <pre class="pseudo-code">
 dp[0..m][0..n] = -1
 function LCS(i, j):
     if i == m or j == n: return 0
@@ -104,19 +107,19 @@ function LCS(i, j):
     else:
         dp[i][j] = max(LCS(i+1, j), LCS(i, j+1))
     return dp[i][j]
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
-        <p>
-          <strong>Explanation:</strong> Fill a 2D DP table iteratively from the
-          base case.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m * n)</p>
-        <p><strong>Space Complexity:</strong> O(m * n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Tabulation (Bottom-Up DP)</h2>
+      <p>
+        <strong>Explanation:</strong> Fill a 2D DP table iteratively from the
+        base case.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m * n)</p>
+      <p><strong>Space Complexity:</strong> O(m * n)</p>
+      <pre class="pseudo-code">
 dp[0..m][0..n] = 0
 for i = m-1 to 0:
     for j = n-1 to 0:
@@ -125,19 +128,19 @@ for i = m-1 to 0:
         else:
             dp[i][j] = max(dp[i+1][j], dp[i][j+1])
 return dp[0][0]
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 4: Space Optimization</h2>
-        <p>
-          <strong>Explanation:</strong> Use two 1D arrays (current and next)
-          instead of full 2D DP table.
-        </p>
-        <p><strong>Time Complexity:</strong> O(m * n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 4: Space Optimization</h2>
+      <p>
+        <strong>Explanation:</strong> Use two 1D arrays (current and next)
+        instead of full 2D DP table.
+      </p>
+      <p><strong>Time Complexity:</strong> O(m * n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 prev = [0]*(n+1)
 curr = [0]*(n+1)
 for i = m-1 to 0:
@@ -148,23 +151,25 @@ for i = m-1 to 0:
             curr[j] = max(prev[j], curr[j+1])
     prev = curr
 return prev[0]
-      </pre
-        >
-      </section>
-      <section>
-        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
-        <div id="flowchart" class="flowchart-container">
-          <img src="../flowcharts/problem3.png" alt="Flowchart" height="500px" width="600px"/>
-        </div>
-      </section>
-    </main>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-    </footer>
+    </section>
+    <section>
+      <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+      <div id="flowchart" class="flowchart-container">
+        <img src="../flowcharts/problem3.png" alt="Flowchart" height="500px" width="600px" />
+      </div>
+    </section>
+  </main>
 
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
 </html>

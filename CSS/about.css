@@ -461,3 +461,33 @@ body.dark-mode .example-output {
   color: #e0e0e0;
   border-left: 3px solid #bb86fc;
 }
+/* Key Features text in dark mode */
+body.dark-mode .features h2 {
+  color: #e7dede; /* black heading */
+}
+
+body.dark-mode .features li {
+  color: #000000; /* black text */
+  font-weight: 600;
+}
+
+body.dark-mode .features .material-icons {
+  color: #6d6666; /* black icons */
+}
+/* Mission & Vision text in dark mode */
+body.dark-mode .mission h3,
+body.dark-mode .vision h3 {
+  color: #373535; /* heading color similar to Key Features */
+}
+
+body.dark-mode .mission p,
+body.dark-mode .vision p {
+  color: #000000; /* paragraph text black */
+  font-weight: 500; /* slightly bolder for readability */
+}
+
+/* Optional: subtle color for icons if any inside Mission/Vision */
+body.dark-mode .mission .material-icons,
+body.dark-mode .vision .material-icons {
+  color: #6d6666; /* grayish icons */
+}

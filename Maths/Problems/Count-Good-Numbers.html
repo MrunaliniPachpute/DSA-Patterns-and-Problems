@@ -1,22 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Count Good Numbers - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="../../index.html">Home</a></li>
@@ -46,10 +49,13 @@
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
-        A digit string is <strong>good</strong> if the digits (0-indexed) at even indices are even and the digits at odd indices are prime (2, 3, 5, or 7). Given an integer <strong>n</strong>, return the total number of good digit strings of length <strong>n</strong>. Since the answer may be large, return it modulo <strong>10^9 + 7</strong>.
+        A digit string is <strong>good</strong> if the digits (0-indexed) at even indices are even and the digits at odd
+        indices are prime (2, 3, 5, or 7). Given an integer <strong>n</strong>, return the total number of good digit
+        strings of length <strong>n</strong>. Since the answer may be large, return it modulo <strong>10^9 + 7</strong>.
       </p>
       <p>
-        <strong>Example:</strong> n = 4 → Output: 400 (e.g., "2582" is good: even indices [2,8] are even, odd indices [5,2] are prime)<br>
+        <strong>Example:</strong> n = 4 → Output: 400 (e.g., "2582" is good: even indices [2,8] are even, odd indices
+        [5,2] are prime)<br>
         n = 1 → Output: 5 (only even digits 0,2,4,6,8 are valid)
       </p>
     </section>
@@ -58,7 +64,9 @@
     <section class="approach-section">
       <h2>Approach 1: Modular Exponentiation</h2>
       <p>
-        <strong>Explanation:</strong> For even indices, there are 5 choices (0,2,4,6,8). For odd indices, there are 4 choices (2,3,5,7). Compute the number of good strings using fast exponentiation for 5^(even indices) * 4^(odd indices) modulo 10^9 + 7.
+        <strong>Explanation:</strong> For even indices, there are 5 choices (0,2,4,6,8). For odd indices, there are 4
+        choices (2,3,5,7). Compute the number of good strings using fast exponentiation for 5^(even indices) * 4^(odd
+        indices) modulo 10^9 + 7.
       </p>
       <p><strong>Time Complexity:</strong> O(log n)</p>
       <p><strong>Space Complexity:</strong> O(1)</p>
@@ -77,9 +85,11 @@ evens = (n+1)/2
 odds = n/2
 return (findPow(5, evens) * findPow(4, odds)) % mod
       </pre>
+            <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
     </section>
 
-   
+
   </main>
 
   <!-- Footer -->
@@ -88,6 +98,8 @@ return (findPow(5, evens) * findPow(4, odds)) % mod
   </footer>
 
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
 </body>
+
 </html>

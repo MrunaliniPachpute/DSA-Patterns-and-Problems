@@ -1,62 +1,65 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serialize & Deserialize Binary Tree - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo-container">
-  <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</div>
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
     <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../about.html">About</a></li>
-      <li><a href="../../contact.html">Contact</a></li>
-    </ul>
-    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
-    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </div>
+    </div>
   </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-          <li class="breadcrumb-item">
-            <a href="../binaryTrees.html">Binary Trees</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Serialize & Deserialize Binary Tree
-          </li>
-        </ol>
-      </nav>
-    </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../binaryTrees.html">Binary Trees</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Serialize & Deserialize Binary Tree
+        </li>
+      </ol>
+    </nav>
+  </div>
 
-    <main>
-      <h1>Serialize & Deserialize Binary Tree</h1>
+  <main>
+    <h1>Serialize & Deserialize Binary Tree</h1>
 
-      <!-- Problem Statement -->
-      <section class="problem-section">
-        <h2>Problem Statement</h2>
-        <p>
-          Design an algorithm to serialize a binary tree into a string and
-          deserialize it back to the original tree structure.
-        </p>
-        <p><strong>Example:</strong></p>
-        <pre class="pseudo-code">
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        Design an algorithm to serialize a binary tree into a string and
+        deserialize it back to the original tree structure.
+      </p>
+      <p><strong>Example:</strong></p>
+      <pre class="pseudo-code">
 Input:    1
          / \
         2   3
@@ -65,21 +68,21 @@ Input:    1
 
 Serialized: "1,2,NULL,NULL,3,4,NULL,NULL,5,NULL,NULL"
 Deserialize(serialized) → original tree
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <!-- Approaches -->
-      <section class="approach-section">
-        <h2>Approach 1: Preorder Traversal with NULL markers</h2>
-        <p>
-          <strong>Explanation:</strong> Serialize tree recursively using
-          preorder traversal, marking NULLs for missing children. Deserialize
-          using same traversal.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Preorder Traversal with NULL markers</h2>
+      <p>
+        <strong>Explanation:</strong> Serialize tree recursively using
+        preorder traversal, marking NULLs for missing children. Deserialize
+        using same traversal.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 function serialize(root):
     if root == NULL: return "NULL,"
     return str(root.val)+"," + serialize(root.left) + serialize(root.right)
@@ -95,20 +98,20 @@ function helper(list):
     node.left = helper(list)
     node.right = helper(list)
     return node
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 2: Level Order (BFS) Traversal</h2>
-        <p>
-          <strong>Explanation:</strong> Use a queue for BFS. Serialize level by
-          level including NULLs. Deserialize using the queue to reconstruct tree
-          level by level.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Level Order (BFS) Traversal</h2>
+      <p>
+        <strong>Explanation:</strong> Use a queue for BFS. Serialize level by
+        level including NULLs. Deserialize using the queue to reconstruct tree
+        level by level.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 function serialize(root):
     if root == NULL: return ""
     queue = [root]
@@ -140,20 +143,20 @@ function deserialize(data):
             queue.append(node.right)
         i += 1
     return root
-      </pre
-        >
-      </section>
+          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
-      <section class="approach-section">
-        <h2>Approach 3: DFS with Stack (Iterative Serialization)</h2>
-        <p>
-          <strong>Explanation:</strong> Use a stack for iterative preorder
-          traversal. Push NULL markers for missing children. Deserialize using
-          list iteration.
-        </p>
-        <p><strong>Time Complexity:</strong> O(n)</p>
-        <p><strong>Space Complexity:</strong> O(n)</p>
-        <pre class="pseudo-code">
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: DFS with Stack (Iterative Serialization)</h2>
+      <p>
+        <strong>Explanation:</strong> Use a stack for iterative preorder
+        traversal. Push NULL markers for missing children. Deserialize using
+        list iteration.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
 function serialize(root):
     stack = [root]
     result = []
@@ -181,17 +184,24 @@ function deserialize(data):
         node.right = helper()
         return node
     return helper()
+
       </pre
-        >
+        ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
       </section>
+         <section>
+  <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+  <div id="flowchart" class="flowchart-container">
+    <img src="../Flowcharts/serializeDeserialize.png" alt="Height & Diameter Flowchart" height="1500px" width="650px"/>
+  </div>
+</section>
     </main>
 
     <!-- Footer -->
     <footer>
       <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
     </footer>
-
-    <script src="../../index.js"></script>
-    <script src="../../JS/problemTracker.js"></script>
+<script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
   </body>
 </html>

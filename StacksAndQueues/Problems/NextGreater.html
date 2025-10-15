@@ -5,21 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Next Greater Element - CodeDSA</title>
-  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+<link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
 
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-     <div class="logo-container">
+     <a href="../../index.html" class="logo-container">
   <div class="logo-img">
-    <img src="../../images/logo.png" alt="Logo">
+    <img src="../../Images/logo.png" alt="Logo">
   </div>
   <div class="logo">CodeDSA</div>
-</div>
+</a>
     <div class="nav-right">
     <ul class="nav-links">
       <li><a href="../../index.html">Home</a></li>
@@ -67,6 +68,10 @@ for i in 0..n-1:
     result.append(next)
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob3app1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -85,6 +90,10 @@ for i in n-1..0:
     stack.push(nums[i])
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob3app2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
 
     <section class="approach-section">
@@ -104,6 +113,10 @@ for i in 2*n-1..0:
     stack.push(nums[index])
 return result
       </pre>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowchart/prob3app3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
     </section>
   </main>
 
@@ -112,7 +125,9 @@ return result
   </footer>
 
     <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
     <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>
