@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maximum Product Subarray</title>
+
+    <link rel="stylesheet" href="../CSS/index.css" /> 
+    <link rel="stylesheet" href="../CSS/navbar.css" />
+    <link rel="stylesheet" href="../CSS/big4.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        /* Specific CSS for the question page layout - Consistent with other problem pages */
+        .question-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-header {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-header h2 {
+            color: #ff4500; /* Red-Orange */
+            font-size: 1.8rem;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .difficulty-tag {
+            background-color: #fff3cd; /* Medium difficulty color */
+            color: #856404;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: 15px;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        .problem-details p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .example-block {
+            background-color: #f8f8f8;
+            border-left: 5px solid #1e90ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .section-title {
+            color: #1e90ff;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.4rem;
+        }
+
+        .solution-section {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .solution-section pre {
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .approach-summary {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-img">
+                <img src="../Images/logo.png" alt="CodeDSA Logo"> 
+            </div>
+            <div class="logo">CodeDSA</div>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button id="snakeToggle" class="snake-btn">
+                <span style="margin-left: 20px">Snake Cursor</span>
+            </button>
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <div class="question-container">
+        
+        <div class="question-header">
+            <h2>Maximum Product Subarray</h2>
+            <span class="difficulty-tag">Medium</span>
+        </div>
+
+        <div class="problem-details">
+            <p>Given an integer array `nums`, find a contiguous non-empty subarray within the array that has the largest product, and return the product.</p>
+            <p>The test cases are generated so that the answer will fit in a 32-bit integer.</p>
+            <p>A **subarray** is a contiguous part of an array.</p>
+
+            <h3 class="section-title">Example 1:</h3>
+            <div class="example-block">
+                Input: nums = [2, 3, -2, 4]
+                Output: 6
+
+                Explanation: The subarray [2, 3] has the largest product 6.
+            </div>
+            
+            <h3 class="section-title">Example 2:</h3>
+            <div class="example-block">
+                Input: nums = [-2, 0, -1]
+                Output: 0
+
+                Explanation: The result cannot be 2, because [-2, -1] is not a subarray. The largest product is 0 (from subarray [0] or [-2, 0] or [0, -1]).
+            </div>
+
+            <h3 class="section-title">Constraints:</h3>
+            <ul>
+                <li>$1 \le \text{nums.length} \le 2 \times 10^4$</li>
+                <li>$-10 \le \text{nums}[i] \le 10$</li>
+            </ul>
+
+            <h3 class="section-title">Approach: Dynamic Programming (Tracking Min and Max Products)</h3>
+            <div class="solution-section">
+                <p class="approach-summary">This problem is similar to the Maximum Subarray Sum (Kadane's), but requires more complex logic due to the presence of **negative numbers**. A small negative number multiplied by another negative number can yield a large positive product.</p>
+                
+                <p>Therefore, at each step, we must keep track of two values ending at the current position `i`:</p>
+                <ul>
+                    <li>**`current_max`**: The maximum product subarray ending at `i`.</li>
+                    <li>**`current_min`**: The minimum product subarray ending at `i`.</li>
+                </ul>
+                
+                <p>When we encounter a negative number, `current_max` and `current_min` effectively swap roles, as multiplying a large positive number by a negative number gives a small negative, and multiplying a large negative number by a negative number gives a large positive.</p>
+
+                <p><strong>Time Complexity:</strong> $O(N)$ (linear time). **Space Complexity:** $O(1)$ (constant extra space).</p>
+
+                <p><strong>Steps:</strong></p>
+                <ol>
+                    <li>Initialize `overall_max`, `current_max`, and `current_min` all to `nums[0]`.</li>
+                    <li>Iterate through the array starting from the second element (`i = 1`).</li>
+                    <li>For each element `num = nums[i]`:
+                        <ul>
+                            <li>Calculate the potential products: `p1 = num * current_max` and `p2 = num * current_min`.</li>
+                            <li>Update `current_max` to be the maximum of: `num`, `p1`, and `p2`.</li>
+                            <li>Update `current_min` to be the minimum of: `num`, `p1`, and `p2`. (We must use the *old* `current_max` to calculate `p1` and `p2` before updating `current_max`).</li>
+                            <li>Update `overall_max = max(overall_max, current_max)`.</li>
+                        </ul>
+                    </li>
+                    <li>Return `overall_max`.</li>
+                </ol>
+
+                <h4 class="section-title" style="margin-top: 20px;">Example Solution (Conceptual Python):</h4>
+                <pre>
+def maxProduct(nums):
+    if not nums:
+        return 0
+
+    # Initialize current_max, current_min, and overall_max with the first element
+    current_max = nums[0]
+    current_min = nums[0]
+    overall_max = nums[0]
+
+    for i in range(1, len(nums)):
+        num = nums[i]
+
+        # temp_max is required because current_max is needed for current_min calculation 
+        # BEFORE current_max itself is updated.
+        temp_max = current_max 
+        
+        # New max product ending at i can be:
+        # 1. Just the current number
+        # 2. current_max * current number
+        # 3. current_min * current number (important for negative numbers)
+        current_max = max(num, temp_max * num, current_min * num)
+        
+        # New min product ending at i can be:
+        current_min = min(num, temp_max * num, current_min * num)
+        
+        # Update the overall maximum found so far
+        overall_max = max(overall_max, current_max)
+
+    return overall_max
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html" aria-label="Go to Home page">Home</a>
+                <a href="../about.html" aria-label="Go to About page">About</a>
+                <a href="../contact.html" aria-label="Go to Contact page">Contact</a>
+                <a href="https://github.com/MrunaliniPachpute" target="_blank" rel="noopener noreferrer"
+                    aria-label="Visit GitHub">GitHub</a>
+            </div>
+            <p>&copy; 2025 CodeDSA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../index.js"></script>
+    <script src="../JS/filterDropdownScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="../JS/oneQuestionQuiz.js"></script>
+    <script src="../JS/big4sidebar.js"></script>
+
+</body>
+</html>

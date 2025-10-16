@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="CSS/topicsFilter.css" />
   <link rel="stylesheet" href="CSS/RightSidebar.css" />
   <link rel="stylesheet" href="CSS/oneQuestionQuiz.css" />
+  <link rel="stylesheet" href="CSS/big4.css">
+  <link rel="stylesheet" href="CSS/big4sidebar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
@@ -29,7 +31,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <button id="snakeToggle" class="snake-btn">
-        <span>Snake Cursor</span>
+        <span style="margin-left: 20px">Snake Cursor</span>
       </button>
       <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
@@ -38,6 +40,63 @@
   <div class="home-container">
     <div class="left-sidebar">
       <div id="one-question-container">
+      </div>
+
+      <div id="big-4-questions-container" class="big-4-sidebar">
+        <h2>🔥 Top 10 Big 4 Interview Problems</h2>
+        <ul id="big-4-problems-list">
+          <li>
+            <a href="Big4 Top Problems/max_product_subarray.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Max Product Subarray
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/find_duplicate_number.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Find Duplicate in Array
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/merge_intervals.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Merge Overlapping Intervals
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/longest_common_subsequence.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Longest Common Subsequence
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/number_of_islands.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Number of Islands
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/search_in_rotated_sorted_array.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Search in Rotated Sorted Array
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/three_sum.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Three Sum
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/Valid Parentheses.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i>Valid Parentheses
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/climbing_stairs.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i>  Climbing Stairs
+            </a>
+          </li>
+          <li>
+            <a href="Big4 Top Problems/merge_k_sorted_arrays.html" class="big-4-link">
+              <i class="fas fa-hand-point-right"></i> Merge K Sorted Lists
+            </a>
+          </li>
+
+        </ul>
       </div>
     </div>
     <main>
@@ -140,6 +199,11 @@
             Median of 2 sorted lists, ...)
           </p>
         </a>
+        <a class="card" href="./big4 questions/big4faqs.html" data-topic="big4faqs">
+          <div class="card-icon"><i class="fas fa-building"></i></div>
+          <h3>Big 4 FAQs</h3>
+          <p>Frequently Asked Questions from Big 4 companies' interviews.</p>
+        </a>
       </div>
     </main>
     <div class="right-sidebar">
@@ -148,7 +212,7 @@
         <ul id="recently-viewed-list"></ul>
         <button id="clear-history-btn">Clear History</button>
       </aside>
-      
+
       <aside class="topics-filter-sidebar">
         <h2>Topics Filter</h2>
         <div class="filter-dropdown">
@@ -190,6 +254,8 @@
               Greedy Algorithms</label>
             <label><input type="checkbox" class="topic-filter" value="divideandconquer" checked />
               Divide and Conquer</label>
+            <label><input type="checkbox" class="topic-filter" value="big4faqs" checked />
+              Big 4 FAQs</label>
           </div>
         </div>
       </aside>
@@ -213,6 +279,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <script src="JS/oneQuestionQuiz.js"></script>
+  <script src="JS/big4sidebar.js"></script>
 </body>
 
 </html>
