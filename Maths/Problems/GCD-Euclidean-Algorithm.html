@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GCD using Euclidean Algorithm - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="../../index.html" class="logo-container">
+        <div class="logo-img">
+          <img src="../../Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../MathProblems.html">Math Problems</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            GCD using Euclidean Algorithm
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <main>
+      <h1>GCD using Euclidean Algorithm</h1>
+
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given two integers <strong>a</strong> and <strong>b</strong>, find the
+          <strong>Greatest Common Divisor (GCD)</strong> also known as the
+          <strong>Highest Common Factor (HCF)</strong> of the two numbers. The
+          GCD is the largest positive integer that divides both numbers without
+          leaving a remainder.
+        </p>
+        <p>
+          <strong>Example 1:</strong> a = 48, b = 18 → Output: 6<br />
+          <strong>Explanation:</strong> Divisors of 48 are [1, 2, 3, 4, 6, 8,
+          12, 16, 24, 48] and divisors of 18 are [1, 2, 3, 6, 9, 18]. The
+          greatest common divisor is 6.
+        </p>
+        <p>
+          <strong>Example 2:</strong> a = 54, b = 24 → Output: 6<br />
+          <strong>Example 3:</strong> a = 17, b = 13 → Output: 1 (coprime
+          numbers)
+        </p>
+      </section>
+
+      <!-- Approach 1: Brute Force -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Explanation:</strong> Iterate from the minimum of the two
+          numbers down to 1, and return the first number that divides both a and
+          b evenly. This is the largest common divisor.
+        </p>
+        <p><strong>Time Complexity:</strong> O(min(a, b))</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
+function gcd(a, b):
+    if a == 0:
+        return b
+    if b == 0:
+        return a
+    
+    minValue = min(a, b)
+    for i from minValue down to 1:
+        if a % i == 0 and b % i == 0:
+            return i
+    
+    return 1
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <!-- Approach 2: Euclidean Algorithm (Iterative) -->
+      <section class="approach-section">
+        <h2>Approach 2: Euclidean Algorithm (Iterative) - Optimal</h2>
+        <p>
+          <strong>Explanation:</strong> The Euclidean algorithm is based on the
+          principle that the GCD of two numbers also divides their difference.
+          Instead of computing the difference, we use the modulo operation. We
+          repeatedly replace the larger number with the remainder of dividing
+          the larger by the smaller until one becomes 0.
+        </p>
+        <p><strong>Key Insight:</strong> gcd(a, b) = gcd(b, a mod b)</p>
+        <p><strong>Time Complexity:</strong> O(log(min(a, b)))</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
+function gcd(a, b):
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    
+    return a
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <!-- Approach 3: Euclidean Algorithm (Recursive) -->
+      <section class="approach-section">
+        <h2>Approach 3: Euclidean Algorithm (Recursive)</h2>
+        <p>
+          <strong>Explanation:</strong> This is the recursive version of the
+          Euclidean algorithm. The base case is when b becomes 0, at which point
+          a is the GCD. Otherwise, we recursively call gcd with b and a mod b.
+        </p>
+        <p>
+          <strong>Mathematical Property:</strong> gcd(a, 0) = a and gcd(a, b) =
+          gcd(b, a mod b)
+        </p>
+        <p><strong>Time Complexity:</strong> O(log(min(a, b)))</p>
+        <p>
+          <strong>Space Complexity:</strong> O(log(min(a, b))) - due to
+          recursive call stack
+        </p>
+        <pre class="pseudo-code">
+function gcd(a, b):
+    if b == 0:
+        return a
+    
+    return gcd(b, a % b)
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <!-- Additional Information -->
+      <section class="approach-section">
+        <h2>Key Properties and Applications</h2>
+        <p>
+          <strong>Properties:</strong>
+        </p>
+        <ul>
+          <li>gcd(a, b) = gcd(b, a) - Commutative property</li>
+          <li>gcd(a, 0) = a - Base case</li>
+          <li>gcd(a, b) = gcd(a - b, b) when a > b</li>
+          <li>
+            If gcd(a, b) = 1, then a and b are called coprime or relatively
+            prime
+          </li>
+        </ul>
+        <p>
+          <strong>Applications:</strong>
+        </p>
+        <ul>
+          <li>Simplifying fractions to lowest terms</li>
+          <li>
+            Finding LCM (Least Common Multiple): LCM(a, b) = (a * b) / GCD(a, b)
+          </li>
+          <li>Cryptography algorithms (RSA encryption)</li>
+          <li>Solving Diophantine equations</li>
+          <li>Computer graphics and game development</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+
+    <script src="../../index.js"></script>
+    <script src="../../copyToClipboard.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
+</html>
