@@ -44,7 +44,11 @@
 
   <main>
     <h1>Activity Selection Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/non-overlapping-intervals/" target="_blank" rel="noopener noreferrer">LeetCode #435 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Select the maximum number of activities that don’t overlap.</p>
@@ -63,6 +67,7 @@ for each subset of activities:
 return maximum count
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Try every subset and keep the largest set with no overlaps—exhaustive but exponential.</p>
 
     </section>
 
@@ -81,6 +86,7 @@ function selectActivities(current, activities):
 return maximum count
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort by start times and explore next compatible choices recursively for larger chains.</p>
 
     </section>
 
@@ -100,6 +106,7 @@ for each activity in sorted list:
         count++
 return count
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort by earliest finish and always pick the next activity starting after the last finish.</p>
 
      
     </section>

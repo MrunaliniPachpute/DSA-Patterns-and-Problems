@@ -48,7 +48,11 @@
 
   <main>
     <h1>String Matching / Pattern Matching</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/" target="_blank" rel="noopener noreferrer">LeetCode #28 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -76,6 +80,8 @@ return result
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/5stringapproach1.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Slide the pattern over text and compare characters at every position.</p>
+
     </section>
 
     <section class="approach-section">
@@ -97,6 +103,8 @@ return result
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/5stringapproach2.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Use rolling hash to filter quickly; verify on hash matches only.</p>
+
     </section>
 
     <section class="approach-section">
@@ -126,6 +134,8 @@ return result
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/5stringapproach3.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Precompute LPS to skip redundant checks and scan text in linear time.</p>
+
     </section>
   </main>
 

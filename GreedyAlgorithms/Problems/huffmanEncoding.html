@@ -42,7 +42,11 @@
 
   <main>
     <h1>Huffman Encoding Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/huffman-encoding3345/1" target="_blank" rel="noopener noreferrer">Geeks for Geeks [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Compress data using minimum bits using Huffman coding based on character frequencies.</p>
@@ -58,6 +62,7 @@ calculate sum(freq * codeLength)
 return minimum sum code
     </pre>
       <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Consider all prefix-code assignments and choose the one with minimum weighted length.</p>
 
     </section>
 
@@ -73,6 +78,7 @@ while more than 1 node:
 assign codes from tree
     </pre>
       <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Repeatedly merge the two least frequent symbols to build the optimal tree.</p>
 
     </section>
 
@@ -89,6 +95,7 @@ while heap size > 1:
 assign 0/1 to tree edges to get codes
     </pre>
       <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use a min-heap to extract two smallest frequencies, merge, and reinsert until one tree remains.</p>
 
     </section>
   </main>

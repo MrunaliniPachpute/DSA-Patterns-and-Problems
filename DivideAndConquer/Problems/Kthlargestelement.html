@@ -49,7 +49,11 @@
 
   <main>
     <h1>Kth Largest Element in an Array</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener noreferrer">LeetCode #215 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -80,6 +84,7 @@ function Kthlargestelement(arr, k):
     sort(arr) // Sort the array in ascending order
     return arr[n-k] // Return the kth largest element
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort once and pick the kth from the end; simple, but pays an extra sort cost.</p>
 
     </section>
 
@@ -101,6 +106,7 @@ function Kthlargestelement(arr, k):
     return pq.top()
     
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Push all, pop k−1 times; the next top is the kth largest.</p>
 
     </section>
 
@@ -144,6 +150,7 @@ function Kthlargestelement(arr, k):
     n = length(arr)
     return quickselect(arr, 0, n - 1, n - k)
             </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Partition around pivots and recurse only where the kth lies for average O(n).</p>
 
 
     </section>

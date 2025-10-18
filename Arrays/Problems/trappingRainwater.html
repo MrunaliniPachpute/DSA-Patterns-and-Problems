@@ -48,6 +48,11 @@
 
   <main>
     <h1>Trapping Rain Water</h1>
+    <!--Leetcode link-->
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" rel="noopener noreferrer">LeetCode #42 [Hard]</a></p>
+<!--Print / Export control-->
+    <button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -78,6 +83,8 @@ for i = 0 to n-1:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Trapping_rain_water_approach_1.png" alt="Brute Force" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> For each bar, what's the tallest wall on both sides to find possible trapped water?</p>
+
     </section>
 
     <section class="approach-section">
@@ -98,6 +105,8 @@ for i = 0 to n-1: water += min(left_max[i], right_max[i]) - height[i]
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Trapping_rain_water_approach_2.png" alt="Prefix Sum" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Can I store highest walls on both sides to calculate trapped water quickly?</p>
+
     </section>
 
     <section class="approach-section">
@@ -124,6 +133,8 @@ while left < right:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Trapping_rain_water_approach_3.png" alt="Kadane's Algorithm" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> What if I track left and right max heights dynamically using two pointers in one scan?</p>
+
     </section>
   </main>
   <!-- Footer -->

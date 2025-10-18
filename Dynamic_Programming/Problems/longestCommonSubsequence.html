@@ -50,7 +50,11 @@
 
   <main>
     <h1>Longest Common Subsequence (LCS)</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener noreferrer">LeetCode #1143 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -83,6 +87,7 @@ function LCS(s1, s2, i, j):
         return 1 + LCS(s1, s2, i+1, j+1)
     return max(LCS(s1, s2, i+1, j), LCS(s1, s2, i, j+1))
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Match chars to move diagonally; else take the better of skipping either side.</p>
 
     </section>
 
@@ -108,6 +113,7 @@ function LCS(i, j):
         dp[i][j] = max(LCS(i+1, j), LCS(i, j+1))
     return dp[i][j]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Memoize (i,j) to make the exponential tree collapse to m×n.</p>
 
     </section>
 
@@ -129,6 +135,7 @@ for i = m-1 to 0:
             dp[i][j] = max(dp[i+1][j], dp[i][j+1])
 return dp[0][0]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Fill dp bottom-up from the ends toward the start.</p>
 
     </section>
 
@@ -152,6 +159,7 @@ for i = m-1 to 0:
     prev = curr
 return prev[0]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Keep only two rows/columns to reduce space to O(min(m,n)).</p>
 
     </section>
     <section>

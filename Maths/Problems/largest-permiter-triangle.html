@@ -44,7 +44,11 @@
 
   <main>
     <h1>Largest Perimeter Triangle</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/largest-perimeter-triangle/" target="_blank" rel="noopener noreferrer">LeetCode #976 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -79,6 +83,7 @@ for i in range(0, n-2):
 return 0
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort descending and scan triplets; the first that satisfies b + c > a gives the maximum perimeter.</p>
 
     </section>
 
@@ -104,6 +109,7 @@ for i in range(0, n):
 return maxPerimeter
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Try every triplet and keep the best perimeter that satisfies triangle inequality.</p>
 
     </section>
   </main>

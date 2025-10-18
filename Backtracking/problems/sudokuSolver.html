@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
 </head>
 <body>
 
   <nav class="navbar">
-    <a href="../../index.html" class="logo-container">
+     <a href="../../index.html" class="logo-container">
       <div class="logo-img">
         <img src="../../Images/logo.png" alt="Logo">
       </div>
@@ -40,18 +41,29 @@
 
   <main>
     <h1>Sudoku Solver</h1>
+        <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/sudoku-solver/" target="_blank" rel="noopener noreferrer">LeetCode [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>Write a program to solve a Sudoku puzzle by filling the empty cells. A sudoku solution must satisfy all of the following rules: 1. Each of the digits 1-9 must occur exactly once in each row. 2. Each of the digits 1-9 must occur exactly once in each column. 3. Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.</p>
+      <p>Write a program to solve a Sudoku puzzle by filling the empty cells. A sudoku solution must satisfy all of the following rules:</p>
+      <ul>
+        <li>Each of the digits 1-9 must occur exactly once in each row.</li>
+        <li>Each of the digits 1-9 must occur exactly once in each column.</li>
+        <li>Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.</li>
+      </ul>
       <p><strong>Example:</strong> Given a partially filled 9x9 grid, return the solved grid.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 1: Simple Backtracking</h2>
-      <p><strong>Explanation (Brute):</strong> Find the first empty cell ('.'). Try placing numbers from 1 to 9 in that cell. For each number, check if it's valid (doesn't violate Sudoku rules). If it's valid, recursively call the solver for the next empty cell. If the recursive call returns true, a solution is found. If not, backtrack by resetting the cell to '.' and try the next number.</p>
-      <p><strong>Time Complexity:</strong> O(9^(N*N)), where N is 9. In practice, it's much faster due to constraints.</p>
-      <p><strong>Space Complexity:</strong> O(N*N) for the recursion stack depth.</p>
+      <p><strong>Explanation (Brute):</strong> Find the first empty cell ('.'). Try placing numbers from 1 to 9 in that cell. For each number, check if it's valid (doesn't violate Sudoku rules). If valid, recursively call solver for the next empty cell. If no solution, backtrack.</p>
+      <p><strong>Time Complexity:</strong> O(9^(N*N)), N = 9 (practically faster)</p>
+      <p><strong>Space Complexity:</strong> O(N*N) recursion stack</p>
       <pre class="pseudo-code">
 function solveSudoku(board):
     for row from 0 to 8:
@@ -67,52 +79,61 @@ function solveSudoku(board):
                 return false
     return true // Board is solved
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Start with the first empty cell, try all possible numbers, and backtrack if a number leads to conflict.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 2: Backtracking with Pre-computation</h2>
-      <p><strong>Explanation (Better):</strong> Instead of repeatedly checking rows, columns, and boxes for validity, we can use boolean arrays (or hash sets) to keep track of which numbers are already used in each row, column, and 3x3 box. This makes the `isValid` check an O(1) operation instead of O(N).</p>
-      <p><strong>Time Complexity:</strong> Still exponential, but the constant factor is significantly smaller.</p>
-      <p><strong>Space Complexity:</strong> O(N*N) to store the pre-computed states.</p>
+      <p><strong>Explanation (Better):</strong> Use boolean arrays (or sets) to track numbers already used in each row, column, and 3x3 box. Checking validity becomes O(1) instead of O(N).</p>
+      <p><strong>Time Complexity:</strong> Still exponential but faster due to pre-computation</p>
+      <p><strong>Space Complexity:</strong> O(N*N)</p>
       <pre class="pseudo-code">
 // Initialize rows[9][10], cols[9][10], boxes[9][10] to false
-// Pre-populate these arrays based on the initial board state
+// Pre-populate based on initial board
 
 function solve():
-    // find empty cell (row, col)
-    ...
+    find empty cell (row, col)
     for num from 1 to 9:
         if not rows[row][num] and not cols[col][num] and not boxes[box_index][num]:
-            // place number and update boolean arrays
+            place number and update boolean arrays
             solve()
-            // backtrack and reset boolean arrays
+            backtrack and reset boolean arrays
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Maintain row, column, and box states to quickly check validity and speed up recursion.</p>
     </section>
-    
+
     <section class="approach-section">
       <h2>Approach 3: Optimized Backtracking (Heuristics)</h2>
-      <p><strong>Explanation (Optimal):</strong> A powerful heuristic is to not just find the *next* empty cell, but to find the empty cell with the *fewest possible valid placements*. This is called the "Most Constrained Heuristic". By solving the most constrained cells first, we are likely to prune the search tree much more aggressively, leading to a much faster solution.</p>
-      <p><strong>Time Complexity:</strong> Same worst-case, but significantly faster on average Sudoku puzzles.</p>
-      <p><strong>Space Complexity:</strong> O(N*N).</p>
+      <p><strong>Explanation (Optimal):</strong> Apply "Most Constrained Heuristic": choose the empty cell with the fewest valid candidates first. This aggressively prunes the search tree and improves runtime on average Sudoku puzzles.</p>
+      <p><strong>Time Complexity:</strong> Same worst-case, faster on average</p>
+      <p><strong>Space Complexity:</strong> O(N*N)</p>
       <pre class="pseudo-code">
 function solve():
-    find the empty cell with the minimum number of valid candidate numbers
-    if no such cell:
+    find empty cell with minimum valid candidates
+    if no empty cell:
         return true // solved
-    
-    for each valid candidate number for that cell:
+
+    for each valid candidate for that cell:
         place number
         if solve() == true:
             return true
         backtrack
     return false
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Solve the most constrained cells first to reduce the branching factor and speed up solution discovery.</p>
     </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
+
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
 </body>
 </html>

@@ -45,6 +45,11 @@
   <main>
     <h1>Autocomplete / Suggestions</h1>
 
+    <!--Reference link-->
+    <p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/search-query-auto-complete/1" target="_blank" rel="noopener noreferrer">GeeksforGeeks [Medium]</a></p>
+    <!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given a prefix, return all words from the trie that start with this prefix (autocomplete feature).</p>
@@ -58,6 +63,7 @@
       <p><strong>Time Complexity:</strong> O(P + K*L), P = prefix length, K = #words with prefix, L = avg word length
       </p>
       <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
+      <p class="think-line">💡 <strong>Think:</strong> Navigate to the prefix node, then DFS to collect all words beneath that subtree.</p>
     </section>
   </main>
 

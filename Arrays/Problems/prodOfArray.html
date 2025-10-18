@@ -50,6 +50,11 @@
   </div>
   <main>
     <h1>Product of Array Except Self</h1>
+    <!--Leetcode link-->
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="noopener noreferrer">LeetCode #238 [Medium]</a></p>
+<!--Print / Export control-->
+    <button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -79,6 +84,8 @@ for i in 0..n-1:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Product_of_array_approach_1.png" alt="Brute force" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> What if I multiply all elements except the current one for every index?</p>
+
     </section>
 
     <section class="approach-section">
@@ -103,6 +110,8 @@ for i in 0..n-1:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Product_of_array_approach_2.png" alt="Prefix and suffix arrays" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Can I use stored left and right products to combine efficiently?</p>
+
     </section>
 
     <section class="approach-section">
@@ -125,6 +134,8 @@ for i in n-1..0:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Product_of_array_approach_3.png" alt="Optimal approach" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> What if I fill prefix first, then merge suffix values in one pass?</p>
+
     </section>
   </main>
   <!-- Footer -->

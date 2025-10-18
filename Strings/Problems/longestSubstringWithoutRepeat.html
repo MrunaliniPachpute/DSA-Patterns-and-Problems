@@ -48,7 +48,11 @@
 
   <main>
     <h1>Longest Substring Without Repeating Characters</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener noreferrer">LeetCode #3 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -76,6 +80,8 @@ return max_len
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/2stringproblem2approach1.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Test all substrings and keep the longest with all unique characters.</p>
+
     </section>
 
     <section class="approach-section">
@@ -98,6 +104,8 @@ return max_len
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/2stringproblem2approach2.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Grow window with a set; shrink from left on repeats to maintain uniqueness.</p>
+
     </section>
 
     <section class="approach-section">
@@ -119,6 +127,8 @@ return max_len
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/2stringproblem2approach3.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Jump left via last-seen index map to skip over repeated characters fast.</p>
+
     </section>
   </main>
 

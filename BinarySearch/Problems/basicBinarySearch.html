@@ -50,6 +50,12 @@
 
   <main>
     <h1>Basic Binary Search</h1>
+    <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/binary-search/" target="_blank" rel="noopener noreferrer">LeetCode #704 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <!-- Problem Statement -->
     <section class="problem-section">
@@ -87,6 +93,7 @@ while low <= high:
         high = mid - 1
 return -1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Narrow the sorted range by comparing mid and halving the search space repeatedly.</p>
 
     </section>
 
@@ -111,6 +118,7 @@ function binarySearch(nums, low, high, target):
     else:
         return binarySearch(nums, low, mid-1, target)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Recurse into the half where the target could still exist, stopping when low surpasses high.</p>
 
     </section>
 
@@ -132,6 +140,7 @@ if index < len(nums) and nums[index] == target:
 else:
     return -1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use library binary search to find the leftmost equal index or report absence.</p>
 
     </section>
   </main>

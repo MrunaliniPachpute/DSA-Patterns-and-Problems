@@ -46,7 +46,11 @@
 
   <main>
     <h1>Reverse Linked List</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreferrer">LeetCode #206 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -79,6 +83,7 @@ while curr != NULL:
     curr = next
 return prev
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Flip each pointer with prev–curr–next until the end, returning the last seen node.</p>
 
     </section>
     <!-- Flowchart Section for Approach 1 -->
@@ -105,6 +110,7 @@ head.next.next = head
 head.next = NULL
 return rest
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Reverse the rest first, then point head.next back to head and cut head.next.</p>
 
     </section>
     <!-- Flowchart Section for Approach 2 -->

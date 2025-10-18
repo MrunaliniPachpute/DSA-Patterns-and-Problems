@@ -46,7 +46,11 @@
 
   <main>
     <h1>Word Search in 2D Grid</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/word-search-ii/" target="_blank" rel="noopener noreferrer">LeetCode #212 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -71,6 +75,7 @@
         word length
       </p>
       <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
+      <p class="think-line">💡 <strong>Think:</strong> Build a trie of words; backtrack on the board following trie edges to prune dead paths early.</p>
     </section>
   </main>
 

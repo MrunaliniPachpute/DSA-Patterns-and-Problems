@@ -50,7 +50,12 @@
 
   <main>
     <h1>Insert & Search in BST</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/insert-into-a-binary-search-tree/" target="_blank" rel="noopener noreferrer">LeetCode #701 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -87,6 +92,7 @@ function search(node, val):
         return search(node.left, val)
     return search(node.right, val)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Compare with node and branch left/right until you place/find the value.</p>
 
     </section>
 
@@ -124,6 +130,7 @@ function search(root, val):
         node = node.left if val < node.val else node.right
     return NULL
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Walk down with a pointer; track parent to attach new nodes without recursion.</p>
 
     </section>
   </main>

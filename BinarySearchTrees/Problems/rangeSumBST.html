@@ -44,7 +44,12 @@
 
   <main>
     <h1>Range Sum of BST</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/range-sum-of-bst/" target="_blank" rel="noopener noreferrer">LeetCode #938 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -77,6 +82,7 @@ function rangeSum(node, L, R):
         sum += rangeSum(node.right, L, R)
     return sum
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Skip subtrees outside [L,R]; add node if within range, recurse only where it can still fit.</p>
 
     </section>
   </main>

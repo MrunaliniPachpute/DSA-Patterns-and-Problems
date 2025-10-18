@@ -45,6 +45,11 @@
 
   <main>
     <h1>Fibonacci Sequence</h1>
+       <!--Leetcode link-->
+ <p class="leetcode-link"><a href="https://leetcode.com/problems/fibonacci-number/" target="_blank" rel="noopener noreferrer">LeetCode #509 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <!-- Problem Statement -->
     <section class="problem-section">
@@ -68,6 +73,7 @@ function fib(n):
     return fib(n-1) + fib(n-2)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Apply the definition F(n)=F(n−1)+F(n−2) recursively until base cases.</p>
 
     </section>
 
@@ -87,6 +93,7 @@ function fib(n):
     return memo[n]
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Store computed Fibonacci values in a dictionary to prevent redundant calls.</p>
 
     </section>
 
@@ -104,6 +111,7 @@ for i from 2 to n:
 return b if n>0 else 0
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Build the sequence iteratively using two variables for constant space.</p>
 
     </section>
   </main>

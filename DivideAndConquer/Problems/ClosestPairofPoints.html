@@ -49,7 +49,11 @@
 
   <main>
     <h1>Closest Pair of Points</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener noreferrer">LeetCode #973 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
 
     <section class="problem-section">
@@ -95,7 +99,7 @@ function closestPair(points):
     
     return minDist
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+<p class="think-line">💡 <strong>Think:</strong> Compute all pair distances; keep the minimum.</p>
     </section>
 
     <section class="approach-section">
@@ -129,7 +133,7 @@ function closestPair(points):
     
     return minDist
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+<p class="think-line">💡 <strong>Think:</strong> Sort by x; skip pairs whose x-gap already exceeds current best.</p>
     </section>
 
     <section class="approach-section">
@@ -191,7 +195,7 @@ function closestPair(points):
     return closestPairRec(pointsX, pointsY)
         </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+<p class="think-line">💡 <strong>Think:</strong> Solve halves and check a narrow mid-strip in y-order for O(n log n).</p>
       </section>
 
     <br />

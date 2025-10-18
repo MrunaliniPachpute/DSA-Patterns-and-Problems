@@ -45,7 +45,11 @@
 
   <main>
     <h1>Topological Sort</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank" rel="noopener noreferrer">LeetCode #210 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Return a topological ordering of a Directed Acyclic Graph (DAG).</p>
@@ -77,6 +81,7 @@ for node in all_nodes:
         DFS(node)
 return reversed(stack)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Finish times matter—push after exploring neighbors; reverse the stack for order.</p>
 
     </section>
 
@@ -103,6 +108,7 @@ while queue not empty:
             queue.push(neighbor)
 return result
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Peel nodes with in-degree 0 using a queue, decreasing in-degrees as edges are removed.</p>
 
     </section>
   </main>

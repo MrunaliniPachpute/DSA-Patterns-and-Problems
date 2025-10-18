@@ -50,7 +50,11 @@
 
   <main>
     <h1>Unbounded Knapsack</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/coin-change/" target="_blank" rel="noopener noreferrer">LeetCode #322 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -86,6 +90,7 @@ function UnboundedKnapsack(W, n):
     else:
         return UnboundedKnapsack(W, n-1)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Allow reusing an item by staying on the same i when you include it.</p>
 
     </section>
 
@@ -114,6 +119,7 @@ function UnboundedKnapsack(W, n):
         dp[n][W] = UnboundedKnapsack(W, n-1)
     return dp[n][W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Memoize (i,W) with the include-same-item transition.</p>
 
     </section>
 
@@ -135,6 +141,7 @@ for i = 1 to n:
             dp[i][w] = dp[i-1][w]
 return dp[n][W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> dp[i][w] considers taking item i multiple times vs skipping it.</p>
 
     </section>
 
@@ -153,6 +160,7 @@ for i = 0 to n-1:
         dp[w] = max(dp[w], val[i] + dp[w - wt[i]])
 return dp[W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Iterate w increasing so dp[w] can reuse dp[w - wt[i]] for unlimited picks.</p>
 
     </section>
     <section>
@@ -160,6 +168,7 @@ return dp[W]
       <div id="flowchart" class="flowchart-container">
         <img src="../flowcharts/problem4.png" alt="Flowchart" height="500px" width="600px" />
       </div>
+
     </section>
   </main>
 

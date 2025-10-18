@@ -50,7 +50,11 @@
 
   <main>
     <h1>Fibonacci Sequence</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/fibonacci-number/" target="_blank" rel="noopener noreferrer">LeetCode #509 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -78,6 +82,7 @@ function fib(n):
     if n == 1: return 1
     return fib(n-1) + fib(n-2)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Follow the definition directly; split into two smaller subproblems each time.</p>
 
     </section>
 
@@ -98,6 +103,7 @@ function fib(n):
     memo[n] = fib(n-1) + fib(n-2)
     return memo[n]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Cache fib(n) results so each n is solved once, not repeatedly.</p>
 
     </section>
 
@@ -113,6 +119,7 @@ for i = 2 to n:
     dp[i] = dp[i-1] + dp[i-2]
 return dp[n]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Build from base cases up, filling dp[0..n] iteratively.</p>
 
     </section>
 
@@ -132,6 +139,7 @@ for i = 2 to n:
     b = c
 return b
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Keep only last two values and roll them forward for O(1) space.</p>
 
     </section>
     <section>
@@ -139,6 +147,7 @@ return b
       <div id="flowchart" class="flowchart-container">
         <img src="../flowcharts/problem0.png" alt="Flowchart" height="500px" width="600px" />
       </div>
+
     </section>
   </main>
 

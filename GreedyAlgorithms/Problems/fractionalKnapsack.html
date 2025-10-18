@@ -45,7 +45,11 @@
 
   <main>
     <h1>Fractional Knapsack Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1" target="_blank" rel="noopener noreferrer">Geeks for Geeks [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given weights and values of n items, put these items in a knapsack of capacity W to get maximum total value.
@@ -66,6 +70,7 @@ for each subset of items:
 return maximum value
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Enumerate subsets and fractions to maximize value under capacity—impractical but conceptually complete.</p>
 
   </section>
 
@@ -89,6 +94,7 @@ for each item in sorted list:
 return totalValue
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Pick items in decreasing value/weight; take whole items, then the fraction that fits.</p>
 
   </section>
 
@@ -113,6 +119,7 @@ while W > 0 and heap not empty:
 return totalValue
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use a max-heap by value/weight to repeatedly take the most efficient remaining item.</p>
 
   </section>
 </main>

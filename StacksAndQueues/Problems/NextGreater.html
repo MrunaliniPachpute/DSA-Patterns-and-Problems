@@ -45,7 +45,11 @@
 
   <main>
     <h1>Next Greater Element</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/next-greater-element-i/" target="_blank" rel="noopener noreferrer">LeetCode #496 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given an array, find the next greater element for each element in the array. If no greater exists, return -1.</p>
@@ -72,6 +76,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob3app1.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> For each index, linearly search rightward for the first larger.</p>
+
     </section>
 
     <section class="approach-section">
@@ -94,6 +100,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob3app2.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Sweep backward, pop smaller/equal, top becomes the next greater.</p>
+
     </section>
 
     <section class="approach-section">
@@ -117,6 +125,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob3app3.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Traverse twice with indices mod n to handle wraparound cases.</p>
+
     </section>
   </main>
 

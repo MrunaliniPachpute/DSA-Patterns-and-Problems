@@ -38,7 +38,11 @@
 
 <main>
   <h1>Minimum Platforms Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1" target="_blank" rel="noopener noreferrer">Geeks for Geeks [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
   <section class="problem-section">
     <h2>Problem Statement</h2>
     <p>Find minimum number of platforms required at a railway station so that no train waits.</p>
@@ -58,6 +62,7 @@ for each train i:
 return maxPlatforms
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Count overlaps for each train and track the worst-case simultaneous count.</p>
 
   </section>
 
@@ -76,6 +81,7 @@ for i=1 to n:
 return max platforms
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort arrivals/departures; increment on arrival, decrement on departure, track max.</p>
 
   </section>
 
@@ -97,6 +103,7 @@ while i < n:
 return result
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Walk arrivals and departures with two indices; current platforms reflects active trains.</p>
 
   </section>
 </main>

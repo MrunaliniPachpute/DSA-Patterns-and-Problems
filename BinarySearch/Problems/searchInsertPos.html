@@ -50,7 +50,12 @@
 
   <main>
     <h1>Search Insert Position</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/search-insert-position/" target="_blank" rel="noopener noreferrer">LeetCode #35 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -90,6 +95,7 @@ while low <= high:
         high = mid - 1
 return low  // insertion index
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Binary search for target; if not found, return the first index ≥ target.</p>
 
     </section>
 
@@ -113,6 +119,7 @@ function searchInsert(nums, low, high, target):
     else:
         return searchInsert(nums, low, mid-1, target)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Return mid on match, otherwise recurse; base returns insertion index.</p>
 
     </section>
 
@@ -130,6 +137,7 @@ for i in 0..n-1:
         return i
 return n  // insert at end if all smaller
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Find the first element ≥ target by scanning from the left.</p>
 
     </section>
   </main>

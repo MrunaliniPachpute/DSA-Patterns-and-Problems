@@ -50,7 +50,11 @@
 
   <main>
     <h1>Maximum Path Sum</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/binary-tree-paths/" target="_blank" rel="noopener noreferrer">LeetCode #257 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -94,6 +98,7 @@ function maxPathSum(node):
 
 return maxSum
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> At each node take max(0,left), max(0,right); update global with node+left+right.</p>
 
     </section>
 
@@ -124,6 +129,7 @@ while stack:
         stack.push((node.left, False))
 return maxSum
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Compute child gains via stack map; update global when visiting node.</p>
 
     </section>
 
@@ -148,12 +154,14 @@ function helper(node):
 helper(root)
 return maxSum
       </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Return single-branch gain upward; track best split-path in a global.</p>
       </section>
       <section>
   <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
   <div id="flowchart" class="flowchart-container">
     <img src="../Flowcharts/Maxpathsum.png" alt="Height & Diameter Flowchart" height="1500px" width="650px"/>
   </div>
+
 </section>
     </main>
 

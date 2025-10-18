@@ -47,7 +47,11 @@
 
   <main>
     <h1>Prefix Count / StartsWith</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank" rel="noopener noreferrer">LeetCode #208 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -77,7 +81,7 @@ startsWith(prefix):
         node = node.children[char]
     return True
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+<p class="think-line">💡 <strong>Think:</strong> Step through the prefix; if the path exists to the end of prefix, it's a match.</p>
     </section>
   </main>
 

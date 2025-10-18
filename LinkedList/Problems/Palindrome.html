@@ -46,7 +46,11 @@
 
   <main>
     <h1>Palindrome Linked List</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/palindrome-linked-list/" target="_blank" rel="noopener noreferrer">LeetCode #234 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -78,6 +82,7 @@ while left < right:
     left++, right--
 return true
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Mirror-check values with two pointers over a copied array.</p>
 
     </section>
     <!-- Flowchart Section for Approach 1 -->
@@ -86,6 +91,7 @@ return true
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/copy_to_array.jpg" alt="Palindrome LL Flowchart" class="flowchart-img" />
       </div>
+
     </section>
 
     <section class="approach-section">
@@ -105,6 +111,7 @@ if all match:
 else:
     return false
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Find middle, reverse right half, compare node-by-node, optionally restore.</p>
 
     </section>
     <!-- Flowchart Section for Approach 2 -->
@@ -113,6 +120,7 @@ else:
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/reverse_second_half.jpg" alt="Palindrome LL Flowchart" class="flowchart-img" />
       </div>
+
     </section>
   </main>
 

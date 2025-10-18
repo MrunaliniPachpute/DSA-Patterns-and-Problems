@@ -50,7 +50,12 @@
 
   <main>
     <h1>Find Peak Element</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/find-peak-element/" target="_blank" rel="noopener noreferrer">LeetCode #162 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -80,6 +85,7 @@ for i in 0..n-1:
     if (i==0 or nums[i] > nums[i-1]) and (i==n-1 or nums[i] > nums[i+1]):
         return i
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Check neighbors and return an index that is larger than both sides.</p>
 
     </section>
 
@@ -102,6 +108,7 @@ while low < high:
         high = mid
 return low
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Move toward the uphill side; a peak must exist in that direction.</p>
 
     </section>
 
@@ -123,6 +130,7 @@ function findPeak(nums, low, high):
     else:
         return findPeak(nums, low, mid)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Recurse into the half with a rising slope until left equals right.</p>
 
     </section>
   </main>

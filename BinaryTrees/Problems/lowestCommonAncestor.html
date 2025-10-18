@@ -50,7 +50,11 @@
 
   <main>
     <h1>Lowest Common Ancestor of Binary Tree</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener noreferrer">LeetCode #236 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -93,6 +97,7 @@ function LCA(root, p, q):
     if left != NULL and right != NULL: return root
     return left if left != NULL else right
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Return node when found; if both sides return non-null, current is LCA.</p>
 
     </section>
 
@@ -124,6 +129,7 @@ while q not in ancestors:
     q = parent[q]
 return q
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Record ancestors of p; climb q until you hit the set.</p>
 
     </section>
 
@@ -156,12 +162,14 @@ return LCA
 
       </pre
         > <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <p class="think-line">💡 <strong>Think:</strong> Build root→p and root→q paths; last common node is the LCA.</p>
       </section>
       <section>
   <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
   <div id="flowchart" class="flowchart-container">
     <img src="../Flowcharts/lca.png" alt="Height & Diameter Flowchart" height="1500px" width="650px"/>
   </div>
+
 </section>
     </main>
 

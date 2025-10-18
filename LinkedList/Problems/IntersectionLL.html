@@ -46,7 +46,11 @@
 
   <main>
     <h1>Intersection of Two Linked Lists</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener noreferrer">LeetCode #160 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -88,6 +92,7 @@ Function getIntersectionNode(headA, headB):
     Return null  // No intersection
 
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Store nodes from A; the first B node found in the set is the intersection.</p>
 
     </section>
     <!-- Flowchart Section for Approach 1 -->
@@ -96,6 +101,7 @@ Function getIntersectionNode(headA, headB):
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/hashset_intersection.jpg" alt="Intersection LL Flowchart" class="flowchart-img" />
       </div>
+
     </section>
 
     <section class="approach-section">
@@ -125,6 +131,7 @@ Function getIntersectionNode(headA, headB):
     Return pointerA  // Either the intersection node or null
 
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Walk A then B and B then A; meeting point (or null) is the intersection.</p>
 
     </section>
     <!-- Flowchart Section for Approach 2 -->
@@ -133,6 +140,7 @@ Function getIntersectionNode(headA, headB):
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/two_pointer.jpg" alt="Intersection LL Flowchart" class="flowchart-img" />
       </div>
+
     </section>
   </main>
 

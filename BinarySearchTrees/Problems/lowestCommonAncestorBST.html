@@ -49,7 +49,12 @@
 
   <main>
     <h1>Lowest Common Ancestor (BST)</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="noopener noreferrer">LeetCode #235 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -78,6 +83,7 @@ function LCA(node, p, q):
         return LCA(node.right, p, q)
     return node
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> If both < root go left; if both > root go right; else current root is the LCA.</p>
 
     </section>
   </main>

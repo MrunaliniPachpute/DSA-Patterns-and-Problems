@@ -49,7 +49,11 @@
 
   <main>
     <h1>Count Inversions</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/count-the-number-of-inversions/" target="_blank" rel="noopener noreferrer">LeetCode #3193 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -88,6 +92,7 @@ function countInversions(arr):
     
     return count
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Count every i<j with arr[i]>arr[j] by double loop.</p>
 
     </section>
 
@@ -119,6 +124,7 @@ function countInversions(arr):
     return count
 
          </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Skip ranges that can't form inversions to cut a few checks.</p>
 
     </section>
 
@@ -182,6 +188,7 @@ function mergeSortAndCount(arr, temp, left, right):
     return mergeSortAndCount(arr, temp, 0, n-1)
             </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
 
+<p class="think-line">💡 <strong>Think:</strong> Count cross inversions during merge while sorting in O(n log n).</p>
 
     </section>
 

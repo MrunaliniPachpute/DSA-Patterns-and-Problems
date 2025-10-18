@@ -50,7 +50,11 @@
 
   <main>
     <h1>0/1 Knapsack Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/partition-equal-subset-sum/" target="_blank" rel="noopener noreferrer">LeetCode #416 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -86,6 +90,7 @@ function knapsack(n, W):
         knapsack(n-1, W)
     )
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> For each item, choose include or exclude and take the better value.</p>
 
     </section>
 
@@ -111,6 +116,7 @@ function knapsack(n, W):
         )
     return dp[n][W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Store (i,W) subproblem results to avoid recomputing branches.</p>
 
     </section>
 
@@ -132,6 +138,7 @@ for i = 1 to n:
             dp[i][w] = dp[i-1][w]
 return dp[n][W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Fill a 2D dp of items vs capacity, reusing previous-row answers.</p>
 
     </section>
 
@@ -150,6 +157,7 @@ for i = 0 to n-1:
         dp[w] = max(dp[w], val[i] + dp[w - wt[i]])
 return dp[W]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Scan weights backward so each item is used at most once in 1D dp.</p>
 
     </section>
     <section>

@@ -48,6 +48,18 @@
 
     <main>
       <h1>Two Sum</h1>
+    <!--Leetcode link-->
+
+      <p class="leetcode-link">
+  <a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener noreferrer">
+    LeetCode #1 [Easy]
+  </a>
+</p>
+<!--Print / Export control-->
+
+  <button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
+
 
       <!-- Problem Statement -->
       <section class="problem-section">
@@ -84,7 +96,9 @@ for i = 0 to n-1:
           <button class="fc-button">View Flowchart</button>
           <img src="../Flowcharts/Two_sum_approach_1.png" alt="Heap Sort Flowchart" class="fc-image" />
         </div>
+        <p class="think-line">💡 <strong>Think:</strong> What if I just try every possible pair and check if they add up?</p>
 
+</p>
       </section>
 
       <section class="approach-section">
@@ -107,6 +121,7 @@ for i = 0 to n-1:
           <button class="fc-button">View Flowchart</button>
           <img src="../Flowcharts/Two_sum_approach_2.png" alt="Heap Sort Flowchart" class="fc-image" />
         </div>
+        <p class="think-line">💡 <strong>Think:</strong> Instead of searching for the complement repeatedly, what if I remember what I've already seen?</p>
       </section>
 
       <section class="approach-section">
@@ -138,6 +153,8 @@ while left < right:
           <button class="fc-button">View Flowchart</button>
           <img src="../Flowcharts/Two_sum_approach_3.png" alt="Heap Sort Flowchart" class="fc-image" />
         </div>
+        <p class="think-line">💡 <strong>Think:</strong> If the array is sorted, can I squeeze from both ends to find the target sum?</p>
+      
       </section>
     </main>
 

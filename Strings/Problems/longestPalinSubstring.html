@@ -49,7 +49,11 @@
 
   <main>
     <h1>Longest Palindromic Substring</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener noreferrer">LeetCode #5 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -80,6 +84,8 @@ return res
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/1stringproblem1approach1.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Enumerate every substring, keep the longest one that reads the same both ways.</p>
+
     </section>
 
     <section class="approach-section">
@@ -99,6 +105,8 @@ return longest palindrome
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/1stringproblem1approach2.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Try each index (and gap) as a center and grow outward to capture longest palindrome.</p>
+
     </section>
 
     <section class="approach-section">
@@ -119,6 +127,8 @@ return longest palindrome
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/1stringproblem1approach3.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Mark dp[i][j] palindromic if ends match and inside is palindrome; track max span.</p>
+
     </section>
   </main>
 

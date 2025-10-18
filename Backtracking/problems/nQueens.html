@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
 </head>
 <body>
 
@@ -40,18 +41,24 @@
 
   <main>
     <h1>N-Queens Problem</h1>
+        <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/n-queens/" target="_blank" rel="noopener noreferrer">LeetCode [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
-      <p>The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer <strong>n</strong>, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.</p>
+      <p>The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' and '.' indicate a queen and an empty space, respectively.</p>
       <p><strong>Example:</strong> Input: n = 4 → Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 1: Simple Backtracking</h2>
-      <p><strong>Explanation (Brute):</strong> We try to place one queen in each row. We define a recursive function that takes the current row number as an argument. In that row, we iterate through each column. For each column, we place a queen and then check if this placement is valid by scanning the entire board to see if it conflicts with any previously placed queens. If valid, we recurse for the next row. If not, we backtrack.</p>
-      <p><strong>Time Complexity:</strong> O(N!), as we have N choices for the first row, N-1 for the second, and so on.</p>
-      <p><strong>Space Complexity:</strong> O(N*N) for the board and recursion stack.</p>
+      <p><strong>Explanation (Brute):</strong> Place one queen per row. Recursively try each column, check full board validity, and backtrack if invalid.</p>
+      <p><strong>Time Complexity:</strong> O(N!)</p>
+      <p><strong>Space Complexity:</strong> O(N*N)</p>
       <pre class="pseudo-code">
 function solveNQueens(n):
     board = create empty n*n board
@@ -69,59 +76,62 @@ function backtrack(result, board, row):
             backtrack(result, board, row + 1)
             board[row][col] = '.' // Backtrack
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Place queens row by row and backtrack whenever a conflict is found.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 2: Backtracking with O(1) Validity Check</h2>
-      <p><strong>Explanation (Better/Optimal):</strong> The `is_valid` check in the brute-force approach is inefficient. We can optimize it to O(1) by using extra space. We maintain sets or boolean arrays to track occupied columns, positive diagonals (row-col), and negative diagonals (row+col). When we try to place a queen at `(row, col)`, we just check these sets. If the column or diagonals are already occupied, it's an invalid move. This is the standard and efficient way to solve this problem.</p>
+      <p><strong>Explanation (Better/Optimal):</strong> Track occupied columns, positive diagonals (row-col), and negative diagonals (row+col) with sets or boolean arrays to quickly check validity.</p>
       <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N*N) for the board + O(N) for the tracking sets.</p>
+      <p><strong>Space Complexity:</strong> O(N*N) for board + O(N) for tracking sets</p>
       <pre class="pseudo-code">
-// Initialize sets for columns, positive diagonals, and negative diagonals
+// Initialize sets
 occupied_cols = set()
-occupied_pos_diags = set() // where value is (row - col)
-occupied_neg_diags = set() // where value is (row + col)
+occupied_pos_diags = set()
+occupied_neg_diags = set()
 
 function backtrack(result, board, row):
     if row == n: ...
     for col from 0 to n-1:
         if col in occupied_cols or (row-col) in occupied_pos_diags or (row+col) in occupied_neg_diags:
-            continue // Invalid placement
-        
-        // Place queen and update sets
+            continue // Invalid
         place_queen(row, col)
         backtrack(result, board, row + 1)
-        // Remove queen and update sets (backtrack)
-        remove_queen(row, col)
+        remove_queen(row, col) // Backtrack
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Keep track of occupied columns and diagonals to avoid scanning the entire board repeatedly.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 3: Bitmasking</h2>
-      <p><strong>Explanation (Advanced):</strong> For boards up to N=32 or N=64, bitmasking can offer a highly optimized version of the O(1) validity check. We can use integers as bitmasks to represent the occupied columns and diagonals. Placing a queen and checking for validity becomes a series of fast bitwise operations (AND, OR, XOR, bit shifts). This is a more advanced technique that reduces the memory overhead and can be faster, but it's less intuitive than using sets.</p>
+      <p><strong>Explanation (Advanced):</strong> Use integers as bitmasks to represent columns and diagonals for extremely fast validity checks. Each bit indicates whether a position is occupied.</p>
       <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N) for the recursion stack.</p>
+      <p><strong>Space Complexity:</strong> O(N) recursion stack</p>
       <pre class="pseudo-code">
-// Instead of sets, use integer bitmasks
-// col_mask, pos_diag_mask, neg_diag_mask
+// col_mask, pos_diag_mask, neg_diag_mask as integers
 
 function backtrack(row, col_mask, pos_diag_mask, neg_diag_mask):
     if row == n: ...
-    // Find all available positions in the current row
     available_positions = ((1 << n) - 1) & ~(col_mask | pos_diag_mask | neg_diag_mask)
     while available_positions > 0:
-        // Get the least significant bit
         position = available_positions & -available_positions
-        // Remove it from available positions
         available_positions &= ~position
-        // Recurse with updated masks
+        backtrack(row + 1, col_mask | position, (pos_diag_mask | position) << 1, (neg_diag_mask | position) >> 1)
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Use bitmasking to quickly track available columns and diagonals for optimized backtracking.</p>
     </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
+
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
 </body>
 </html>

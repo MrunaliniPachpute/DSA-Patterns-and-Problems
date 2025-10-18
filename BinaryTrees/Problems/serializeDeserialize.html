@@ -50,7 +50,11 @@
 
   <main>
     <h1>Serialize & Deserialize Binary Tree</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" target="_blank" rel="noopener noreferrer">LeetCode #297 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -99,6 +103,7 @@ function helper(list):
     node.right = helper(list)
     return node
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Write node, then left and right with markers; rebuild in same order.</p>
 
     </section>
 
@@ -144,6 +149,7 @@ function deserialize(data):
         i += 1
     return root
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Serialize by levels including NULLs; reconstruct using a queue.</p>
 
     </section>
 
@@ -187,12 +193,14 @@ function deserialize(data):
 
       </pre
         ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <p class="think-line">💡 <strong>Think:</strong> Use a stack to produce preorder with NULLs; deserialize via iterator.</p>
       </section>
          <section>
   <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
   <div id="flowchart" class="flowchart-container">
     <img src="../Flowcharts/serializeDeserialize.png" alt="Height & Diameter Flowchart" height="1500px" width="650px"/>
   </div>
+
 </section>
     </main>
 

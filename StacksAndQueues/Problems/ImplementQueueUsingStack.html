@@ -46,7 +46,11 @@
 
   <main>
     <h1>Implement Queue using Stacks</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener noreferrer">LeetCode #232 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Implement a queue using two stacks. The queue should support push, pop, peek, and empty operations.</p>
@@ -76,6 +80,7 @@ empty(): return stack1 is empty
     <img src="../Flowchart/prob4app1.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+  <p class="think-line">💡 <strong>Think:</strong> Rebuild order on every push so pops are O(1).</p>
 
     </section>
 
@@ -100,6 +105,8 @@ empty(): return stack1 empty and stack2 empty
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob4app2.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Push to in-stack; only pour to out-stack when needed.</p>
+
     </section>
 
     <section class="approach-section">
@@ -123,6 +130,8 @@ empty(): stack1 empty
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob4app3.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Use recursion to reverse temporarily for front retrieval.</p>
+
     </section>
   </main>
 

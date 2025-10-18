@@ -50,7 +50,11 @@
 
   <main>
     <h1>Catalan Numbers</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="noopener noreferrer">LeetCode #96 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -83,6 +87,7 @@ function catalan(n):
         res += catalan(i) * catalan(n-i-1)
     return res
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sum over all splits: left subtree count × right subtree count.</p>
 
     </section>
 
@@ -108,6 +113,7 @@ function catalan(n):
     dp[n] = res
     return res
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Cache C(n) so each size is computed just once.</p>
 
     </section>
 
@@ -127,6 +133,7 @@ for k = 2 to n:
         dp[k] += dp[i] * dp[k-i-1]
 return dp[n]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Compute C(0..n) iteratively via the convolution formula.</p>
 
     </section>
 
@@ -139,6 +146,7 @@ return dp[n]
 function catalan(n):
     return binomialCoefficient(2*n, n) / (n + 1)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use C(2n,n)/(n+1) for a direct, efficient computation.</p>
 
     </section>
     <section>

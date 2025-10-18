@@ -53,7 +53,11 @@
 
   <main>
       <h1>Container With Most Water</h1>
-
+<!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank" rel="noopener noreferrer">LeetCode #11 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
       <section class="problem-section">
         <h2>Problem Statement</h2>
         <p>
@@ -84,6 +88,8 @@
           <button class="fc-button">View Flowchart</button>
           <img src="../Flowcharts/Container_water_approach_1.png" alt="Brute force" class="fc-image" />
         </div>
+        <p class="think-line">💡 <strong>Think:</strong> What if I try every pair of lines and calculate all possible container areas?</p>
+
       </section>
 
 
@@ -109,6 +115,8 @@ return max_area
           <button class="fc-button">View Flowchart</button>
           <img src="../Flowcharts/Container_water_approach_2.png" alt="Two pointers" class="fc-image" />
         </div>
+        <p class="think-line">💡 <strong>Think:</strong> Can I move pointers inward, dropping the smaller height to find a larger area faster?</p>
+
       </section>
 
     <section class="approach-section">
@@ -123,6 +131,7 @@ return max_area
 same as two-pointer method
       </pre>
         <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> What if I shift the shorter line each time, since a taller one might trap more water?</p>
 
       </section>
     </main>

@@ -96,6 +96,73 @@
   font-weight: bold;
 }
 
+/* LeetCode Link Styles */
+.leetcode-link {
+  margin: -10px 0 20px 0;
+  font-size: 16px;
+  text-align: center;  /* Add this line */
+}
+
+.leetcode-link a {
+  color: #ffa116;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.leetcode-link a:hover {
+  color: #ff8c00;
+  text-decoration: underline;
+}
+
+.dark-mode .leetcode-link a {
+  color: #ffc453;
+}
+
+.dark-mode .leetcode-link a:hover {
+  color: #ffb020;
+}
+
+.think-line {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.dark-mode .think-line {
+  background: #1e3a5f;
+  border-left-color: #4a9eff;
+}
+
+/* Export/Print Button */
+.export-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 15px auto;  /* Changed from "15px 0" to "15px auto" */
+  display: block;
+  transition: background 0.3s;
+}
+
+.export-btn:hover {
+  background: #45a049;
+}
+
+.dark-mode .export-btn {
+  background: #66bb6a;
+}
+
+.dark-mode .export-btn:hover {
+  background: #4CAF50;
+}
+
 /* Footer */
 footer {
   text-align: center;

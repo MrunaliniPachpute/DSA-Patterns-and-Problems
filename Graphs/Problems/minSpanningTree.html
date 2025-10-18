@@ -45,7 +45,11 @@
 
   <main>
     <h1>Minimum Spanning Tree (MST)</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/min-cost-to-connect-all-points/" target="_blank" rel="noopener noreferrer">LeetCode #1584 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -81,6 +85,7 @@ for edge(u,v,w) in sorted edges:
         mst_weight += w
 return mst_weight
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort edges; add the next lightest that doesn't form a cycle using DSU.</p>
 
     </section>
 
@@ -106,6 +111,7 @@ while min_heap not empty:
             heap.push((w, neighbor))
 return mst_weight
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Grow from any node; pick the cheapest edge to a new node using a min-heap.</p>
 
     </section>
   </main>

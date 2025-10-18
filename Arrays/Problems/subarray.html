@@ -46,6 +46,12 @@
 
   <main>
     <h1>Maximum Subarray</h1>
+   <!--Leetcode link-->
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener noreferrer">LeetCode #53 [Medium]</a></p>
+
+<!--Print / Export control-->
+    <button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -79,6 +85,8 @@ return max_sum    </pre> <button class="copyToClipboard" onclick="copyToClipboar
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Max_subarray_approach_1.png" alt="Brute force" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> What if I check every possible subarray and see which one gives the biggest sum?</p>
+
     </section>
 
     <section class="approach-section">
@@ -102,6 +110,8 @@ for i in 0..n-1:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/Max_subarray_approach_2.png" alt="Prefix sum" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Can I precompute running totals so I can find any subarray sum quickly without recounting?</p>
+
     </section>
 
     <section class="approach-section">
@@ -120,6 +130,8 @@ return max_sum    </pre> <button class="copyToClipboard" onclick="copyToClipboar
             <button class="fc-button">View Flowchart</button>
             <img src="../Flowcharts/Max_subarray_approach_3.png" alt="Kadane's algorithm" class="fc-image" />
           </div>
+          <p class="think-line">💡 <strong>Think:</strong> What if I keep a running total and reset it whenever it becomes negative to track the best subarray on the go?</p>
+
     </section>
   </main>
   <!-- Footer -->

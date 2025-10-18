@@ -45,7 +45,11 @@
 
   <main>
     <h1>String Permutations</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/permutations/" target="_blank" rel="noopener noreferrer">LeetCode #46 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given a string, return all possible permutations of its characters.</p>
@@ -69,6 +73,7 @@ function permute(s, l):
 permute(string, 0)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Swap each character with all positions ahead and recurse to generate permutations.</p>
 
     </section>
 
@@ -91,6 +96,7 @@ function backtrack(path, used):
 backtrack("", [False]*n)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Track used characters in a boolean list and build permutations step by step.</p>
 
     </section>
 
@@ -104,6 +110,7 @@ from itertools import permutations
 result = list(permutations(s))
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use Python’s itertools.permutations to generate all permutations directly.</p>
 
     </section>
   </main>

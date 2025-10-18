@@ -45,7 +45,11 @@
 
   <main>
     <h1>N-Queens Problem</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/n-queens/" target="_blank" rel="noopener noreferrer">LeetCode #51 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Place N queens on an N×N chessboard such that no two queens attack each other. Return all possible board
@@ -72,6 +76,7 @@ function solve(row):
 solve(0)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Place queens row by row, backtracking when a conflict occurs.</p>
 
     </section>
 
@@ -95,6 +100,7 @@ function solve(row):
 solve(0)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use sets to track occupied columns and diagonals for fast safety checks.</p>
 
     </section>
 
@@ -116,6 +122,7 @@ function solve(row, cols, diag1, diag2):
 solve(0,0,0,0)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Represent columns and diagonals with bitmasks for optimized computation.</p>
 
     </section>
   </main>

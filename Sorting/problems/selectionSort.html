@@ -40,7 +40,11 @@
 
   <main>
     <h1>Selection Sort</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/selection-sort/1" target="_blank" rel="noopener noreferrer">GeeksforGeeks [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print"> 
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
       <p>Selection Sort is an in-place comparison sorting algorithm. It divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front of the list and a sublist of the remaining unsorted items. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest element in the unsorted sublist, exchanging it with the leftmost unsorted element, and moving the sublist boundaries one element to the right.</p>
@@ -58,6 +62,8 @@ function selectionSort(array):
         minIndex = j
     swap(array[i], array[minIndex])
       </pre>
+      <p class="think-line">💡 <strong>Think:</strong> Repeatedly find the minimum element from the unsorted part and place it in its correct position.</p>
+
     </section>
     
     <section class="approach-section">

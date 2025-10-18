@@ -45,7 +45,11 @@
 
   <main>
     <h1>Sliding Window Maximum</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener noreferrer">LeetCode #239 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given an array and window size k, find the maximum value in each sliding window of size k.</p>
@@ -68,6 +72,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob5app1.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Compute a max for each window by full scan.</p>
+
     </section>
 
     <section class="approach-section">
@@ -92,6 +98,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob5app2.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Keep a decreasing deque of indices; front is window max.</p>
+
     </section>
 
     <section class="approach-section">
@@ -112,6 +120,8 @@ return result
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob5app3.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Maintain a heap of window values; discard out-of-window entries.</p>
+
     </section>
   </main>
 

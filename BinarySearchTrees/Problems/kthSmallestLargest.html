@@ -49,7 +49,12 @@
 
   <main>
     <h1>Kth Smallest / Largest in BST</h1>
+    <!--Leetcode link-->
 
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/" target="_blank" rel="noopener noreferrer">LeetCode #230 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Find the Kth smallest or largest element in a BST.</p>
@@ -74,6 +79,7 @@ function inorder(node, k):
     if count == k: result = node.val
     inorder(node.right, k)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Traverse left→node→right and stop at the kth visit; inorder is sorted in BST.</p>
 
     </section>
 
@@ -94,6 +100,7 @@ function reverseInorder(node, k):
     if count == k: result = node.val
     reverseInorder(node.left, k)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Go right→node→left and count down to the kth to get kth largest.</p>
 
     </section>
   </main>

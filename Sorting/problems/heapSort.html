@@ -40,7 +40,12 @@
 
   <main>
     <h1>Heap Sort</h1>
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/heap-sort/1" target="_blank" rel="noopener noreferrer">GeeksforGeeks [Medium]</a></p>
+<!--Print / Export control-->
 
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print"> 
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
       <p>Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It first builds a max heap from the input data and then repeatedly extracts the largest element from the heap, placing it at the end of the array. The process continues until all elements are sorted.</p>
@@ -75,6 +80,9 @@ function heapify(array, n, i):
     swap(array[i], array[largest])
     heapify(array, n, largest)
       </pre>
+<p class="think-line">💡 <strong>Think:</strong> Repeatedly swap the root with the last element and heapify the reduced heap.</p>
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     </section>
     
     <section class="approach-section">

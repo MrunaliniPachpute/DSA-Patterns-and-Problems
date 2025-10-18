@@ -46,7 +46,11 @@
 
   <main>
     <h1>BFS & DFS Traversals</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/shortest-path-in-binary-matrix/" target="_blank" rel="noopener noreferrer">LeetCode #1091 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>
@@ -77,6 +81,7 @@ while queue not empty:
             queue.push(neighbor)
             visited[neighbor] = true
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Explore level by level using a queue; enqueue unseen neighbors as you go.</p>
 
     </section>
 
@@ -96,6 +101,7 @@ function DFS(node):
             DFS(neighbor)
 DFS(start)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Dive deep along one path via recursion, backtrack when stuck using a visited set.</p>
 
     </section>
 
@@ -114,6 +120,7 @@ while stack not empty:
             stack.push(neighbor)
             visited[neighbor] = true
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use an explicit stack to mimic recursion, pushing neighbors and exploring depth-first.</p>
 
     </section>
   </main>

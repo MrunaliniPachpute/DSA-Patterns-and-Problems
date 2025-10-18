@@ -40,7 +40,11 @@
 
   <main>
     <h1>Insertion Sort</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.hackerrank.com/challenges/insertionsort1/problem" target="_blank" rel="noopener noreferrer">HackerRank [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
       <p>Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. It iterates through an input array and for each element, it removes it and finds its correct position within the sorted part of the array, shifting other elements to the right to make space.</p>
@@ -61,6 +65,8 @@ function insertionSort(array):
       j = j - 1
     array[j + 1] = key
       </pre>
+<p class="think-line">💡 <strong>Think:</strong> Build the sorted array one element at a time by inserting each element into its correct position.</p>
+
     </section>
     
     <section class="approach-section">

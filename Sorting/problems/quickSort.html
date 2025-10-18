@@ -40,7 +40,11 @@
 
   <main>
     <h1>Quick Sort</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.hackerrank.com/challenges/quicksort1/problem" target="_blank" rel="noopener noreferrer">HackerRank [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
       <p>Quick Sort is an efficient, in-place, divide and conquer sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively. The choice of pivot and the partitioning scheme can vary, affecting the algorithm's performance.</p>
@@ -65,6 +69,8 @@ function partition(array, low, high):
   swap(array[i + 1], array[high])
   return i + 1
       </pre>
+      <p class="think-line">💡 <strong>Think:</strong> Choose a pivot, partition the array into elements less than and greater than the pivot, and sort recursively.</p>
+
     </section>
     
     <section class="approach-section">

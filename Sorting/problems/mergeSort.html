@@ -40,7 +40,11 @@
 
   <main>
     <h1>Merge Sort</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.hackerrank.com/challenges/merge-sort/problem" target="_blank" rel="noopener noreferrer">HackerRank [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
       <p>Merge Sort is an efficient, comparison-based, divide and conquer sorting algorithm. It works by dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array. The merging process is the key step, where two sorted subarrays are combined into a single sorted array.</p>
@@ -72,6 +76,8 @@ function merge(left, right):
   append any remaining elements from left or right to result
   return result
       </pre>
+      <p class="think-line">💡 <strong>Think:</strong> Divide the array into halves, sort each half recursively, and then merge them.</p>
+
     </section>
     
     <section class="approach-section">

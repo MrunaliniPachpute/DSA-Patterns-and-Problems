@@ -50,6 +50,12 @@
 
   <main>
     <h1>First and Last Position of Element</h1>
+    <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener noreferrer">LeetCode #34 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <!-- Problem Statement -->
     <section class="problem-section">
@@ -106,6 +112,7 @@ function findLast(nums, target):
 
 return [findFirst(nums,target), findLast(nums,target)]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Run binary search twice to pin leftmost and rightmost target boundaries.</p>
 
     </section>
 
@@ -120,6 +127,7 @@ return [findFirst(nums,target), findLast(nums,target)]
       <pre class="pseudo-code">
 // Similar logic combining first & last in one loop by tracking boundaries
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Track first/last during one binary loop by adjusting bounds on equals.</p>
 
     </section>
 
@@ -140,6 +148,7 @@ for i in 0..n-1:
         end = i
 return [start, end]
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Walk once to record the first hit and keep updating the last index.</p>
 
     </section>
   </main>

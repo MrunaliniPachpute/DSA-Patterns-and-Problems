@@ -45,7 +45,11 @@
 
   <main>
     <h1>Connected Components</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener noreferrer">LeetCode #200 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Count the number of connected components in an undirected graph.</p>
@@ -71,6 +75,7 @@ for node in all_nodes:
         DFS(node)
         count += 1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Start a new DFS from each unseen node; each full reach is one component.</p>
 
     </section>
 
@@ -97,6 +102,7 @@ for node in all_nodes:
                     visited.add(neighbor)
         count += 1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Flood-fill with a queue from every unvisited node to count components.</p>
 
     </section>
 
@@ -119,6 +125,7 @@ for each edge (u,v):
     union(u,v)
 count = number of unique parents
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Union endpoints of edges; the number of unique roots equals components.</p>
 
     </section>
   </main>

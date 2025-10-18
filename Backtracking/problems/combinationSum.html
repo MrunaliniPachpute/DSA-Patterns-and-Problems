@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
 </head>
 <body>
 
@@ -40,6 +41,12 @@
 
   <main>
     <h1>Combination Sum</h1>
+        <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/combination-sum/" target="_blank" rel="noopener noreferrer">LeetCode [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -69,6 +76,8 @@ function backtrack(result, current, candidates, remain, start):
         backtrack(result, current, candidates, remain - candidates[i], i) // 'i' allows reuse of same element
         current.pop()
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Use backtracking — choose a candidate, subtract it from target, and recurse. If target becomes 0, record the combination.</p>
     </section>
 
     <section class="approach-section">
@@ -87,6 +96,8 @@ for i from start to length(candidates)-1:
     backtrack(...)
     current.pop()
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Sort the array first and prune paths when the current candidate exceeds the remaining target for efficiency.</p>
     </section>
 
     <section class="approach-section">
@@ -103,12 +114,17 @@ for candidate in candidates:
         dp[j] = dp[j] + dp[j - candidate]
 return dp[target]
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> For counting combinations (not listing), use Dynamic Programming — dp[i] represents ways to form sum i.</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
+
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
 </body>
 </html>

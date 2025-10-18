@@ -45,7 +45,11 @@
 
   <main>
     <h1>Power Set / Subsets</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/subsets/" target="_blank" rel="noopener noreferrer">LeetCode #78 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given a set of distinct integers, return all possible subsets (the power set).</p>
@@ -69,6 +73,7 @@ function backtrack(index, current):
 backtrack(0, [])
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> At each step, decide whether to include the current element or not (recursion tree).</p>
 
     </section>
 
@@ -85,6 +90,7 @@ for num in nums:
 return result
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Start with [[]] and for each number, duplicate subsets by adding that number.</p>
 
     </section>
 
@@ -103,6 +109,7 @@ for mask in 0..2^n-1:
 return result
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Treat each subset as a bitmask of length n, where 1 indicates inclusion.</p>
 
     </section>
   </main>

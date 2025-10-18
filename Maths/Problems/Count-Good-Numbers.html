@@ -44,7 +44,11 @@
 
   <main>
     <h1>Count Good Numbers</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/count-good-numbers/" target="_blank" rel="noopener noreferrer">LeetCode #1922 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -86,7 +90,7 @@ odds = n/2
 return (findPow(5, evens) * findPow(4, odds)) % mod
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
-
+<p class="think-line">💡 <strong>Think:</strong> Even positions: 5 choices; odd positions: 4 choices—compute 5^ceil(n/2) × 4^floor(n/2) mod M with fast pow.</p>
     </section>
 
 

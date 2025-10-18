@@ -48,7 +48,11 @@
 
   <main>
     <h1>Valid Anagram</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="noopener noreferrer">LeetCode #242 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -75,6 +79,8 @@ else:
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/4stringapproach1.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Sort both strings; identical order means they're anagrams.</p>
+
     </section>
 
     <section class="approach-section">
@@ -95,6 +101,8 @@ return count_s == count_t
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/4stringapproach2.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Count each character in both strings and compare frequency maps.</p>
+
     </section>
 
     <section class="approach-section">
@@ -119,6 +127,8 @@ return true
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowcharts/4stringapproach3.png" alt="Heap Sort Flowchart" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Increment counts with s, decrement with t, ensure all totals end at zero.</p>
+
     </section>
   </main>
 

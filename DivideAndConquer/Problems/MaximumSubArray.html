@@ -49,7 +49,11 @@
 
   <main>
     <h1>Maximum SubArray</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener noreferrer">LeetCode #53 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -89,6 +93,7 @@ function maxSubArray(arr):
     
     return maxSum
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Check every subarray's sum and keep the best—exhaustive but cubic.</p>
 
     </section>
 
@@ -134,6 +139,7 @@ function maxSubArrayDC(arr, low, high):
 function maxSubArray(arr):
     return maxSubArrayDC(arr, 0, length(arr)-1)
             </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Best is left, right, or crossing mid; combine recursively.</p>
 
 
     </section>
@@ -159,6 +165,7 @@ function maxSubArray(arr):
     
     return maxSum
           </pre> <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Carry a running best ending here; reset when it goes negative.</p>
 
     </section>
 

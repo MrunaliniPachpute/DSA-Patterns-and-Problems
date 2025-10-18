@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
 </head>
 <body>
 
@@ -40,6 +41,12 @@
 
   <main>
     <h1>Permutations</h1>
+        <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/permutations/" target="_blank" rel="noopener noreferrer">LeetCode [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -49,9 +56,9 @@
 
     <section class="approach-section">
       <h2>Approach 1: Backtracking with a Visited Array</h2>
-      <p><strong>Explanation (Brute):</strong> Use a helper function that recursively builds a permutation. Maintain a `visited` boolean array to keep track of which elements from the input array have been included in the current permutation. If the current permutation's size equals the input array's size, a valid permutation is found.</p>
-      <p><strong>Time Complexity:</strong> O(N! * N) because there are N! permutations, and each one takes O(N) time to be built and added to the result list.</p>
-      <p><strong>Space Complexity:</strong> O(N) for the visited array and recursion stack.</p>
+      <p><strong>Explanation (Brute):</strong> Recursively build permutations. Maintain a visited array to track which elements are included in the current permutation.</p>
+      <p><strong>Time Complexity:</strong> O(N! * N)</p>
+      <p><strong>Space Complexity:</strong> O(N)</p>
       <pre class="pseudo-code">
 function permute(nums):
     result = []
@@ -70,13 +77,15 @@ function backtrack(result, current, nums, visited):
             current.pop() // Backtrack
             visited[i] = false // Backtrack
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Use a visited array to avoid using the same element twice while building permutations recursively.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 2: Backtracking with Swapping</h2>
-      <p><strong>Explanation (Better):</strong> An in-place approach that avoids the extra `visited` array. The idea is to generate permutations by swapping elements. For a given index `i`, we swap the element at `i` with every element from `i` to the end of the array. After each swap, we make a recursive call for the next index `i+1`. After the recursive call returns, we backtrack by swapping the elements back to their original positions.</p>
+      <p><strong>Explanation (Better):</strong> In-place swapping avoids the extra visited array. Swap the current index with each following index recursively, then swap back to backtrack.</p>
       <p><strong>Time Complexity:</strong> O(N! * N)</p>
-      <p><strong>Space Complexity:</strong> O(N) for the recursion stack depth (better than the previous O(N) for visited array + O(N) for stack).</p>
+      <p><strong>Space Complexity:</strong> O(N) recursion stack</p>
       <pre class="pseudo-code">
 function permute(nums):
     result = []
@@ -92,25 +101,32 @@ function backtrack(result, nums, start_index):
         backtrack(result, nums, start_index + 1)
         swap(nums[start_index], nums[i]) // Backtrack
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Generate permutations by swapping elements in-place and backtrack by undoing swaps.</p>
     </section>
 
     <section class="approach-section">
       <h2>Approach 3: Iterative (Heap's Algorithm)</h2>
-      <p><strong>Explanation (Optimal):</strong> While backtracking is standard in interviews, a purely iterative method like Heap's Algorithm can generate permutations with minimal overhead. It produces every possible permutation of n elements by a series of swaps. This approach is less intuitive but is a classic and efficient algorithm for this specific problem.</p>
+      <p><strong>Explanation (Optimal):</strong> Use Heap's Algorithm to generate permutations iteratively using swaps. Efficient and avoids recursion overhead.</p>
       <p><strong>Time Complexity:</strong> O(N!)</p>
-      <p><strong>Space Complexity:</strong> O(N) to store the permutation itself.</p>
+      <p><strong>Space Complexity:</strong> O(N) for storing permutation</p>
       <pre class="pseudo-code">
-// Heap's algorithm is typically implemented with a loop
-// and conditional swaps based on whether the current
-// iteration index is even or odd.
-// It's a non-recursive way to achieve the same result.
+// Heap's algorithm generates all permutations iteratively
+// Swap elements conditionally based on even/odd index
+// Non-recursive and efficient for generating all permutations
       </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Iteratively generate permutations using Heap's Algorithm by swapping elements based on index parity.</p>
     </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
+
   <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
 </body>
 </html>

@@ -50,7 +50,11 @@
 
   <main>
     <h1>Height & Diameter of Binary Tree</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener noreferrer">LeetCode #543 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -100,6 +104,7 @@ function diameter(node):
     rightDia = diameter(node.right)
     return max(leftHeight + rightHeight + 1, max(leftDia, rightDia))
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Recompute heights per node; diameter is leftH + rightH (+1 if counting nodes).</p>
 
     </section>
 
@@ -122,6 +127,7 @@ function helper(node):
 
 height, diameter = helper(root)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Return (height, diameter) together so each node is processed once.</p>
 
     </section>
 
@@ -153,12 +159,14 @@ while stack not empty:
     
       </pre
         ><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+        <p class="think-line">💡 <strong>Think:</strong> Postorder with stored heights; update best diameter at each pop.</p>
       </section>
     <section>
   <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
   <div id="flowchart" class="flowchart-container">
     <img src="../Flowcharts/heightDiameter.png" alt="Height & Diameter Flowchart" height="1050px" width="600px"/>
   </div>
+
 </section>
     </main>
     <!-- Footer -->

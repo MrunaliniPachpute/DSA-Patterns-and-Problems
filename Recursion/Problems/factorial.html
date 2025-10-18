@@ -45,7 +45,11 @@
 
   <main>
     <h1>Factorial</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/clumsy-factorial/" target="_blank" rel="noopener noreferrer">LeetCode #1006 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -66,6 +70,7 @@ function factorial(n):
     return n * factorial(n-1)
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Multiply n by factorial of (n−1) until reaching 1.</p>
 
     </section>
 
@@ -81,6 +86,7 @@ for i from 2 to n:
 return fact
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use a loop to multiply numbers from 1 through n iteratively.</p>
 
     </section>
 
@@ -100,6 +106,7 @@ function factorial(n):
     return memo[n]
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Cache results of factorial(n) to avoid recomputation when called repeatedly.</p>
 
     </section>
   </main>

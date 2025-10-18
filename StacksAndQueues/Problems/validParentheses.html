@@ -45,7 +45,11 @@
 
   <main>
     <h1>Valid Parentheses</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener noreferrer">LeetCode #20 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <section class="problem-section">
       <h2>Problem Statement</h2>
       <p>Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
@@ -69,6 +73,8 @@ else:
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob1app1.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> What if I repeatedly strip '()','[]','{}' until nothing changes?</p>
+
     </section>
 
     <section class="approach-section">
@@ -91,6 +97,8 @@ return stack is empty
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob1app2.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Can I push opens and match each close with the latest open?</p>
+
     </section>
 
     <section class="approach-section">
@@ -113,6 +121,8 @@ return stack is empty
     <button class="fc-button">View Flowchart</button>
     <img src="../Flowchart/prob1app3.png" alt="Heap Sort Flowchart" class="fc-image" />
   </div>
+  <p class="think-line">💡 <strong>Think:</strong> Use a map to early-fail when the top doesn't match the closing.</p>
+
     </section>
   </main>
 

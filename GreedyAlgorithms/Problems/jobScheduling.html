@@ -38,7 +38,11 @@
 
 <main>
   <h1>Job Scheduling with Deadlines</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/" target="_blank" rel="noopener noreferrer">LeetCode #1235 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
   <section class="problem-section">
     <h2>Problem Statement</h2>
     <p>Schedule jobs to maximize total profit, each with a deadline and profit.</p>
@@ -55,6 +59,7 @@ for each permutation of jobs:
 return maximum profit
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Try all job orders and keep the feasible schedule with maximum profit.</p>
 
   </section>
 
@@ -70,6 +75,7 @@ for each job:
 return profit
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Order by deadline and attempt to place each job backward into a free slot.</p>
 
   </section>
 
@@ -88,6 +94,7 @@ for each job:
 return totalProfit
     </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Sort by profit desc; place each job in the latest free slot ≤ its deadline.</p>
 
   </section>
 </main>

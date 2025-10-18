@@ -46,7 +46,11 @@
 
   <main>
     <h1>Merge Two Sorted Lists</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener noreferrer">LeetCode #21 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -84,6 +88,7 @@ while list1 != NULL and list2 != NULL:
 tail.next = list1 if list1 != NULL else list2
 return dummy.next
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Use a dummy tail and always attach the smaller head next.</p>
 
     </section>
     <!-- Flowchart Section for Approach 1 -->
@@ -92,6 +97,7 @@ return dummy.next
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/iterative_merge.jpg" alt="Merge Sorted LL Flowchart" class="flowchart-img" />
       </div>
+
     </section>
 
     <section class="approach-section">
@@ -114,6 +120,7 @@ else:
     list2.next = merge(list1, list2.next)
     return list2
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <p class="think-line">💡 <strong>Think:</strong> Pick the smaller head, recurse on the remainder, then link back.</p>
 
     </section>
     <!-- Flowchart Section for Approach 2 -->
@@ -122,6 +129,7 @@ else:
       <div class="flowchart-container" style="display: none; margin-top: 20px">
         <img src="../Flowcharts/recursive_merge.jpg" alt="Merge Sorted Flowchart" class="flowchart-img" />
       </div>
+
     </section>
   </main>
 

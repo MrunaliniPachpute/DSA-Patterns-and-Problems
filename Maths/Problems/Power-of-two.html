@@ -44,7 +44,11 @@
 
   <main>
     <h1>Power of Two</h1>
-
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/power-of-two/" target="_blank" rel="noopener noreferrer">LeetCode #231 [Easy]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
     <!-- Problem Statement -->
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -78,6 +82,7 @@ else:
     return false
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Use log2 and see if the result is an integer, guarding against non-positive n and precision issues.</p>
 
     </section>
 
@@ -96,6 +101,7 @@ for x in range(0, 31):
 return false
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Generate powers of two up to limits and compare directly with n.</p>
 
     </section>
 
@@ -114,6 +120,7 @@ if n <= 0:
 return popcount(n) == 1
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> A power of two has one set bit; check n > 0 and n & (n−1) == 0.</p>
 
     </section>
   </main>

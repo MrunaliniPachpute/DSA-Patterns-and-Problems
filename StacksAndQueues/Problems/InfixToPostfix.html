@@ -46,7 +46,11 @@
 
   <main>
     <h1>Infix To Postfix Conversion</h1>
-    
+        <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.geeksforgeeks.org/problems/infix-to-postfix-1587115620/1" target="_blank" rel="noopener noreferrer">GeeksforGeeks [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
 
     <section class="problem-section">
       <h2>Problem Statement</h2>
@@ -80,6 +84,8 @@ pop remaining operators and append to result
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowchart/Prob6app1.png" alt="Flowchart Approach 1" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Use a stack to store operators and append operands directly to the output.</p>
+
     </section>
 
     <!-- Approach 2 -->
@@ -109,6 +115,8 @@ pop remaining operators
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowchart/Prob6app2.png" alt="Flowchart Approach 2" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Pop from the stack when an operator of higher or equal precedence is found before pushing the new one.</p>
+
     </section>
 
     <!-- Approach 3 -->
@@ -138,6 +146,8 @@ pop remaining operators
         <button class="fc-button">View Flowchart</button>
         <img src="../Flowchart/Prob6app3.png" alt="Flowchart Approach 3" class="fc-image" />
       </div>
+      <p class="think-line">💡 <strong>Think:</strong> Handle parentheses by pushing '(' and popping until '(' when ')' appears.</p>
+
     </section>
 
   </main>
