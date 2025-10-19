@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selection Sort - CodeDSA</title>
+  <title>Heap Sort - CodeDSA</title>
   <link rel="stylesheet" href="../../CSS/AllProblems.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
 </head>
 <body>
 
   <nav class="navbar">
-    <a href="../../index.html" class="logo-container">
+     <a href="../../index.html" class="logo-container">
       <div class="logo-img">
         <img src="../../Images/logo.png" alt="Logo">
       </div>
@@ -34,47 +33,59 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="../Sorting.html">Sorting</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Selection Sort</li>
+        <li class="breadcrumb-item active" aria-current="page">Heap Sort</li>
       </ol>
     </nav>
   </div>
 
   <main>
-    <h1>Selection Sort</h1>
+    <h1>Heap Sort</h1>
 
     <section class="problem-section">
       <h2>Algorithm Explanation</h2>
-      <p>Selection Sort is an in-place comparison sorting algorithm. It divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front of the list and a sublist of the remaining unsorted items. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest element in the unsorted sublist, exchanging it with the leftmost unsorted element, and moving the sublist boundaries one element to the right.</p>
+      <p>Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It first builds a max heap from the input data and then repeatedly extracts the largest element from the heap, placing it at the end of the array. The process continues until all elements are sorted.</p>
     </section>
 
     <section class="approach-section">
       <h2>Pseudocode</h2>
       <pre class="pseudo-code">
-function selectionSort(array):
+function heapSort(array):
   n = length(array)
-  for i from 0 to n-1:
-    minIndex = i
-    for j from i+1 to n:
-      if array[j] < array[minIndex]:
-        minIndex = j
-    swap(array[i], array[minIndex])
+
+  // Build max heap
+  for i from (n/2 - 1) down to 0:
+    heapify(array, n, i)
+
+  // Extract elements from heap one by one
+  for i from n-1 down to 1:
+    swap(array[0], array[i])
+    heapify(array, i, 0)
+
+function heapify(array, n, i):
+  largest = i
+  left = 2 * i + 1
+  right = 2 * i + 2
+
+  if left < n and array[left] > array[largest]:
+    largest = left
+  if right < n and array[right] > array[largest]:
+    largest = right
+
+  if largest != i:
+    swap(array[i], array[largest])
+    heapify(array, n, largest)
       </pre>
     </section>
     
     <section class="approach-section">
       <h2>Complexity & Properties</h2>
       <ul>
-        <li><strong>Time Complexity:</strong> O(n²) in all cases (best, average, and worst).</li>
-        <li><strong>Space Complexity:</strong> O(1) as it's an in-place sort.</li>
-        <li><strong>Stable:</strong> No, it is not a stable sort.</li>
+        <li><strong>Time Complexity:</strong> O(n log n) for all cases (best, average, and worst).</li>
+        <li><strong>Space Complexity:</strong> O(1), as it sorts in place.</li>
+        <li><strong>Stable:</strong> No, it does not preserve the relative order of equal elements.</li>
+        <li><strong>Type:</strong> Comparison-based sorting algorithm.</li>
       </ul>
     </section>
-    <a 
-        href="https://leetcode.com/problems/sort-an-array/" 
-        class="leetcode-btn" 
-        target="_blank">
-        Solve on LeetCode
-    </a>
   </main>
 
   <footer>

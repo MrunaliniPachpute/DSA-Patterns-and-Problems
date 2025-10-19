@@ -21,6 +21,10 @@
   padding-bottom: 8px;
 }
 
+.topics-filter-sidebar label {
+  color: black;
+}
+
 /* Dropdown container */
 .filter-dropdown {
   position: relative; /* important for absolute positioning */

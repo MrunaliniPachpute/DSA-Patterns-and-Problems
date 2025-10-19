@@ -1,0 +1,27 @@
+.leetcode-btn {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff9800, #ffb74d); /* orange gradient */
+  color: #fff; 
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.leetcode-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+  background: linear-gradient(135deg, #fb8c00, #ffa726); /* darker orange on hover */
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.8); }
+}

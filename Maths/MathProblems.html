@@ -1,105 +1,143 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeDSA Math Problems</title>
+    <link rel="stylesheet" href="../CSS/scrolltotop.css" />
+    <link rel="stylesheet" href="../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../CSS/AllTopics.css" />
+    <link rel="stylesheet" href="../CSS/snake.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeDSA Math Problems</title>
-  <link rel="stylesheet" href="../CSS/breadcrumb.css">
-  <link rel="stylesheet" href="../CSS/AllTopics.css" />
-  <link rel="stylesheet" href="../CSS/snake.css" />
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="../index.html" class="logo-container">
-    <div class="logo-img">
-      <img src="../Images/logo.png" alt="Logo">
-    </div>
-    <div class="logo">CodeDSA</div>
-  </a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="../index.html" class="logo-container">
+        <div class="logo-img">
+          <img src="../Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
+    </nav>
+    <div class="breadcrumb-container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active">Math Problems</li>
       </ul>
-      <button id="snakeToggle" class="snake-btn">
-        <span style="margin-left: 20px">Snake Cursor</span>
-      </button>
-      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
     </div>
-  </nav>
-  <div class="breadcrumb-container">
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="breadcrumb-item active">Math Problems</li>
-    </ul>
-  </div>
-  <main>
-    <h1>Math Problems</h1>
-    <p class="intro-text">Explore key mathematical problems commonly encountered in coding interviews.</p>
+    <main>
+      <h1>Math Problems</h1>
+      <p class="intro-text">
+        Explore key mathematical problems commonly encountered in coding
+        interviews.
+      </p>
 
-    <div id="topic-progress-bar">
-      <div id="topic-progress"></div>
-      <div id="topic-progress-text">Progress: 0 / 3 Topics</div>
-    </div>
+      <div id="topic-progress-bar">
+        <div id="topic-progress"></div>
+        <div id="topic-progress-text">Progress: 0 / 4 Topics</div>
+      </div>
 
-    <ul id="topics" class="topic-list" data-topic="math-problems">
-      <li>
-        <a href="./Problems/Power-of-two.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">01</span>
-          <span class="topic-name">Power of Two</span>
-          <span class="topic-desc">Check if a number is a power of two using bit manipulation or math</span>
-        </a>
-      </li>
+      <ul id="topics" class="topic-list" data-topic="math-problems">
+        <li>
+          <a href="./Problems/Power-of-two.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">01</span>
+            <span class="topic-name">Power of Two</span>
+            <span class="topic-desc"
+              >Check if a number is a power of two using bit manipulation or
+              math</span
+            >
+          </a>
+        </li>
 
-      <li>
-        <a href="./Problems/largest-permiter-triangle.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">02</span>
-          <span class="topic-name">Largest Perimeter Triangle</span>
-          <span class="topic-desc">Determine the largest possible triangle perimeter from an array of lengths</span>
-        </a>
-      </li>
+        <li>
+          <a href="./Problems/largest-permiter-triangle.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">02</span>
+            <span class="topic-name">Largest Perimeter Triangle</span>
+            <span class="topic-desc"
+              >Determine the largest possible triangle perimeter from an array
+              of lengths</span
+            >
+          </a>
+        </li>
 
-      <li>
-        <a href="./Problems/Count-Good-Numbers.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">03</span>
-          <span class="topic-name">Count Good Numbers</span>
-          <span class="topic-desc">Calculate the count of valid digit strings under given constraints</span>
-        </a>
-      </li>
-    </ul>
+        <li>
+          <a href="./Problems/Count-Good-Numbers.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">03</span>
+            <span class="topic-name">Count Good Numbers</span>
+            <span class="topic-desc"
+              >Calculate the count of valid digit strings under given
+              constraints</span
+            >
+          </a>
+        </li>
 
-    <p class="pattern-coverage">
-      <strong>WHAT PATTERNS DO THESE COVER?</strong> <br />
-      These problems target essential
-      <em>mathematical patterns</em> for coding interviews: <br /><br />
+        <li>
+          <a href="./Problems/GCD-Euclidean-Algorithm.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">04</span>
+            <span class="topic-name">GCD using Euclidean Algorithm</span>
+            <span class="topic-desc"
+              >Find the Greatest Common Divisor of two numbers using efficient
+              algorithms</span
+            >
+          </a>
+        </li>
+      </ul>
 
-      <span class="pattern-name">Power of Two</span> →
-      <span class="pattern-desc">Leverages bit manipulation for efficient power checks.</span><br />
-      <span class="pattern-name">Largest Perimeter Triangle</span> →
-      <span class="pattern-desc">Uses sorting and greedy checks for geometric constraints.</span><br />
-      <span class="pattern-name">Count Good Numbers</span> →
-      <span class="pattern-desc">Applies modular arithmetic and combinatorial counting.</span><br /><br />
+      <p class="pattern-coverage">
+        <strong>WHAT PATTERNS DO THESE COVER?</strong> <br />
+        These problems target essential
+        <em>mathematical patterns</em> for coding interviews: <br /><br />
 
-      Together, they build skills in
-      <span class="highlight">bit manipulation, greedy algorithms, and modular arithmetic</span>
-      for solving math-based coding challenges.
-    </p>
-  </main>
+        <span class="pattern-name">Power of Two</span> →
+        <span class="pattern-desc"
+          >Leverages bit manipulation for efficient power checks.</span
+        ><br />
+        <span class="pattern-name">Largest Perimeter Triangle</span> →
+        <span class="pattern-desc"
+          >Uses sorting and greedy checks for geometric constraints.</span
+        ><br />
+        <span class="pattern-name">Count Good Numbers</span> →
+        <span class="pattern-desc"
+          >Applies modular arithmetic and combinatorial counting.</span
+        ><br />
+        <span class="pattern-name">GCD using Euclidean Algorithm</span> →
+        <span class="pattern-desc"
+          >Implements the classic Euclidean algorithm for finding GCD
+          efficiently.</span
+        ><br /><br />
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
+        Together, they build skills in
+        <span class="highlight"
+          >bit manipulation, greedy algorithms, modular arithmetic, and
+          fundamental number theory</span
+        >
+        for solving math-based coding challenges.
+      </p>
+    </main>
 
-  <script src="../index.js"></script>
-  <script src="../JS/ProgressBar.js"></script>
-</body>
-
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <button id="scrollToTopBtn" title="Go to top">⮝</button>
+    <script src="../JS/scrolltotop.js"></script>
+    <script src="../index.js"></script>
+    <script src="../JS/ProgressBar.js"></script>
+  </body>
 </html>

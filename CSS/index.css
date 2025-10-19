@@ -144,8 +144,7 @@ footer {
 .footer-links a:hover,
 .footer-links a:focus {
   color: #ffe5d4;
-  outline: 2px solid #ffe5d4;
-  outline-offset: 2px;
+  background-color:rgb(255, 172, 147);
 }
 
 .footer-links a:focus {

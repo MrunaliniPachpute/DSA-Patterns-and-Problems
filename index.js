@@ -10,6 +10,47 @@ document.querySelectorAll('.flowchart-btn').forEach((btn) => {
   });
 });
 document.addEventListener('DOMContentLoaded', () => {
+
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+
+  const text = "Search topics or problems...";
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReduced) {
+    input.placeholder = text;
+    return;
+  }
+
+  let i = 0;
+  const speed = 80; // typing speed (ms)
+
+  const type = () => {
+    if (i < text.length) {
+      input.setAttribute("placeholder", text.substring(0, i + 1));
+      i++;
+      setTimeout(type, speed);
+    }
+  };
+
+  // Start typing when visible or immediately
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        type();
+        obs.disconnect();
+      }
+    });
+  });
+
+  observer.observe(input);
+
+  // Optional: stop animation when focused
+  input.addEventListener("focus", () => {
+    input.placeholder = text;
+  });
+
+  
   // Snake toggle logic with persistence
   const toggleBtn = document.getElementById('snakeToggle');
   if (toggleBtn) {
@@ -248,5 +289,6 @@ if (darkModeToggle) {
   startAutoScroll();
   document.querySelector('.card-container').addEventListener('mouseenter', stopAutoScroll);
   document.querySelector('.card-container').addEventListener('mouseleave', startAutoScroll);
-}
 
+  
+}
