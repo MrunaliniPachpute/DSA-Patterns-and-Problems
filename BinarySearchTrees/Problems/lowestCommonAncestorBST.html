@@ -10,6 +10,8 @@
  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -84,6 +86,10 @@ function LCA(node, p, q):
         return LCA(node.right, p, q)
     return node
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/LowestCommonAncestorBST.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> If both < root go left; if both > root go right; else current root is the LCA.</p>
 
     </section>
@@ -101,6 +107,8 @@ function LCA(node, p, q):
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+
 </body>
 
 </html>
