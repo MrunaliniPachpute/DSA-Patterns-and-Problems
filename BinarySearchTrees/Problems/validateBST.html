@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -78,6 +80,10 @@ function inorder(node):
     prev = node.val
     return inorder(node.right)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/ValidateBST1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Inorder must be strictly increasing; track prev and fail on any non-increase.</p>
 
     </section>
@@ -94,6 +100,10 @@ function isBST(node, min, max):
     if node.val <= min or node.val >= max: return false
     return isBST(node.left, min, node.val) and isBST(node.right, node.val, max)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/ValidateBST2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Each node must satisfy (min < val < max); tighten bounds as you descend.</p>
 
     </section>
@@ -111,6 +121,8 @@ function isBST(node, min, max):
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+
 </body>
 
 </html>

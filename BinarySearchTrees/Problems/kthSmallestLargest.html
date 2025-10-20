@@ -10,6 +10,8 @@
  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -80,6 +82,10 @@ function inorder(node, k):
     if count == k: result = node.val
     inorder(node.right, k)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/KthSmallLargeInBST1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Traverse left→node→right and stop at the kth visit; inorder is sorted in BST.</p>
 
     </section>
@@ -101,6 +107,10 @@ function reverseInorder(node, k):
     if count == k: result = node.val
     reverseInorder(node.left, k)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/KthSmallLargeInBST2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Go right→node→left and count down to the kth to get kth largest.</p>
 
     </section>
@@ -118,6 +128,8 @@ function reverseInorder(node, k):
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+
 </body>
 
 </html>

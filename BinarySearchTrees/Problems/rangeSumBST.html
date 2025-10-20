@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -83,6 +85,10 @@ function rangeSum(node, L, R):
         sum += rangeSum(node.right, L, R)
     return sum
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+           <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/RangeSumInBST.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Skip subtrees outside [L,R]; add node if within range, recurse only where it can still fit.</p>
 
     </section>
@@ -100,6 +106,8 @@ function rangeSum(node, L, R):
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+
 </body>
 
 </html>
