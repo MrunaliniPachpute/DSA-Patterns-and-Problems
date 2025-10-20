@@ -125,7 +125,72 @@ return false
       </div>
 
     </section>
-    <a 
+
+    <!-- Proof Card: Why the Slow and Fast Pointers Must Meet -->
+<section class="approach-section" id="proof-slow-fast">
+  <h2>Why the Slow and Fast Pointers Must Meet (Proof — Simple)</h2>
+
+  <p><strong>Goal:</strong> Show that if a linked list has a cycle then the “slow” (1 step) and “fast” (2 steps) pointers must meet.</p>
+
+  <h3>Assumptions</h3>
+  <ul>
+    <li>The list contains a cycle.</li>
+    <li>The cycle starts after <em>μ</em> nodes from the head.</li>
+    <li>The cycle length (number of nodes in loop) = <em>k</em>.</li>
+    <li>Slow moves 1 step per iteration; fast moves 2 steps per iteration.</li>
+  </ul>
+
+  <h3>Positions after <em>t</em> steps</h3>
+  <p>
+    After <em>t</em> steps from the head:
+  </p>
+  <ul>
+    <li>Slow has moved <em>t</em> nodes → position = <code>t</code>.</li>
+    <li>Fast has moved <em>2t</em> nodes → position = <code>2t</code>.</li>
+  </ul>
+
+  <p>
+    Once both pointers have entered the cycle (i.e., for <code>t ≥ μ</code>), only positions <em>modulo k</em> matter:
+  </p>
+  <pre class="pseudo-code">
+slow position = (t − μ) mod k
+fast position = (2t − μ) mod k
+  </pre>
+
+  <h3>Condition for meeting</h3>
+  <p>They meet when their positions inside the loop are equal:</p>
+  <pre class="pseudo-code">
+(2t − μ) mod k = (t − μ) mod k
+</pre>
+  <p>Simplifying:</p>
+  <pre class="pseudo-code">
+2t − μ ≡ t − μ (mod k)
+⇒ t ≡ 0 (mod k)
+  </pre>
+
+  <p>
+    That means <strong>t must be a multiple of k</strong>. Therefore, within at most <code>k</code> steps after the slow pointer enters the cycle, the two pointers will be at the same node (they meet).
+  </p>
+
+  <h3>Intuition / Gap argument (alternate, quick view)</h3>
+  <p>
+    After slow enters the cycle, the fast pointer is somewhere inside the loop. Each iteration the fast pointer advances exactly one node further than slow (2 − 1 = 1). So their gap (distance around the loop) decreases by 1 modulo <code>k</code> every step. The gap values cycle through <code>{0,1,...,k−1}</code>, so within at most <code>k</code> steps the gap becomes 0 — they meet.
+  </p>
+
+  <h3>Conclusion</h3>
+  <p>
+    If the linked list contains a cycle, the slow and fast pointers will definitely meet inside the loop, and this will occur within at most <code>k</code> steps after slow enters the cycle. If there is no cycle, fast reaches <code>NULL</code> and they never meet.
+  </p>
+
+  <pre class="pseudo-code">
+Summary:
+- If cycle exists → slow & fast meet inside loop (within ≤ k steps after slow enters).
+- If no cycle → fast becomes NULL → no meeting.
+  </pre>
+
+</section>
+
+    <a >
         href="https://leetcode.com/problems/linked-list-cycle/" 
         class="leetcode-btn" 
         target="_blank">
