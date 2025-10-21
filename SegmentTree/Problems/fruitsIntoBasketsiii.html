@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruits Into Baskets III - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../segmentTree.html">Segment Tree Problems</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fruits Into Baskets III</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Fruits Into Baskets III</h1>
+
+    <!--Leetcode link-->
+
+    <p class="leetcode-link">
+      <a href="https://leetcode.com/problems/fruits-into-baskets-iii" target="_blank" rel="noopener noreferrer">
+        LeetCode (similar problem)
+      </a>
+    </p>
+    <!--Print / Export control-->
+
+    <button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+    <link rel="stylesheet" href="../../CSS/print.css" media="print">
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        You are given two arrays of integers, <strong>fruits</strong> and <strong>baskets</strong>, each of length <strong>n</strong>, where <strong>fruits[i]</strong> represents the quantity of the <strong>i</strong>th type of fruit, and <strong>baskets[j]</strong> represents the capacity of the <strong>j</strong>th basket. From left to right, place the fruits according to these rules:
+        <ul>
+          <li>Each fruit type must be placed in the leftmost available basket with a capacity greater than or equal to the quantity of that fruit type.</li>
+          <li>Each basket can hold only one type of fruit.</li>
+          <li>If a fruit type cannot be placed in any basket, it remains unplaced.</li>
+        </ul>
+        Return the number of fruit types that remain unplaced after all possible allocations are made.
+      </p>
+      <p>
+        <strong>Example 1:</strong> fruits = [4,2,5], baskets = [3,5,4] → Output: 1<br>
+        <strong>Example 2:</strong> fruits = [3,6,1], baskets = [6,4,7] → Output: 0
+      </p>
+    </section>
+
+
+      <!-- Approach 1: Brute Force Approach -->
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force  Approach</h2>
+      <p>
+        <strong>Explanation:</strong> For each fruit, iterate through the baskets to find the leftmost one with sufficient capacity. Mark the basket as used (set to -1) after placing the fruit. Count the number of baskets that remain unused, which corresponds to unplaced fruits.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n²) for iterating through baskets for each fruit.</p>
+      <p><strong>Space Complexity:</strong> O(1) excluding input storage.</p>
+      <pre class="pseudo-code">
+for i in range(0, n):
+    for j in range(0, n):
+        if baskets[j] >= fruits[i]:
+            baskets[j] = -1
+            break
+cnt = 0
+for j in range(0, n):
+    if baskets[j] != -1:
+        cnt += 1
+return cnt
+  </pre>
+  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+    </section>
+
+    <!-- Approach 2: Segment Tree -->
+    <section class="approach-section">
+      <h2>Approach 2: Segment Tree</h2>
+      <p>
+        <strong>Explanation:</strong> Build a segment tree to store the maximum basket capacity in each range. For each fruit, query the segment tree to find the leftmost basket with sufficient capacity. If found, mark the basket as used (set to -1) and update the tree. Count fruits that cannot be placed.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n) for building the segment tree and O(n log n) for n queries.</p>
+      <p><strong>Space Complexity:</strong> O(n) for the segment tree.</p>
+      <pre class="pseudo-code">
+function build(i, l, r, baskets):
+    if l == r:
+        segTree[i] = baskets[l]
+        return
+    mid = l + (r - l) / 2
+    build(2*i+1, l, mid, baskets)
+    build(2*i+2, mid+1, r, baskets)
+    segTree[i] = max(segTree[2*i+1], segTree[2*i+2])
+
+function segQuery(i, l, r, fruit, baskets):
+    if segTree[i] < fruit:
+        return false
+    if l == r:
+        segTree[i] = -1
+        return true
+    mid = l + (r - l) / 2
+    placed = false
+    if segTree[2*i+1] >= fruit:
+        placed = segQuery(2*i+1, l, mid, fruit, baskets)
+    else:
+        placed = segQuery(2*i+2, mid+1, r, fruit, baskets)
+    segTree[i] = max(segTree[2*i+1], segTree[2*i+2])
+    return placed
+
+unplaced = 0
+segTree = array of size 4*n initialized to -1
+build(0, 0, n-1, baskets)
+for each fruit in fruits:
+    if not segQuery(0, 0, n-1, fruit, baskets):
+        unplaced += 1
+return unplaced
+      </pre>
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+    </section>
+
+  
+    <a 
+      href="https://leetcode.com/problems/fruits-into-baskets-iii" 
+      class="leetcode-btn" 
+      target="_blank">
+      Solve on LeetCode
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+</html>
