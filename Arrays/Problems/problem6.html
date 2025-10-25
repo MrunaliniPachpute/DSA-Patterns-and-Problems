@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product of Array Except Self | DSA Problems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .code-block .comment {
+            color: #5c6370;
+        }
+
+        .code-block .keyword {
+            color: #c678dd;
+        }
+
+        .code-block .function {
+            color: #61afef;
+        }
+
+        .code-block .string {
+            color: #98c379;
+        }
+
+        .complexity {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .complexity h3 {
+            margin-bottom: 10px;
+        }
+
+        .approach {
+            background: #e8f4f8;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .approach h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+
+        .approach ol {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .key-insight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-insight strong {
+            color: #ff9800;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 Product of Array Except Self</h1>
+            <span class="difficulty">Medium</span>
+        </div>
+
+        <div class="content">
+            <!-- Problem Statement -->
+            <div class="section">
+                <h2>📋 Problem Statement</h2>
+                <p>
+                    Given an integer array <strong>nums</strong>, return an array <strong>answer</strong> such that 
+                    <strong>answer[i]</strong> is equal to the product of all the elements of <strong>nums</strong> 
+                    except <strong>nums[i]</strong>.
+                </p>
+                <p>
+                    You must write an algorithm that runs in <strong>O(n)</strong> time and 
+                    <strong>without using the division operation</strong>.
+                </p>
+            </div>
+
+            <!-- Examples -->
+            <div class="section">
+                <h2>💡 Examples</h2>
+                
+                <div class="example">
+                    <h3>Example 1:</h3>
+                    <p><strong>Input:</strong> nums = [1, 2, 3, 4]</p>
+                    <p><strong>Output:</strong> [24, 12, 8, 6]</p>
+                    <p><strong>Explanation:</strong></p>
+                    <ul>
+                        <li>answer[0] = 2 × 3 × 4 = 24</li>
+                        <li>answer[1] = 1 × 3 × 4 = 12</li>
+                        <li>answer[2] = 1 × 2 × 4 = 8</li>
+                        <li>answer[3] = 1 × 2 × 3 = 6</li>
+                    </ul>
+                </div>
+
+                <div class="example">
+                    <h3>Example 2:</h3>
+                    <p><strong>Input:</strong> nums = [-1, 1, 0, -3, 3]</p>
+                    <p><strong>Output:</strong> [0, 0, 9, 0, 0]</p>
+                    <p><strong>Explanation:</strong></p>
+                    <ul>
+                        <li>answer[0] = 1 × 0 × (-3) × 3 = 0</li>
+                        <li>answer[1] = (-1) × 0 × (-3) × 3 = 0</li>
+                        <li>answer[2] = (-1) × 1 × (-3) × 3 = 9</li>
+                        <li>answer[3] = (-1) × 1 × 0 × 3 = 0</li>
+                        <li>answer[4] = (-1) × 1 × 0 × (-3) = 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Insight -->
+            <div class="key-insight">
+                <strong>💡 Key Insight:</strong> Instead of calculating the total product and dividing, we can use 
+                two passes: one to calculate products of all elements to the left, and another for products to the right.
+            </div>
+
+            <!-- Approach -->
+            <div class="section">
+                <h2>🎯 Approach (Optimal Solution)</h2>
+                
+                <div class="approach">
+                    <h3>Strategy: Left and Right Product Arrays</h3>
+                    <ol>
+                        <li><strong>Left Pass:</strong> For each position i, store the product of all elements to its left</li>
+                        <li><strong>Right Pass:</strong> For each position i, multiply with the product of all elements to its right</li>
+                        <li><strong>Combine:</strong> The result at each index will be left[i] × right[i]</li>
+                    </ol>
+                </div>
+
+                <p><strong>Visual Representation:</strong></p>
+                <div class="example">
+                    <p>For array [1, 2, 3, 4]:</p>
+                    <pre>
+Original:    [1,    2,    3,    4]
+Left Product [1,    1,    2,    6]  (product of all elements to the left)
+Right Product[24,   12,   4,    1]  (product of all elements to the right)
+Result:      [24,   12,   8,    6]  (left × right)
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Pseudocode -->
+            <div class="section">
+                <h2>📝 Pseudocode</h2>
+                <div class="code-block">
+<span class="keyword">function</span> <span class="function">productExceptSelf</span>(nums):
+    n = length(nums)
+    answer = array of size n
+    
+    <span class="comment">// Step 1: Calculate left products</span>
+    left_product = 1
+    <span class="keyword">for</span> i from 0 to n-1:
+        answer[i] = left_product
+        left_product = left_product × nums[i]
+    
+    <span class="comment">// Step 2: Calculate right products and multiply with left</span>
+    right_product = 1
+    <span class="keyword">for</span> i from n-1 to 0:
+        answer[i] = answer[i] × right_product
+        right_product = right_product × nums[i]
+    
+    <span class="keyword">return</span> answer
+                </div>
+            </div>
+
+            <!-- Code Implementation -->
+            <div class="section">
+                <h2>💻 Code Implementation</h2>
+                
+                <h3>Python:</h3>
+                <div class="code-block">
+<span class="keyword">def</span> <span class="function">productExceptSelf</span>(nums):
+    n = len(nums)
+    answer = [1] * n
+    
+    <span class="comment"># Calculate left products</span>
+    left_product = 1
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):
+        answer[i] = left_product
+        left_product *= nums[i]
+    
+    <span class="comment"># Calculate right products and combine</span>
+    right_product = 1
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n - 1, -1, -1):
+        answer[i] *= right_product
+        right_product *= nums[i]
+    
+    <span class="keyword">return</span> answer
+
+<span class="comment"># Test</span>
+nums = [1, 2, 3, 4]
+print(productExceptSelf(nums))  <span class="comment"># Output: [24, 12, 8, 6]</span>
+                </div>
+
+                <h3>JavaScript:</h3>
+                <div class="code-block">
+<span class="keyword">function</span> <span class="function">productExceptSelf</span>(nums) {
+    <span class="keyword">const</span> n = nums.length;
+    <span class="keyword">const</span> answer = <span class="keyword">new</span> Array(n).fill(1);
+    
+    <span class="comment">// Calculate left products</span>
+    <span class="keyword">let</span> leftProduct = 1;
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = 0; i < n; i++) {
+        answer[i] = leftProduct;
+        leftProduct *= nums[i];
+    }
+    
+    <span class="comment">// Calculate right products and combine</span>
+    <span class="keyword">let</span> rightProduct = 1;
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = n - 1; i >= 0; i--) {
+        answer[i] *= rightProduct;
+        rightProduct *= nums[i];
+    }
+    
+    <span class="keyword">return</span> answer;
+}
+
+<span class="comment">// Test</span>
+console.log(productExceptSelf([1, 2, 3, 4]));  <span class="comment">// [24, 12, 8, 6]</span>
+                </div>
+            </div>
+
+            <!-- Complexity Analysis -->
+            <div class="section">
+                <h2>⚡ Complexity Analysis</h2>
+                <div class="complexity">
+                    <h3>Time Complexity: O(n)</h3>
+                    <p>We traverse the array twice (once for left products, once for right products)</p>
+                    
+                    <h3 style="margin-top: 15px;">Space Complexity: O(1)</h3>
+                    <p>We only use the output array (which doesn't count as extra space) and a few variables</p>
+                </div>
+            </div>
+
+            <!-- Edge Cases -->
+            <div class="section">
+                <h2>⚠️ Edge Cases to Consider</h2>
+                <div class="example">
+                    <ul>
+                        <li><strong>Array with zeros:</strong> [0, 1, 2] → Product will be 0 for most positions</li>
+                        <li><strong>Array with negative numbers:</strong> [-1, -2, 3] → Handle sign changes correctly</li>
+                        <li><strong>Single element:</strong> [5] → Output should be [1]</li>
+                        <li><strong>Two elements:</strong> [2, 3] → Output should be [3, 2]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Applications -->
+            <div class="section">
+                <h2>🌟 Real-world Applications</h2>
+                <div class="approach">
+                    <ul>
+                        <li><strong>Economics:</strong> Calculate total production excluding each factory's output</li>
+                        <li><strong>Statistics:</strong> Leave-one-out cross-validation in machine learning</li>
+                        <li><strong>Game Development:</strong> Calculate team scores excluding each player</li>
+                        <li><strong>Data Analysis:</strong> Identify anomalies by comparing against aggregate without outliers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="../array.html" class="back-button">← Back to Arrays Problems</a>
+        </div>
+    </div>
+</body>
+</html>
