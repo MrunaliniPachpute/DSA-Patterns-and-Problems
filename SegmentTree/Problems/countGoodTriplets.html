@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count Good Triplets in an Array - CodeDSA</title>
+ <link rel="stylesheet" href="../../CSS/AllProblems.css">
+ <link rel="stylesheet" href="../../CSS/leetcodeButton.css"> 
+ <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../segmentTree.html">Segment Tree</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Count Good Triplets in an Array
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Count Good Triplets in an Array</h1>
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://leetcode.com/problems/count-good-triplets-in-an-array/" target="_blank" rel="noopener noreferrer">LeetCode #2179 [Hard]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        You are given two <strong>0-indexed</strong> arrays <strong>nums1</strong> and <strong>nums2</strong>, 
+        both of length <strong>n</strong>, consisting of a permutation of integers from <strong>0</strong> to <strong>n - 1</strong>.
+      </p>
+      <p>
+        A <strong>good triplet</strong> is a set of <strong>3 distinct</strong> values which are present in 
+        <strong>increasing order</strong> by position both in <strong>nums1</strong> and <strong>nums2</strong>. 
+        In other words, if we consider <strong>pos1<sub>v</sub></strong> as the index of value <strong>v</strong> 
+        in <strong>nums1</strong> and <strong>pos2<sub>v</sub></strong> as the index of value <strong>v</strong> 
+        in <strong>nums2</strong>, then a good triplet will be a set <strong>(x, y, z)</strong> where:
+      </p>
+      <ul>
+        <li>0 ≤ x, y, z ≤ n - 1</li>
+        <li>pos1<sub>x</sub> < pos1<sub>y</sub> < pos1<sub>z</sub></li>
+        <li>pos2<sub>x</sub> < pos2<sub>y</sub> < pos2<sub>z</sub></li>
+      </ul>
+      <p>Return <em>the total number of good triplets</em>.</p>
+
+      <p><strong>Example 1:</strong></p>
+      <pre class="pseudo-code">
+Input: nums1 = [2,0,1,3], nums2 = [0,1,2,3]
+Output: 1
+Explanation: 
+There are 4 triplets (x,y,z) such that pos1x < pos1y < pos1z. 
+They are (2,0,1), (2,0,3), (2,1,3), and (0,1,3). 
+Out of those triplets, only the triplet (0,1,3) satisfies 
+pos2x < pos2y < pos2z. Hence, there is only 1 good triplet.
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
+      <p><strong>Example 2:</strong></p>
+      <pre class="pseudo-code">
+Input: nums1 = [4,0,1,3,2], nums2 = [4,1,0,2,3]
+Output: 4
+Explanation: The 4 good triplets are (4,0,3), (4,0,2), 
+(4,1,3), and (4,1,2).
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+
+      <p><strong>Constraints:</strong></p>
+      <ul>
+        <li>n == nums1.length == nums2.length</li>
+        <li>3 ≤ n ≤ 10<sup>5</sup></li>
+        <li>0 ≤ nums1[i], nums2[i] ≤ n - 1</li>
+        <li>nums1 and nums2 are permutations of [0, 1, ..., n - 1]</li>
+      </ul>
+    </section>
+
+    <!-- Approaches -->
+    <section class="approach-section">
+      <h2>Approach 1: Brute Force</h2>
+      <p>
+        <strong>Explanation:</strong> Check all possible triplets and verify if they maintain 
+        increasing order in both arrays.
+      </p>
+      <p>
+        <strong>Time Complexity:</strong> O(n³)
+      </p>
+      <p><strong>Space Complexity:</strong> O(n) for position mapping</p>
+      <pre class="pseudo-code">
+function goodTriplets(nums1, nums2):
+    n = length of nums1
+    pos1 = map value to index in nums1
+    pos2 = map value to index in nums2
+    
+    count = 0
+    for x = 0 to n-1:
+        for y = 0 to n-1:
+            if pos1[x] >= pos1[y] or pos2[x] >= pos2[y]:
+                continue
+            for z = 0 to n-1:
+                if pos1[y] < pos1[z] and pos2[y] < pos2[z]:
+                    count++
+    
+    return count
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Triple nested loop checks all combinations but too slow for constraints.</p>
+
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 2: Binary Indexed Tree (BIT) - Optimal</h2>
+      <p>
+        <strong>Explanation:</strong> For each element as middle element, count:
+        <br>• Elements to its left in nums1 that also appear before it in nums2
+        <br>• Elements to its right in nums1 that also appear after it in nums2
+        <br>Use BIT to efficiently count smaller/larger elements.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+function goodTriplets(nums1, nums2):
+    n = length of nums1
+    pos2 = map nums2[i] to index i
+    
+    // Transform nums1 based on positions in nums2
+    arr = [pos2[nums1[i]] for i in range(n)]
+    
+    // Count smaller elements to the left for each position
+    left = array of size n
+    bit1 = BinaryIndexedTree(n)
+    for i = 0 to n-1:
+        left[i] = bit1.query(arr[i])
+        bit1.update(arr[i] + 1, 1)
+    
+    // Count larger elements to the right for each position
+    right = array of size n
+    bit2 = BinaryIndexedTree(n)
+    for i = n-1 down to 0:
+        right[i] = bit2.query(n) - bit2.query(arr[i] + 1)
+        bit2.update(arr[i] + 1, 1)
+    
+    // Count good triplets with i as middle element
+    count = 0
+    for i = 0 to n-1:
+        count += left[i] * right[i]
+    
+    return count
+
+class BinaryIndexedTree:
+    function __init__(size):
+        tree = array of size+1 initialized to 0
+    
+    function update(index, delta):
+        while index <= size:
+            tree[index] += delta
+            index += index & (-index)
+    
+    function query(index):
+        sum = 0
+        while index > 0:
+            sum += tree[index]
+            index -= index & (-index)
+        return sum
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Transform to position array, use BIT to count valid left/right elements, multiply counts.</p>
+
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 3: Segment Tree with Coordinate Compression</h2>
+      <p>
+        <strong>Explanation:</strong> Similar to BIT approach but using segment tree for range queries. 
+        Map positions in nums2, then count inversions efficiently.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+    <pre class="pseudo-code">// C++: count good triplets using segment trees (or BIT). Here is a clean segment tree implementation
+#include &lt;vector&gt;
+using namespace std;
+
+struct SegTree {
+  int n; vector&lt;int&gt; t;
+  SegTree(int _n=0){ init(_n); }
+  void init(int _n){ n=_n; t.assign(4*n,0); }
+
+  void update(int pos,int val,int idx,int l,int r){
+    if(l==r){ t[idx]+=val; return; }
+    int mid=(l+r)/2;
+    if(pos &lt;= mid) update(pos,val,2*idx+1,l,mid);
+    else update(pos,val,2*idx+2,mid+1,r);
+    t[idx]=t[2*idx+1]+t[2*idx+2];
+  }
+
+  int query(int ql,int qr,int idx,int l,int r){
+    if(ql &gt; r || qr &lt; l) return 0;
+    if(ql &lt;= l &amp;&amp; r &lt;= qr) return t[idx];
+    int mid=(l+r)/2;
+    return query(ql,qr,2*idx+1,l,mid) + query(ql,qr,2*idx+2,mid+1,r);
+  }
+};
+
+class Solution {
+public:
+  long long goodTriplets(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2){
+    int n = nums1.size();
+    vector&lt;int&gt; pos2(n);
+    for(int i=0;i&lt;n;i++) pos2[nums2[i]] = i;
+
+    // map nums1 values to positions in nums2
+    vector&lt;int&gt; arr(n);
+    for(int i=0;i&lt;n;i++) arr[i] = pos2[nums1[i]];
+
+    SegTree seg(n);
+    vector&lt;long long&gt; left(n,0), right(n,0);
+
+    // count elements smaller than arr[i] to the left
+    for(int i=0;i&lt;n;i++){
+      if(arr[i]-1 &gt;= 0) left[i] = seg.query(0, arr[i]-1, 0, 0, n-1);
+      seg.update(arr[i], 1, 0, 0, n-1);
+    }
+
+    // reset segment tree
+    seg.init(n);
+    for(int i=n-1;i&gt;=0;i--){
+      if(arr[i]+1 &lt;= n-1) right[i] = seg.query(arr[i]+1, n-1, 0, 0, n-1);
+      seg.update(arr[i], 1, 0, 0, n-1);
+    }
+
+    long long ans = 0;
+    for(int i=0;i&lt;n;i++) ans += left[i] * right[i];
+    return ans;
+  }
+};</pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Segment tree provides same functionality as BIT with more intuitive range operations.</p>
+
+    </section>
+
+    <section class="approach-section">
+      <h2>Approach 4: Merge Sort Based Counting</h2>
+      <p>
+        <strong>Explanation:</strong> Use merge sort to count inversions efficiently. 
+        Transform problem to counting specific ordered pairs using modified merge sort.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Space Complexity:</strong> O(n)</p>
+      <pre class="pseudo-code">
+function goodTriplets(nums1, nums2):
+    n = length of nums1
+    pos2 = {nums2[i]: i for i in range(n)}
+    arr = [pos2[nums1[i]] for i in range(n)]
+    
+    left = array of size n  // count of valid left elements
+    right = array of size n // count of valid right elements
+    
+    // Count smaller elements on left using merge sort
+    for i = 0 to n-1:
+        left[i] = countSmaller(arr[0:i], arr[i])
+    
+    // Count larger elements on right using merge sort
+    for i = 0 to n-1:
+        right[i] = countLarger(arr[i+1:n], arr[i])
+    
+    count = 0
+    for i = 0 to n-1:
+        count += left[i] * right[i]
+    
+    return count
+
+function countSmaller(arr, target):
+    // Count elements < target in arr
+    
+function countLarger(arr, target):
+    // Count elements > target in arr
+      </pre><button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+<p class="think-line">💡 <strong>Think:</strong> Merge sort efficiently counts ordered elements; multiply valid pairs for triplet count.</p>
+
+    </section>
+
+  <a 
+      href="https://leetcode.com/problems/count-good-triplets-in-an-array/" 
+      class="leetcode-btn" 
+      target="_blank">
+      Solve on LeetCode
+  </a>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+  
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+  </body>
+</html>
