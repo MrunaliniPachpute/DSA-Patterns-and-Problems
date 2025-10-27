@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insert & Search in BST - CodeDSA</title>
  <link rel="stylesheet" href="../../CSS/AllProblems.css">
-  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -93,6 +96,10 @@ function search(node, val):
         return search(node.left, val)
     return search(node.right, val)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/InsertSearchbst1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Compare with node and branch left/right until you place/find the value.</p>
 
     </section>
@@ -130,7 +137,12 @@ function search(root, val):
             return node
         node = node.left if val < node.val else node.right
     return NULL
-          </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          </pre>  
+          <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/InsertSearcbst2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Walk down with a pointer; track parent to attach new nodes without recursion.</p>
 
     </section>
@@ -150,6 +162,8 @@ function search(root, val):
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
+
 </body>
 
 </html>
