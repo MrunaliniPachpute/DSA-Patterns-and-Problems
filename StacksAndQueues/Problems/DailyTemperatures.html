@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Temperatures - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+    <link rel="stylesheet" href="../../CSS/leetcodeButton.css" />
+    <link rel="stylesheet" href="../../CSS/Flowchart.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="../../index.html" class="logo-container">
+        <div class="logo-img">
+          <img src="../../Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../stackAndQueue.html">Stacks & Queues</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Daily Temperatures
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <main>
+      <h1>Daily Temperatures</h1>
+
+      <!-- Leetcode link -->
+      <p class="leetcode-link">
+        <a
+          href="https://leetcode.com/problems/daily-temperatures/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LeetCode #739 [Medium]
+        </a>
+      </p>
+
+      <!-- Print / Export control -->
+      <button onclick="window.print()" class="export-btn">
+        📄 Print/Save as PDF
+      </button>
+      <link rel="stylesheet" href="../../CSS/print.css" media="print" />
+
+      <!-- Problem Statement -->
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          Given an array of integers <code>temperatures</code> representing the
+          daily temperatures, return an array <code>answer</code> such that
+          <code>answer[i]</code> is the number of days you have to wait after
+          the <code>i<sup>th</sup></code> day to get a warmer temperature. If
+          there is no future day for which this is possible, set
+          <code>answer[i] = 0</code>.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class="pseudo-code">
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+Explanation:
+- For day 1 (73°F), next warmer day is day 2 (74°F) → wait 1 day.
+- For day 2 (74°F), next warmer day is day 3 (75°F) → wait 1 day.
+- For day 3 (75°F), next warmer day is day 7 (76°F) → wait 4 days.
+- For day 7 (76°F), no warmer day ahead → 0 days.
+      </pre
+        >
+      </section>
+
+      <!-- Approach 1: Brute Force -->
+      <section class="approach-section">
+        <h2>Approach 1: Brute Force</h2>
+        <p>
+          <strong>Idea:</strong> For each day, look ahead in the array until a
+          warmer temperature is found.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+        <pre class="pseudo-code">
+Initialize answer = [0] * n
+for i in range(0, n):
+    for j in range(i+1, n):
+        if temperatures[j] > temperatures[i]:
+            answer[i] = j - i
+            break
+      </pre
+        >
+        <div class="fc-container">
+          <button class="fc-button">View Flowchart</button>
+          <img
+            src="../Flowchart/prob7app1.png"
+            alt="Daily Temperatures Brute Force Flowchart"
+            class="fc-image"
+          />
+        </div>
+        <p class="think-line">
+          💡 <strong>Think:</strong> This works but checks many unnecessary
+          comparisons- inefficient for large inputs.
+        </p>
+      </section>
+
+      <!-- Approach 2: Monotonic Stack (Optimal) -->
+      <section class="approach-section">
+        <h2>Approach 2: Monotonic Stack (Optimal)</h2>
+        <p>
+          <strong>Idea:</strong> Use a stack to keep track of indices of days
+          with unresolved temperatures. When a warmer day is found, pop from
+          stack and calculate waiting days.
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+        <pre class="pseudo-code">
+Initialize stack = []
+Initialize answer = [0] * n
+
+for i in range(n):
+    while stack is not empty and temperatures[i] > temperatures[stack.top()]:
+        prev_day = stack.pop()
+        answer[prev_day] = i - prev_day
+    stack.push(i)
+return answer
+      </pre
+        >
+        <div class="fc-container">
+          <button class="fc-button">View Flowchart</button>
+          <img
+            src="../Flowchart/prob7app2.png"
+            alt="Daily Temperatures Monotonic Stack Flowchart"
+            class="fc-image"
+          />
+        </div>
+        <p class="think-line">
+          💡 <strong>Think:</strong> Stack maintains decreasing temperatures-
+          whenever a higher one comes, resolve all smaller ones efficiently.
+        </p>
+      </section>
+
+      <!-- LeetCode button -->
+      <a
+        href="https://leetcode.com/problems/daily-temperatures/"
+        class="leetcode-btn"
+        target="_blank"
+      >
+        Solve on LeetCode
+      </a>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+
+    <script src="../../index.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
+  </body>
+</html>
