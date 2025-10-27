@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Change - CodeDSA</title>
+    <link rel="stylesheet" href="../../CSS/AllProblems.css" />
+    <link rel="stylesheet" href="../../CSS/copyToClipboard.css" />
+    <link rel="stylesheet" href="../../CSS/leetcodeButton.css" />
+    <link rel="stylesheet" href="../../CSS/breadcrumb.css" />
+    <link rel="stylesheet" href="../../CSS/snake.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="../../index.html" class="logo-container">
+        <div class="logo-img">
+          <img src="../../Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+        <button id="snakeToggle" class="snake-btn">
+          <span style="margin-left: 20px">Snake Cursor</span>
+        </button>
+        <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+      </div>
+    </nav>
+
+    <div class="breadcrumb-container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="../dp.html">Dynamic Programming</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Coin Change
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <main>
+      <h1>Coin Change</h1>
+
+      <p class="leetcode-link">
+        <a
+          href="https://leetcode.com/problems/coin-change/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LeetCode #322 [Medium]
+        </a>
+      </p>
+
+      <button onclick="window.print()" class="export-btn">
+        📄 Print/Save as PDF
+      </button>
+      <link rel="stylesheet" href="../../CSS/print.css" media="print" />
+
+      <section class="problem-section">
+        <h2>Problem Statement</h2>
+        <p>
+          You are given an integer array <strong>coins</strong> representing
+          different denominations and an integer
+          <strong>amount</strong> representing a total amount of money.
+        </p>
+        <p>
+          Return the fewest number of coins needed to make up that amount. If it
+          is not possible to make up that amount, return <code>-1</code>.
+        </p>
+        <pre>
+Input: coins = [1,2,5], amount = 11
+Output: 3
+      </pre
+        >
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 1: Recursion</h2>
+        <pre class="pseudo-code">
+function coinChange(coins, amount):
+    if amount == 0: return 0
+    if amount < 0: return INF
+    res = INF
+    for c in coins:
+        res = min(res, 1 + coinChange(coins, amount - c))
+    return res
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 2: Memoization</h2>
+        <pre class="pseudo-code">
+dp = array of size amount+1 filled with -1
+function coinChange(coins, amount):
+    if amount == 0: return 0
+    if amount < 0: return INF
+    if dp[amount] != -1: return dp[amount]
+    res = INF
+    for c in coins:
+        res = min(res, 1 + coinChange(coins, amount - c))
+    dp[amount] = res
+    return dp[amount]
+      </pre
+        >
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <section class="approach-section">
+        <h2>Approach 3: Tabulation</h2>
+        <pre class="pseudo-code"><code>
+int coinChange(vector&lt;int&gt;&amp; coins, int amt) {
+    int n = coins.size();
+    vector&lt;vector&lt;int&gt;&gt; dp(n + 1, vector&lt;int&gt;(amt + 1, INT_MAX - 1));
+    for (int i = 0; i &lt;= n; i++) dp[i][0] = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1; j &lt;= amt; j++) {
+            dp[i][j] = dp[i - 1][j];
+            if (coins[i - 1] &lt;= j) {
+                dp[i][j] = min(dp[i][j], 1 + dp[i][j - coins[i - 1]]);
+            }
+        }
+    }
+    return dp[n][amt] &gt;= INT_MAX - 1 ? -1 : dp[n][amt];
+}
+  </code></pre>
+        <button class="copyToClipboard" onclick="copyToClipboard(this)">
+          Copy!
+        </button>
+      </section>
+
+      <section>
+        <button id="toggleBtn" class="toggle-btn">Show Flowchart ▲</button>
+        <div id="flowchart" class="flowchart-container">
+          <img
+            src="../flowcharts/coin_change.png"
+            alt="Flowchart"
+            height="500px"
+            width="600px"
+          />
+        </div>
+      </section>
+
+      <a
+        href="https://leetcode.com/problems/coin-change/"
+        class="leetcode-btn"
+        target="_blank"
+        >Solve on LeetCode</a
+      >
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+
+    <script src="../../index.js"></script>
+    <script src="../../copyToClipboard.js"></script>
+    <script src="../../JS/problemTracker.js"></script>
+  </body>
+</html>

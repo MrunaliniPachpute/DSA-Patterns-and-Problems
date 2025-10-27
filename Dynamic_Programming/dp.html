@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeDSA Dynamic Programming</title>
     <link rel="stylesheet" href="../CSS/scrolltotop.css" />
-    <link rel="stylesheet" href="../CSS/breadcrumb.css">
+    <link rel="stylesheet" href="../CSS/breadcrumb.css" />
     <link rel="stylesheet" href="../CSS/AllTopics.css" />
     <link rel="stylesheet" href="../CSS/snake.css" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-       <a href="../index.html" class="logo-container">
-  <div class="logo-img">
-    <img src="../Images/logo.png" alt="Logo">
-  </div>
-  <div class="logo">CodeDSA</div>
-</a>
+      <a href="../index.html" class="logo-container">
+        <div class="logo-img">
+          <img src="../Images/logo.png" alt="Logo" />
+        </div>
+        <div class="logo">CodeDSA</div>
+      </a>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
@@ -30,106 +30,134 @@
         <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
       </div>
     </nav>
-<div class="breadcrumb-container">
-  <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-    <li class="breadcrumb-item active">Dynamic Programming</li>
-  </ul>
-</div>
-  <main>
-    <h1>Dynamic Programming Topics</h1>
-    <p class="intro-text">
-      Master essential dynamic programming problems and patterns frequently
-      asked in interviews.
-    </p>
-
-    <div id="topic-progress-bar">
-      <div id="topic-progress"></div>
-      <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+    <div class="breadcrumb-container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item active">Dynamic Programming</li>
+      </ul>
     </div>
+    <main>
+      <h1>Dynamic Programming Topics</h1>
+      <p class="intro-text">
+        Master essential dynamic programming problems and patterns frequently
+        asked in interviews.
+      </p>
 
-    <ul id="topics" class="topic-list" data-topic="dp">
-      <li>
-        <a href="./Problems/fibonacciDP.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">01</span>
-          <span class="topic-name">Fibonacci Sequence</span>
-          <span class="topic-desc">Classic recursion → memoization → tabulation pattern</span>
-        </a>
-      </li>
+      <div id="topic-progress-bar">
+        <div id="topic-progress"></div>
+        <div id="topic-progress-text">Progress: 0 / 5 Topics</div>
+      </div>
 
-      <li>
-        <a href="./Problems/0-1Knapsack.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">02</span>
-          <span class="topic-name">0/1 Knapsack</span>
-          <span class="topic-desc">Decision-making DP: include/exclude items for max value</span>
-        </a>
-      </li>
+      <ul id="topics" class="topic-list" data-topic="dp">
+        <li>
+          <a href="./Problems/fibonacciDP.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">01</span>
+            <span class="topic-name">Fibonacci Sequence</span>
+            <span class="topic-desc"
+              >Classic recursion → memoization → tabulation pattern</span
+            >
+          </a>
+        </li>
 
-      <li>
-        <a href="./Problems/catalanNumber.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">03</span>
-          <span class="topic-name">Catalan Numbers</span>
-          <span class="topic-desc">Combinatorial DP pattern for counting structures</span>
-        </a>
-      </li>
+        <li>
+          <a href="./Problems/0-1Knapsack.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">02</span>
+            <span class="topic-name">0/1 Knapsack</span>
+            <span class="topic-desc"
+              >Decision-making DP: include/exclude items for max value</span
+            >
+          </a>
+        </li>
 
-      <li>
-        <a href="./Problems/longestCommonSubsequence.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">04</span>
-          <span class="topic-name">Longest Common Subsequence (LCS)</span>
-          <span class="topic-desc">DP on strings, sequence alignment, overlapping subproblems</span>
-        </a>
-      </li>
+        <li>
+          <a href="./Problems/catalanNumber.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">03</span>
+            <span class="topic-name">Catalan Numbers</span>
+            <span class="topic-desc"
+              >Combinatorial DP pattern for counting structures</span
+            >
+          </a>
+        </li>
 
-      <li>
-        <a href="./Problems/unboundedKnapsack.html">
-          <span class="topic-completed">&nbsp;</span>
-          <span class="topic-number">05</span>
-          <span class="topic-name">Unbounded Knapsack</span>
-          <span class="topic-desc">Decision-based DP with unlimited repetitions of items</span>
-        </a>
-      </li>
+        <li>
+          <a href="./Problems/longestCommonSubsequence.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">04</span>
+            <span class="topic-name">Longest Common Subsequence (LCS)</span>
+            <span class="topic-desc"
+              >DP on strings, sequence alignment, overlapping subproblems</span
+            >
+          </a>
+        </li>
 
-    </ul>
+        <li>
+          <a href="./Problems/unboundedKnapsack.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">05</span>
+            <span class="topic-name">Unbounded Knapsack</span>
+            <span class="topic-desc"
+              >Decision-based DP with unlimited repetitions of items</span
+            >
+          </a>
+        </li>
+        <li>
+          <a href="./Problems/coinchange.html">
+            <span class="topic-completed">&nbsp;</span>
+            <span class="topic-number">06</span>
+            <span class="topic-name">Coin Change Problem</span>
+            <span class="topic-desc">Recursion + Memoization</span>
+          </a>
+        </li>
+      </ul>
 
-    <p class="pattern-coverage">
-      <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
-      These problems cover the most
-      <em>important dynamic programming patterns</em> for interviews:
-      <br /><br />
+      <p class="pattern-coverage">
+        <strong>WONDERING, HOW DOES IT COVER PATTERNS?</strong> <br />
+        These problems cover the most
+        <em>important dynamic programming patterns</em> for interviews:
+        <br /><br />
 
-      <span class="pattern-name">Fibonacci Sequence</span> →
-      <span class="pattern-desc">Overlapping subproblems, recursion → memoization → tabulation
-        pattern.</span><br />
-      <span class="pattern-name">0/1 Knapsack</span> →
-      <span class="pattern-desc">Decision-making DP: choose or skip items for optimization.</span><br />
-      <span class="pattern-name">Catalan Numbers</span> →
-      <span class="pattern-desc">Counting DP, combinatorial structures like valid parentheses,
-        BSTs.</span><br />
-      <span class="pattern-name">Longest Common Subsequence (LCS)</span> →
-      <span class="pattern-desc">2D DP table, string comparison, subproblem reuse.</span><br />
-      <span class="pattern-name">Unbounded Knapsack</span> →
-      <span class="pattern-desc">Decision-based DP with unlimited item usage.</span><br /><br />
+        <span class="pattern-name">Fibonacci Sequence</span> →
+        <span class="pattern-desc"
+          >Overlapping subproblems, recursion → memoization → tabulation
+          pattern.</span
+        ><br />
+        <span class="pattern-name">0/1 Knapsack</span> →
+        <span class="pattern-desc"
+          >Decision-making DP: choose or skip items for optimization.</span
+        ><br />
+        <span class="pattern-name">Catalan Numbers</span> →
+        <span class="pattern-desc"
+          >Counting DP, combinatorial structures like valid parentheses,
+          BSTs.</span
+        ><br />
+        <span class="pattern-name">Longest Common Subsequence (LCS)</span> →
+        <span class="pattern-desc"
+          >2D DP table, string comparison, subproblem reuse.</span
+        ><br />
+        <span class="pattern-name">Unbounded Knapsack</span> →
+        <span class="pattern-desc"
+          >Decision-based DP with unlimited item usage.</span
+        ><br /><br />
 
-      Together, they ensure you understand
-      <span class="highlight">recursion → DP conversion, decision-making, combinatorial counting,
-        string DP, and unbounded optimization</span>
-      in dynamic programming problems.
-    </p>
-  </main>
+        Together, they ensure you understand
+        <span class="highlight"
+          >recursion → DP conversion, decision-making, combinatorial counting,
+          string DP, and unbounded optimization</span
+        >
+        in dynamic programming problems.
+      </p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
-  </footer>
-  <button id="scrollToTopBtn" title="Go to top">⮝</button>
-  <script src="../JS/scrolltotop.js"></script>
-  <script src="../index.js"></script>
-  <script src="../JS/ProgressBar.js"></script>
-</body>
-
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+    </footer>
+    <button id="scrollToTopBtn" title="Go to top">⮝</button>
+    <script src="../JS/scrolltotop.js"></script>
+    <script src="../index.js"></script>
+    <script src="../JS/ProgressBar.js"></script>
+  </body>
 </html>
