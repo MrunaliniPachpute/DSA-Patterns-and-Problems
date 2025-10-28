@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css"> 
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/stringpermutation.css">
 </head>
 
 <body>
@@ -122,10 +123,48 @@ result = list(permutations(s))
     </a>
   </main>
 
+  <!-- String Permutations Visualizer -->
+<aside class="recursion-visualizer perms-visualizer" role="region" aria-label="String Permutations Visualizer">
+  <h3>String Permutations Visualizer</h3>
+
+  <div class="controls">
+    <label for="permInput" class="sr-only">Enter string</label>
+    <input id="permInput" type="text" placeholder="Enter string e.g. abc" aria-describedby="permHelp" value="abc" />
+    <span id="permHelp" class="muted">Max 7 chars for demo</span>
+
+    <label for="permSpeed" class="sr-only">Animation speed</label>
+    <select id="permSpeed" aria-label="Animation speed">
+      <option value="700">Slow</option>
+      <option value="350" selected>Normal</option>
+      <option value="100">Fast</option>
+    </select>
+
+    <button id="permRunBtn">Visualize</button>
+    <button id="permCancelBtn" disabled>Cancel</button>
+  </div>
+
+  <div class="visual-row">
+    <div id="permStackContainer" class="stack-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <div class="perm-right">
+      <div>
+        <strong>Current string:</strong>
+        <div id="permCurrent" class="vis-console" style="min-height:48px;"></div>
+      </div>
+      <div>
+        <strong>Permutations found:</strong>
+        <div id="permSolutions" class="vis-console" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
+<script src="../../JS/stringpermutation.js" defer></script>
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
