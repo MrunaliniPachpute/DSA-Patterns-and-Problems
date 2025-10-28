@@ -10,6 +10,8 @@
  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -76,6 +78,10 @@ for node in all_nodes:
         DFS(node)
         count += 1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/ConnectedComponents1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Start a new DFS from each unseen node; each full reach is one component.</p>
 
     </section>
@@ -103,6 +109,10 @@ for node in all_nodes:
                     visited.add(neighbor)
         count += 1
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/ConnectedComponents2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Flood-fill with a queue from every unvisited node to count components.</p>
 
     </section>
@@ -126,6 +136,10 @@ for each edge (u,v):
     union(u,v)
 count = number of unique parents
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/ConnectedComponents3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Union endpoints of edges; the number of unique roots equals components.</p>
 
     </section>
@@ -143,6 +157,7 @@ count = number of unique parents
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>

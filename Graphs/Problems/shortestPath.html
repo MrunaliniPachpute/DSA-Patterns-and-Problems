@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -83,6 +85,10 @@ while queue not empty:
             queue.push(neighbor)
 return dist
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/shortestpath1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Layered expansion guarantees shortest hops; track distance by levels.</p>
 
     </section>
@@ -108,6 +114,10 @@ while min_heap not empty:
             heap.push((dist[neighbor], neighbor))
 return dist
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/shortestpath2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Greedily pick the smallest tentative distance via a min-heap and relax edges.</p>
 
     </section>
@@ -130,6 +140,10 @@ for i in 1..V-1:
 check for negative weight cycles
 return dist
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/shortestpath3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Relax all edges V−1 times and detect negative cycles on an extra pass.</p>
 
     </section>
@@ -147,6 +161,7 @@ return dist
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>
