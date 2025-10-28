@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
+
 </head>
 
 <body>
@@ -82,6 +84,10 @@ while queue not empty:
             queue.push(neighbor)
             visited[neighbor] = true
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/bfsdfs1.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Explore level by level using a queue; enqueue unseen neighbors as you go.</p>
 
     </section>
@@ -102,6 +108,10 @@ function DFS(node):
             DFS(neighbor)
 DFS(start)
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/bfsdfs2.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Dive deep along one path via recursion, backtrack when stuck using a visited set.</p>
 
     </section>
@@ -121,6 +131,10 @@ while stack not empty:
             stack.push(neighbor)
             visited[neighbor] = true
           </pre>  <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+          <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/bfsdfs3.png" alt="Heap Sort Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Use an explicit stack to mimic recursion, pushing neighbors and exploring depth-first.</p>
 
     </section>
@@ -138,6 +152,7 @@ while stack not empty:
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+  <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>
