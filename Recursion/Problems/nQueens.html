@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css"> 
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/nQueens.css">
 </head>
 
 <body>
@@ -134,10 +135,41 @@ solve(0,0,0,0)
     </a>
   </main>
 
+  <!-- N-Queens Backtracking Visualizer -->
+<aside class="recursion-visualizer nqueens-visualizer" role="region" aria-label="N Queens Backtracking Visualizer">
+  <h3>N-Queens Visualizer</h3>
+
+  <div class="controls">
+    <label for="nqN" class="sr-only">Board size N</label>
+    <input id="nqN" type="number" min="1" max="8" value="4" placeholder="N (1–8)" aria-describedby="nqHelp">
+
+    <label for="nqSpeed" class="sr-only">Animation speed</label>
+    <select id="nqSpeed" aria-label="Animation speed">
+      <option value="700">Slow</option>
+      <option value="350" selected>Normal</option>
+      <option value="100">Fast</option>
+    </select>
+
+    <button id="nqRunBtn">Run</button>
+    <button id="nqCancelBtn" disabled>Cancel</button>
+  </div>
+
+  <div class="visual-row">
+    <div id="nqStackContainer" class="stack-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <div>
+      <div id="nqBoardContainer" class="nq-board-container" aria-hidden="false"></div>
+      <div id="nqSolutions" class="vis-console" aria-live="polite"></div>
+    </div>
+  </div>
+</aside>
+
+
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
-
+  
+  <script src="../../JS/nQueens.js" defer></script>
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>

@@ -10,6 +10,7 @@
  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/temp.css">
 </head>
 
 <body>
@@ -118,10 +119,36 @@ function factorial(n):
     </a>
   </main>
 
+  <aside class="recursion-visualizer" role="region" aria-label="Recursion Call Stack Visualizer">
+  <h3>Recursion Call Stack</h3>
+
+  <label for="inputN" class="sr-only">Enter n for factorial</label>
+  <div class="controls">
+    <input id="inputN" type="number" min="0" max="12" placeholder="Enter n (0–12)" aria-describedby="nHelp">
+    <span id="nHelp" class="muted">Max 12 for demo</span>
+
+    <label for="speed">Speed</label>
+    <select id="speed" aria-label="Animation speed">
+      <option value="600">Slow</option>
+      <option value="300" selected>Normal</option>
+      <option value="100">Fast</option>
+    </select>
+
+    <button id="runBtn">Visualize</button>
+    <button id="cancelBtn" disabled>Cancel</button>
+  </div>
+
+  <div id="stackContainer" class="stack-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <div id="console" class="vis-console" aria-live="polite"></div>
+</aside>
+
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
+  <script src="../../JS/temp.js"></script>
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>

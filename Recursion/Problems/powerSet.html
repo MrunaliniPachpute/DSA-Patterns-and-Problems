@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css"> 
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/powerSet.css">
 </head>
 
 <body>
@@ -121,10 +122,48 @@ return result
     </a>
   </main>
 
+  <!-- Subsets / Power Set Visualizer -->
+<aside class="recursion-visualizer subsets-visualizer" role="region" aria-label="Power Set Visualizer">
+  <h3>Power Set Visualizer</h3>
+
+  <div class="controls">
+    <label for="psInput" class="sr-only">Enter array (comma separated)</label>
+    <input id="psInput" type="text" placeholder="Enter items e.g. 1,2,3 or a,b,c" aria-describedby="psHelp" value="1,2,3">
+    <span id="psHelp" class="muted">Max 8 items for demo</span>
+
+    <label for="psSpeed" class="sr-only">Animation speed</label>
+    <select id="psSpeed" aria-label="Animation speed">
+      <option value="700">Slow</option>
+      <option value="350" selected>Normal</option>
+      <option value="100">Fast</option>
+    </select>
+
+    <button id="psRunBtn">Visualize</button>
+    <button id="psCancelBtn" disabled>Cancel</button>
+  </div>
+
+  <div class="visual-row">
+    <div id="psStackContainer" class="stack-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <div class="ps-right">
+      <div class="ps-current">
+        <strong>Current subset:</strong>
+        <div id="psCurrent" class="vis-console" style="min-height:48px;"></div>
+      </div>
+      <div>
+        <strong>Subsets found:</strong>
+        <div id="psSolutions" class="vis-console" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
+  <script src="../../JS/powerSet.js"></script>
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>

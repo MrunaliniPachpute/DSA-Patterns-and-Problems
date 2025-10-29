@@ -1,0 +1,33 @@
+.recursion-visualizer { max-width: 340px; margin: 1.5rem auto; padding: 1rem; border-radius: 8px; background: var(--card); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.controls input[type="number"]{ padding:8px; border-radius:6px; border:1px solid #ccc; width:90px; }
+.controls select{ padding:8px; border-radius:6px; }
+.stack-container{
+  margin-top:12px;
+  min-height:140px;
+  max-height:280px;
+  overflow:auto;
+  display:flex;
+  flex-direction: column-reverse;
+  padding:10px;
+  background: var(--stack-bg);
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.stack-frame{
+  background: var(--stack-frame);
+  color: var(--stack-frame-text);
+  padding:8px 12px;
+  margin:6px 0;
+  border-radius:6px;
+  width:100%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+.vis-console { margin-top:8px; font-family: monospace; white-space: pre-wrap; max-height:120px; overflow:auto; background: rgba(0,0,0,0.03); padding:8px; border-radius:6px; }
+@media (max-width:720px){ .recursion-visualizer{ max-width:95%; } }
+@media (prefers-reduced-motion:reduce){
+  * { transition: none !important; animation: none !important; }
+}
+
+.sr-only { position: absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+

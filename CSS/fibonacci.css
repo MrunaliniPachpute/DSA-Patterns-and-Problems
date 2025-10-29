@@ -1,0 +1,52 @@
+/* Small visualizer styles (compatible with existing theme variables) */
+.recursion-visualizer {
+  max-width: 360px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--card, #fff);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  font-size: 14px;
+}
+.controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.controls input[type="number"]{ padding:8px; border-radius:6px; border:1px solid #ccc; width:90px; }
+.controls select{ padding:8px; border-radius:6px; }
+.stack-container{
+  margin-top:12px;
+  min-height:160px;
+  max-height:320px;
+  overflow:auto;
+  display:flex;
+  flex-direction: column-reverse;
+  padding:10px;
+  background: var(--stack-bg, #fff);
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.stack-frame{
+  background: var(--stack-frame, #007bff);
+  color: var(--stack-frame-text, #fff);
+  padding:8px 12px;
+  margin:6px 0;
+  border-radius:6px;
+  width:100%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  font-family: monospace;
+}
+.vis-console {
+  margin-top:8px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  max-height:120px;
+  overflow:auto;
+  background: rgba(0,0,0,0.03);
+  padding:8px;
+  border-radius:6px;
+}
+/* accessible hidden label utility */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* respects reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

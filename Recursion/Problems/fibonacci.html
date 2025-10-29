@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/fibonacci.css">
 </head>
 
 <body>
@@ -123,11 +124,37 @@ return b if n>0 else 0
     </a>
   </main>
 
+  <!-- Fibonacci Recursion Visualizer -->
+<aside class="recursion-visualizer" role="region" aria-label="Fibonacci Call Stack Visualizer">
+  <h3>Fibonacci Call Stack</h3>
+
+  <div class="controls">
+    <label for="fibN" class="sr-only">Enter n for fibonacci</label>
+    <input id="fibN" type="number" min="0" max="10" value="6" placeholder="Enter n (0–10)" aria-describedby="fibHelp">
+
+    <label for="fibSpeed" class="sr-only">Animation speed</label>
+    <select id="fibSpeed" aria-label="Animation speed">
+      <option value="700">Slow</option>
+      <option value="350" selected>Normal</option>
+      <option value="100">Fast</option>
+    </select>
+
+    <button id="fibRunBtn">Visualize</button>
+    <button id="fibCancelBtn" disabled>Cancel</button>
+  </div>
+
+  <div id="fibStackContainer" class="stack-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <div id="fibConsole" class="vis-console" aria-live="polite"></div>
+</aside>
+
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
   </footer>
 
+  <script src="../../JS/fibonaccie.js" defer></script>
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
