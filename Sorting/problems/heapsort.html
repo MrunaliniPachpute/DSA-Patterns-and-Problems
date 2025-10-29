@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Sort - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+<body>
+
+  <nav class="navbar">
+     <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../about.html">About</a></li>
+      <li><a href="../../contact.html">Contact</a></li>
+    </ul>
+    <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+    <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="../Sorting.html">Sorting</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Quick Sort</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Quick Sort</h1>
+    <!--Leetcode link-->
+<p class="leetcode-link"><a href="https://www.hackerrank.com/challenges/quicksort1/problem" target="_blank" rel="noopener noreferrer">HackerRank [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
+    <section class="problem-section">
+      <h2>Algorithm Explanation</h2>
+      <p>Quick Sort is an efficient, in-place, divide and conquer sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively. The choice of pivot and the partitioning scheme can vary, affecting the algorithm's performance.</p>
+    </section>
+
+    <section class="approach-section">
+      <h2>Pseudocode (Lomuto Partition Scheme)</h2>
+      <pre class="pseudo-code">
+function quickSort(array, low, high):
+  if low < high:
+    pivotIndex = partition(array, low, high)
+    quickSort(array, low, pivotIndex - 1)
+    quickSort(array, pivotIndex + 1, high)
+
+function partition(array, low, high):
+  pivot = array[high]
+  i = low - 1
+  for j from low to high - 1:
+    if array[j] <= pivot:
+      i = i + 1
+      swap(array[i], array[j])
+  swap(array[i + 1], array[high])
+  return i + 1
+      </pre>
+      <p class="think-line">💡 <strong>Think:</strong> Choose a pivot, partition the array into elements less than and greater than the pivot, and sort recursively.</p>
+
+    </section>
+    
+    <section class="approach-section">
+      <h2>Complexity & Properties</h2>
+      <ul>
+        <li><strong>Time Complexity:</strong> O(n log n) in the best and average case. O(n²) in the worst case (e.g., when the array is already sorted and the last element is chosen as pivot).</li>
+        <li><strong>Space Complexity:</strong> O(log n) on average (for recursion stack), O(n) in the worst case.</li>
+        <li><strong>Stable:</strong> No, it is not a stable sort.</li>
+      </ul>
+    </section>
+    <a 
+        href="https://leetcode.com/problems/sort-an-array/" 
+        class="leetcode-btn" 
+        target="_blank">
+        Solve on LeetCode
+    </a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+  <script src="../../index.js"></script>
+</body>
+</html>
