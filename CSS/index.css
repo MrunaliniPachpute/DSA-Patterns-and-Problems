@@ -711,3 +711,57 @@ body.dark-mode .problem-statement .example {
   transform: translateY(-4px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
+
+/* Stopwatch (fits navbar theme) */
+.stopwatch {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(0,0,0,0.04));
+  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+}
+
+.stopwatch-display {
+  min-width: 92px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #ffcc70, #ffd9a6);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  color: #6a2c00; /* darker text for contrast on the warm pill */
+}
+
+/* buttons keep navbar pill style but smaller */
+.stopwatch-btn {
+  border: none;
+  background: linear-gradient(90deg, #f5c686, #ffcc70);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  transition: transform 0.15s, box-shadow 0.15s;
+  font-size: 0.95rem;
+}
+
+/* hover and active states */
+.stopwatch-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 14px rgba(0,0,0,0.14); }
+.stopwatch-btn:active { transform: translateY(0); }
+
+/* Dark mode overrides (fits your dark-mode rules) */
+body.dark-mode .stopwatch {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+}
+body.dark-mode .stopwatch-display {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: #fff;
+}
+body.dark-mode .stopwatch-btn {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: #fff;
+}

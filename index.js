@@ -301,3 +301,136 @@ if (darkModeToggle) {
     .querySelector('.card-container')
     .addEventListener('mouseleave', startAutoScroll);
 }
+
+// STUDY STOPWATCH - drop into index.js or create JS/stopwatch.js and include in index.html
+(() => {
+  const display = document.getElementById('stopwatch-display');
+  const startBtn = document.getElementById('stopwatch-start');
+  const resetBtn = document.getElementById('stopwatch-reset');
+
+  // localStorage keys
+  const KEY_ELAPSED = 'study_stopwatch_elapsed_ms';
+  const KEY_RUNNING = 'study_stopwatch_running';
+  const KEY_LASTSTART = 'study_stopwatch_laststart_ts';
+
+  let elapsed = Number(localStorage.getItem(KEY_ELAPSED) || 0); // ms
+  let running = localStorage.getItem(KEY_RUNNING) === 'true';
+  let lastStart = Number(localStorage.getItem(KEY_LASTSTART) || 0);
+  let intervalId = null;
+
+  function msToHMS(ms) {
+    const totalSeconds = Math.floor(ms / 1000);
+    const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const s = String(totalSeconds % 60).padStart(2, '0');
+    return `${h}:${m}:${s}`;
+  }
+
+  function updateDisplay() {
+    let current = elapsed;
+    if (running && lastStart) {
+      current = elapsed + (Date.now() - lastStart);
+    }
+    display.textContent = msToHMS(current);
+  }
+
+  function tick() {
+    updateDisplay();
+  }
+
+  function startTimer() {
+    if (running) return;
+    running = true;
+    lastStart = Date.now();
+    localStorage.setItem(KEY_RUNNING, 'true');
+    localStorage.setItem(KEY_LASTSTART, String(lastStart));
+    startBtn.textContent = '⏸️';
+    updateDisplay();
+    intervalId = setInterval(tick, 1000);
+  }
+
+  function pauseTimer() {
+    if (!running) return;
+    running = false;
+    // accumulate elapsed
+    elapsed = elapsed + (Date.now() - lastStart);
+    lastStart = 0;
+    localStorage.setItem(KEY_ELAPSED, String(elapsed));
+    localStorage.setItem(KEY_RUNNING, 'false');
+    localStorage.removeItem(KEY_LASTSTART);
+    startBtn.textContent = '▶️';
+    if (intervalId) { clearInterval(intervalId); intervalId = null; }
+    updateDisplay();
+  }
+
+  function resetTimer() {
+    running = false;
+    elapsed = 0;
+    lastStart = 0;
+    localStorage.removeItem(KEY_LASTSTART);
+    localStorage.setItem(KEY_ELAPSED, '0');
+    localStorage.setItem(KEY_RUNNING, 'false');
+    startBtn.textContent = '▶️';
+    if (intervalId) { clearInterval(intervalId); intervalId = null; }
+    updateDisplay();
+  }
+
+  // toggle start/pause
+  startBtn.addEventListener('click', () => {
+    if (!running) startTimer(); else pauseTimer();
+  });
+
+  // keyboard accessibility: space or enter on focused button will work naturally
+  resetBtn.addEventListener('click', () => {
+    // confirmation to prevent accidental reset (keeps UX safe)
+    if (confirm('Reset study timer?')) resetTimer();
+  });
+
+  // initialize on load: if running according to storage, resume
+  (function init() {
+    // if storage says running, but lastStart exists, compute elapsed so far
+    if (localStorage.getItem(KEY_ELAPSED)) {
+      elapsed = Number(localStorage.getItem(KEY_ELAPSED) || 0);
+    }
+    if (localStorage.getItem(KEY_RUNNING) === 'true') {
+      running = true;
+      lastStart = Number(localStorage.getItem(KEY_LASTSTART) || Date.now());
+      // protect against bad lastStart
+      if (!lastStart || lastStart <= 0) lastStart = Date.now();
+    } else {
+      running = false;
+      lastStart = 0;
+    }
+
+    // set button text
+    startBtn.textContent = running ? '⏸️' : '▶️';
+
+    // start ticking if running
+    if (running) {
+      intervalId = setInterval(tick, 1000);
+    }
+    updateDisplay();
+
+    // update display every second even when paused to show accurate time after resuming
+    // (not necessary but harmless)
+    setInterval(() => {
+      // nothing heavy here
+      updateDisplay();
+    }, 1000);
+  })();
+
+  // optional: when user closes tab while running, ensure elapsed saved (so restore is accurate)
+  window.addEventListener('beforeunload', () => {
+    if (running && lastStart) {
+      // save elapsed so far
+      const currentElapsed = elapsed + (Date.now() - lastStart);
+      localStorage.setItem(KEY_ELAPSED, String(currentElapsed));
+      localStorage.setItem(KEY_LASTSTART, String(Date.now())); // keep lastStart near-unload
+      localStorage.setItem(KEY_RUNNING, 'true');
+    } else {
+      localStorage.setItem(KEY_ELAPSED, String(elapsed));
+      localStorage.setItem(KEY_RUNNING, 'false');
+      localStorage.removeItem(KEY_LASTSTART);
+    }
+  });
+})();
