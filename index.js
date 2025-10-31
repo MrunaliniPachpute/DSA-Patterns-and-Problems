@@ -1,3 +1,40 @@
+// Reusable loader snippet for contributors:
+// <div class="loader-center"><span class="visually-hidden">Loading...</span></div>
+
+// --- Loader helpers: minimal, reusable, accessible ---
+// Usage: showLoader(target, type='center'|'inline'); hideLoader(target)
+// 'target' can be an element or string id. Use for cards, panels, overlays, or inline in buttons.
+// Example for central section: <div id="results-loader"></div> → showLoader('results-loader','center')
+// Example for button: showLoader(buttonNode, 'inline')
+
+function showLoader(target, type = 'center') {
+  let el = typeof target === 'string' ? document.getElementById(target) : target;
+  if (!el) return;
+  hideLoader(el); // ensure no double append
+  let loaderElem = document.createElement('div');
+  if (type === 'inline') {
+    loaderElem.className = 'loader-inline';
+    loaderElem.setAttribute('role', 'status');
+    loaderElem.setAttribute('aria-busy', 'true');
+    loaderElem.innerHTML = '<span class="visually-hidden">Loading...</span>';
+  } else { // center (block/section)
+    loaderElem.className = 'loader-center';
+    loaderElem.setAttribute('role', 'status');
+    loaderElem.setAttribute('aria-busy', 'true');
+    loaderElem.innerHTML = '<span class="visually-hidden">Loading...</span>';
+  }
+  el.style.display = type === 'inline' ? 'inline-block' : 'flex';
+  el.appendChild(loaderElem);
+}
+
+function hideLoader(target) {
+  let el = typeof target === 'string' ? document.getElementById(target) : target;
+  if (!el) return;
+  Array.from(el.querySelectorAll('.loader-center, .loader-inline')).forEach(e => e.remove());
+  el.style.display = '';
+}
+// --- End loader helpers ---
+
 // Flowchart toggle functionality
 document.querySelectorAll('.flowchart-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -115,29 +152,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card[data-topic]');
   if (topicFilters.length > 0 && cards.length > 0) {
     topicFilters.forEach((checkbox) => {
-      checkbox.addEventListener('change', filterCards);
+      checkbox.addEventListener('change', filterWithLoader);
     });
     if (searchInput) {
-      searchInput.addEventListener('input', filterCards);
-    }
-    function filterCards() {
-      // Get all checked filter values
-      const checkedTopics = Array.from(topicFilters)
-        .filter((cb) => cb.checked)
-        .map((cb) => cb.value);
-      const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-      // Show/hide cards based on filter and search
-      cards.forEach((card) => {
-        const cardTopic = card.getAttribute('data-topic');
-        const cardText = card.textContent.toLowerCase();
-        const topicMatch = checkedTopics.includes(cardTopic);
-        const searchMatch = cardText.includes(searchTerm);
-        if (topicMatch && searchMatch) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+      searchInput.addEventListener('input', function(e) {
+        showLoader('search-loader', 'center');
+        showSearchSkeletons();
+        // Hide all cards during skeleton
+        let cards = document.querySelectorAll('.card[data-topic]');
+        cards.forEach(card => { card.style.opacity = 0; });
+        setTimeout(() => {
+          try {
+            filterCards();
+          } finally {
+            hideLoader('search-loader');
+            hideSearchSkeletons();
+            // Always unhide cards after search loading
+            let cardsNow = document.querySelectorAll('.card[data-topic]');
+            cardsNow.forEach(card => {
+              card.style.transition = 'opacity 0.2s';
+              card.style.opacity = '';
+            });
+          }
+        }, 450);
       });
+    }
+    function filterWithLoader() {
+      showLoader('filter-inline-loader', 'inline');
+      showSearchSkeletons();
+      // Hide all cards instantly for skeleton effect
+      let cards = document.querySelectorAll('.card[data-topic]');
+      cards.forEach(card => { card.style.opacity = 0; });
+      setTimeout(() => {
+        try {
+          filterCards();
+        } finally {
+          hideLoader('filter-inline-loader');
+          hideSearchSkeletons();
+          // Always unhide (fade in) results after filtering
+          let cardsNow = document.querySelectorAll('.card[data-topic]');
+          cardsNow.forEach(card => {
+            card.style.transition = 'opacity 0.25s';
+            card.style.opacity = '';
+          });
+        }
+      }, 430);
     }
   }
 
@@ -300,4 +359,59 @@ if (darkModeToggle) {
   document
     .querySelector('.card-container')
     .addEventListener('mouseleave', startAutoScroll);
+}
+
+// --- new helpers for skeletons ---
+function showSearchSkeletons(count = 4) {
+  const container = document.getElementById('search-skeletons');
+  if (!container) return;
+  let skels = '';
+  for (let i=0; i<count; ++i) {
+    skels += '<div class="skeleton-block" style="height:160px;"></div>';
+  }
+  container.innerHTML = skels;
+  container.style.display = '';
+}
+function hideSearchSkeletons() {
+  const container = document.getElementById('search-skeletons');
+  if (container) {
+    container.innerHTML = '';
+    container.style.display = 'none';
+  }
+}
+
+function filterCards() {
+  // Always get fresh NodeLists
+  let cards = document.querySelectorAll('.card[data-topic]');
+  let topicFilters = document.querySelectorAll('.topic-filter');
+  const checkedTopics = Array.from(topicFilters)
+    .filter((cb) => cb.checked)
+    .map((cb) => cb.value);
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+  let visibleCount = 0;
+  cards.forEach((card) => {
+    const cardTopic = card.getAttribute('data-topic');
+    const cardText = card.textContent.toLowerCase();
+    const topicMatch = checkedTopics.includes(cardTopic);
+    const searchMatch = cardText.includes(searchTerm);
+    if (topicMatch && searchMatch) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+    card.style.opacity = '';
+  });
+  // Handle 'No topics found' message
+  const cardContainer = document.querySelector('.card-container');
+  let noResultsMsg = document.getElementById('no-results-msg');
+  if (!noResultsMsg) {
+    noResultsMsg = document.createElement('div');
+    noResultsMsg.id = 'no-results-msg';
+    noResultsMsg.textContent = 'No topics found.';
+    noResultsMsg.style.cssText = 'text-align:center; color:#aaa; font-size:1.3rem; margin:2rem;';
+    cardContainer.appendChild(noResultsMsg);
+  }
+  noResultsMsg.style.display = (visibleCount === 0) ? '' : 'none';
 }

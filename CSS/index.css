@@ -711,3 +711,149 @@ body.dark-mode .problem-statement .example {
   transform: translateY(-4px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
+
+/* === Reusable Loader Spinner === */
+.loader-spinner {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #f16363; /* Accent color */
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  width: 100%;
+}
+/* Loader: Accessibility visually hidden text */
+.loader-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* === Loader & Skeleton UI - Centralized Styles === */
+
+/* Central spinner for big sections — used for main loaders */
+.loader-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+}
+.loader-center::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 4px solid rgba(160,160,160,0.25);
+  border-top: 4px solid #767676;
+  border-radius: 50%;
+  animation: spin-center 0.8s cubic-bezier(.6,.2,.4,1) infinite;
+}
+@keyframes spin-center {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Inline small spinner for buttons and tiny contexts */
+.loader-inline {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+}
+.loader-inline::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(160,160,160,0.18);
+  border-top: 3px solid #aaa;
+  border-radius: 50%;
+  animation: spin-inline 0.7s linear infinite;
+}
+@keyframes spin-inline {
+  100% { transform: rotate(360deg); }
+}
+
+/* Large skeleton shimmer blocks for lists/cards */
+.skeleton-block {
+  display: block;
+  height: 90px;
+  background: linear-gradient(90deg,#ececec 20%,#f5f5f5 50%,#ececec 80%);
+  background-size: 300% 100%;
+  border-radius: 8px;
+  margin: 0.7rem 0;
+  animation: shimmer-block 1.1s linear infinite;
+}
+@keyframes shimmer-block {
+  to { background-position: 300% 0; }
+}
+
+/* Skeleton shimmer lines (list/detail placeholder) */
+.skeleton-line {
+  height: 16px;
+  width: 100%;
+  background: linear-gradient(90deg,#ececec 25%,#f5f5f5 50%,#ececec 75%);
+  background-size: 300% 100%;
+  border-radius: 4px;
+  margin: 0.5em 0;
+  animation: shimmer-line 1.05s linear infinite;
+}
+@keyframes shimmer-line {
+  to { background-position: 300% 0; }
+}
+
+/* Skeleton for quiz-style content (question/options) */
+.skeleton-quiz-line {
+  height: 20px;
+  margin: 14px 0;
+  width: 80%;
+  background: linear-gradient(90deg,#edecec 20%,#eeeded 50%,#edecec 80%);
+  background-size: 300% 100%;
+  border-radius: 4px;
+  animation: shimmer-line 1.14s linear infinite;
+}
+
+/* Quiz full-screen loader overlay (shown during quiz fetch) */
+#quiz-full-loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(252,252,252,0.85);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.25s;
+}
+#quiz-full-loader .loader-center {
+  margin-bottom: 1rem;
+}
+#quiz-full-loader .quiz-loader-label {
+  font-size: 1.15rem;
+  color: #555;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.8rem;
+}
+
+/* Accessibility helper for visually hidden text in loaders */
+.visually-hidden {
+  position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+

@@ -1,3 +1,20 @@
+// Utility for full quiz loader
+function showQuizFullLoader() {
+  const overlay = document.getElementById('quiz-full-loader');
+  if (overlay) { overlay.style.display = 'flex'; overlay.style.opacity = '1'; }
+}
+function hideQuizFullLoader() {
+  const overlay = document.getElementById('quiz-full-loader');
+  if (overlay) { overlay.style.opacity = '0'; setTimeout(() => { overlay.style.display = 'none'; }, 210); }
+}
+
+function showQuizSkeleton(container) {
+  if (!container) return;
+  let skel = '<div class="skeleton-quiz-line" style="width:60%;height:28px;"></div>';
+  for(let i=0;i<4;++i) skel += '<div class="skeleton-quiz-line" style="width:'+(74-10*i)+'%;"></div>';
+  container.innerHTML = skel;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const questionContainer = document.getElementById('one-question-container');
     const apiUrl = 'https://opentdb.com/api.php?amount=1&category=18&type=multiple';
@@ -26,19 +43,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     };
 
-    const fetchQuestion = async () => {
+    async function fetchQuestion() {
+        showQuizFullLoader();
+        const container = document.getElementById('one-question-container');
+        showQuizSkeleton(container);
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
+            hideQuizFullLoader();
             displayQuestion(data.results[0]);
         } catch (error) {
-            questionContainer.innerHTML = '<p>Sorry, could not fetch a question. Please try again later.</p>';
+            hideQuizFullLoader();
+            if (container) container.innerHTML = '<p>Sorry, could not fetch a question. Please try again later.</p>';
             console.error('Fetch error:', error);
         }
-    };
+    }
 
     const displayQuestion = (questionData) => {
         correctAnswer = decodeText(questionData.correct_answer);
