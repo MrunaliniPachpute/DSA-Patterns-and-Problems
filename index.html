@@ -28,6 +28,13 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <!-- Study Stopwatch -->
+      <div class="stopwatch" id="stopwatch" role="region" aria-label="Study stopwatch">
+        <div class="stopwatch-display" id="stopwatch-display">00:00:00</div>
+        <button class="stopwatch-btn" id="stopwatch-start" aria-label="Start or pause timer">▶️</button>
+        <button class="stopwatch-btn" id="stopwatch-reset" aria-label="Reset timer">⟲</button>
+      </div>
+
       <button id="snakeToggle" class="snake-btn">
         <span>Snake Cursor</span>
       </button>
@@ -42,7 +49,7 @@
     </div>
     <main>
       <h1>Explore Topics</h1>
-      <div class="search-container" >
+      <div class="search-container">
         <div class="search-wrapper">
           <i class="fas fa-search search-icon"></i>
           <input type="text" id="searchInput" class="main-search" placeholder="Search topics or problems..." />
@@ -147,7 +154,7 @@
           <h3>Segment Tree</h3>
           <p>Problems related to Segment Tree</p>
         </a>
-        
+
       </div>
     </main>
     <div class="right-sidebar">
@@ -156,7 +163,7 @@
         <ul id="recently-viewed-list"></ul>
         <button id="clear-history-btn">Clear History</button>
       </aside>
-      
+
       <aside class="topics-filter-sidebar">
         <h2>Topics Filter</h2>
         <div class="filter-dropdown">
