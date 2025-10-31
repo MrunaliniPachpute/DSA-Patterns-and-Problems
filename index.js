@@ -1,3 +1,40 @@
+// Reusable loader snippet for contributors:
+// <div class="loader-center"><span class="visually-hidden">Loading...</span></div>
+
+// --- Loader helpers: minimal, reusable, accessible ---
+// Usage: showLoader(target, type='center'|'inline'); hideLoader(target)
+// 'target' can be an element or string id. Use for cards, panels, overlays, or inline in buttons.
+// Example for central section: <div id="results-loader"></div> → showLoader('results-loader','center')
+// Example for button: showLoader(buttonNode, 'inline')
+
+function showLoader(target, type = 'center') {
+  let el = typeof target === 'string' ? document.getElementById(target) : target;
+  if (!el) return;
+  hideLoader(el); // ensure no double append
+  let loaderElem = document.createElement('div');
+  if (type === 'inline') {
+    loaderElem.className = 'loader-inline';
+    loaderElem.setAttribute('role', 'status');
+    loaderElem.setAttribute('aria-busy', 'true');
+    loaderElem.innerHTML = '<span class="visually-hidden">Loading...</span>';
+  } else { // center (block/section)
+    loaderElem.className = 'loader-center';
+    loaderElem.setAttribute('role', 'status');
+    loaderElem.setAttribute('aria-busy', 'true');
+    loaderElem.innerHTML = '<span class="visually-hidden">Loading...</span>';
+  }
+  el.style.display = type === 'inline' ? 'inline-block' : 'flex';
+  el.appendChild(loaderElem);
+}
+
+function hideLoader(target) {
+  let el = typeof target === 'string' ? document.getElementById(target) : target;
+  if (!el) return;
+  Array.from(el.querySelectorAll('.loader-center, .loader-inline')).forEach(e => e.remove());
+  el.style.display = '';
+}
+// --- End loader helpers ---
+
 // Flowchart toggle functionality
 document.querySelectorAll('.flowchart-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -115,29 +152,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card[data-topic]');
   if (topicFilters.length > 0 && cards.length > 0) {
     topicFilters.forEach((checkbox) => {
-      checkbox.addEventListener('change', filterCards);
+      checkbox.addEventListener('change', filterWithLoader);
     });
     if (searchInput) {
-      searchInput.addEventListener('input', filterCards);
-    }
-    function filterCards() {
-      // Get all checked filter values
-      const checkedTopics = Array.from(topicFilters)
-        .filter((cb) => cb.checked)
-        .map((cb) => cb.value);
-      const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-      // Show/hide cards based on filter and search
-      cards.forEach((card) => {
-        const cardTopic = card.getAttribute('data-topic');
-        const cardText = card.textContent.toLowerCase();
-        const topicMatch = checkedTopics.includes(cardTopic);
-        const searchMatch = cardText.includes(searchTerm);
-        if (topicMatch && searchMatch) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+      searchInput.addEventListener('input', function(e) {
+        showLoader('search-loader', 'center');
+        showSearchSkeletons();
+        // Hide all cards during skeleton
+        let cards = document.querySelectorAll('.card[data-topic]');
+        cards.forEach(card => { card.style.opacity = 0; });
+        setTimeout(() => {
+          try {
+            filterCards();
+          } finally {
+            hideLoader('search-loader');
+            hideSearchSkeletons();
+            // Always unhide cards after search loading
+            let cardsNow = document.querySelectorAll('.card[data-topic]');
+            cardsNow.forEach(card => {
+              card.style.transition = 'opacity 0.2s';
+              card.style.opacity = '';
+            });
+          }
+        }, 450);
       });
+    }
+    function filterWithLoader() {
+      showLoader('filter-inline-loader', 'inline');
+      showSearchSkeletons();
+      // Hide all cards instantly for skeleton effect
+      let cards = document.querySelectorAll('.card[data-topic]');
+      cards.forEach(card => { card.style.opacity = 0; });
+      setTimeout(() => {
+        try {
+          filterCards();
+        } finally {
+          hideLoader('filter-inline-loader');
+          hideSearchSkeletons();
+          // Always unhide (fade in) results after filtering
+          let cardsNow = document.querySelectorAll('.card[data-topic]');
+          cardsNow.forEach(card => {
+            card.style.transition = 'opacity 0.25s';
+            card.style.opacity = '';
+          });
+        }
+      }, 430);
     }
   }
 
@@ -302,135 +361,57 @@ if (darkModeToggle) {
     .addEventListener('mouseleave', startAutoScroll);
 }
 
-// STUDY STOPWATCH - drop into index.js or create JS/stopwatch.js and include in index.html
-(() => {
-  const display = document.getElementById('stopwatch-display');
-  const startBtn = document.getElementById('stopwatch-start');
-  const resetBtn = document.getElementById('stopwatch-reset');
-
-  // localStorage keys
-  const KEY_ELAPSED = 'study_stopwatch_elapsed_ms';
-  const KEY_RUNNING = 'study_stopwatch_running';
-  const KEY_LASTSTART = 'study_stopwatch_laststart_ts';
-
-  let elapsed = Number(localStorage.getItem(KEY_ELAPSED) || 0); // ms
-  let running = localStorage.getItem(KEY_RUNNING) === 'true';
-  let lastStart = Number(localStorage.getItem(KEY_LASTSTART) || 0);
-  let intervalId = null;
-
-  function msToHMS(ms) {
-    const totalSeconds = Math.floor(ms / 1000);
-    const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
-    const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-    const s = String(totalSeconds % 60).padStart(2, '0');
-    return `${h}:${m}:${s}`;
+// --- new helpers for skeletons ---
+function showSearchSkeletons(count = 4) {
+  const container = document.getElementById('search-skeletons');
+  if (!container) return;
+  let skels = '';
+  for (let i=0; i<count; ++i) {
+    skels += '<div class="skeleton-block" style="height:160px;"></div>';
   }
-
-  function updateDisplay() {
-    let current = elapsed;
-    if (running && lastStart) {
-      current = elapsed + (Date.now() - lastStart);
-    }
-    display.textContent = msToHMS(current);
+  container.innerHTML = skels;
+  container.style.display = '';
+}
+function hideSearchSkeletons() {
+  const container = document.getElementById('search-skeletons');
+  if (container) {
+    container.innerHTML = '';
+    container.style.display = 'none';
   }
+}
 
-  function tick() {
-    updateDisplay();
-  }
-
-  function startTimer() {
-    if (running) return;
-    running = true;
-    lastStart = Date.now();
-    localStorage.setItem(KEY_RUNNING, 'true');
-    localStorage.setItem(KEY_LASTSTART, String(lastStart));
-    startBtn.textContent = '⏸️';
-    updateDisplay();
-    intervalId = setInterval(tick, 1000);
-  }
-
-  function pauseTimer() {
-    if (!running) return;
-    running = false;
-    // accumulate elapsed
-    elapsed = elapsed + (Date.now() - lastStart);
-    lastStart = 0;
-    localStorage.setItem(KEY_ELAPSED, String(elapsed));
-    localStorage.setItem(KEY_RUNNING, 'false');
-    localStorage.removeItem(KEY_LASTSTART);
-    startBtn.textContent = '▶️';
-    if (intervalId) { clearInterval(intervalId); intervalId = null; }
-    updateDisplay();
-  }
-
-  function resetTimer() {
-    running = false;
-    elapsed = 0;
-    lastStart = 0;
-    localStorage.removeItem(KEY_LASTSTART);
-    localStorage.setItem(KEY_ELAPSED, '0');
-    localStorage.setItem(KEY_RUNNING, 'false');
-    startBtn.textContent = '▶️';
-    if (intervalId) { clearInterval(intervalId); intervalId = null; }
-    updateDisplay();
-  }
-
-  // toggle start/pause
-  startBtn.addEventListener('click', () => {
-    if (!running) startTimer(); else pauseTimer();
-  });
-
-  // keyboard accessibility: space or enter on focused button will work naturally
-  resetBtn.addEventListener('click', () => {
-    // confirmation to prevent accidental reset (keeps UX safe)
-    if (confirm('Reset study timer?')) resetTimer();
-  });
-
-  // initialize on load: if running according to storage, resume
-  (function init() {
-    // if storage says running, but lastStart exists, compute elapsed so far
-    if (localStorage.getItem(KEY_ELAPSED)) {
-      elapsed = Number(localStorage.getItem(KEY_ELAPSED) || 0);
-    }
-    if (localStorage.getItem(KEY_RUNNING) === 'true') {
-      running = true;
-      lastStart = Number(localStorage.getItem(KEY_LASTSTART) || Date.now());
-      // protect against bad lastStart
-      if (!lastStart || lastStart <= 0) lastStart = Date.now();
+function filterCards() {
+  // Always get fresh NodeLists
+  let cards = document.querySelectorAll('.card[data-topic]');
+  let topicFilters = document.querySelectorAll('.topic-filter');
+  const checkedTopics = Array.from(topicFilters)
+    .filter((cb) => cb.checked)
+    .map((cb) => cb.value);
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+  let visibleCount = 0;
+  cards.forEach((card) => {
+    const cardTopic = card.getAttribute('data-topic');
+    const cardText = card.textContent.toLowerCase();
+    const topicMatch = checkedTopics.includes(cardTopic);
+    const searchMatch = cardText.includes(searchTerm);
+    if (topicMatch && searchMatch) {
+      card.style.display = '';
+      visibleCount++;
     } else {
-      running = false;
-      lastStart = 0;
+      card.style.display = 'none';
     }
-
-    // set button text
-    startBtn.textContent = running ? '⏸️' : '▶️';
-
-    // start ticking if running
-    if (running) {
-      intervalId = setInterval(tick, 1000);
-    }
-    updateDisplay();
-
-    // update display every second even when paused to show accurate time after resuming
-    // (not necessary but harmless)
-    setInterval(() => {
-      // nothing heavy here
-      updateDisplay();
-    }, 1000);
-  })();
-
-  // optional: when user closes tab while running, ensure elapsed saved (so restore is accurate)
-  window.addEventListener('beforeunload', () => {
-    if (running && lastStart) {
-      // save elapsed so far
-      const currentElapsed = elapsed + (Date.now() - lastStart);
-      localStorage.setItem(KEY_ELAPSED, String(currentElapsed));
-      localStorage.setItem(KEY_LASTSTART, String(Date.now())); // keep lastStart near-unload
-      localStorage.setItem(KEY_RUNNING, 'true');
-    } else {
-      localStorage.setItem(KEY_ELAPSED, String(elapsed));
-      localStorage.setItem(KEY_RUNNING, 'false');
-      localStorage.removeItem(KEY_LASTSTART);
-    }
+    card.style.opacity = '';
   });
-})();
+  // Handle 'No topics found' message
+  const cardContainer = document.querySelector('.card-container');
+  let noResultsMsg = document.getElementById('no-results-msg');
+  if (!noResultsMsg) {
+    noResultsMsg = document.createElement('div');
+    noResultsMsg.id = 'no-results-msg';
+    noResultsMsg.textContent = 'No topics found.';
+    noResultsMsg.style.cssText = 'text-align:center; color:#aaa; font-size:1.3rem; margin:2rem;';
+    cardContainer.appendChild(noResultsMsg);
+  }
+  noResultsMsg.style.display = (visibleCount === 0) ? '' : 'none';
+}

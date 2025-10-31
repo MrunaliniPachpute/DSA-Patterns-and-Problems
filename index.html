@@ -55,7 +55,9 @@
           <input type="text" id="searchInput" class="main-search" placeholder="Search topics or problems..." />
         </div>
       </div>
-      <div class="card-container">
+      <div id="search-loader" class="loader-container" aria-live="polite" style="display:none;"></div>
+      <div id="search-skeletons" style="display:none;"></div>
+      <div class="card-container" >
         <a class="card" href="./Arrays/arrays.html" data-topic="arrays">
           <div class="card-icon"><i class="fas fa-list"></i></div>
           <h3>Arrays</h3>
@@ -168,6 +170,7 @@
           <button class="dropdown-toggle" id="topicsDropdownBtn">
             Select Topics <span class="dropdown-arrow">▼</span>
           </button>
+          <span id="filter-inline-loader" style="display:none;"></span>
           <div class="dropdown-content" id="topicsDropdownContent">
             <label><input type="checkbox" class="topic-filter" value="arrays" checked />
               Arrays</label>
@@ -229,6 +232,10 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <script src="JS/oneQuestionQuiz.js"></script>
   <script src="JS/scrolltotop.js"></script>
+  <div id="quiz-full-loader" style="display:none;">
+    <div class="loader-center"></div>
+    <div class="quiz-loader-label">Loading quiz...</div>
+  </div>
 </body>
 
 </html>

@@ -42,3 +42,24 @@ listOfTopics.forEach(item => {
 });
 setProgressBar(visitedTopics, totalTopics);
 
+// --- Progress bar loader UX: uses central loader-inline for buttons ---
+// For any .progress-update-btn, show loader (inline) on click. Expected that central JS utility is loaded on page.
+// To trigger, add: <button class="progress-update-btn">...</button> in markup.
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.progress-update-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e) {
+      btn.disabled = true;
+      if (typeof showLoader === 'function') {
+        showLoader(btn, 'inline'); // uses shared utility
+      }
+      setTimeout(function(){
+        if (typeof hideLoader === 'function') {
+          hideLoader(btn);
+        }
+        btn.disabled = false;
+      }, 600);
+    });
+  });
+});
+// (All button UI logic now relies on global loader helpers.)
+
