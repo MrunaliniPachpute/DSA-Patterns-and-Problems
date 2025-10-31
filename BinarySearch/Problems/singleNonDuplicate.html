@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Non-Duplicate Element - CodeDSA</title>
+  <link rel="stylesheet" href="../../CSS/AllProblems.css">
+  <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
+  <link rel="stylesheet" href="../../CSS/copyToClipboard.css">
+  <link rel="stylesheet" href="../../CSS/breadcrumb.css">
+  <link rel="stylesheet" href="../../CSS/snake.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../../index.html" class="logo-container">
+      <div class="logo-img">
+        <img src="../../Images/logo.png" alt="Logo">
+      </div>
+      <div class="logo">CodeDSA</div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <button id="snakeToggle" class="snake-btn"><span style="margin-left: 20px;">Snake Cursor</span></button>
+      <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="../binarySearch.html">Binary Search</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Single Non-Duplicate Element
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Single Non-Duplicate Element</h1>
+    <!--Leetcode link-->
+
+    <p class="leetcode-link"><a href="https://leetcode.com/problems/single-element-in-a-sorted-array/" target="_blank" rel="noopener noreferrer">LeetCode #540 [Medium]</a></p>
+<!--Print / Export control-->
+<button onclick="window.print()" class="export-btn">📄 Print/Save as PDF</button>
+  <link rel="stylesheet" href="../../CSS/print.css" media="print">
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+      <h2>Problem Statement</h2>
+      <p>
+        You are given a sorted array <strong>nums</strong> where every element appears twice except for one element which appears only once. 
+        Find and return the single element that appears only once.
+      </p>
+      <p>
+        <strong>Example:</strong> nums = [1,1,2,3,3,4,4,8,8] → Output: 2
+      </p>
+    </section>
+
+    <!-- Approach 1 -->
+    <section class="approach-section">
+      <h2>Approach 1: Binary Search on Pairs</h2>
+      <p>
+        <strong>Explanation:</strong> Use binary search to find where the pattern of pairs breaks. Before the single element, pairs start at even indices (0, 2, 4...), and after it, pairs start at odd indices (1, 3, 5...).
+      </p>
+      <p><strong>Time Complexity:</strong> O(log n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+# nums is a sorted array where every number appears twice except one
+function findSingleElement(nums):
+    left = 0
+    right = length(nums) - 1
+
+    while left < right:
+        mid = (left + right) / 2
+
+        if mid is odd:
+            mid = mid - 1
+
+        if nums[mid] == nums[mid + 1]:
+            left = mid + 2
+        else:
+            right = mid
+
+    return nums[left]
+          </pre>  
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Notice how pair patterns shift after the single element — binary search helps find that break point.</p>
+    </section>
+
+    <!-- Approach 2 -->
+    <section class="approach-section">
+      <h2>Approach 2: XOR Method</h2>
+      <p>
+        <strong>Explanation:</strong> XOR cancels out duplicate numbers since <code>a ^ a = 0</code>. 
+        When all numbers are XORed together, the duplicates vanish and only the single number remains.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+function findSingleElement(nums):
+    result = 0
+    for num in nums:
+        result = result XOR num
+    return result
+          </pre>  
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> XOR works like a filter — it removes duplicates automatically.</p>
+    </section>
+
+    <!-- Approach 3 -->
+    <section class="approach-section">
+      <h2>Approach 3: Linear Scan (Naive)</h2>
+      <p>
+        <strong>Explanation:</strong> Scan through the array and check each number. The number that doesn’t match its neighbor is the single one.
+      </p>
+      <p><strong>Time Complexity:</strong> O(n)</p>
+      <p><strong>Space Complexity:</strong> O(1)</p>
+      <pre class="pseudo-code">
+function findSingleElement(nums):
+    n = length(nums)
+    if n == 1:
+        return nums[0]
+
+    for i in range(0, n):
+        if (i == 0 and nums[i] != nums[i + 1]) or
+           (i == n - 1 and nums[i] != nums[i - 1]) or
+           (nums[i] != nums[i - 1] and nums[i] != nums[i + 1]):
+            return nums[i]
+          </pre>  
+      <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+      <p class="think-line">💡 <strong>Think:</strong> Check each number and compare it with neighbors — the unpaired one is the answer.</p>
+    </section>
+
+    <a 
+        href="https://leetcode.com/problems/single-element-in-a-sorted-array/" 
+        class="leetcode-btn" 
+        target="_blank">
+        Solve on LeetCode
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mrunalini Pachpute. All rights reserved.</p>
+  </footer>
+
+  <script src="../../index.js"></script>
+  <script src="../../copyToClipboard.js"></script>
+  <script src="../../JS/problemTracker.js"></script>
+</body>
+
+</html>
