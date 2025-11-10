@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
 
 <body>
@@ -64,6 +65,10 @@
       <p><strong>Time Complexity:</strong> O(P + K*L), P = prefix length, K = #words with prefix, L = avg word length
       </p>
       <p><strong>Space Complexity:</strong> O(N*L) for trie</p>
+      <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/AutocompleteSuggestions.png" alt="Tries Flowchart" class="fc-image" />
+  </div>
       <p class="think-line">💡 <strong>Think:</strong> Navigate to the prefix node, then DFS to collect all words beneath that subtree.</p>
     </section>
     <a 
@@ -80,6 +85,7 @@
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>

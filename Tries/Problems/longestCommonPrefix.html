@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../CSS/leetcodeButton.css">
   <link rel="stylesheet" href="../../CSS/breadcrumb.css">
   <link rel="stylesheet" href="../../CSS/snake.css">
+  <link rel="stylesheet" href="../../CSS/Flowchart.css"/>
 </head>
 
 <body>
@@ -73,6 +74,10 @@ while node has exactly one child and not end-of-word:
 return prefix
       </pre>
             <button class="copyToClipboard" onclick="copyToClipboard(this)">Copy!</button>
+            <div class="fc-container">
+    <button class="fc-button">View Flowchart</button>
+    <img src="../Flowcharts/LongestCommonPrefix.png" alt="Tries Flowchart" class="fc-image" />
+  </div>
 <p class="think-line">💡 <strong>Think:</strong> Insert all words, then descend while exactly one child exists and not at a word end.</p>
     </section>
     <a 
@@ -89,6 +94,7 @@ return prefix
   <script src="../../index.js"></script>
   <script src="../../copyToClipboard.js"></script>
   <script src="../../JS/problemTracker.js"></script>
+    <script src="../../JS/Flowcharts.js"></script>
 </body>
 
 </html>
